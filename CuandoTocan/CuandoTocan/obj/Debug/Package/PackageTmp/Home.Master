@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="CuandoTocan.Home" %>
+<%@ Register src="~/Controls/ucFooter.ascx" tagname="ucFooter" tagprefix="ucF" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <meta charset="UTF-8"/>
+        <meta name="description" content="Sitio para seguir y conocer eventos de bandas"/>
+        <meta name="keywords" content="recitales,bandas,discos,canciones"/>
+        <meta name="author" content="Anabela Rossi, Emiliano Zambrano, Juan Sobrile"/>
+        <title>Cuando Tocan</title>
+
+        <%--jQuery--%>
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/jquery/jquery-2.1.4.js") %>"></script>
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/jquery/jquery-ui.js") %>"></script>
+        <%--jQuery--%>
+
+        <%--BootStrap--%>
+        <link href="~/css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/bootstrap/bootstrap.js") %>"></script>
+        <%--BootStrap--%>
+
+        <%--css--%>
+        <link href="~/css/Home.css" rel="stylesheet" type="text/css" />
+        <%--css--%>
+
+        <%--JS--%>
+        <script type="text/javascript" 
+		    src="<%= Page.ResolveClientUrl("~/js/Home.js") %>"> 
+        </script>
+        <%--JS--%>
+
+        <asp:ContentPlaceHolder ID="head" runat="server"/>
+    </head>
+    <body>
+        <form id="formMaster" runat="server" role="form" class="">
+            <div id="divHomeMaster">
+                <div id="divCabecera">
+                    <div id="divContenidoCabecera">
+                        <div id="divLogo">
+                        </div>
+                        <div id="divBuscador">
+                        </div>
+                        <div id="divLogin">
+                        </div>
+                    </div>
+                </div>    
+                <div id="divSlider">
+                    <div id="idContenidoHome">
+                        <h1>Bienvenidos</h1>
+                    </div>
+                    <div id="box">
+                        <div id="box-imagen">
+                            <a href="https://lh4.googleusercontent.com/-dN3EpFCaSLM/UHmHDm-BPyI/AAAAAAAACg0/Sg6_mUHUdKo/w719-h539-no/3.jpg"><img src="https://lh4.googleusercontent.com/-dN3EpFCaSLM/UHmHDm-BPyI/AAAAAAAACg0/Sg6_mUHUdKo/w719-h539-no/3.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="divCuerpo">
+                    <div id="divHomeCuerpoIzq">
+                        <%--ContentPlaceHolder--%>
+                    </div>
+                    <div id="divHomeCuerpoDer">
+                        <%--ContentPlaceHolder--%>
+                    </div>
+                </div>
+                <div id="divFooter">
+					<ucF:ucFooter ID="ucFfooter" runat="server" />
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

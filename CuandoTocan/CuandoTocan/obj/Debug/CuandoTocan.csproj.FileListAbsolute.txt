@@ -1,0 +1,4 @@
+c:\users\arx0063\documents\visual studio 2010\Projects\CuandoTocan\CuandoTocan\bin\CuandoTocan.dll
+c:\users\arx0063\documents\visual studio 2010\Projects\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
+c:\users\arx0063\documents\visual studio 2010\Projects\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
+c:\users\arx0063\documents\visual studio 2010\Projects\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
