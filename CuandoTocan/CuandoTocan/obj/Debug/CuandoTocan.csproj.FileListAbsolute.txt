@@ -6,3 +6,7 @@ C:\Users\arx0063\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\Cuando
 C:\Users\arx0063\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
 C:\Users\arx0063\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
 C:\Users\arx0063\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
+C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.dll
+C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
+C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
+C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
