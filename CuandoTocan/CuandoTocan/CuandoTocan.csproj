@@ -56,11 +56,20 @@
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\Home.css" />
     <Content Include="Home.aspx" />
+    <Content Include="img\logo.png" />
     <Content Include="img\lupa.jpg" />
+    <Content Include="img\Slider\02.jpg" />
+    <Content Include="img\Slider\04.jpg" />
+    <Content Include="img\Slider\05.jpg" />
+    <Content Include="img\Slider\09.jpg" />
+    <Content Include="img\Slider\a12.png" />
+    <Content Include="img\Slider\b05.png" />
+    <Content Include="img\Slider\loading.gif" />
     <Content Include="js\bootstrap\bootstrap.js" />
     <Content Include="js\Home.js" />
     <Content Include="js\jquery\jquery-2.1.4.js" />
     <Content Include="js\jquery\jquery-ui.js" />
+    <Content Include="js\jssor.slider-20.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

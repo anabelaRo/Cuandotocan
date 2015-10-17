@@ -7,6 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <meta charset="UTF-8"/>
+        <link rel="shortcut icon" type="image/png" href="../img/favicon.png">
         <meta name="description" content="Sitio para seguir y conocer eventos de bandas"/>
         <meta name="keywords" content="recitales,bandas,discos,canciones"/>
         <meta name="author" content="Anabela Rossi, Emiliano Zambrano, Juan Sobrile"/>
@@ -30,46 +31,81 @@
         <script type="text/javascript" 
 		    src="<%= Page.ResolveClientUrl("~/js/Home.js") %>"> 
         </script>
+
+        <script type="text/javascript" 
+		    src="<%= Page.ResolveClientUrl("~/js/jssor.slider-20.min.js") %>"> 
+        </script>
         <%--JS--%>
 
         <asp:ContentPlaceHolder ID="head" runat="server"/>
     </head>
     <body>
-        <form id="formMaster" runat="server" role="form" class="">
-            <div id="divHomeMaster">
-                <div id="divCabecera">
-                    <div id="divContenidoCabecera">
+        <div id="divHome">
+            <form id="formMaster" runat="server" role="form" class="">
+                <div id="divHomeMaster">
+                    <div id="divCabecera">
                         <div id="divLogo">
+                            <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
                         </div>
                         <div id="divBuscador">
-                            <asp:TextBox ID="txtBuscar" class="buscar" runat="server"/>
+                            <asp:TextBox ID="txtBuscar" placeholder="Buscar artista" runat="server" />
                         </div>
                         <div id="divLogin">
+                            <ul>
+                                <li>
+                                    <h1> Login </h1>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>    
+                    <div id="divSlider">
+                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
+                            <!-- Loading Screen -->
+                            <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+                                <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+                                <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+                            </div>
+                            <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+                                <div style="display: none;">
+                                    <img data-u="image" src="img/Slider/02.jpg" />
+                                </div>
+                                <div style="display: none;">
+                                    <img data-u="image" src="img/Slider/04.jpg" />
+                                </div>
+                                <div style="display: none;">
+                                    <img data-u="image" src="img/Slider/05.jpg" />
+                                </div>
+                                <div style="display: none;">
+                                    <img data-u="image" src="img/Slider/09.jpg" />
+                                </div>
+                            </div>
+                            <!-- Bullet Navigator -->
+                            <div data-u="navigator" class="jssorb05" style="bottom:16px;right:6px;" data-autocenter="1">
+                                <!-- bullet navigator item prototype -->
+                                <div data-u="prototype" style="width:16px;height:16px;"></div>
+                            </div>
+                            <!-- Arrow Navigator -->
+                            <span data-u="arrowleft" class="jssora12l" style="top:123px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
+                            <span data-u="arrowright" class="jssora12r" style="top:123px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
+                            <a href="http://www.jssor.com" style="display:none">Jssor Slider</a>
+                        </div>
+                        <script>
+                            jssor_1_slider_init();
+                        </script>
+                    </div>
+                    <div id="divCuerpo">
+                        <div id="divHomeCuerpoIzq">
+                            <%--ContentPlaceHolder--%>
+                        </div>
+                        <div id="divHomeCuerpoDer">
+                            <%--ContentPlaceHolder--%>
                         </div>
                     </div>
-                </div>    
-                <div id="divSlider">
-                    <div id="idContenidoHome">
-                        <h1>Bienvenidos</h1>
-                    </div>
-                    <div id="box">
-                        <div id="box-imagen">
-                            <a href="https://lh4.googleusercontent.com/-dN3EpFCaSLM/UHmHDm-BPyI/AAAAAAAACg0/Sg6_mUHUdKo/w719-h539-no/3.jpg"><img src="https://lh4.googleusercontent.com/-dN3EpFCaSLM/UHmHDm-BPyI/AAAAAAAACg0/Sg6_mUHUdKo/w719-h539-no/3.jpg"></a>
-                        </div>
+                    <div id="divFooter">
+					    <ucF:ucFooter ID="ucFfooter" runat="server" />
                     </div>
                 </div>
-                <div id="divCuerpo">
-                    <div id="divHomeCuerpoIzq">
-                        <%--ContentPlaceHolder--%>
-                    </div>
-                    <div id="divHomeCuerpoDer">
-                        <%--ContentPlaceHolder--%>
-                    </div>
-                </div>
-                <div id="divFooter">
-					<ucF:ucFooter ID="ucFfooter" runat="server" />
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </body>
 </html>
