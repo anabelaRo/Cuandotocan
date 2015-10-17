@@ -1,0 +1,4 @@
+Color background: #333333 (http://www.color-hex.com/color/333333)
+Color Logo: #22B573 (http://www.color-hex.com/color/22b573)
+Funtes logos: Cuando: Accidental Presidency
+	      Tocan: Norwester Regular*
