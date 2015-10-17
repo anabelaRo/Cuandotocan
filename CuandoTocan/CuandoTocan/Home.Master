@@ -42,6 +42,7 @@
                         <div id="divLogo">
                         </div>
                         <div id="divBuscador">
+                            <asp:TextBox ID="txtBuscar" class="buscar" runat="server"/>
                         </div>
                         <div id="divLogin">
                         </div>

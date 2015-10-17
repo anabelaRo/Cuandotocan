@@ -56,6 +56,7 @@
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\Home.css" />
     <Content Include="Home.aspx" />
+    <Content Include="img\lupa.jpg" />
     <Content Include="js\bootstrap\bootstrap.js" />
     <Content Include="js\Home.js" />
     <Content Include="js\jquery\jquery-2.1.4.js" />
@@ -95,8 +96,8 @@
   <ItemGroup>
     <Folder Include="DataBase\" />
     <Folder Include="fonts\" />
-    <Folder Include="img\" />
     <Folder Include="MastersAnidadas\" />
+    <Folder Include="Pages\" />
     <Folder Include="WebServices\" />
   </ItemGroup>
   <ItemGroup>
