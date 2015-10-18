@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucFooter.ascx.cs" Inherits="CuandoTocan.Controls.ucFooter" %>
 
-<span>
+<span id="spanFooter">
     Universidad Nacional de La Matanza. - Dpto. de Ingeniería e Investigaciones Tecnológicas.
     <br />
     Tecnicatura en Desarrollo Web - Proyecto Final

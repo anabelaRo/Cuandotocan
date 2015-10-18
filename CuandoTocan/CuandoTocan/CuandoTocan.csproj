@@ -56,7 +56,9 @@
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\Home.css" />
     <Content Include="Home.aspx" />
+    <Content Include="img\favicon.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\logo_min.png" />
     <Content Include="img\lupa.jpg" />
     <Content Include="img\Slider\02.jpg" />
     <Content Include="img\Slider\04.jpg" />

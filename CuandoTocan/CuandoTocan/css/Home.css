@@ -86,6 +86,9 @@ border-bottom: 0 none;
     width: 70px;
 }
 
+
+
+
 /*Slider*/
 /* jssor slider bullet navigator skin 05 css */
 /*
@@ -98,6 +101,7 @@ border-bottom: 0 none;
 .jssorb05 {
     position: absolute;
 }
+
 .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
     position: absolute;
     /* size of bullet elment */
@@ -107,6 +111,7 @@ border-bottom: 0 none;
     overflow: hidden;
     cursor: pointer;
 }
+
 .jssorb05 div { background-position: -7px -7px; }
 .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
 .jssorb05 .av { background-position: -67px -7px; }
@@ -131,9 +136,67 @@ border-bottom: 0 none;
     background: url('../img/Slider/a12.png') no-repeat;
     overflow: hidden;
 }
+
 .jssora12l { background-position: -16px -37px; }
 .jssora12r { background-position: -75px -37px; }
 .jssora12l:hover { background-position: -136px -37px; }
 .jssora12r:hover { background-position: -195px -37px; }
 .jssora12l.jssora12ldn { background-position: -256px -37px; }
 .jssora12r.jssora12rdn { background-position: -315px -37px; }
+
+
+
+#divCuerpo
+{
+width: 100%;
+overflow: hidden;
+}
+
+#divCuerpoTopIzq
+{
+float: left;
+margin: 20px;
+}
+
+#divCuerpoTopDer
+{
+float: right;
+margin: 20px;
+}
+
+#lblProxEventos
+{
+border-bottom: medium solid #22b573;
+padding-bottom: 0px;
+font-size: 19px;
+}
+
+#lblArtDestacados
+{
+border-bottom: medium solid #22b573;
+padding-bottom: 0px;
+font-size: 19px;
+}
+
+#divGallery
+{
+width: 70%;
+}
+
+.col-lg-3 
+{
+width: 33%;
+}
+
+
+
+#divFooter
+{
+    text-align: center;
+    padding: 25px;
+}
+
+#spanFooter
+{
+
+}
