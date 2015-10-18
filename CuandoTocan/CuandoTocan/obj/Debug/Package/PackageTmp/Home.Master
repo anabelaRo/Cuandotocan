@@ -46,6 +46,7 @@
         <div id="divHome">
             <form id="formMaster" runat="server" role="form" class="">
                 <div id="divHomeMaster">
+
                     <div id="divCabecera">
                         <div id="divLogo">
                             <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
@@ -60,7 +61,8 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>    
+                    </div>   
+                     
                     <div id="divSlider">
                         <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1024px; height: 300px; overflow: hidden; visibility: hidden;">
 	                        <!-- Loading Screen -->
@@ -70,16 +72,16 @@
 	                        </div>
 	                        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1024px; height: 300px; overflow: hidden;">
 		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/02.jpg" />
+			                        <img data-u="image" src="img/Slider/acdc.jpg" />
 		                        </div>
 		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/04.jpg" />
+			                        <img data-u="image" src="img/Slider/rata.jpg" />
 		                        </div>
 		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/05.jpg" />
+			                        <img data-u="image" src="img/Slider/divididos.jpg" />
 		                        </div>
 		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/09.jpg" />
+			                        <img data-u="image" src="img/Slider/acdc.jpg" />
 		                        </div>
 	                        </div>
 	                        <!-- Bullet Navigator -->
@@ -104,40 +106,96 @@
                             <asp:Label ID="lblArtDestacados" runat="server" Text="Artistas destacados:"/>
                         </div>
 
-                        <div id="divGallery" class="row">
-                            <div class="col-lg-12"/>
+                        <div id="divGallery" >
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
                             </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                        </div>
 
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
+                        <div id="divDescatados">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
+                            <hr/>
+                            <div class="row">
+
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
+                        </div>
                     </div>
 
                     <div id="divFooter">

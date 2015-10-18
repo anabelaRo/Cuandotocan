@@ -1,4 +1,9 @@
-﻿#divHome
+﻿body
+{
+    background-image: url("../img/fondo.png");
+}
+
+#divHome
 {
     margin: auto;
     width: 1024px;
@@ -155,13 +160,15 @@ overflow: hidden;
 #divCuerpoTopIzq
 {
 float: left;
-margin: 20px;
+    margin: 20px 0;
 }
 
 #divCuerpoTopDer
 {
 float: right;
-margin: 20px;
+    margin-bottom: 20px;
+    margin-right: 88px;
+    margin-top: 20px;
 }
 
 #lblProxEventos
@@ -178,15 +185,111 @@ padding-bottom: 0px;
 font-size: 19px;
 }
 
+
+
+
+
 #divGallery
 {
-width: 70%;
+float: left;
+overflow: hidden;
+width: 720px;
 }
 
-.col-lg-3 
-{
-width: 33%;
+#divGallery .col-lg-3 {
+    width: 240px;
 }
+
+#divGallery .thumbnail {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 3px;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+#divGallery .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 
+{
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+
+
+
+
+
+
+
+#divDescatados
+{
+float: right;
+    overflow: hidden;
+    width: 260px;
+}
+
+#divDescatados .row {
+    margin: 0;
+}
+
+#divDescatados .col-md-7 {
+    float: left;
+    height: 65px;
+    margin: 0;
+    padding: 0;
+    width: 80px;
+}
+
+#divDescatados .col-md-5 {
+    float: left;
+    margin: 22px 0 0;
+    padding-left: 15px;
+    padding-right: 0;
+    width: 150px;
+}
+
+#divDescatados .col-md-7 img
+{
+    height: 65px;
+    width: 80px;
+}
+
+#divDescatados hr 
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eee -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#divDescatados .col-md-5 .h4 
+{
+    font-size: 18px;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -200,3 +303,10 @@ width: 33%;
 {
 
 }
+
+
+
+
+
+
+
