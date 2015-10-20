@@ -39,3 +39,5 @@ jssor_1_slider_init = function() {
     $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
     //responsive code end
 };
+
+

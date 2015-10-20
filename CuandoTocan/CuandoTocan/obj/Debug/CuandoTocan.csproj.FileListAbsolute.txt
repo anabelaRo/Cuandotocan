@@ -10,3 +10,7 @@ C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTo
 C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
 C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
 C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
+C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.dll
+C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
+C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
+C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
