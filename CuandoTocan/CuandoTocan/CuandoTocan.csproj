@@ -56,8 +56,19 @@
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\Home.css" />
     <Content Include="Home.aspx" />
+    <Content Include="img\Destacados\artic.PNG" />
+    <Content Include="img\Destacados\codplay.PNG" />
+    <Content Include="img\Destacados\david.PNG" />
+    <Content Include="img\Destacados\ed.PNG" />
+    <Content Include="img\Destacados\maroon.PNG" />
     <Content Include="img\favicon.png" />
     <Content Include="img\fondo.png" />
+    <Content Include="img\Galeria\eruca.PNG" />
+    <Content Include="img\Galeria\katy.PNG" />
+    <Content Include="img\Galeria\kevin.PNG" />
+    <Content Include="img\Galeria\muse.PNG" />
+    <Content Include="img\Galeria\slipknot.PNG" />
+    <Content Include="img\Galeria\system.PNG" />
     <Content Include="img\logo.png" />
     <Content Include="img\logo_min.png" />
     <Content Include="img\lupa.jpg" />
@@ -72,7 +83,6 @@
     <Content Include="js\jquery\jquery-2.1.4.js" />
     <Content Include="js\jquery\jquery-ui.js" />
     <Content Include="js\jssor.slider-20.min.js" />
-    <Content Include="Test.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -104,13 +114,6 @@
       <DependentUpon>Home.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBase\" />

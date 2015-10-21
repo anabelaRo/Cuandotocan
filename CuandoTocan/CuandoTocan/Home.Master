@@ -7,10 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-
-        <link rel="icon" type="image/png" href="img/favicon.png" />
-
+        <link rel="icon" type="image/png" href="img/favicon.png"/>
         <meta name="description" content="Sitio para seguir y conocer eventos de bandas"/>
         <meta name="keywords" content="recitales,bandas,discos,canciones"/>
         <meta name="author" content="Anabela Rossi, Emiliano Zambrano, Juan Sobrile"/>
@@ -38,15 +35,14 @@
         <script type="text/javascript" 
 		    src="<%= Page.ResolveClientUrl("~/js/jssor.slider-20.min.js") %>"> 
         </script>
-        <%--JS--%>
-
-        
+        <%--JS--%>       
     </head>
+
     <body>
         <div id="divHome">
             <form id="formMaster" runat="server" role="form" class="form-horizontal">
                 <div id="divHomeMaster">
-
+                    
                     <div id="divCabecera">
                         <div id="divLogo">
                             <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
@@ -54,59 +50,48 @@
                         <div id="divBuscador">
                             <asp:TextBox ID="txtBuscar" placeholder="Buscar artista" runat="server" />
                         </div>
+
                         <div id="divLogin">
                             <ul>
                                 <li>
-                                    <%--<h1> Login </h1>--%>
-                                     <button ID="Button1" type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">
-                                        Login
-                                     </button>
-                                     <asp:ScriptManager ID="ScriptManager1" runat="server">    </asp:ScriptManager>
-                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <button ID="Button1" type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Login</button>
+                                    <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
-                                            <!-- Modal Login -->
-                                        <%--    <asp:Label ID="Label1" runat="server" Text=""></asp:Label><br />--%>
-                                           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                                aria-hidden="true">
+                                           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button ID="Button2" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span></button>
-                                                            <h4 class="modal-title" id="myModalLabel">
-                                                                Logueate</h4>
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4 class="modal-title" id="myModalLabel">Logueate</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <asp:TextBox ID="txtUser" runat="server" placeholder="Usuario" class="form-control"></asp:TextBox><br />
-                                                            <asp:TextBox ID="txtPass" runat="server" placeholder="Contrasña" class="form-control"></asp:TextBox><br />
-                                                          
-                                                             <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">
-                                                                ¿Todavía no tenés cuenta? Registrate.
-                                                             </button>
-
+                                                            <asp:TextBox ID="txtUser" runat="server" placeholder="Usuario" class="form-control"/>
+                                                            <br/>
+                                                            <asp:TextBox ID="txtPass" runat="server" placeholder="Contrasña" class="form-control"/>
+                                                            <br/>
+                                                            <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">¿Todavía no tenés cuenta? Registrate.</button>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default"  class="close" aria-label="Close" >
-                                                                Entrar</button>
+                                                            <button type="button" class="btn btn-default" class="close" aria-label="Close">Entrar</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--Modal registracion-->
                                             
-
-                                                 <div class="modal fade" id="Div1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                                aria-hidden="true">
+                                            <!--Modal registracion-->
+                                            <div class="modal fade" id="Div1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div  id="mdAnA">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button ID="Button4" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span></button>
-                                                            <h4 class="modal-title" id="H1">
-                                                                Crear cuenta</h4>
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4 class="modal-title" id="H1">Crear cuenta</h4>
                                                         </div>
                                                         <div class="modal-body">
-
                                                             <div class="form-group">
                                                             <label for="imputUser" class="col-sm-2 control-label">Usuario</label>
                                                                 <div class="col-sm-10">
@@ -150,36 +135,32 @@
                                                             <div class="form-group">
                                                                 <label for="calendarFNac" class="col-sm-2 control-label">Fecha de nacimiento:</label>
                                                                 <div class="col-sm-10">
-                                                                    <asp:TextBox ID="InputFNac" type="text" runat="server" placeholder="dd-mm-aaaa" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox ID="InputFNac" type="text" runat="server" placeholder="dd-mm-aaaa" class="form-control"/>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="TextAreaBio" class="col-sm-2 control-label">Acerca de vos:</label>
                                                                 <div class="col-sm-10">
                                                                      <asp:TextBox id="TextAreaBio" TextMode="multiline" Columns="50" Rows="5" runat="server"  placeholder="Me gusta..." class="form-control" />
-                                                                      </asp:TextBox>
                                                                 </div>
                                                             </div>
-                                                          
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default"  class="close" aria-label="Close" >
-                                                                Crear</button>
+                                                            <button type="button" class="btn btn-default" class="close" aria-label="Close">Crear</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </li>
                             </ul>
                         </div>
                     </div>   
-                   <asp:ContentPlaceHolder ID="ContentHomeCenterMed" runat="server"></asp:ContentPlaceHolder>
-                    
-  
-                  
+
+                    <div id="divCuerpo">
+                        <asp:ContentPlaceHolder ID="ContentHomeCenterMed" runat="server"/>
+                    </div>                
 
                     <div id="divFooter">
 					    <ucF:ucFooter ID="ucFfooter" runat="server" />
