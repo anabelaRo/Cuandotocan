@@ -1,3 +1,146 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="CuandoTocan.Home1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+--%>
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentHomeCenterMed" runat="server">
+
+
+<div id="divSlider">
+                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1024px; height: 300px; overflow: hidden; visibility: hidden;">
+	                        <!-- Loading Screen -->
+	                        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+		                        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+		                        <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+	                        </div>
+	                        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1024px; height: 300px; overflow: hidden;">
+		                        <div style="display: none;">
+			                        <img data-u="image" src="img/Slider/acdc.jpg" />
+		                        </div>
+		                        <div style="display: none;">
+			                        <img data-u="image" src="img/Slider/rata.jpg" />
+		                        </div>
+		                        <div style="display: none;">
+			                        <img data-u="image" src="img/Slider/divididos.jpg" />
+		                        </div>
+		                        <div style="display: none;">
+			                        <img data-u="image" src="img/Slider/acdc.jpg" />
+		                        </div>
+	                        </div>
+	                        <!-- Bullet Navigator -->
+	                        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:6px;" data-autocenter="1">
+		                        <!-- bullet navigator item prototype -->
+		                        <div data-u="prototype" style="width:16px;height:16px;"></div>
+	                        </div>
+	                        <!-- Arrow Navigator -->
+	                        <span data-u="arrowleft" class="jssora12l" style="top:123px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
+	                        <span data-u="arrowright" class="jssora12r" style="top:123px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
+                        </div>
+                        <script>
+                            jssor_1_slider_init();
+                        </script>
+                    </div>
+
+                    <div id="divCuerpo">
+                        <div id="divCuerpoTopIzq">
+                            <asp:Label ID="lblProxEventos" runat="server" Text="Próximos eventos cerca tuyo:"/>
+                        </div>
+                        <div id="divCuerpoTopDer">
+                            <asp:Label ID="lblArtDestacados" runat="server" Text="Artistas destacados:"/>
+                        </div>
+
+                        <div id="divGallery" >
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="divDescatados">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <a href="#">
+                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-5">
+                                    <a class="h4" href="#">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </asp:Content>

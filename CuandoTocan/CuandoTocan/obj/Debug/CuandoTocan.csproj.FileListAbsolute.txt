@@ -14,3 +14,7 @@ C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\Cu
 C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
 C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
 C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
+C:\Users\anabela.nora.rossi\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.dll
+C:\Users\anabela.nora.rossi\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\bin\CuandoTocan.pdb
+C:\Users\anabela.nora.rossi\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.dll
+C:\Users\anabela.nora.rossi\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.pdb
