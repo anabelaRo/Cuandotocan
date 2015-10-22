@@ -48,7 +48,16 @@
                             <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
                         </div>
                         <div id="divBuscador">
-                            <asp:TextBox ID="txtBuscar" placeholder="Buscar artista" runat="server" />
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Ingrese busqueda..."/>
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Buscar!</button>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
                         </div>
 
                         <div id="divLogin">
