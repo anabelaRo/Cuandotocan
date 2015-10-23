@@ -27,25 +27,48 @@ width: 100%;
 #divLogo
 {
 float: left;
-    margin-bottom: -28px;
+ /*   margin-bottom: -28px;
     margin-left: 10%;
     margin-top: -22px;
-    overflow: hidden;
+overlfow:hidden;
+    z-index:1;
+    position: absolute;*/
+    
+      float: left;
+    margin-bottom: -28px;
+    margin-left: 10%;
+    margin-top: -0.4%;
+    position: absolute;
+    z-index: 1;
+    
 }
 
 #divLogo img
 {
 height: 60%;
-    width: 85%;
+    margin-top: 5%;
+    width: 78%;
+    
 }
 
 #divBuscador
 {
 float: left;
-    margin-left: 30%;
+    /*ana margin-left: 56%;
+    overflow: hidden;
+   
+    width: 25%;
+    padding-bottom: 2%;
+    margin-top: 3%; 
+   ana*/
+    float: left;
+    margin-left: 56%;
     margin-top: 3%;
     overflow: hidden;
+    padding-bottom: 2%;
     width: 25%;
+    
+    
 }
 
 #divLogin 
