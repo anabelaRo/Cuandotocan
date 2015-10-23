@@ -55,6 +55,7 @@
     <Content Include="css\bootstrap\bootstrap-theme.css" />
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\Home.css" />
+    <Content Include="css\PerfilArtista.css" />
     <Content Include="Home.aspx" />
     <Content Include="img\Destacados\artic.PNG" />
     <Content Include="img\Destacados\codplay.PNG" />
@@ -83,6 +84,7 @@
     <Content Include="js\jquery\jquery-2.1.4.js" />
     <Content Include="js\jquery\jquery-ui.js" />
     <Content Include="js\jssor.slider-20.min.js" />
+    <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -113,13 +115,19 @@
     <Compile Include="Home.Master.designer.cs">
       <DependentUpon>Home.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PerfilArtista.aspx.cs">
+      <DependentUpon>PerfilArtista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PerfilArtista.aspx.designer.cs">
+      <DependentUpon>PerfilArtista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataBase\" />
     <Folder Include="fonts\" />
     <Folder Include="MastersAnidadas\" />
-    <Folder Include="Pages\" />
     <Folder Include="WebServices\" />
   </ItemGroup>
   <ItemGroup>

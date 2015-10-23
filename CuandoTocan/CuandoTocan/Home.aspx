@@ -47,7 +47,7 @@
 
         <div id="divGallery" >
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/PerfilArtista.aspx">
                     <img class="img-responsive" src="img/Galeria/system.png" alt=""/>
                 </a>
             </div>

@@ -25,6 +25,7 @@
 
         <%--css--%>
         <link href="~/css/Home.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/PerfilArtista.css" rel="stylesheet" type="text/css" />
         <%--css--%>
 
         <%--JS--%>

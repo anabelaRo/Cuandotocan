@@ -291,16 +291,25 @@ float: right;
 
 #divFooter
 {
+    background-color: #333333;
+    margin-top: 2%;
     padding: 25px;
     text-align: center;
     width: 100%;
-    background-color: #333333;
 }
 
 #spanFooter
 {
     color: White;
 }
+
+
+
+
+
+
+
+
 
 @media (min-width: 768px) {
    #mdAnA{
