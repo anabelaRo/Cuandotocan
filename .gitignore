@@ -1,1 +1,6 @@
 *.suo
+*.suo
+CuandoTocan/CuandoTocan.suo
+*.suo
+*.cache
+CuandoTocan/CuandoTocan/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
