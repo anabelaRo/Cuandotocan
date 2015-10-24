@@ -47,7 +47,7 @@
 
         <div id="divGallery" >
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="Pages/PerfilArtista.aspx">
+                <a class="thumbnail" href="#">
                     <img class="img-responsive" src="img/Galeria/system.png" alt=""/>
                 </a>
             </div>
@@ -81,12 +81,12 @@
         <div id="divDescatados">
             <div class="row">
                 <div class="col-md-7">
-                    <a href="#">
+                    <a href="Pages/PerfilArtista.aspx">
                         <img class="img-responsive" src="img/Destacados/artic.png" alt=""/>
                     </a>
                 </div>
                 <div class="col-md-5">
-                    <a class="h4" href="#">1. Arctic Monkeys</a>
+                    <a class="h4" href="Pages/PerfilArtista.aspx">1. Arctic Monkeys</a>
                 </div>
             </div>
             <hr/>
