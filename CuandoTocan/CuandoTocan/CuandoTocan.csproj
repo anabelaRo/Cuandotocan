@@ -51,11 +51,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap\bootstrap-switch.css" />
+    <Content Include="js\bootstrap\bootstrap-switch.js" />
     <Content Include="Controls\ucFooter.ascx" />
     <Content Include="css\bootstrap\bootstrap-theme.css" />
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\Home.css" />
     <Content Include="css\PerfilArtista.css" />
+    <Content Include="js\gmaps.js" />
+    <Content Include="img\logo_min_mapa.png" />
+    <Content Include="Pages\Evento.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="img\Destacados\artic.PNG" />
     <Content Include="img\Destacados\codplay.PNG" />
@@ -85,6 +90,7 @@
     <Content Include="js\jquery\jquery-ui.js" />
     <Content Include="js\jssor.slider-20.min.js" />
     <Content Include="Pages\PerfilArtista.aspx" />
+    <Content Include="css\PerfilEvento.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -100,6 +106,13 @@
     </Compile>
     <Compile Include="Controls\ucFooter.ascx.designer.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Evento.aspx.cs">
+      <DependentUpon>Evento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Evento.aspx.designer.cs">
+      <DependentUpon>Evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

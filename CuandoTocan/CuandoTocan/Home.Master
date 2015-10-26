@@ -36,7 +36,27 @@
         <script type="text/javascript" 
 		    src="<%= Page.ResolveClientUrl("~/js/jssor.slider-20.min.js") %>"> 
         </script>
-        <%--JS--%>       
+        <%--JS--%>      
+        
+        
+        
+        <!----GMAPS--->
+      
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzQgis4x77FBxoDPawUOFvt0c_D06vkM0"
+          type="text/javascript"></script>
+         <!----GMAPS--->
+
+          <!--Switch-->
+
+        <link href="~/css/bootstrap/bootstrap-switch.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/bootstrap/bootstrap-switch.js") %>"></script>
+          <!--Switch-->
+  </head>
+  <body>
+   
+    
+
+ 
     </head>
 
     <body>
