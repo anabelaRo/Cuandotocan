@@ -19,6 +19,15 @@ namespace CuandoTocan
                  //Label1.Text = txtUser.Text + " " + txtPass.Text ;
             }
 
+         protected void Button5_Click(object sender, EventArgs e)
+         {
+            Page.Validate();
+            if (Page.IsValid)
+            {
+                Response.Redirect("http://localhost:63281/Pages/Evento.aspx");
+            }
+         }
+
         }
 
 }

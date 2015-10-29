@@ -58,7 +58,7 @@
 
  
     </head>
-
+      
     <body>
         <div id="divHome">
             <form id="formMaster" runat="server" role="form" class="form-horizontal">
@@ -105,7 +105,8 @@
                                                             <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">¿Todavía no tenés cuenta? Registrate.</button>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" class="close" aria-label="Close">Entrar</button>
+                                                            <%--<button type="button" class="btn btn-default" class="close" aria-label="Close">Entrar</button>--%>
+                                                            <asp:Button ID="Button5" runat="server" Text="Entrar" onclick="Button5_Click" />
                                                         </div>
                                                     </div>
                                                 </div>

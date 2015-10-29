@@ -41,7 +41,7 @@ jssor_1_slider_init = function() {
 };
 
 
- google.maps.event.addDomListener(window, 'load', init);
+// google.maps.event.addDomListener(window, 'load', init);
         
               function initMap() {
                 // Basic options for a simple Google Map
