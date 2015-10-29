@@ -51,15 +51,9 @@
         <link href="~/css/bootstrap/bootstrap-switch.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/bootstrap/bootstrap-switch.js") %>"></script>
           <!--Switch-->
-  </head>
-  <body>
-   
-    
-
- 
-    </head>
+  </head>   
       
-    <body>
+    <body> 
         <div id="divHome">
             <form id="formMaster" runat="server" role="form" class="form-horizontal">
                 <div id="divHomeMaster">
@@ -99,10 +93,14 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <asp:TextBox ID="txtUser" runat="server" placeholder="Usuario" class="form-control"/>
+                                                            <asp:RequiredFieldValidator ID="txtUserVal" ControlToValidate="txtUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
                                                             <br/>
                                                             <asp:TextBox ID="txtPass" runat="server" placeholder="Contrasña" class="form-control"/>
+                                                           <asp:RequiredFieldValidator ID="txtPassVal" ControlToValidate="txtPass" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
                                                             <br/>
-                                                            <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">¿Todavía no tenés cuenta? Registrate.</button>
+                                                           <%-- <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">¿Todavía no tenés cuenta? Registrate.</button>--%>
+                                                            <a href="#Div1" data-toggle="modal"  data-dismiss="myModal">Register now</a>
+                                                        
                                                         </div>
                                                         <div class="modal-footer">
                                                             <%--<button type="button" class="btn btn-default" class="close" aria-label="Close">Entrar</button>--%>
@@ -128,13 +126,16 @@
                                                                    <label for="imputUser">Usuario</label>
                                                                  </div>
                                                                  <div class="col-sm-4">
-                                                                   <asp:TextBox ID="imputUser" runat="server" placeholder="JuanPerez90" class="form-control"></asp:TextBox>
+                                                                   <asp:TextBox ID="regUser" runat="server" placeholder="JuanPerez90" class="form-control"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="regUserVal" ControlToValidate="regUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro"></asp:RequiredFieldValidator>
                                                                  </div>
                                                                  <div class="col-sm-2">
                                                                     <label for="imputUser">E-Mail</label>
                                                                  </div>
                                                                   <div class="col-sm-4">
-                                                                    <asp:TextBox ID="TextBox1" runat="server" placeholder="JuanPerez90@gmail.com" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox ID="regMail" runat="server" placeholder="JuanPerez90@gmail.com" class="form-control"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="regMailVal" ControlToValidate="regMail" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro"></asp:RequiredFieldValidator>
+                                                                     <asp:RegularExpressionValidator ID="validateEmail" runat="server" ErrorMessage="Email invalido" ControlToValidate="regMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  ValidationGroup="registro" />
                                                                  </div>
                                                              </div>
                                                              <div class="row">
@@ -142,13 +143,15 @@
                                                                     <label for="inputPassword">Password</label>
                                                                 </div>
                                                                 <div class="col-sm-4">
-                                                                    <asp:TextBox ID="inputPassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
+                                                                    <asp:TextBox ID="regPassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="regPasswordVal" ControlToValidate="regPassword" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registro"></asp:RequiredFieldValidator>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <label for="inputRePassword">Re-Password</label>
                                                                 </div>
                                                                    <div class="col-sm-4">
-                                                                      <asp:TextBox ID="inputRePassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
+                                                                      <asp:TextBox ID="regRePassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
+                                                                       <asp:CompareValidator ID="regRePasswordVal" ControlToValidate="regRePassword" ControlToCompare="regPassword" runat="server" ErrorMessage="Los password no coinciden"  ValidationGroup="registro"></asp:CompareValidator>
                                                                    </div>
                                                              </div>
                                                               <div class="row">
@@ -166,7 +169,8 @@
                                                                     <label for="inputNombre">Nombre Completo</label>
                                                                 </div>
                                                                    <div class="col-sm-4">
-                                                                      <asp:TextBox ID="inputNombre" type="text" runat="server" placeholder="Juan Perez" class="form-control"></asp:TextBox>
+                                                                      <asp:TextBox ID="regNombre" type="text" runat="server" placeholder="Juan Perez" class="form-control"></asp:TextBox>
+                                                                     <asp:RequiredFieldValidator ID="regNombreVal" ControlToValidate="regNombre" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registro"></asp:RequiredFieldValidator>
                                                                    </div>
                                                              </div>
                                                              <div class="row">
@@ -174,13 +178,15 @@
                                                                     <label for="inputDireccion">Direccion:</label>
                                                                 </div>
                                                                 <div class="col-sm-4">
-                                                                  <asp:TextBox ID="inputDireccion" type="text" runat="server" placeholder="Av. Rivadavia 1234" class="form-control"></asp:TextBox>  
+                                                                  <asp:TextBox ID="regDireccion" type="text" runat="server" placeholder="Av. Rivadavia 1234" class="form-control"></asp:TextBox>  
+                                                                  <asp:RequiredFieldValidator ID="regDireccionVal" ControlToValidate="regDireccion" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro"></asp:RequiredFieldValidator>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <label for="calendarFNac">Fecha de nacimiento:</label>
                                                                 </div>
                                                                    <div class="col-sm-4">
-                                                                      <asp:TextBox ID="InputFNac" type="text" runat="server" placeholder="dd-mm-aaaa" class="form-control"/>
+                                                                      <asp:TextBox ID="regFNac" type="text" runat="server" placeholder="dd-mm-aaaa" class="form-control"/>
+                                                                      <asp:RequiredFieldValidator ID="regFNacVal" ControlToValidate="regFNac" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="control-group error"></asp:RequiredFieldValidator>
                                                                    </div>
                                                              </div>
                                                              <div class="row">
@@ -248,7 +254,8 @@
                                                             </div>--%>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" class="close" aria-label="Close">Crear</button>
+                                                            <%--<button type="button" class="btn btn-default" class="close" aria-label="Close">Crear</button>--%>
+                                                           <asp:Button ID="Button6" runat="server" Text="Registrar" onclick="Button6_Click" />
                                                         </div>
                                                     </div>
                                                 </div>

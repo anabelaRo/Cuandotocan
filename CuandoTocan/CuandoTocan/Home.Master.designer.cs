@@ -58,6 +58,15 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.TextBox txtUser;
         
         /// <summary>
+        /// txtUserVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtUserVal;
+        
+        /// <summary>
         /// txtPass control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace CuandoTocan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPass;
+        
+        /// <summary>
+        /// txtPassVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtPassVal;
         
         /// <summary>
         /// Button5 control.
@@ -76,40 +94,85 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.Button Button5;
         
         /// <summary>
-        /// imputUser control.
+        /// regUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox imputUser;
+        protected global::System.Web.UI.WebControls.TextBox regUser;
         
         /// <summary>
-        /// TextBox1 control.
+        /// regUserVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regUserVal;
         
         /// <summary>
-        /// inputPassword control.
+        /// regMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputPassword;
+        protected global::System.Web.UI.WebControls.TextBox regMail;
         
         /// <summary>
-        /// inputRePassword control.
+        /// regMailVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputRePassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regMailVal;
+        
+        /// <summary>
+        /// validateEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateEmail;
+        
+        /// <summary>
+        /// regPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox regPassword;
+        
+        /// <summary>
+        /// regPasswordVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regPasswordVal;
+        
+        /// <summary>
+        /// regRePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox regRePassword;
+        
+        /// <summary>
+        /// regRePasswordVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator regRePasswordVal;
         
         /// <summary>
         /// ddlTiUsua control.
@@ -121,31 +184,58 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.DropDownList ddlTiUsua;
         
         /// <summary>
-        /// inputNombre control.
+        /// regNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputNombre;
+        protected global::System.Web.UI.WebControls.TextBox regNombre;
         
         /// <summary>
-        /// inputDireccion control.
+        /// regNombreVal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDireccion;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regNombreVal;
         
         /// <summary>
-        /// InputFNac control.
+        /// regDireccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InputFNac;
+        protected global::System.Web.UI.WebControls.TextBox regDireccion;
+        
+        /// <summary>
+        /// regDireccionVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regDireccionVal;
+        
+        /// <summary>
+        /// regFNac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox regFNac;
+        
+        /// <summary>
+        /// regFNacVal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regFNacVal;
         
         /// <summary>
         /// TextAreaBio control.
@@ -155,6 +245,15 @@ namespace CuandoTocan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextAreaBio;
+        
+        /// <summary>
+        /// Button6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button6;
         
         /// <summary>
         /// ContentHomeCenterMed control.

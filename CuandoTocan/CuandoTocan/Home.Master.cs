@@ -21,13 +21,24 @@ namespace CuandoTocan
 
          protected void Button5_Click(object sender, EventArgs e)
          {
-            Page.Validate();
+            Page.Validate("login");
             if (Page.IsValid)
             {
                 Response.Redirect("http://localhost:63281/Pages/Evento.aspx");
             }
          }
 
+         protected void Button6_Click(object sender, EventArgs e)
+         {
+             Page.Validate("registro");
+             if (Page.IsValid)
+             {
+                 Response.Redirect("http://localhost:63281/Pages/Evento.aspx");
+             }
+         }
+
+         
+        
         }
 
 }
