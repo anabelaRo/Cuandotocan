@@ -22,3 +22,4 @@ C:\Users\arx0063\Documents\Visual Studio 2010\Projects\CuandoTocan\CuandoTocan\o
 C:\Users\anabela.nora.rossi\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.csprojResolveAssemblyReference.cache
 C:\Users\arx0063\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.csprojResolveAssemblyReference.cache
 C:\Users\Nora\Documents\Anabela\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.csprojResolveAssemblyReference.cache
+C:\Users\Anabelatrix\Documents\GitHub\Cuandotocan\CuandoTocan\CuandoTocan\obj\Debug\CuandoTocan.csprojResolveAssemblyReference.cache

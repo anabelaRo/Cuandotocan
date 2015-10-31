@@ -91,6 +91,7 @@
     <Content Include="js\jssor.slider-20.min.js" />
     <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="css\PerfilEvento.css" />
+    <Content Include="Pages\Registro.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -134,6 +135,13 @@
     </Compile>
     <Compile Include="Pages\PerfilArtista.aspx.designer.cs">
       <DependentUpon>PerfilArtista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

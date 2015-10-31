@@ -452,5 +452,39 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     margin-top: 0;
 }
 
+/* ============Registracion ======*/
+#divPerfilRegistracion  
+{   
+    background: #ffffff none repeat scroll 0 0 padding-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+/*   float: right; */
+    padding: 10px;
+    margin-top:4%;
+    }
+    
+    
+#divPerfilRegistracion .moduleR .title {
+    background: #22b573 none repeat scroll 0 0 padding-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #fff !important;
+    margin: -24px -10px 10px;
+    padding: 10px;
+}
 
+#divPerfilRegistracion .moduleR .title a {
+    color: #fff;
+    text-decoration: none;
+}
 
+#divPerfilRegistracion .resume-body 
+{   font-size: 18px;
+    padding-top:5%;
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-align:right;
+}
