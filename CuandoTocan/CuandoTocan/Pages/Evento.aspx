@@ -9,17 +9,61 @@
                 <img class="img-responsive" alt="" src="../img/Galeria/muse.png" />
             <br />
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                   <%-- <asp:CheckBox ID="CheckBox2" CssClass="custom_check" checked runat="Server" data-off-text="False" data-on-text="True" OnCheckedChanged="CheckBox2_CheckedChanged" />--%>
-                  
-                  <input id="checkbox1" type="checkbox" data-off-text="No&nbsp;voy" data-on-text="Voy!" checked="false" class="BSswitch">
+                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalE">     Voy!    </button>
+                 <%-- <input id="checkbox1" type="checkbox" data-off-text="No&nbsp;voy" data-on-text="Voy!" checked="false" class="BSswitch">
+               
                   <script>
 
                       $(document).ready(function () {
                           $('#checkbox1').bootstrapSwitch();
                       });
-                     
-                  </script>
+
+               
+                  </script>--%>
+
+
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                           <div class="modal fade" id="myModalE" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button ID="Button2" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4 class="modal-title" id="myModalLabel">  ¿Vas en auto al evento?</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Desde <span>CuandoTocan</span>, queremos que todos puedan ir a los eventos.
+                                                            <br />
+                                                            Si vas en auto, podes compartir el viaje con otros usuarios, para conocer gente y abaratar costos
+                                                            <strong>Animate!</strong><br />
+                                                           <br />
+                                                           <div class="row">
+                                                             Ok, deseo compartir mi auto: <asp:CheckBox ID="chkCarpooling" runat="server" />
+                                                            </div>
+                                                            <div class="row"><div class="col-sm-6">
+                                                            Salgo en auto desde:</div><div class="col-sm-6">
+                                                            <asp:TextBox ID="txtCarpooling" runat="server" placeholder="Av. Rivadavia 8875, Morón, Buenos Aires" class="form-control"/>
+                                                           </div>
+                                                          </div>
+                                                            <asp:Button ID="btnConf" runat="server" Text="Confirmar" />
+                                                          </div>
+                                                        <div class="modal-footer">
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                       </ContentTemplate>
+                                    </asp:UpdatePanel>
+
+
+
+
                 </div>
                   </div>
             <div class="row">
