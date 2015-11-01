@@ -61,7 +61,9 @@
                     
                     <div id="divCabecera">
                         <div id="divLogo">
-                            <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
+                            <a href="../Home.aspx">
+                                <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
+                            </a>
                         </div>
                         <div id="divBuscador">
                             <div class="row">

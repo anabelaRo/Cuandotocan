@@ -47,32 +47,32 @@
 
         <div id="divGallery" >
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/system.png" alt=""/>
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/eruca.png" alt=""/>
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/kevin.png" alt=""/>
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/muse.png" alt=""/>
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/katy.png" alt=""/>
                 </a>
             </div>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#">
+                <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/slipknot.png" alt=""/>
                 </a>
             </div>
@@ -92,46 +92,46 @@
             <hr/>
             <div class="row">
                 <div class="col-md-7">
-                    <a href="#">
+                    <a href="Pages/PerfilArtista.aspx">
                         <img class="img-responsive" src="img/Destacados/codplay.png" alt=""/>
                     </a>
                 </div>
                 <div class="col-md-5">
-                    <a class="h4" href="#">2. Coldplay</a>
+                    <a class="h4" href="Pages/PerfilArtista.aspx">2. Coldplay</a>
                 </div>
             </div>
             <hr/>
             <div class="row">
                 <div class="col-md-7">
-                    <a href="#">
+                    <a href="Pages/PerfilArtista.aspx">
                         <img class="img-responsive" src="img/Destacados/david.png" alt=""/>
                     </a>
                 </div>
                 <div class="col-md-5">
-                    <a class="h4" href="#">3. David Guetta</a>
+                    <a class="h4" href="Pages/PerfilArtista.aspx">3. David Guetta</a>
                 </div>
             </div>
             <hr/>
             <div class="row">
 
                 <div class="col-md-7">
-                    <a href="#">
+                    <a href="Pages/PerfilArtista.aspx">
                         <img class="img-responsive" src="img/Destacados/ed.png" alt=""/>
                     </a>
                 </div>
                 <div class="col-md-5">
-                    <a class="h4" href="#">4. Ed Sheeran</a>
+                    <a class="h4" href="Pages/PerfilArtista.aspx">4. Ed Sheeran</a>
                 </div>
             </div>
             <hr/>
             <div class="row">
                 <div class="col-md-7">
-                    <a href="#">
+                    <a href="Pages/PerfilArtista.aspx">
                         <img class="img-responsive" src="img/Destacados/maroon.png" alt=""/>
                     </a>
                 </div>
                 <div class="col-md-5">
-                    <a class="h4" href="#">5. Maroon 5</a>
+                    <a class="h4" href="Pages/PerfilArtista.aspx">5. Maroon 5</a>
                 </div>
             </div>
         </div>
