@@ -12,15 +12,15 @@
                  </div>
                  <div class="col-sm-4">
                     <asp:TextBox ID="regUser" runat="server" placeholder="JuanPerez90" class="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="regUserVal" ControlToValidate="regUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="regUserVal" ControlToValidate="regUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="text-danger"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
                     <label for="imputUser">E-Mail</label>
                 </div>
                 <div class="col-sm-4">
                     <asp:TextBox ID="regMail" runat="server" placeholder="JuanPerez90@gmail.com" class="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="regMailVal" ControlToValidate="regMail" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="validateEmail" runat="server" ErrorMessage="Email invalido" ControlToValidate="regMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  ValidationGroup="registro" />
+                    <asp:RequiredFieldValidator ID="regMailVal" ControlToValidate="regMail" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="text-danger"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="validateEmail" runat="server" ErrorMessage="Email inválido" class="text-danger" ControlToValidate="regMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  ValidationGroup="registro" />
                 </div>
               </div>
               <div class="row">
@@ -29,14 +29,14 @@
                     </div>
                     <div class="col-sm-4">
                        <asp:TextBox ID="regPassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
-                       <asp:RequiredFieldValidator ID="regPasswordVal" ControlToValidate="regPassword" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registro"></asp:RequiredFieldValidator>
+                       <asp:RequiredFieldValidator ID="regPasswordVal" ControlToValidate="regPassword" runat="server" ErrorMessage="Campo Obligatorio" class="text-danger" ValidationGroup="registro"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
                        <label for="inputRePassword">Re-Password</label>
                     </div>
                     <div class="col-sm-4">
                       <asp:TextBox ID="regRePassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
-                      <asp:CompareValidator ID="regRePasswordVal" ControlToValidate="regRePassword" ControlToCompare="regPassword" runat="server" ErrorMessage="Los password no coinciden"  ValidationGroup="registro"></asp:CompareValidator>
+                      <asp:CompareValidator ID="regRePasswordVal" ControlToValidate="regRePassword" ControlToCompare="regPassword" class="text-danger" runat="server" ErrorMessage="Los password no coinciden"  ValidationGroup="registro"></asp:CompareValidator>
                     </div>
                </div>
                <div class="row">
@@ -58,14 +58,14 @@
                           </div>
                           <div class="col-sm-4">
                                <asp:TextBox ID="regNombre" type="text" runat="server" placeholder="Juan Perez" class="form-control"></asp:TextBox>
-                               <asp:RequiredFieldValidator ID="regNombreVal" ControlToValidate="regNombre" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registroU"></asp:RequiredFieldValidator>
+                               <asp:RequiredFieldValidator ID="regNombreVal" ControlToValidate="regNombre" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registroU"></asp:RequiredFieldValidator>
                            </div>
                            <div class="col-sm-2">
                                <label for="calendarFNac">Fecha de nacimiento:</label>
                            </div>
                            <div class="col-sm-4">
                                <asp:TextBox ID="regFNac" type="text" runat="server" placeholder="dd-mm-aaaa" class="form-control"/>
-                               <asp:RequiredFieldValidator ID="regFNacVal" ControlToValidate="regFNac" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registroU" class="control-group error"></asp:RequiredFieldValidator>
+                               <asp:RequiredFieldValidator ID="regFNacVal" ControlToValidate="regFNac" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registroU" ></asp:RequiredFieldValidator>
                          </div>
                        </div>
                        <div class="row">
@@ -84,14 +84,14 @@
                         </div>
                         <div class="col-sm-4">
                           <asp:TextBox ID="txtNombreA" type="text" runat="server" placeholder="Metallica" class="form-control"></asp:TextBox>
-                          <asp:RequiredFieldValidator ID="txtNombreAVal" ControlToValidate="txtNombreA" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registroA"></asp:RequiredFieldValidator>
+                          <asp:RequiredFieldValidator ID="txtNombreAVal" ControlToValidate="txtNombreA" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio"  ValidationGroup="registroA" ></asp:RequiredFieldValidator>
                         </div>
                         <div class="col-sm-2">
                           <label for="lblgenero">Género</label>
                         </div>
                         <div class="col-sm-4">
                             <asp:TextBox ID="txtGeneroA" type="text" runat="server" placeholder="HeavyRock" class="form-control"/>
-                            <asp:RequiredFieldValidator ID="txtGeneroAVal" ControlToValidate="txtGeneroA" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registroA" ></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="txtGeneroAVal" ControlToValidate="txtGeneroA" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registroA" ></asp:RequiredFieldValidator>
                        </div>
                      </div>
                      <div class="row">                             
@@ -125,7 +125,7 @@
                      </div>
            </div>
 
-                                                         
+                                                        
           <asp:Button ID="btnReg" runat="server" Text="Registrar"  class="btn btn-default" onclick="btnReg_Click"/>
                                                        
              </div>                                       

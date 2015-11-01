@@ -44,12 +44,15 @@
                                                            <div class="row">
                                                              Ok, deseo compartir mi auto: <asp:CheckBox ID="chkCarpooling" runat="server" />
                                                             </div>
-                                                            <div class="row"><div class="col-sm-6">
-                                                            Salgo en auto desde:</div><div class="col-sm-6">
+                                                            <div class="row">
+                                                            Salgo en auto desde:
+                                                            </div>
+                                                            <div class="row">
+                                                            <div class="col-sm-10">
                                                             <asp:TextBox ID="txtCarpooling" runat="server" placeholder="Av. Rivadavia 8875, Morón, Buenos Aires" class="form-control"/>
                                                            </div>
                                                           </div>
-                                                            <asp:Button ID="btnConf" runat="server" Text="Confirmar" />
+                                                            <asp:Button ID="btnConf" runat="server" Text="Confirmar" class="btn btn-default" />
                                                           </div>
                                                         <div class="modal-footer">
                                                           
