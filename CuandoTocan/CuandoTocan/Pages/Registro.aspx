@@ -5,6 +5,7 @@
          <h2 class="title">
                     <a href="#">Crear cuenta</a>
          </h2>
+         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
           <div class="resume-body">    
               <div class="row">
                  <div class="col-sm-2">
