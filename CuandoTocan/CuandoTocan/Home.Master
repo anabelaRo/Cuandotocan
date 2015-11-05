@@ -70,6 +70,14 @@
                               <div class="col-lg-6">
                                 <div class="input-group">
                                   <input type="text" class="form-control" placeholder="Ingrese busqueda..."/>
+                           <span class="input-group-btn">
+                            <asp:DropDownList ID="ddlTiBusqueda" runat="server" class="form-control"  >   
+                             <asp:ListItem Enabled="true" Text="Tipo..." Value="0"></asp:ListItem>
+                             <asp:ListItem Text="Eventos" Value="1"></asp:ListItem>
+                             <asp:ListItem Text="Artistas" Value="2"></asp:ListItem> 
+                             <asp:ListItem Text="Eventos por zona" Value="3"></asp:ListItem> 
+                         </asp:DropDownList>
+                          </span>
                                   <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">Buscar!</button>
                                   </span>

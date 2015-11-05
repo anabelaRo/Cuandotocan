@@ -40,13 +40,13 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.Image imgLogo;
         
         /// <summary>
-        /// ddlTipoBusqueda control.
+        /// ddlTiBusqueda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoBusqueda;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTiBusqueda;
         
         /// <summary>
         /// divLogin control.

@@ -17,6 +17,11 @@
     width: 100%;
 }
 
+#divBuscador .input-group-addon, .input-group-btn
+
+{
+    width:  28%;
+}
 #divCabecera
 {
 background-color: #333333;
@@ -67,7 +72,7 @@ float: left;
     overflow: hidden;
     padding-bottom: 2%;
     width: 25%;
-   
+    
     
 }
 
