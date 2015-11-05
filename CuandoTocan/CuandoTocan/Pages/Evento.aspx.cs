@@ -18,5 +18,26 @@ namespace CuandoTocan
         {
 
         }
+
+        protected void btnConf_Click(object sender, EventArgs e)
+        {
+            if (chkCarpooling.Checked)
+            {
+
+            }
+            else
+            {
+               WebServices.EnvioMails serv = new WebServices.EnvioMails();
+
+               string user = "sesion_user";
+               string mail = "Session_Mail";
+               string evento = "session_evento";
+
+               serv.MandarMailCPsinAut(evento, mail, user);
+               //si indica que va a ir, pero sin auto, se le mandan todos los que van en auto hasta ese momento
+            }
+        }
+
+
     }
 }

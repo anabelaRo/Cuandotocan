@@ -17,6 +17,8 @@ namespace CuandoTocan
         protected void Submit(object sender, EventArgs e)
         {
             //Label1.Text = txtUser.Text + " " + txtPass.Text ;
+     
+
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -28,7 +30,26 @@ namespace CuandoTocan
             }
         }
 
-     
+        protected void btnBusq_Click(object sender, EventArgs e)
+        {
+
+            int tipobus = Convert.ToInt32(ddlTiBusqueda.SelectedItem.Value);
+            if (tipobus == 1)
+            {
+                //BUsca eventos
+
+            }
+            else if (tipobus == 2)
+            {
+
+                //Buscar artistas
+            }
+            else
+            {
+                //Busca eventos por zona
+            }
+        }
+               
 
        
     }

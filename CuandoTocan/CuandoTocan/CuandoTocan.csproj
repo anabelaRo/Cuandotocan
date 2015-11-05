@@ -102,9 +102,13 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Pages\SendMail.htm" />
+    <Content Include="Pages\SendMailA.htm" />
+    <Content Include="Pages\SendMailE.htm" />
     <Content Include="WebServices\EnvioMails.asmx" />
     <None Include="Service References\ServiceReference1\EnvioMails.wsdl" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ucFooter.ascx.cs">

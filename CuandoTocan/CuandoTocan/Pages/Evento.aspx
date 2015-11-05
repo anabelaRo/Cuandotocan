@@ -122,7 +122,7 @@
 
     </div>
 
-    </script>
+    
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzQgis4x77FBxoDPawUOFvt0c_D06vkM0&callback=initMap">
     </script>

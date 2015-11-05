@@ -64,7 +64,7 @@ namespace CuandoTocan.Pages
                     if (Page.IsValid)
                     {
 
-                        Label1.Text = serv.MandarMail("regU", regMail.Text, regUser.Text);
+                        Label1.Text = serv.MandarMailReg("regU", regMail.Text, regUser.Text);
                     //{ MandarMail(); 
                    
                     }
@@ -73,7 +73,7 @@ namespace CuandoTocan.Pages
                 {
                     Page.Validate("registroA");
                     if (Page.IsValid)
-                    { Label1.Text = serv.MandarMail("regA", regMail.Text, regUser.Text); }
+                    { Label1.Text = serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
                 }
                 
                

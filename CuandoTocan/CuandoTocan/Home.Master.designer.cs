@@ -40,6 +40,15 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.Image imgLogo;
         
         /// <summary>
+        /// txtBusq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBusq;
+        
+        /// <summary>
         /// ddlTiBusqueda control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace CuandoTocan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTiBusqueda;
+        
+        /// <summary>
+        /// btnBusq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBusq;
         
         /// <summary>
         /// divLogin control.
