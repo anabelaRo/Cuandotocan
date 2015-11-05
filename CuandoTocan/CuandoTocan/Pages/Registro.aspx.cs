@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
 
+
 namespace CuandoTocan.Pages
 {
     public partial class Registro : System.Web.UI.Page
@@ -45,58 +46,34 @@ namespace CuandoTocan.Pages
         }
         
 
-         protected void MandarMail ()
-         { try{
-                SmtpClient client = new SmtpClient("smtp.gmail.com");
-                client.Port = 587;
-                client.EnableSsl = true;
-                client.Timeout = 100000;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential(
-                "CuandoTocan2015@gmail.com", "CT123456");
-                MailMessage msg = new MailMessage();
-                msg.To.Add("anabela.rossi@gmail.com");
-                msg.To.Add("emiliano.zambrano@hotmail.com");
-                msg.To.Add("juan_sobrile@hotmail.com");
-              //msg.To.Add(textBox_To.Text);
-                msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
-                msg.Subject = "mail de prueba cuando tocan";
-                // msg.Subject = textBox_Subject.Text);
-                msg.Body = "Gracias por registrate en CuandoTocan!";
-            //  msg.Body = textBox_Message.Text;
-             //   Attachment data = new Attachment(textBox_Attachment.Text);
-             //   msg.Attachments.Add(data);
-                client.Send(msg);
-                Label1.Text = "Successfully Sent Message.";
-            }
-            catch (Exception ex)
-            {
-                Label1.Text = ex.Message;
-            }
-
-        }
-
+  
         protected void btnReg_Click(object sender, EventArgs e)
         {
             Page.Validate("registro");
             int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
             var nomTiUsu = ddlTiUsua.SelectedItem.Text;
-           
-           
+
+            WebServices.EnvioMails serv = new WebServices.EnvioMails();
+            string r;
+
             if (Page.IsValid)
             {
                 if (tipousu == 1)
                 {
                     Page.Validate("registroU");
                     if (Page.IsValid)
-                    { MandarMail(); }
+                    {
+
+                        Label1.Text = serv.MandarMail("regU", regMail.Text, regUser.Text);
+                    //{ MandarMail(); 
+                   
+                    }
                 }
                 else if (tipousu == 2)
                 {
                     Page.Validate("registroA");
                     if (Page.IsValid)
-                    { MandarMail(); }
+                    { Label1.Text = serv.MandarMail("regA", regMail.Text, regUser.Text); }
                 }
                 
                
