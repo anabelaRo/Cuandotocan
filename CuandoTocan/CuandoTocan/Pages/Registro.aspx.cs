@@ -14,7 +14,7 @@ namespace CuandoTocan.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            altaUsuarioU.Visible = false;
+            altaUsuarioU.Visible = true;
             altaUsuarioA.Visible = false;
         }
 
@@ -49,35 +49,76 @@ namespace CuandoTocan.Pages
   
         protected void btnReg_Click(object sender, EventArgs e)
         {
-            Page.Validate("registro");
-            int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
-            var nomTiUsu = ddlTiUsua.SelectedItem.Text;
+            
+                Page.Validate("registro");
+                int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
+                var nomTiUsu = ddlTiUsua.SelectedItem.Text;
 
-            WebServices.EnvioMails serv = new WebServices.EnvioMails();
-            string r;
+                WebServices.EnvioMails serv = new WebServices.EnvioMails();
+                string r;
 
-            if (Page.IsValid)
-            {
-                if (tipousu == 1)
+                if (Page.IsValid)
                 {
-                    Page.Validate("registroU");
-                    if (Page.IsValid)
+                    CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+                    var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text );
+                    if (usuarioNoDis == 0)
                     {
+                        // Do your insert
 
-                        Label1.Text = serv.MandarMailReg("regU", regMail.Text, regUser.Text);
-                    //{ MandarMail(); 
-                   
+                        if (tipousu == 1)
+                        {
+                            Page.Validate("registroU");
+                            if (Page.IsValid)
+                            {
+
+                                try
+                                {
+
+
+                                    CuandoTocan.usuario us = new CuandoTocan.usuario();
+
+                                    us.nickname = regUser.Text;
+                                    us.email = regMail.Text;
+                                    us.password = regPassword.Text;
+                                    us.tipo_usuario = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
+                                    us.nombre_completo = regNombre.Text;
+                                    us.fecha_nacimiento = Convert.ToDateTime(regFNac.Text);
+                                    us.biografia = TextAreaBio.Text;
+                                    us.fecha_alta = DateTime.Now;
+
+
+                                    ct.AddTousuario(us);
+                                    ct.SaveChanges();
+
+
+                                    Label1.Text = serv.MandarMailReg("regU", regMail.Text, regUser.Text);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Label1.Text = ex.Message;
+                                    //throw;
+                                }
+
+
+                                //{ MandarMail(); 
+
+                            }
+                        }
+                        else if (tipousu == 2)
+                        {
+                            Page.Validate("registroA");
+                            if (Page.IsValid)
+                            { Label1.Text = serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
+                        }
                     }
-                }
-                else if (tipousu == 2)
-                {
-                    Page.Validate("registroA");
-                    if (Page.IsValid)
-                    { Label1.Text = serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
-                }
-                
-               
-            }
+
+                    else
+                    {
+                        Label1.Text = "Usuario en uso";
+                    }
+
+                } 
+            
         }
 
     }

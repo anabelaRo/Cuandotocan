@@ -14,6 +14,7 @@
                  <div class="col-sm-4">
                     <asp:TextBox ID="regUser" runat="server" placeholder="JuanPerez90" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="regUserVal" ControlToValidate="regUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="text-danger"></asp:RequiredFieldValidator>
+                
                 </div>
                 <div class="col-sm-2">
                     <label for="imputUser">E-Mail</label>
@@ -45,7 +46,7 @@
                          <label for="ddlTiUsua">Tipo de Usuario</label>
                     </div>
                     <div class="col-sm-4">
-                         <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control" AutoPostBack="True"  onselectedindexchanged="ddlTiUsua_SelectedIndexChanged">   
+                         <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control"  onselectedindexchanged="ddlTiUsua_SelectedIndexChanged">   
                              <asp:ListItem Enabled="true" Text="Elija Tipo de usuario" Value="0"></asp:ListItem>
                              <asp:ListItem Text="Usuario" Value="1"></asp:ListItem>
                              <asp:ListItem Text="Artista" Value="2"></asp:ListItem> 

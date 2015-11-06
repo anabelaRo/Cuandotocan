@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CuandoTocanModelStoreContainer" CdmEntityContainer="CuandoTocanEntities">
+    <EntitySetMapping Name="artista">
+      <EntityTypeMapping TypeName="CuandoTocanModel.artista">
+        <MappingFragment StoreEntitySet="artista">
+          <ScalarProperty Name="id_artista" ColumnName="id_artista" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="mbid" ColumnName="mbid" />
+          <ScalarProperty Name="spotify_id" ColumnName="spotify_id" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="pais_origen" ColumnName="pais_origen" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="discografia">
+      <EntityTypeMapping TypeName="CuandoTocanModel.discografia">
+        <MappingFragment StoreEntitySet="discografia">
+          <ScalarProperty Name="id_disco" ColumnName="id_disco" />
+          <ScalarProperty Name="id_artista" ColumnName="id_artista" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="fecha_publicacion" ColumnName="fecha_publicacion" />
+          <ScalarProperty Name="discografica" ColumnName="discografica" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enlace_artista">
+      <EntityTypeMapping TypeName="CuandoTocanModel.enlace_artista">
+        <MappingFragment StoreEntitySet="enlace_artista">
+          <ScalarProperty Name="id_enlace_artista" ColumnName="id_enlace_artista" />
+          <ScalarProperty Name="id_artista" ColumnName="id_artista" />
+          <ScalarProperty Name="tipo_enlace" ColumnName="tipo_enlace" />
+          <ScalarProperty Name="url_enlace" ColumnName="url_enlace" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="evento">
+      <EntityTypeMapping TypeName="CuandoTocanModel.evento">
+        <MappingFragment StoreEntitySet="evento">
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="id_artista" ColumnName="id_artista" />
+          <ScalarProperty Name="id_locacion" ColumnName="id_locacion" />
+          <ScalarProperty Name="tipo_evento" ColumnName="tipo_evento" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_evento" ColumnName="fecha_evento" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locacion">
+      <EntityTypeMapping TypeName="CuandoTocanModel.locacion">
+        <MappingFragment StoreEntitySet="locacion">
+          <ScalarProperty Name="id_locacion" ColumnName="id_locacion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="coordenada_x" ColumnName="coordenada_x" />
+          <ScalarProperty Name="coordenada_y" ColumnName="coordenada_y" />
+          <ScalarProperty Name="sitio_oficial" ColumnName="sitio_oficial" />
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_enlace">
+      <EntityTypeMapping TypeName="CuandoTocanModel.tipo_enlace">
+        <MappingFragment StoreEntitySet="tipo_enlace">
+          <ScalarProperty Name="id_tipo_enlace" ColumnName="id_tipo_enlace" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="url_enlace" ColumnName="url_enlace" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_evento">
+      <EntityTypeMapping TypeName="CuandoTocanModel.tipo_evento">
+        <MappingFragment StoreEntitySet="tipo_evento">
+          <ScalarProperty Name="id_tipo_evento" ColumnName="id_tipo_evento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_usuario">
+      <EntityTypeMapping TypeName="CuandoTocanModel.tipo_usuario">
+        <MappingFragment StoreEntitySet="tipo_usuario">
+          <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ubicacion_evento">
+      <EntityTypeMapping TypeName="CuandoTocanModel.ubicacion_evento">
+        <MappingFragment StoreEntitySet="ubicacion_evento">
+          <ScalarProperty Name="id_ubicacion_evento" ColumnName="id_ubicacion_evento" />
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="CuandoTocanModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="biografia" ColumnName="biografia" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_artista">
+      <EntityTypeMapping TypeName="CuandoTocanModel.usuario_artista">
+        <MappingFragment StoreEntitySet="usuario_artista">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_artista" ColumnName="id_artista" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_evento">
+      <EntityTypeMapping TypeName="CuandoTocanModel.usuario_evento">
+        <MappingFragment StoreEntitySet="usuario_evento">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="flag_ofrece_carpooling" ColumnName="flag_ofrece_carpooling" />
+          <ScalarProperty Name="origen_carpooling" ColumnName="origen_carpooling" />
+          <ScalarProperty Name="flag_usa_carpooling" ColumnName="flag_usa_carpooling" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

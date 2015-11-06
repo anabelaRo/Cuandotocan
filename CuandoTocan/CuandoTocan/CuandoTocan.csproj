@@ -34,7 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -94,6 +96,10 @@
     <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="css\PerfilEvento.css" />
     <Content Include="Pages\Registro.aspx" />
+    <EntityDeploy Include="CTBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CTBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Service References\ServiceReference1\EnvioMails.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
@@ -117,6 +123,11 @@
     </Compile>
     <Compile Include="Controls\ucFooter.ascx.designer.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CTBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Evento.aspx.cs">
       <DependentUpon>Evento.aspx</DependentUpon>
@@ -165,6 +176,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="DataBase\" />
     <Folder Include="fonts\" />
     <Folder Include="MastersAnidadas\" />
