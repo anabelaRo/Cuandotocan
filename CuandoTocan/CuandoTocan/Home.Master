@@ -46,11 +46,14 @@
           type="text/javascript"></script>
          <!----GMAPS--->
 
-          <!--Switch-->
+          <script type="text/javascript">
 
-        <link href="~/css/bootstrap/bootstrap-switch.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/bootstrap/bootstrap-switch.js") %>"></script>
-          <!--Switch-->
+              function openModal() {
+                  $('#myModal').modal({ show: true });
+              }
+        </script>
+
+
   </head>   
       
     <body> 
@@ -93,10 +96,10 @@
                             <ul>
                                 <li>
                                     <button ID="Button1" type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Login</button>
-                                    <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+                               <%--     <asp:ScriptManager ID="ScriptManager1" runat="server"/>
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
-                                           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                       --%>    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -107,10 +110,12 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <asp:TextBox ID="txtUser" runat="server" placeholder="Usuario" class="form-control"/>
-                                                            <asp:RequiredFieldValidator ID="txtUserVal" ControlToValidate="txtUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
+                                                            <asp:RequiredFieldValidator  class="text-danger" ID="txtUserVal" ControlToValidate="txtUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
                                                             <br/>
-                                                            <asp:TextBox ID="txtPass" runat="server" placeholder="Contrasña" class="form-control"/>
-                                                           <asp:RequiredFieldValidator ID="txtPassVal" ControlToValidate="txtPass" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
+                                                            <asp:TextBox ID="txtPass" TextMode="password"  runat="server" placeholder="Contrasña" class="form-control"/>
+                                                           <asp:RequiredFieldValidator ID="txtPassVal" class="text-danger" ControlToValidate="txtPass" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
+                                                            <asp:Label ID="lblLogin" class="text-danger" runat="server" Text=""></asp:Label>
+                                                            
                                                             <br/>
                                                            <%-- <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">¿Todavía no tenés cuenta? Registrate.</button>--%>
                                                             <a href="/pages/registro.aspx" data-toggle="modal" class="btn btn-link"  data-dismiss="myModal">¿Todavía no tenés cuenta? Registrate.</a>
@@ -118,14 +123,15 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <%--<button type="button" class="btn btn-default" class="close" aria-label="Close">Entrar</button>--%>
-                                                            <asp:Button ID="Button5" runat="server" Text="Entrar" onclick="Button5_Click" />
+                                                            <asp:Button ID="Button5" runat="server" Text="Entrar" class="btn btn-default" onclick="Button5_Click" />
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+                               <%--             
                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                    </asp:UpdatePanel>--%>
                                 </li>
                             </ul>
                         </div>

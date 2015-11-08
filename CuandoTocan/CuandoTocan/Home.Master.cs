@@ -26,7 +26,22 @@ namespace CuandoTocan
             Page.Validate("login");
             if (Page.IsValid)
             {
-                Response.Redirect("http://localhost:63281/Pages/Evento.aspx");
+                CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+                var usuarioNoDis = ct.usuario.Count(u => u.nickname == txtUser.Text && u.password == txtPass.Text);
+                if (usuarioNoDis == 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    lblLogin.Text = "Usuario o contraseña inválidos";
+                }
+                else
+                {
+                    Response.Redirect("http://localhost:63281/Pages/Evento.aspx");
+
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
             }
         }
 

@@ -30,14 +30,14 @@
                        <label for="inputPassword">Password</label>
                     </div>
                     <div class="col-sm-4">
-                       <asp:TextBox ID="regPassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
+                       <asp:TextBox ID="regPassword" type="password" TextMode="password"  runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
                        <asp:RequiredFieldValidator ID="regPasswordVal" ControlToValidate="regPassword" runat="server" ErrorMessage="Campo Obligatorio" class="text-danger" ValidationGroup="registro"></asp:RequiredFieldValidator>
                     </div>
                     <div class="col-sm-2">
                        <label for="inputRePassword">Re-Password</label>
                     </div>
                     <div class="col-sm-4">
-                      <asp:TextBox ID="regRePassword" type="password" runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
+                      <asp:TextBox ID="regRePassword" type="password" TextMode="password"  runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
                       <asp:CompareValidator ID="regRePasswordVal" ControlToValidate="regRePassword" ControlToCompare="regPassword" class="text-danger" runat="server" ErrorMessage="Los password no coinciden"  ValidationGroup="registro"></asp:CompareValidator>
                     </div>
                </div>

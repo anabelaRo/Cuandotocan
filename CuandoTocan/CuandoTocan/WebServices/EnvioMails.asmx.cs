@@ -139,6 +139,7 @@ namespace CuandoTocan.WebServices
                  //
                  //client.Send(msg);
                  msg.Body = StrContent.ToString();
+                 client.Send(msg);
                  ret = "Enviado";
                  return (ret);
                 }

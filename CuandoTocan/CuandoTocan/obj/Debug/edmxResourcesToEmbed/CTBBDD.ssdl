@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CuandoTocanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CuandoTocanModelStoreContainer">
+    <EntitySet Name="artista" EntityType="CuandoTocanModel.Store.artista" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="discografia" EntityType="CuandoTocanModel.Store.discografia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="enlace_artista" EntityType="CuandoTocanModel.Store.enlace_artista" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="evento" EntityType="CuandoTocanModel.Store.evento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="locacion" EntityType="CuandoTocanModel.Store.locacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tipo_enlace" EntityType="CuandoTocanModel.Store.tipo_enlace" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tipo_evento" EntityType="CuandoTocanModel.Store.tipo_evento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tipo_usuario" EntityType="CuandoTocanModel.Store.tipo_usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ubicacion_evento" EntityType="CuandoTocanModel.Store.ubicacion_evento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario" EntityType="CuandoTocanModel.Store.usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.Store.usuario_artista" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.Store.usuario_evento" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.Store.FK_discografia_artista">
+      <End Role="artista" EntitySet="artista" />
+      <End Role="discografia" EntitySet="discografia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enlace_artista_artista" Association="CuandoTocanModel.Store.FK_enlace_artista_artista">
+      <End Role="artista" EntitySet="artista" />
+      <End Role="enlace_artista" EntitySet="enlace_artista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enlace_artista_tipo_enlace" Association="CuandoTocanModel.Store.FK_enlace_artista_tipo_enlace">
+      <End Role="tipo_enlace" EntitySet="tipo_enlace" />
+      <End Role="enlace_artista" EntitySet="enlace_artista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_locacion" Association="CuandoTocanModel.Store.FK_evento_locacion">
+      <End Role="locacion" EntitySet="locacion" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_tipo_evento" Association="CuandoTocanModel.Store.FK_evento_tipo_evento">
+      <End Role="tipo_evento" EntitySet="tipo_evento" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ubicacion_evento_evento" Association="CuandoTocanModel.Store.FK_ubicacion_evento_evento">
+      <End Role="locacion" EntitySet="locacion" />
+      <End Role="ubicacion_evento" EntitySet="ubicacion_evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_artista" Association="CuandoTocanModel.Store.FK_usuario_artista">
+      <End Role="artista" EntitySet="artista" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_artista_artista" Association="CuandoTocanModel.Store.FK_usuario_artista_artista">
+      <End Role="artista" EntitySet="artista" />
+      <End Role="usuario_artista" EntitySet="usuario_artista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_artista_usuario" Association="CuandoTocanModel.Store.FK_usuario_artista_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_artista" EntitySet="usuario_artista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_evento_evento" Association="CuandoTocanModel.Store.FK_usuario_evento_evento">
+      <End Role="evento" EntitySet="evento" />
+      <End Role="usuario_evento" EntitySet="usuario_evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_evento_usuario" Association="CuandoTocanModel.Store.FK_usuario_evento_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_evento" EntitySet="usuario_evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_tipo_usuario" Association="CuandoTocanModel.Store.FK_usuario_tipo_usuario">
+      <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="artista">
+    <Key>
+      <PropertyRef Name="id_artista" />
+    </Key>
+    <Property Name="id_artista" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="genero" Type="nvarchar" MaxLength="50" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="500" />
+    <Property Name="mbid" Type="nvarchar" MaxLength="20" />
+    <Property Name="spotify_id" Type="nvarchar" MaxLength="20" />
+    <Property Name="estado" Type="nvarchar" MaxLength="10" />
+    <Property Name="pais_origen" Type="nvarchar" MaxLength="50" />
+    <Property Name="image_path" Type="nvarchar" MaxLength="100" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="discografia">
+    <Key>
+      <PropertyRef Name="id_disco" />
+    </Key>
+    <Property Name="id_disco" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_artista" Type="int" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="fecha_publicacion" Type="date" />
+    <Property Name="discografica" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="enlace_artista">
+    <Key>
+      <PropertyRef Name="id_enlace_artista" />
+    </Key>
+    <Property Name="id_enlace_artista" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_artista" Type="int" Nullable="false" />
+    <Property Name="tipo_enlace" Type="int" Nullable="false" />
+    <Property Name="url_enlace" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="id_evento" />
+    </Key>
+    <Property Name="id_evento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_artista" Type="int" Nullable="false" />
+    <Property Name="id_locacion" Type="int" Nullable="false" />
+    <Property Name="tipo_evento" Type="int" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="500" />
+    <Property Name="fecha_evento" Type="datetime" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="locacion">
+    <Key>
+      <PropertyRef Name="id_locacion" />
+    </Key>
+    <Property Name="id_locacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="100" />
+    <Property Name="coordenada_x" Type="numeric" Precision="20" Scale="10" />
+    <Property Name="coordenada_y" Type="numeric" Precision="20" Scale="10" />
+    <Property Name="sitio_oficial" Type="nvarchar" MaxLength="50" />
+    <Property Name="capacidad" Type="int" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tipo_enlace">
+    <Key>
+      <PropertyRef Name="id_tipo_enlace" />
+    </Key>
+    <Property Name="id_tipo_enlace" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="url_enlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tipo_evento">
+    <Key>
+      <PropertyRef Name="id_tipo_evento" />
+    </Key>
+    <Property Name="id_tipo_evento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tipo_usuario">
+    <Key>
+      <PropertyRef Name="id_tipo_usuario" />
+    </Key>
+    <Property Name="id_tipo_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_artista" Type="int" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ubicacion_evento">
+    <Key>
+      <PropertyRef Name="id_ubicacion_evento" />
+    </Key>
+    <Property Name="id_ubicacion_evento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_evento" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="precio" Type="numeric" Precision="6" Scale="2" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_usuario" Type="int" Nullable="false" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" />
+    <Property Name="nombre_completo" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_nacimiento" Type="date" />
+    <Property Name="biografia" Type="nvarchar" MaxLength="500" />
+    <Property Name="id_artista" Type="int" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="usuario_artista">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+      <PropertyRef Name="id_artista" />
+    </Key>
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_artista" Type="int" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="usuario_evento">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+      <PropertyRef Name="id_evento" />
+    </Key>
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_evento" Type="int" Nullable="false" />
+    <Property Name="flag_ofrece_carpooling" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="origen_carpooling" Type="nvarchar" MaxLength="50" />
+    <Property Name="flag_usa_carpooling" Type="char" MaxLength="1" />
+    <Property Name="flag_notif_carpooling" Type="char" MaxLength="1" />
+    <Property Name="flag_asist_fav" Type="char" MaxLength="1" />
+    <Property Name="fecha_alta" Type="datetime" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_discografia_artista">
+    <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
+    <End Role="discografia" Type="CuandoTocanModel.Store.discografia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artista">
+        <PropertyRef Name="id_artista" />
+      </Principal>
+      <Dependent Role="discografia">
+        <PropertyRef Name="id_artista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enlace_artista_artista">
+    <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
+    <End Role="enlace_artista" Type="CuandoTocanModel.Store.enlace_artista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artista">
+        <PropertyRef Name="id_artista" />
+      </Principal>
+      <Dependent Role="enlace_artista">
+        <PropertyRef Name="id_artista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enlace_artista_tipo_enlace">
+    <End Role="tipo_enlace" Type="CuandoTocanModel.Store.tipo_enlace" Multiplicity="1" />
+    <End Role="enlace_artista" Type="CuandoTocanModel.Store.enlace_artista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_enlace">
+        <PropertyRef Name="id_tipo_enlace" />
+      </Principal>
+      <Dependent Role="enlace_artista">
+        <PropertyRef Name="tipo_enlace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_locacion">
+    <End Role="locacion" Type="CuandoTocanModel.Store.locacion" Multiplicity="1" />
+    <End Role="evento" Type="CuandoTocanModel.Store.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locacion">
+        <PropertyRef Name="id_locacion" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="id_locacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_tipo_evento">
+    <End Role="tipo_evento" Type="CuandoTocanModel.Store.tipo_evento" Multiplicity="1" />
+    <End Role="evento" Type="CuandoTocanModel.Store.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_evento">
+        <PropertyRef Name="id_tipo_evento" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="tipo_evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ubicacion_evento_evento">
+    <End Role="locacion" Type="CuandoTocanModel.Store.locacion" Multiplicity="1" />
+    <End Role="ubicacion_evento" Type="CuandoTocanModel.Store.ubicacion_evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="locacion">
+        <PropertyRef Name="id_locacion" />
+      </Principal>
+      <Dependent Role="ubicacion_evento">
+        <PropertyRef Name="id_evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_artista">
+    <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="0..1" />
+    <End Role="usuario" Type="CuandoTocanModel.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artista">
+        <PropertyRef Name="id_artista" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_artista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_artista_artista">
+    <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
+    <End Role="usuario_artista" Type="CuandoTocanModel.Store.usuario_artista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artista">
+        <PropertyRef Name="id_artista" />
+      </Principal>
+      <Dependent Role="usuario_artista">
+        <PropertyRef Name="id_artista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_artista_usuario">
+    <End Role="usuario" Type="CuandoTocanModel.Store.usuario" Multiplicity="1" />
+    <End Role="usuario_artista" Type="CuandoTocanModel.Store.usuario_artista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="usuario_artista">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_evento_evento">
+    <End Role="evento" Type="CuandoTocanModel.Store.evento" Multiplicity="1" />
+    <End Role="usuario_evento" Type="CuandoTocanModel.Store.usuario_evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="evento">
+        <PropertyRef Name="id_evento" />
+      </Principal>
+      <Dependent Role="usuario_evento">
+        <PropertyRef Name="id_evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_evento_usuario">
+    <End Role="usuario" Type="CuandoTocanModel.Store.usuario" Multiplicity="1" />
+    <End Role="usuario_evento" Type="CuandoTocanModel.Store.usuario_evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="usuario_evento">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_tipo_usuario">
+    <End Role="tipo_usuario" Type="CuandoTocanModel.Store.tipo_usuario" Multiplicity="1" />
+    <End Role="usuario" Type="CuandoTocanModel.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_usuario">
+        <PropertyRef Name="id_tipo_usuario" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="tipo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

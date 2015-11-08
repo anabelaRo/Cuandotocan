@@ -96,9 +96,9 @@
     <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="css\PerfilEvento.css" />
     <Content Include="Pages\Registro.aspx" />
-    <EntityDeploy Include="CTBase.edmx">
+    <EntityDeploy Include="CTBBDD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CTBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>CTBBDD.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Service References\ServiceReference1\EnvioMails.disco" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
@@ -124,10 +124,10 @@
     <Compile Include="Controls\ucFooter.ascx.designer.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
     </Compile>
-    <Compile Include="CTBase.Designer.cs">
+    <Compile Include="CTBBDD.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CTBase.edmx</DependentUpon>
+      <DependentUpon>CTBBDD.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Evento.aspx.cs">
       <DependentUpon>Evento.aspx</DependentUpon>

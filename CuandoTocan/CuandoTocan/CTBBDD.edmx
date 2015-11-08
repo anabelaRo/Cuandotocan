@@ -42,6 +42,10 @@
             <End Role="locacion" EntitySet="locacion" />
             <End Role="ubicacion_evento" EntitySet="ubicacion_evento" />
           </AssociationSet>
+          <AssociationSet Name="FK_usuario_artista" Association="CuandoTocanModel.Store.FK_usuario_artista">
+            <End Role="artista" EntitySet="artista" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
           <AssociationSet Name="FK_usuario_artista_artista" Association="CuandoTocanModel.Store.FK_usuario_artista_artista">
             <End Role="artista" EntitySet="artista" />
             <End Role="usuario_artista" EntitySet="usuario_artista" />
@@ -75,6 +79,7 @@
           <Property Name="spotify_id" Type="nvarchar" MaxLength="20" />
           <Property Name="estado" Type="nvarchar" MaxLength="10" />
           <Property Name="pais_origen" Type="nvarchar" MaxLength="50" />
+          <Property Name="image_path" Type="nvarchar" MaxLength="100" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
@@ -155,6 +160,7 @@
           </Key>
           <Property Name="id_tipo_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_artista" Type="int" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
@@ -181,6 +187,7 @@
           <Property Name="nombre_completo" Type="nvarchar" MaxLength="50" />
           <Property Name="fecha_nacimiento" Type="date" />
           <Property Name="biografia" Type="nvarchar" MaxLength="500" />
+          <Property Name="id_artista" Type="int" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
@@ -204,6 +211,8 @@
           <Property Name="flag_ofrece_carpooling" Type="char" Nullable="false" MaxLength="1" />
           <Property Name="origen_carpooling" Type="nvarchar" MaxLength="50" />
           <Property Name="flag_usa_carpooling" Type="char" MaxLength="1" />
+          <Property Name="flag_notif_carpooling" Type="char" MaxLength="1" />
+          <Property Name="flag_asist_fav" Type="char" MaxLength="1" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
@@ -279,6 +288,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_usuario_artista">
+          <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="0..1" />
+          <End Role="usuario" Type="CuandoTocanModel.Store.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="artista">
+              <PropertyRef Name="id_artista" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_artista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_usuario_artista_artista">
           <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
           <End Role="usuario_artista" Type="CuandoTocanModel.Store.usuario_artista" Multiplicity="*" />
@@ -344,7 +365,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CuandoTocanModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="CuandoTocanEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CuandoTocanEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="artista" EntityType="CuandoTocanModel.artista" />
           <EntitySet Name="discografia" EntityType="CuandoTocanModel.discografia" />
           <EntitySet Name="enlace_artista" EntityType="CuandoTocanModel.enlace_artista" />
@@ -364,6 +385,10 @@
           <AssociationSet Name="FK_enlace_artista_artista" Association="CuandoTocanModel.FK_enlace_artista_artista">
             <End Role="artista" EntitySet="artista" />
             <End Role="enlace_artista" EntitySet="enlace_artista" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_artista" Association="CuandoTocanModel.FK_usuario_artista">
+            <End Role="artista" EntitySet="artista" />
+            <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
           <AssociationSet Name="FK_usuario_artista_artista" Association="CuandoTocanModel.FK_usuario_artista_artista">
             <End Role="artista" EntitySet="artista" />
@@ -414,10 +439,12 @@
           <Property Name="spotify_id" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="estado" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="pais_origen" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="image_path" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="fecha_alta" Type="DateTime" />
           <Property Name="fecha_modificacion" Type="DateTime" />
           <NavigationProperty Name="discografia" Relationship="CuandoTocanModel.FK_discografia_artista" FromRole="artista" ToRole="discografia" />
           <NavigationProperty Name="enlace_artista" Relationship="CuandoTocanModel.FK_enlace_artista_artista" FromRole="artista" ToRole="enlace_artista" />
+          <NavigationProperty Name="usuario" Relationship="CuandoTocanModel.FK_usuario_artista" FromRole="artista" ToRole="usuario" />
           <NavigationProperty Name="usuario_artista" Relationship="CuandoTocanModel.FK_usuario_artista_artista" FromRole="artista" ToRole="usuario_artista" />
         </EntityType>
         <EntityType Name="discografia">
@@ -507,6 +534,7 @@
           </Key>
           <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="id_artista" Type="Int32" />
           <Property Name="fecha_alta" Type="DateTime" />
           <Property Name="fecha_modificacion" Type="DateTime" />
           <NavigationProperty Name="usuario" Relationship="CuandoTocanModel.FK_usuario_tipo_usuario" FromRole="tipo_usuario" ToRole="usuario" />
@@ -535,8 +563,10 @@
           <Property Name="nombre_completo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="fecha_nacimiento" Type="DateTime" />
           <Property Name="biografia" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="id_artista" Type="Int32" />
           <Property Name="fecha_alta" Type="DateTime" />
           <Property Name="fecha_modificacion" Type="DateTime" />
+          <NavigationProperty Name="artista" Relationship="CuandoTocanModel.FK_usuario_artista" FromRole="usuario" ToRole="artista" />
           <NavigationProperty Name="tipo_usuario1" Relationship="CuandoTocanModel.FK_usuario_tipo_usuario" FromRole="usuario" ToRole="tipo_usuario" />
           <NavigationProperty Name="usuario_artista" Relationship="CuandoTocanModel.FK_usuario_artista_usuario" FromRole="usuario" ToRole="usuario_artista" />
           <NavigationProperty Name="usuario_evento" Relationship="CuandoTocanModel.FK_usuario_evento_usuario" FromRole="usuario" ToRole="usuario_evento" />
@@ -563,6 +593,8 @@
           <Property Name="flag_ofrece_carpooling" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
           <Property Name="origen_carpooling" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="flag_usa_carpooling" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="flag_notif_carpooling" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="flag_asist_fav" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
           <Property Name="fecha_alta" Type="DateTime" />
           <Property Name="fecha_modificacion" Type="DateTime" />
           <NavigationProperty Name="evento" Relationship="CuandoTocanModel.FK_usuario_evento_evento" FromRole="usuario_evento" ToRole="evento" />
@@ -588,6 +620,18 @@
               <PropertyRef Name="id_artista" />
             </Principal>
             <Dependent Role="enlace_artista">
+              <PropertyRef Name="id_artista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_artista">
+          <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="0..1" />
+          <End Role="usuario" Type="CuandoTocanModel.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="artista">
+              <PropertyRef Name="id_artista" />
+            </Principal>
+            <Dependent Role="usuario">
               <PropertyRef Name="id_artista" />
             </Dependent>
           </ReferentialConstraint>
@@ -705,7 +749,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CuandoTocanModelStoreContainer" CdmEntityContainer="CuandoTocanEntities">
+        <EntityContainerMapping StorageEntityContainer="CuandoTocanModelStoreContainer" CdmEntityContainer="CuandoTocanEntities1">
           <EntitySetMapping Name="artista">
             <EntityTypeMapping TypeName="CuandoTocanModel.artista">
               <MappingFragment StoreEntitySet="artista">
@@ -717,6 +761,7 @@
                 <ScalarProperty Name="spotify_id" ColumnName="spotify_id" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="pais_origen" ColumnName="pais_origen" />
+                <ScalarProperty Name="image_path" ColumnName="image_path" />
                 <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
                 <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
               </MappingFragment>
@@ -804,6 +849,7 @@
               <MappingFragment StoreEntitySet="tipo_usuario">
                 <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_artista" ColumnName="id_artista" />
                 <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
                 <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
               </MappingFragment>
@@ -832,6 +878,7 @@
                 <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
                 <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
                 <ScalarProperty Name="biografia" ColumnName="biografia" />
+                <ScalarProperty Name="id_artista" ColumnName="id_artista" />
                 <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
                 <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
               </MappingFragment>
@@ -855,6 +902,8 @@
                 <ScalarProperty Name="flag_ofrece_carpooling" ColumnName="flag_ofrece_carpooling" />
                 <ScalarProperty Name="origen_carpooling" ColumnName="origen_carpooling" />
                 <ScalarProperty Name="flag_usa_carpooling" ColumnName="flag_usa_carpooling" />
+                <ScalarProperty Name="flag_notif_carpooling" ColumnName="flag_notif_carpooling" />
+                <ScalarProperty Name="flag_asist_fav" ColumnName="flag_asist_fav" />
                 <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
                 <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
               </MappingFragment>
@@ -880,78 +929,85 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="CTBase">
-        <EntityTypeShape EntityType="CuandoTocanModel.artista" Width="1.5" PointX="3" PointY="8.125" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.discografia" Width="1.5" PointX="5.25" PointY="8.5" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.enlace_artista" Width="1.5" PointX="8.25" PointY="8.5" Height="2.5571907552083335" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.evento" Width="1.5" PointX="6" PointY="14.125" Height="3.326396484374996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.locacion" Width="1.5" PointX="3.75" PointY="12.75" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.tipo_enlace" Width="1.5" PointX="6" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.tipo_evento" Width="1.5" PointX="3.75" PointY="16.875" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.tipo_usuario" Width="1.5" PointX="0.75" PointY="3.875" Height="1.9802864583333322" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.ubicacion_evento" Width="1.5" PointX="6" PointY="18.25" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.usuario" Width="1.5" PointX="3" PointY="3.125" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.usuario_artista" Width="1.5" PointX="5.25" PointY="3.75" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.usuario_evento" Width="1.5" PointX="8.25" PointY="3.5" Height="2.7494921875000031" IsExpanded="true" />
+      <Diagram Name="CTBBDD">
+        <EntityTypeShape EntityType="CuandoTocanModel.artista" Width="1.5" PointX="0.75" PointY="5.875" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.discografia" Width="1.5" PointX="3" PointY="6.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.enlace_artista" Width="1.5" PointX="6" PointY="6.5" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.evento" Width="1.5" PointX="6" PointY="12.125" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.locacion" Width="1.5" PointX="3.75" PointY="10.75" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.tipo_enlace" Width="1.5" PointX="3.75" PointY="17.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.tipo_evento" Width="1.5" PointX="3.75" PointY="14.875" Height="1.98028645833333" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.tipo_usuario" Width="1.5" PointX="0.75" PointY="2.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.ubicacion_evento" Width="1.5" PointX="6" PointY="16.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.usuario" Width="1.5" PointX="3" PointY="1.875" Height="3.9033007812500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.usuario_artista" Width="1.5" PointX="5.25" PointY="2.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.usuario_evento" Width="1.5" PointX="8.25" PointY="2.25" Height="3.1340950520833317" IsExpanded="true" />
         <AssociationConnector Association="CuandoTocanModel.FK_discografia_artista" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.7785953776041659" />
-          <ConnectorPoint PointX="5.25" PointY="9.7785953776041659" />
+          <ConnectorPoint PointX="2.25" PointY="7.7785953776041659" />
+          <ConnectorPoint PointX="3" PointY="7.7785953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_enlace_artista_artista" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.350444835937498" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="11.350444835937498" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="11.350444835937498" />
-          <ConnectorPoint PointX="9" PointY="11.350444835937498" />
-          <ConnectorPoint PointX="9" PointY="11.057190755208334" />
+          <ConnectorPoint PointX="2.25" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="6.75" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="6.75" PointY="9.0571907552083317" />
+        </AssociationConnector>
+        <AssociationConnector Association="CuandoTocanModel.FK_usuario_artista" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.875" />
+          <ConnectorPoint PointX="2.625" PointY="5.5" />
+          <ConnectorPoint PointX="2.625" PointY="6.1533007812500031" />
+          <ConnectorPoint PointX="3" PointY="5.7783007812500031" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_artista_artista" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="8.1261528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="7.7511528461538468" />
-          <ConnectorPoint PointX="4.875" PointY="4.8362939453125016" />
-          <ConnectorPoint PointX="5.25" PointY="4.8362939453125016" />
+          <ConnectorPoint PointX="2.25" PointY="6.1875025" />
+          <ConnectorPoint PointX="5.59375" PointY="6.1875025" />
+          <ConnectorPoint PointX="5.59375" PointY="4.9225878906250031" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_enlace_artista_tipo_enlace" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="2.9225878906249996" />
-          <ConnectorPoint PointX="7.875" PointY="3.2975878906249996" />
-          <ConnectorPoint PointX="7.875" PointY="9.7785953776041659" />
-          <ConnectorPoint PointX="8.25" PointY="9.7785953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="17.751152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="17.376152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="7.7785953776041659" />
+          <ConnectorPoint PointX="6" PointY="7.7785953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_evento_locacion" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="15.1006982421875" />
-          <ConnectorPoint PointX="6" PointY="15.1006982421875" />
+          <ConnectorPoint PointX="5.25" PointY="13.1006982421875" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="13.1006982421875" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="13.1006982421875" />
+          <ConnectorPoint PointX="6" PointY="13.1006982421875" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_evento_tipo_evento" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="17.163198242187498" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="17.163198242187498" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="17.163198242187498" />
-          <ConnectorPoint PointX="6" PointY="17.163198242187498" />
+          <ConnectorPoint PointX="5.25" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.729166666666667" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.895833333333333" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="6" PointY="15.1631982421875" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_evento_evento" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.15625" PointY="14.125" />
-          <ConnectorPoint PointX="7.15625" PointY="6.1172900390625031" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="6.1172900390625022" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="6.1172900390625031" />
-          <ConnectorPoint PointX="8.25" PointY="6.1172900390625031" />
+          <ConnectorPoint PointX="7.5" PointY="13.7881982421875" />
+          <ConnectorPoint PointX="9" PointY="13.7881982421875" />
+          <ConnectorPoint PointX="9" PointY="5.3840950520833317" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_ubicacion_evento_evento" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="16.076396484375" />
-          <ConnectorPoint PointX="5.625" PointY="16.451396484375" />
-          <ConnectorPoint PointX="5.625" PointY="19.432444661458334" />
-          <ConnectorPoint PointX="6" PointY="19.432444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="14.014087792067308" />
+          <ConnectorPoint PointX="5.5660744349011217" PointY="14.330162226968428" />
+          <ConnectorPoint PointX="5.6839255650988791" PointY="14.448013357166186" />
+          <ConnectorPoint PointX="5.8125" PointY="14.576587792067308" />
+          <ConnectorPoint PointX="5.8125" PointY="17.432444661458334" />
+          <ConnectorPoint PointX="6" PointY="17.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_tipo_usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.8651432291666659" />
-          <ConnectorPoint PointX="3" PointY="4.8651432291666659" />
+          <ConnectorPoint PointX="2.25" PointY="3.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="3.8362939453125" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_artista_usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="4.2306469726562508" />
-          <ConnectorPoint PointX="5.25" PointY="4.2306469726562508" />
+          <ConnectorPoint PointX="4.5" PointY="3.8362939453125016" />
+          <ConnectorPoint PointX="5.25" PointY="3.8362939453125016" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_evento_usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="3.59375" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="3.5937499999999996" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="3.59375" />
-          <ConnectorPoint PointX="8.25" PointY="3.59375" />
+          <ConnectorPoint PointX="4.5" PointY="2.46875" />
+          <ConnectorPoint PointX="8.25" PointY="2.46875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

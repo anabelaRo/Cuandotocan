@@ -112,7 +112,10 @@ border-bottom: 0 none;
  
 }
 
-
+#lblLogin
+{
+    text-align:center;
+}
 
 /*Slider*/
 /* jssor slider bullet navigator skin 05 css */
