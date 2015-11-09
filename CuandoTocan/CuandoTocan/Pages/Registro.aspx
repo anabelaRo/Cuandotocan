@@ -5,7 +5,6 @@
          <h2 class="title">
                     <a href="#">Crear cuenta</a>
          </h2>
-         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
           <div class="resume-body">    
               <div class="row">
                  <div class="col-sm-2">
@@ -14,6 +13,7 @@
                  <div class="col-sm-4">
                     <asp:TextBox ID="regUser" runat="server" placeholder="JuanPerez90" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="regUserVal" ControlToValidate="regUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="text-danger"></asp:RequiredFieldValidator>
+                    <asp:Label ID="Label1" runat="server" class="text-danger" Text=""></asp:Label>
                 
                 </div>
                 <div class="col-sm-2">
@@ -46,14 +46,38 @@
                          <label for="ddlTiUsua">Tipo de Usuario</label>
                     </div>
                     <div class="col-sm-4">
-                         <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control"  onselectedindexchanged="ddlTiUsua_SelectedIndexChanged">   
+                        <%-- <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control"  onchange="javascript:test();" onselectedindexchanged="ddlTiUsua_SelectedIndexChanged">   
+                          --%>   <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control"  onchange="javascript:tipousuDiv();" >   
                              <asp:ListItem Enabled="true" Text="Elija Tipo de usuario" Value="0"></asp:ListItem>
                              <asp:ListItem Text="Usuario" Value="1"></asp:ListItem>
                              <asp:ListItem Text="Artista" Value="2"></asp:ListItem> 
                          </asp:DropDownList>
+
+                         <script type="text/javascript">
+                              
+                             function tipousuDiv() {
+                                 var ddl = document.getElementById('<%=ddlTiUsua.ClientID%>');
+                                 var ddlSel = ddl.options[ddl.selectedIndex].value;
+
+                                 if (ddlSel == 1) {
+                                     document.getElementById('<%=altaUsuarioU.ClientID %>').style.display = 'block';
+                                     document.getElementById('<%=altaUsuarioA.ClientID %>').style.display = 'none';
+                                 }
+                                 else if (ddlSel == 2) {
+                                     document.getElementById('<%=altaUsuarioU.ClientID %>').style.display = 'none';
+                                     document.getElementById('<%=altaUsuarioA.ClientID %>').style.display = 'block';
+                                 }
+                                 else {
+                                     alert("elija tipo de usuario");
+                                     document.getElementById('<%=altaUsuarioU.ClientID %>').style.display = 'none';
+                                     document.getElementById('<%=altaUsuarioA.ClientID %>').style.display = 'none';
+                                 }
+                             }
+                        </script>
+                     
                     </div>     
                 </div>
-            <div id ="altaUsuarioU" runat="server">
+            <div id ="altaUsuarioU" style="display:none" runat="server">
                       <div class="row">
                           <div class="col-sm-2">
                                <label for="inputNombre">Nombre Completo</label>
@@ -79,7 +103,7 @@
                        </div>
                       </div>
                    </div>
-            <div id ="altaUsuarioA" runat="server">
+            <div id ="altaUsuarioA" style="display:none" runat="server">
                     <div class="row">                             
                         <div class="col-sm-2">
                                <label for="lblNombre">Nombre</label>

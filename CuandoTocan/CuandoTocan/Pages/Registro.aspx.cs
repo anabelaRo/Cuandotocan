@@ -14,38 +14,9 @@ namespace CuandoTocan.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            altaUsuarioU.Visible = true;
-            altaUsuarioA.Visible = false;
-        }
-
-        protected void ddlTiUsua_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
-            var nomTiUsu = ddlTiUsua.SelectedItem.Text;
-
-
-            switch (tipousu)
-            {
-                case 0:
-                    altaUsuarioU.Visible = false;
-                    altaUsuarioA.Visible = false;
-                    //UpdatePanel1.Update();
-                    break;
-                case 1:
-                    altaUsuarioU.Visible = true;
-                    altaUsuarioA.Visible = false;
-                    //UpdatePanel1.Update();
-                    break;
-                case 2:
-                    altaUsuarioU.Visible = false;
-                    altaUsuarioA.Visible = true;
-                    //UpdatePanel1.Update();
-                    break;
-
-            }
+          
         }
         
-
   
         protected void btnReg_Click(object sender, EventArgs e)
         {
@@ -63,7 +34,7 @@ namespace CuandoTocan.Pages
                     var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text );
                     if (usuarioNoDis == 0)
                     {
-                        // Do your insert
+                        
 
                         if (tipousu == 1)
                         {
@@ -73,7 +44,6 @@ namespace CuandoTocan.Pages
 
                                 try
                                 {
-
 
                                     CuandoTocan.usuario us = new CuandoTocan.usuario();
 
@@ -99,22 +69,19 @@ namespace CuandoTocan.Pages
                                     //throw;
                                 }
 
-
-                                //{ MandarMail(); 
-
                             }
                         }
                         else if (tipousu == 2)
                         {
                             Page.Validate("registroA");
                             if (Page.IsValid)
-                            { Label1.Text = serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
+                            { serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
                         }
                     }
 
                     else
                     {
-                        Label1.Text = "Usuario en uso";
+                        Label1.Text = "El Usuario está en uso";
                     }
 
                 } 
