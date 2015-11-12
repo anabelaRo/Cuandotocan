@@ -138,7 +138,7 @@
                      </div>
                      <div class="row">
                           <div class="col-sm-2">
-                               <label for="lvlDescrip">País de Origen</label>
+                               <label for="lvlpais">País de Origen</label>
                           </div>
                           <div class="col-sm-4">
                                        <asp:DropDownList ID="DropDownPais" runat="server" class="form-control" >   
@@ -149,6 +149,16 @@
                                      </asp:DropDownList>
                         </div>
                      </div>
+                      <div class="row">
+                          <div class="col-sm-2">
+                               <label for="lvlDescripA">Breve descripción</label>
+                          </div>
+                         <div class="col-sm-10">
+                            <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="150" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" />
+                       </div>
+                       </div>
+
+
            </div>
 
                                                         

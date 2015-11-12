@@ -34,7 +34,14 @@ namespace CuandoTocan.Pages
                     var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text );
                     if (usuarioNoDis == 0)
                     {
-                        
+
+                        CuandoTocan.usuario us = new CuandoTocan.usuario();
+
+                        us.nickname = regUser.Text;
+                        us.email = regMail.Text;
+                        us.password = regPassword.Text;
+                        us.tipo_usuario = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
+                        us.fecha_alta = DateTime.Now;
 
                         if (tipousu == 1)
                         {
@@ -45,18 +52,12 @@ namespace CuandoTocan.Pages
                                 try
                                 {
 
-                                    CuandoTocan.usuario us = new CuandoTocan.usuario();
-
-                                    us.nickname = regUser.Text;
-                                    us.email = regMail.Text;
-                                    us.password = regPassword.Text;
-                                    us.tipo_usuario = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
+                                    
                                     us.nombre_completo = regNombre.Text;
                                     us.fecha_nacimiento = Convert.ToDateTime(regFNac.Text);
                                     us.biografia = TextAreaBio.Text;
-                                    us.fecha_alta = DateTime.Now;
-
-
+                                    
+                                    
                                     ct.AddTousuario(us);
                                     ct.SaveChanges();
 
@@ -75,8 +76,44 @@ namespace CuandoTocan.Pages
                         {
                             Page.Validate("registroA");
                             if (Page.IsValid)
-                            { serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
+                            { 
+                                
+
+                            ct.AddTousuario(us);
+                            ct.SaveChanges();
+
+                            int id_usu = us.id_usuario;
+
+                           
+                            CuandoTocan.artista ar = new CuandoTocan.artista();
+
+                            ar.nombre = txtNombreA.Text;
+                            ar.spotify_id = txtSpotify.Text;
+                            ar.genero = txtGeneroA.Text;
+                            ar.mbid = txtMBrainz.Text;
+                            ar.pais_origen = DropDownPais.SelectedItem.ToString();
+                            ar.descripcion = txtDescrip.Text;
+
+                            ct.AddToartista(ar);
+                            ct.SaveChanges();
+
+                            int id_arti = ar.id_artista;
+
+                            var query = from u in ct.usuario
+                                        where u.id_usuario == id_usu
+                                        select u;
+
+                            foreach (var u in query)
+                            {
+                                u.id_artista = id_arti;
+                       
+                            }
+
+                            ct.SaveChanges();
+
+                            serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
                         }
+                    }
                     }
 
                     else
@@ -89,4 +126,3 @@ namespace CuandoTocan.Pages
         }
 
     }
-}

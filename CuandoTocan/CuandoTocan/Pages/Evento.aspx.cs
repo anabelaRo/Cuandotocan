@@ -23,7 +23,7 @@ namespace CuandoTocan
             string user = Session["usuario"].ToString();
             string mail = Session["mail"].ToString();
             int id_evento = 3;  // ahor se hardcodea valor, pero debe recibirse por sesion
-            //string evento =  Convert.ToInt32(Session["evento"]);
+            //string id_evento =  Convert.ToInt32(Session["evento"]);
            
 
             CuandoTocan.usuario_evento ue = new usuario_evento();
