@@ -51,6 +51,7 @@ namespace CuandoTocan
                     string user = txtUser.Text;
                     foreach (var u in usuarioNoDis)
                     {
+                      Session["id_usua"] = u.id_usuario;
                       Session["mail"] = u.email;
                       mail  = u.email;
                     }

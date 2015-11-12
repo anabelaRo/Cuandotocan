@@ -3,6 +3,7 @@
 
 
   <div id="divPerfilEvento">
+      
 
         <div id="divIzquierdaE">
             <div class="col-md-4">
@@ -22,7 +23,16 @@
 
                
                   </script>--%>
+                  <script type="text/javascript">
 
+                      function desde() {
+                         document.getElementById('desdeCa').style.display = 'block';
+                      }
+                      function sinauto() {
+
+                          document.getElementById('desdeCa').style.display = 'none';
+                      }
+                   </script>
 
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                         <ContentTemplate>
@@ -41,25 +51,42 @@
                                                             Si vas en auto, podes compartir el viaje con otros usuarios, para conocer gente y abaratar costos
                                                             <strong>Animate!</strong><br />
                                                            <br />
+
                                                            <div class="row">
-                                                             Ok, deseo compartir mi auto: <asp:CheckBox ID="chkCarpooling" runat="server" />
+                                                             Ok, deseo compartir mi auto: 
+                                                               <asp:RadioButton ID="radConAuto" GroupName="carpooling" runat="server" OnClick="javascript:desde();" />
                                                             </div>
+                                                            
+
+                                                             <div id="desdeCa" style="display:none";>
                                                             <div class="row">
+                                                            
                                                             Salgo en auto desde:
                                                             </div>
                                                             <div class="row">
                                                             <div class="col-sm-10">
-                                                            <asp:TextBox ID="txtCarpooling" runat="server" placeholder="Av. Rivadavia 8875, Morón, Buenos Aires" class="form-control"/>
+                                                            <asp:TextBox ID="txtCarpooling" runat="server" placeholder="Av. Rivadavia 8875, Morón, Buenos Aires"  class="form-control" />
                                                            </div>
+                                                           </div>
+                                                            </div>
+                                                            <div class="row">
+
+                                                           Quiero recibir notificaciones de usuarios que asistan en auto
+                                                           <asp:RadioButton ID="radSinAuto" GroupName="carpooling" runat="server" OnClick="javascript:sinauto();" />
+
+                                                            </div>
+                                                            
+                                                          <asp:Button ID="btnEvento" runat="server" Text="Confirmar" class="btn btn-default" 
+          onclick="btnEvento_Click" />
                                                           </div>
-                                                            <asp:Button ID="btnConf" runat="server" Text="Confirmar" class="btn btn-default" />
+                                                          
                                                           </div>
                                                         <div class="modal-footer">
                                                           
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                           
                                             
                                        </ContentTemplate>
                                     </asp:UpdatePanel>
@@ -106,7 +133,6 @@
                   <strong>La Plata<br />
                     Buenos Aires, Argentina</strong><br />
                     Tel: +54 (0221) 479-5783
-
                   </div>
              
             </div>

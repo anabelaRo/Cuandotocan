@@ -100,9 +100,87 @@ namespace CuandoTocan.WebServices
             
         }
 
-         public string MandarMailCPsinAut(string evento, string mail, string user)
+        public string MandarMailCPsinAut(int evento_id, string mail, string user)
+        {
+            //MAILS CUANDO USUARIO INDICA asistencia sin auto, se le envian todos los que estan hasta el momento con auto
+            string ret;
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Timeout = 100000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
+            int cont;
+
+            evento_id = 3; //test
+            CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+
+
+            var query = (from ue in ct.usuario_evento
+                         join u in ct.usuario on ue.id_usuario equals u.id_usuario
+                         where (ue.flag_ofrece_carpooling == "S") && ue.id_evento == evento_id
+                         select new
+                         {
+                             user = u.nickname,
+                             mail = u.email,
+                             desde = ue.origen_carpooling
+                         });
+
+            string cuerpo = "";
+
+            foreach (var ue in query)
+            {
+
+                cuerpo += "<tr>" +
+                                             "<td >" + ue.user + "</td>" +
+                                             "<td>" + ue.mail + "</td>" +
+                                             "<td>" + ue.desde + "</td>" +
+                                       "</tr>";
+
+            }
+            if (query != null)
+            {
+                try
+                {
+
+                    MailMessage msg = new MailMessage();
+                    msg.To.Add(mail);
+                    msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                    msg.Subject = "Carpooling en CuandoTocan!";
+                    msg.IsBodyHtml = true;
+                    StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailEsinAuto.htm"));
+                    string readFile = reader.ReadToEnd();
+                    string StrContent = "";
+                    StrContent = readFile;
+                    StrContent = StrContent.Replace("[MyName]", user);
+                    StrContent = StrContent.Replace("[MyEvent]", evento_id.ToString());
+                    StrContent = StrContent.Replace("[MyTable]", cuerpo);
+
+                    msg.Body = StrContent.ToString();
+                    client.Send(msg);
+                    ret = "Enviado";
+                    return (ret);
+                }
+
+                catch (Exception ex)
+                {
+                    ret = ex.Message;
+                    return (ret);
+
+                }
+            }
+            else
+            {
+                ret = "Aún no hay autos ofrecidos";
+                return (ret);
+            }
+        }
+
+
+         public string MandarMailCPConAut(int evento_id, string user)
          {
-             //MAILS CUANDO USUARIO INDICA asistencia sin auto, se envian todos los que estan hasta el momento
+             //MAILS CUANDO USUARIO INDICA asistencia con auto, se envian todos marcaron carpooling
              string ret;
              SmtpClient client = new SmtpClient("smtp.gmail.com");
              client.Port = 587;
@@ -112,46 +190,57 @@ namespace CuandoTocan.WebServices
              client.UseDefaultCredentials = false;
              client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
              int cont;
-             
-             try{
 
-                 MailMessage msg = new MailMessage();
-                 msg.To.Add(mail);
-                 msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
-                 msg.Subject = "Carpooling en CuandoTocan!";
-                 msg.IsBodyHtml = true;
-                 StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailE.htm"));
-                 string readFile = reader.ReadToEnd();
-                 string StrContent = "";
-                 StrContent = readFile;
-                 StrContent = StrContent.Replace("[MyName]", user);
-                 StrContent = StrContent.Replace("[MyEvent]", evento);
-                 // select usuario, mail from usuario_evento where id_evento = evento
-                 //foreach result in query
-                 // {
-                 //  cont = cont +1;
-                 //   se tiene que agregar al template html la tabla.
-                 //     se podria crear aca dentro como string y pasarle un [MyTable]
-                 //
-                 //msg.To.Add("emiliano.zambrano@hotmail.com");
-                 //msg.To.Add("juan_sobrile@hotmail.com");
-                 //
-                 //
-                 //client.Send(msg);
-                 msg.Body = StrContent.ToString();
-                 client.Send(msg);
-                 ret = "Enviado";
-                 return (ret);
-                }
-                 
-                 catch (Exception ex)
-                 {
-                     ret = ex.Message;
+             evento_id = 3; //test
+             CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+
+
+             var query = (from ue in ct.usuario_evento
+                          join u in ct.usuario on ue.id_usuario equals u.id_usuario
+                          where (ue.flag_usa_carpooling == "S") && ue.id_evento == evento_id
+                          select new
+                          {
+                              user = u.nickname,
+                              mail = u.email,
+                             });
+
+             string cuerpo = "";
+
+             foreach (var ue in query)
+             {
+
+                     MailMessage msg = new MailMessage();
+                     msg.To.Add(ue.mail);
+                     msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                     msg.Subject = "Carpooling en CuandoTocan!";
+                     msg.IsBodyHtml = true;
+                     StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailEconAuto.htm"));
+                     string readFile = reader.ReadToEnd();
+                     string StrContent = "";
+                     StrContent = readFile;
+                     StrContent = StrContent.Replace("[MyName]", ue.user);
+                     StrContent = StrContent.Replace("[MyEvent]", evento_id.ToString());
+                     StrContent = StrContent.Replace("[user]", Session["usuario"].ToString());
+                     StrContent = StrContent.Replace("[userMail]", Session["mail"].ToString());
+                     StrContent = StrContent.Replace("[desde]", Session["desde"].ToString());
+                     msg.Body = StrContent.ToString();
+                     client.Send(msg);
+                   
+
+
+                  }
+             
+               ret = "Enviado";
+                     
                      return (ret);
                  }
-             }
+
+                
+
+
+         }
+       
             
          }
         
     
-}

@@ -22,13 +22,13 @@ namespace CuandoTocan {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// chkCarpooling control.
+        /// radConAuto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCarpooling;
+        protected global::System.Web.UI.WebControls.RadioButton radConAuto;
         
         /// <summary>
         /// txtCarpooling control.
@@ -40,12 +40,21 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.TextBox txtCarpooling;
         
         /// <summary>
-        /// btnConf control.
+        /// radSinAuto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConf;
+        protected global::System.Web.UI.WebControls.RadioButton radSinAuto;
+        
+        /// <summary>
+        /// btnEvento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEvento;
     }
 }

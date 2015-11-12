@@ -529,3 +529,9 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 {
     color:#000;
 }
+
+
+#myModalE > .modal-dialog
+{
+ width: 34%;
+}
