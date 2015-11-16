@@ -40,6 +40,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// valUser2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator valUser2;
+        
+        /// <summary>
         /// regMail control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace CuandoTocan.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator regPasswordVal;
+        
+        /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
         
         /// <summary>
         /// regRePassword control.

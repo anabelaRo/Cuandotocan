@@ -119,21 +119,23 @@ namespace CuandoTocan.WebServices
 
             var query = (from ue in ct.usuario_evento
                          join u in ct.usuario on ue.id_usuario equals u.id_usuario
+                         join even in ct.evento on ue.id_evento equals even.id_evento
                          where (ue.flag_ofrece_carpooling == "S") && ue.id_evento == evento_id
                          select new
                          {
-                             user = u.nickname,
+                             nombre = u.nombre_completo,
                              mail = u.email,
-                             desde = ue.origen_carpooling
+                             desde = ue.origen_carpooling,
+                             eve = even.titulo,
                          });
 
             string cuerpo = "";
-
+            string ev = "";
             foreach (var ue in query)
             {
-
+                ev = ue.eve;
                 cuerpo += "<tr>" +
-                                             "<td >" + ue.user + "</td>" +
+                                             "<td >" + ue.nombre + "</td>" +
                                              "<td>" + ue.mail + "</td>" +
                                              "<td>" + ue.desde + "</td>" +
                                        "</tr>";
@@ -154,7 +156,7 @@ namespace CuandoTocan.WebServices
                     string StrContent = "";
                     StrContent = readFile;
                     StrContent = StrContent.Replace("[MyName]", user);
-                    StrContent = StrContent.Replace("[MyEvent]", evento_id.ToString());
+                    StrContent = StrContent.Replace("[MyEvent]", ev.ToString());
                     StrContent = StrContent.Replace("[MyTable]", cuerpo);
 
                     msg.Body = StrContent.ToString();
@@ -197,11 +199,13 @@ namespace CuandoTocan.WebServices
 
              var query = (from ue in ct.usuario_evento
                           join u in ct.usuario on ue.id_usuario equals u.id_usuario
+                          join e in ct.evento on ue.id_evento equals e.id_evento
                           where (ue.flag_usa_carpooling == "S") && ue.id_evento == evento_id
                           select new
                           {
-                              user = u.nickname,
+                              nombre = u.nombre_completo,
                               mail = u.email,
+                              even = e.titulo,
                              });
 
              string cuerpo = "";
@@ -218,8 +222,8 @@ namespace CuandoTocan.WebServices
                      string readFile = reader.ReadToEnd();
                      string StrContent = "";
                      StrContent = readFile;
-                     StrContent = StrContent.Replace("[MyName]", ue.user);
-                     StrContent = StrContent.Replace("[MyEvent]", evento_id.ToString());
+                     StrContent = StrContent.Replace("[MyName]", ue.nombre);
+                     StrContent = StrContent.Replace("[MyEvent]", ue.even.ToString());
                      StrContent = StrContent.Replace("[user]", Session["usuario"].ToString());
                      StrContent = StrContent.Replace("[userMail]", Session["mail"].ToString());
                      StrContent = StrContent.Replace("[desde]", Session["desde"].ToString());

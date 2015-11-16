@@ -3,26 +3,22 @@
 
 
   <div id="divPerfilEvento">
-      
+    <asp:HiddenField ID="lat" runat="server"  ClientIDMode="Static" />
+    <asp:HiddenField ID="lon" runat="server"  ClientIDMode="Static" />
+
+  <%--  cuando se dirija de la busqueda de evento al detalle, se tiene que recibir el ID del evento, la latitud y la longitud--%>
 
         <div id="divIzquierdaE">
             <div class="col-md-4">
-                <img class="img-responsive" alt="" src="../img/Galeria/muse.png" />
+                <img id="imgArtista" runat="server" class="img-responsive" alt="" src="../img/Galeria/muse.png" />
+
+                
             <br />
             <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="voy" runat="server">
                   <%-- <asp:CheckBox ID="CheckBox2" CssClass="custom_check" checked runat="Server" data-off-text="False" data-on-text="True" OnCheckedChanged="CheckBox2_CheckedChanged" />--%>
                   <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalE">     Voy!    </button>
-                 <%-- <input id="checkbox1" type="checkbox" data-off-text="No&nbsp;voy" data-on-text="Voy!" checked="false" class="BSswitch">
-               
-                  <script>
-
-                      $(document).ready(function () {
-                          $('#checkbox1').bootstrapSwitch();
-                      });
-
-               
-                  </script>--%>
+                
                   <script type="text/javascript">
 
                       function desde() {
@@ -66,6 +62,7 @@
                                                             <div class="row">
                                                             <div class="col-sm-10">
                                                             <asp:TextBox ID="txtCarpooling" runat="server" placeholder="Av. Rivadavia 8875, Morón, Buenos Aires"  class="form-control" />
+                                                              <%--  <asp:RequiredFieldValidator ID="valCP" runat="server" ControlToValidate="txtCarpooling" class="text-danger" ErrorMessage="Si ofrece Carpooling debe indicar desde donde"></asp:RequiredFieldValidator>--%>
                                                            </div>
                                                            </div>
                                                             </div>
@@ -120,19 +117,22 @@
             
     </div>
     <br />
-        <div id="divDerechaE">
+           <div id="divDerechaE">
             <div class="moduleE">
                 <h2 class="title">
-                    MUSE |   Viernes 02 de octubre, 21hs
+                    <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
                 </h2>
                 <div class="resume-body">
               
-                   <h3>  <strong>Estadio Único de La Plata</strong></h3>
-                    32 y 25<br />
-                    Tolosa<br />
-                  <strong>La Plata<br />
-                    Buenos Aires, Argentina</strong><br />
-                    Tel: +54 (0221) 479-5783
+                   <h3>  <strong>    
+                       <asp:Label ID="lblArti" runat="server" Text=""></asp:Label>   </strong><br />
+                   El 
+                       <asp:Label ID="lblFecha" runat="server" Text=""></asp:Label>
+                   En    <asp:Label ID="lblLugar" runat="server" Text=""></asp:Label></h3>
+                    <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label><br />
+                    <asp:Label ID="lblCiudad" runat="server" Text=""></asp:Label><br />
+                      Capacidad: <asp:Label ID="lblCapacidad" runat="server" Text=""></asp:Label><br />
+                     Consultas:   <asp:Label ID="lblContacto" runat="server" Text="Label"></asp:Label>
                   </div>
              
             </div>
@@ -141,6 +141,7 @@
 
 
         </div>
+
          <div id="map_canvas" >
     </div>
     
@@ -149,9 +150,9 @@
     </div>
 
     
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzQgis4x77FBxoDPawUOFvt0c_D06vkM0&callback=initMap">
-    </script>
+   
+<%--<script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzQgis4x77FBxoDPawUOFvt0c_D06vkM0&callback=initMap" > </script>--%>
+
 
     
 </asp:Content>

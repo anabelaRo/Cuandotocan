@@ -43,24 +43,33 @@ jssor_1_slider_init = function() {
 
 // google.maps.event.addDomListener(window, 'load', init);
         
+
+
               function initMap() {
                 // Basic options for a simple Google Map
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+
+                
+//                 var prop = <%=MyProperty %>;
+//                  var prop = document.getElementById('<%=MyProperty %>');
+
+                  var lat = document.getElementById('lat').value;
+                  var long = document.getElementById('lon').value;
+
                 var mapOptions = {
                     // How zoomed in you want the map to start at (always required)
                     zoom: 16,
-
-                    // The latitude and longitude to center the map (always required)
-                    center: new google.maps.LatLng(-34.91375, -57.989028), // New York
+              // The latitude and longitude to center the map (always required)
+                     //center: new google.maps.LatLng(-34.91375, -57.989028), // New York
+                      //center: new google.maps.LatLng(-34.91375, -57.989028)
+                     center: new google.maps.LatLng(lat, long),
+                   
 
                     // How you would like to style the map. 
                     // This is where you would paste any style found on Snazzy Maps.
                     styles: [{"featureType": "road","stylers": [{ "color": "#b4b4b4" }]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a0d6d1"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#dedede"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#dedede"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f1f1f1"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
                 
                     //styles: [{"featureType":"road", "stylers":[{"color":"#b4b4b4"},{"featureType":"water","stylers":[{"color":"##d8d8d8"}]},{"featureType":"landscape","stylers":[{"color":"#f1f1f1"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#000000"}]},{"featureType":"poi","stylers":[{"color":"#d9d9d9"}]},{"elementType":"labels.text","stylers":[{"saturation": 1 },{"weight": 0.1 },{ "color": "#000000" }]}];
-
-  
-
 
                 };
 
@@ -73,7 +82,7 @@ jssor_1_slider_init = function() {
                 var image = '../img/logo_min_mapa.png';
                 // Let's also add a marker while we're at it
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(-34.91375, -57.989028),
+                    position: new google.maps.LatLng(lat, long),
                     map: map,
                     icon: image
                   
@@ -100,3 +109,15 @@ jssor_1_slider_init = function() {
    
     }, true);
 });
+
+
+
+// validaciones de registro
+
+
+function validateLength(oSrc, args) {
+      args.IsValid = (args.Value.length <= 20);
+
+      
+     
+}
