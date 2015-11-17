@@ -61,7 +61,7 @@ namespace CuandoTocan
              
                     /*llamo funcion JS para que refresque la master, saca el botón de login y pone mensaje de bienvenida*/
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "test('" + user + "');", true);
-                 
+                    Response.Redirect(Request.RawUrl);
 
                 }
             }

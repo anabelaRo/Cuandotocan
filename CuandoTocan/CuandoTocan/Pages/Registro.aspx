@@ -14,7 +14,12 @@
                     <asp:TextBox ID="regUser" runat="server" placeholder="JuanPerez90" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="regUserVal" ControlToValidate="regUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="text-danger"></asp:RequiredFieldValidator>
                     <asp:Label ID="Label1" runat="server" class="text-danger" Text=""></asp:Label>
-                
+                    <asp:CustomValidator id="valUser2" runat="server" 
+                      ControlToValidate = "regUser"
+                      ErrorMessage = "Largo máximo 20 chars"
+                      ClientValidationFunction="validateLength" 
+                       ValidationGroup="registro" class="text-danger">
+                    </asp:CustomValidator>
                 </div>
                 <div class="col-sm-2">
                     <label for="imputUser">E-Mail</label>
@@ -23,6 +28,7 @@
                     <asp:TextBox ID="regMail" runat="server" placeholder="JuanPerez90@gmail.com" class="form-control"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="regMailVal" ControlToValidate="regMail" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registro" class="text-danger"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="validateEmail" runat="server" ErrorMessage="Email inválido" class="text-danger" ControlToValidate="regMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"  ValidationGroup="registro" />
+                   
                 </div>
               </div>
               <div class="row">
@@ -32,6 +38,12 @@
                     <div class="col-sm-4">
                        <asp:TextBox ID="regPassword" type="password" TextMode="password"  runat="server" placeholder="Password123" class="form-control"></asp:TextBox>
                        <asp:RequiredFieldValidator ID="regPasswordVal" ControlToValidate="regPassword" runat="server" ErrorMessage="Campo Obligatorio" class="text-danger" ValidationGroup="registro"></asp:RequiredFieldValidator>
+                          <asp:CustomValidator id="CustomValidator1" runat="server" 
+                      ControlToValidate = "regPassword"
+                      ErrorMessage = "Largo máximo 20 chars"
+                      ClientValidationFunction="validateLength" 
+                       ValidationGroup="registro" class="text-danger">
+                    </asp:CustomValidator>
                     </div>
                     <div class="col-sm-2">
                        <label for="inputRePassword">Re-Password</label>
