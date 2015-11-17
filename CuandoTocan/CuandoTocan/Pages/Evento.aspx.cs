@@ -14,11 +14,6 @@ namespace CuandoTocan
      
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            
-        }
-=======
-
             /* para que muestre o no el botón VOY  si esta o no logueado*/
             if (Session["usuario"] == null)
             {
@@ -36,7 +31,7 @@ namespace CuandoTocan
             int id_evento = 3;  // ahora se hardcodea valor, pero debe recibirse por sesion
             //string id_evento =  Convert.ToInt32(Session["evento"]);
 
-            CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
             var infoevento = (from ev in ct.evento
                              join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
@@ -95,8 +90,6 @@ namespace CuandoTocan
             Page.ClientScript.RegisterStartupScript(this.GetType(), "myKey", myScript, false);
 
        }
->>>>>>> origin/master
-
 
         protected void btnEvento_Click(object sender, EventArgs e)
         {

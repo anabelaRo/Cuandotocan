@@ -24,7 +24,7 @@ namespace CuandoTocan
                     System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
 
                     dynDiv.ID = "divDescatados";
-                    dynDiv.InnerHtml = "<div class='row'><div class='col-md-7'><a href='Pages/PerfilArtista.aspx?id_Artista=" + a.id_artista + "'><img class='img-responsive' src='" + a.image_path + "' alt=''/></a></div><div class='col-md-5'><a class='h4' href='Pages/PerfilArtista.aspx?id_Artista=" + a.id_artista + "'>" + a.nombre + "</a></div></div><hr/>";
+                    dynDiv.InnerHtml = "<div class='row'><div class='col-md-7'><a class='h4' href='Pages/PerfilArtista.aspx?id_Artista=" + a.id_artista + "'><img class='img-responsive' src='" + a.image_path + "' alt=''/></div><div class='col-md-5'>" + a.nombre + "</a></div></div><hr/>";
 
                     divDestacados1.Controls.Add(dynDiv);
                 }

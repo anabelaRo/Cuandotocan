@@ -1,6 +1,7 @@
 ﻿#divPerfilArtistas
 {
     margin-top: 2%;
+    overflow: hidden;
 }
 
 #divPerfilArtistas .module {
@@ -51,21 +52,29 @@ background: #ffffff none repeat scroll 0 0 padding-box;
     white-space: nowrap;
 }
 
+
+
+
+
+
+
+
+
+
 #divIzquierda {
     position: absolute;
-    width: 20%;
+    .width: 20%;
 }
 
-#divBotones
+#ContentHomeCenterMed_divImgArtista
 {
-    overflow: hidden;
-    width: 100%;
+    
 }
 
-#divBotones .col-md-3
+#ContentHomeCenterMed_divImgArtista .imgArtista
 {
-    margin-top: 5px;
-    width: 100%;
+     border-radius: 10px;
+    width: 250px; 
 }
 
 #divIzquierda .list-group
@@ -90,3 +99,28 @@ background: #ffffff none repeat scroll 0 0 padding-box;
     color: #fff;
     z-index: 2;
 }
+
+
+
+
+
+
+#divMenuArtistaVert
+{
+    overflow:hidden;   
+}
+
+
+
+#divBotones
+{
+    overflow: hidden;
+    width: 100%;
+}
+
+#divBotones .col-md-3
+{
+    margin-top: 5px;
+    width: 100%;
+}
+

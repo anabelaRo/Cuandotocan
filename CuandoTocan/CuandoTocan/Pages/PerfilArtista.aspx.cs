@@ -17,7 +17,6 @@ namespace CuandoTocan.Pages
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
             var query = from art in ct.artista
-                        //where art.id_artista.Equals(id_Artista)
                         where art.id_artista == id_Artista_int
                         select art;
 
@@ -26,11 +25,31 @@ namespace CuandoTocan.Pages
                 System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
 
                 dynDiv.ID = "divImgArtista";
-                dynDiv.InnerHtml = "<img class='img-responsive' alt='' src='../" + a.image_path + "' />";
+                dynDiv.InnerHtml = "<img class='imgArtista' alt='' src='../" + a.image_path + "' />";
                     
                 divImgArtista1.Controls.Add(dynDiv);
 
-                lblMenuArtista1.Text = a.nombre;
+                lblMenuArtista.Text = a.nombre;
+                lblBioArtista.Text = a.nombre;
+                lblDisArtista.Text = a.nombre;
+                lblEveArtista.Text = a.nombre;
+                //
+                lblBiografiaArtista.Text = a.descripcion;
+
+                foreach (var b in a.discografia)
+                {
+                    System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+
+                    dynDiv1.ID = "divDiscArtista";
+                    dynDiv1.InnerHtml = "<asp:Label ID='lblDiscografiaArtista' runat='server' Text='Label'>" + b.discografica + "<asp:Label/>";
+
+                    divDiscArtista1.Controls.Add(dynDiv1);
+                    
+                    
+                    //lblDiscografiaArtista.Text = b.discografica;
+                }
+
+                //lbleventosArtista.Text = a.
             }
         }
     }

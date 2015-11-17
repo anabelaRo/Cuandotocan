@@ -3,13 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentHomeCenterMed" runat="server">
 
     <div id="divSlider">
-        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1024px; height: 360px; overflow: hidden; visibility: hidden;">
+        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1024px; height: 320px; overflow: hidden; visibility: hidden;">
 	        <!-- Loading Screen -->
 	        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 		        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 		        <div style="position:absolute;display:block;background:url('img/Slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 	        </div>
-	        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1024px; height: 360px; overflow: hidden;">
+	        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1024px; height: 320px; overflow: hidden;">
 		        <div style="display: none;">
 			        <img data-u="image" src="img/Slider/acdc.jpg" />
 		        </div>
@@ -46,7 +46,7 @@
         </div>
 
         <div id="divGallery">
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <%--div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/system.png" alt=""/>
                 </a>
@@ -74,6 +74,36 @@
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/slipknot.png" alt=""/>
+                </a>
+            </div--%>
+            <div class="divImagen">
+                <a class="imgA" href="Pages/Evento.aspx">
+                    <img class="imgGallery" src="img/Galeria/system.png" alt=""/>
+                </a>
+            </div>
+            <div class="divImagen">
+                <a class="imgA" href="Pages/Evento.aspx">
+                    <img class="imgGallery" src="img/Galeria/eruca.png" alt=""/>
+                </a>
+            </div>
+            <div class="divImagen">
+                <a class="imgA" href="Pages/Evento.aspx">
+                    <img class="imgGallery" src="img/Galeria/kevin.png" alt=""/>
+                </a>
+            </div>
+            <div class="divImagen">
+                <a class="imgA" href="Pages/Evento.aspx">
+                    <img class="imgGallery" src="img/Galeria/muse.png" alt=""/>
+                </a>
+            </div>
+            <div class="divImagen">
+                <a class="imgA" href="Pages/Evento.aspx">
+                    <img class="imgGallery" src="img/Galeria/katy.png" alt=""/>
+                </a>
+            </div>
+            <div class="divImagen">
+                <a class="imgA" href="Pages/Evento.aspx">
+                    <img class="imgGallery" src="img/Galeria/slipknot.png" alt=""/>
                 </a>
             </div>
         </div>
