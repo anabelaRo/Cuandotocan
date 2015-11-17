@@ -57,6 +57,10 @@
   <ItemGroup>
     <Content Include="css\bootstrap\bootstrap-switch.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\Destacados\divididos.jpg" />
+    <Content Include="img\Destacados\noTeVaGustar.png" />
+    <Content Include="img\Destacados\sodaStereo.png" />
+    <Content Include="img\Destacados\sumo.jpg" />
     <Content Include="js\bootstrap\bootstrap-switch.js" />
     <Content Include="Controls\ucFooter.ascx" />
     <Content Include="css\bootstrap\bootstrap-theme.css" />
@@ -131,6 +135,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CTBBDD.edmx</DependentUpon>
     </Compile>
+    <Compile Include="divId.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -5,12 +5,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head runat="server">
+    <head id="Head1" runat="server">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-
-        <link rel="icon" type="image/png" href="img/favicon.png" />
-
+        <link rel="icon" type="image/png" href="img/favicon.png"/>
         <meta name="description" content="Sitio para seguir y conocer eventos de bandas"/>
         <meta name="keywords" content="recitales,bandas,discos,canciones"/>
         <meta name="author" content="Anabela Rossi, Emiliano Zambrano, Juan Sobrile"/>
@@ -28,6 +25,7 @@
 
         <%--css--%>
         <link href="~/css/Home.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/PerfilArtista.css" rel="stylesheet" type="text/css" />
         <%--css--%>
 
         <%--JS--%>
@@ -38,171 +36,140 @@
         <script type="text/javascript" 
 		    src="<%= Page.ResolveClientUrl("~/js/jssor.slider-20.min.js") %>"> 
         </script>
-        <%--JS--%>
+        <%--JS--%>      
+        
+        
+        
+        <!----GMAPS--->
+      
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzQgis4x77FBxoDPawUOFvt0c_D06vkM0"
+          type="text/javascript"></script>
+         <!----GMAPS--->
 
-        <asp:ContentPlaceHolder ID="head" runat="server"/>
-    </head>
-    <body>
-        <div id="divHome">
-            <form id="formMaster" runat="server" role="form" class="">
+          <script type="text/javascript">
+
+
+              function test(user) {
+
+                  document.getElementById('<%=divLogin.ClientID %>').style.display = 'none';
+                  
+                  document.getElementById('logged').innerHTML = 'Bienvenido, ' + user;
+
+                  }
+
+              function openModal() {
+                  $('#myModal').modal({ show: true });
+              }
+        </script>
+
+
+  </head>   
+      
+    <body> 
+
+         <div id="divHome">
+            <form id="formMaster" runat="server" role="form" class="form-horizontal">
                 <div id="divHomeMaster">
-
+                    
                     <div id="divCabecera">
                         <div id="divLogo">
-                            <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
+                            <a href="../Home.aspx">
+                                <asp:Image ID="imgLogo" src="../img/logo.png" runat="server" />
+                            </a>
                         </div>
                         <div id="divBuscador">
-                            <asp:TextBox ID="txtBuscar" placeholder="Buscar artista" runat="server" />
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="input-group">
+                                  <%--<input type="txBusq" class="form-control" placeholder="Ingrese busqueda..."/>--%>
+                                    <asp:TextBox ID="txtBusq" class="form-control" placeholder="Ingrese busqueda..." runat="server"></asp:TextBox>
+                           <span class="input-group-btn">
+                            <asp:DropDownList ID="ddlTiBusqueda" runat="server" class="form-control"  >   
+                             <asp:ListItem Enabled="true" Text="Tipo..." Value="0"></asp:ListItem>
+                             <asp:ListItem Text="Eventos" Value="1"></asp:ListItem>
+                             <asp:ListItem Text="Artistas" Value="2"></asp:ListItem> 
+                             <asp:ListItem Text="Eventos por zona" Value="3"></asp:ListItem> 
+                         </asp:DropDownList>
+                          </span>
+                                  <span class="input-group-btn">
+                                      <asp:Button ID="btnBusq" class="btn btn-default" runat="server" 
+                                        Text="Buscar!" onclick="btnBusq_Click" />
+                                   <%-- <button class="btn btn-default" type="button">Buscar!</button>--%>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
                         </div>
-                        <div id="divLogin">
+                       
+                        <div id="divLogin" runat="server">
                             <ul>
                                 <li>
-                                    <h1> Login </h1>
+                                    
+                                    <button ID="Button1" type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Login</button>
+                           <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+                                  <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>--%>
+                                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button ID="Button2" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4 class="modal-title" id="myModalLabel">Logueate</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <asp:TextBox ID="txtUser" runat="server" placeholder="Usuario" class="form-control"/>
+                                                            <asp:RequiredFieldValidator  class="text-danger" ID="txtUserVal" ControlToValidate="txtUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
+                                                            <br/>
+                                                            <asp:TextBox ID="txtPass" TextMode="password"  runat="server" placeholder="Contrasña" class="form-control"/>
+                                                           <asp:RequiredFieldValidator ID="txtPassVal" class="text-danger" ControlToValidate="txtPass" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
+                                                            <asp:Label ID="lblLogin" class="text-danger" runat="server" Text=""></asp:Label>
+                                                            
+                                                            <br/>
+                                                           <%-- <button ID="Button3" type="button" class="btn btn-link" data-toggle="modal" data-target="#Div1">¿Todavía no tenés cuenta? Registrate.</button>--%>
+                                                            <a href="/pages/registro.aspx" data-toggle="modal" class="btn btn-link"  data-dismiss="myModal">¿Todavía no tenés cuenta? Registrate.</a>
+                                                        
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <%--<button type="button" class="btn btn-default" class="close" aria-label="Close">Entrar</button>--%>
+                                                            <asp:Button ID="Button5" runat="server" Text="Entrar" class="btn btn-default" onclick="Button5_Click" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                               <%--             
+                                       </ContentTemplate>
+                                    </asp:UpdatePanel>--%>
                                 </li>
                             </ul>
                         </div>
+                        <div id="afterlogged" > 
+                         <asp:Label ID="logged" runat="server" Text=""></asp:Label>
+                         </div>
                     </div>   
-                     
-                    <div id="divSlider">
-                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1024px; height: 300px; overflow: hidden; visibility: hidden;">
-	                        <!-- Loading Screen -->
-	                        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
-		                        <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
-		                        <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
-	                        </div>
-	                        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1024px; height: 300px; overflow: hidden;">
-		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/acdc.jpg" />
-		                        </div>
-		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/rata.jpg" />
-		                        </div>
-		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/divididos.jpg" />
-		                        </div>
-		                        <div style="display: none;">
-			                        <img data-u="image" src="img/Slider/acdc.jpg" />
-		                        </div>
-	                        </div>
-	                        <!-- Bullet Navigator -->
-	                        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:6px;" data-autocenter="1">
-		                        <!-- bullet navigator item prototype -->
-		                        <div data-u="prototype" style="width:16px;height:16px;"></div>
-	                        </div>
-	                        <!-- Arrow Navigator -->
-	                        <span data-u="arrowleft" class="jssora12l" style="top:123px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
-	                        <span data-u="arrowright" class="jssora12r" style="top:123px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
-                        </div>
-                        <script>
-                            jssor_1_slider_init();
+                    <script type="text/javascript">
+
+                                function HideLoginOption(user, mail) {
+                            alert("etst");
+                        }
+
                         </script>
-                    </div>
 
                     <div id="divCuerpo">
-                        <div id="divCuerpoTopIzq">
-                            <asp:Label ID="lblProxEventos" runat="server" Text="Próximos eventos cerca tuyo:"/>
-                        </div>
-                        <div id="divCuerpoTopDer">
-                            <asp:Label ID="lblArtDestacados" runat="server" Text="Artistas destacados:"/>
-                        </div>
-
-                        <div id="divGallery" >
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="#">
-                                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div id="divDescatados">
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <a href="#">
-                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-md-5">
-                                    <a class="h4" href="#">View Project</a>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <a href="#">
-                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-md-5">
-                                    <a class="h4" href="#">View Project</a>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <a href="#">
-                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-md-5">
-                                    <a class="h4" href="#">View Project</a>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="row">
-
-                                <div class="col-md-7">
-                                    <a href="#">
-                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-md-5">
-                                    <a class="h4" href="#">View Project</a>
-                                </div>
-                            </div>
-                            <hr/>
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <a href="#">
-                                        <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-md-5">
-                                    <a class="h4" href="#">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <asp:ContentPlaceHolder ID="ContentHomeCenterMed" runat="server"/>
+                    </div>                
 
                     <div id="divFooter">
 					    <ucF:ucFooter ID="ucFfooter" runat="server" />
                     </div>
                 </div>
+
             </form>
         </div>
+
     </body>
+              
 </html>
+    

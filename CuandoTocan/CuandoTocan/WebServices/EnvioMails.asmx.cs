@@ -114,7 +114,7 @@ namespace CuandoTocan.WebServices
             int cont;
 
             evento_id = 3; //test
-            CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
 
             var query = (from ue in ct.usuario_evento
@@ -192,7 +192,7 @@ namespace CuandoTocan.WebServices
              int cont;
 
              evento_id = 3; //test
-             CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
 
              var query = (from ue in ct.usuario_evento

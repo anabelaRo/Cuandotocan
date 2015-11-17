@@ -30,7 +30,7 @@ namespace CuandoTocan.Pages
 
                 if (Page.IsValid)
                 {
-                    CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+                    CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
                     var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text );
                     if (usuarioNoDis == 0)
                     {

@@ -1,27 +1,27 @@
 ﻿body
 {
     background-image: url("../img/fondo.png");
+  /*  background-image: url("../img/fondo2.png");
+    background-image: url("../img/fondo3.png");
+    background-image: url("../img/fondo4.png");*/
 }
 
 #divHome
 {
     margin: auto;
-    width: 1024px;
+    width: 100%;
 }
 
-
-#divBuscador input
+#divBuscador .col-lg-6
 {
-background-image: url("../img/lupa.jpg");
-background-position: 6px center;
-background-repeat: no-repeat;
-background-size: 23px auto;
-border-radius: 10px;
-height: 30px;
-padding-left: 37px;
-width: 250px;
+    width: 100%;
 }
 
+#divBuscador .input-group-addon, .input-group-btn
+
+{
+    width:  28%;
+}
 #divCabecera
 {
 background-color: #333333;
@@ -32,55 +32,84 @@ width: 100%;
 #divLogo
 {
 float: left;
-margin: 10px;
-overflow: hidden;
+ /*   margin-bottom: -28px;
+    margin-left: 10%;
+    margin-top: -22px;
+overlfow:hidden;
+    z-index:1;
+    position: absolute;*/
+    
+      float: left;
+    margin-bottom: -28px;
+    margin-left: 10%;
+    margin-top: -0.4%;
+    position: absolute;
+    z-index: 1;
+    
 }
 
 #divLogo img
 {
-height: 100px;
-width: 100px;
+height: 60%;
+    margin-top: 5%;
+    width: 78%;
+    
 }
 
 #divBuscador
 {
-float: right;
-margin-right: 150px;
-margin-top: 40px;
-overflow: hidden;
+float: left;
+    /*ana margin-left: 56%;
+    overflow: hidden;
+   
+    width: 25%;
+    padding-bottom: 2%;
+    margin-top: 3%; 
+   ana*/
+    float: left;
+    margin-left: 50%;
+    margin-top: 3%;
+    overflow: hidden;
+    padding-bottom: 2%;
+    width: 25%;
+    
+    
 }
-
+#logged
+{
+    color:#ffffff;
+}
 #divLogin 
 {
-float: right;
-    margin-right: -342px;
-    margin-top: 48px;
+float: left;
+    margin-left: 1%;
+    margin-top: 3%;
     overflow: hidden;
 }
-
-#divLogin
-{
-float: right;
-    margin-right: -362px;
-    margin-top: 24px;
+#afterlogged
+   {
+float: left;
+    margin-left: 1%;
+    margin-top: 3%;
     overflow: hidden;
 }
-    
 #divLogin ul
 {
     cursor: pointer;
     display: block;
     list-style: outside none none;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 #divLogin ul li
 {
-background-color: #22b573;
+  /*background-color: #22b573;*/
     border-radius: 5px;
     color: white;
 }
 
-#divLogin ul li h1
+#divLogin  ul li h1
 {
 border-bottom: 0 none;
     color: white;
@@ -89,10 +118,13 @@ border-bottom: 0 none;
     padding: 4px 5px;
     text-align: center;
     width: 70px;
+ 
 }
 
-
-
+#lblLogin
+{
+    text-align:center;
+}
 
 /*Slider*/
 /* jssor slider bullet navigator skin 05 css */
@@ -153,32 +185,34 @@ border-bottom: 0 none;
 
 #divCuerpo
 {
-width: 100%;
-overflow: hidden;
+margin: 0 auto;
+    overflow: hidden;
+    width: 80%;
+    /*background-color: red;*/
 }
 
 #divCuerpoTopIzq
 {
 float: left;
-    margin: 20px 0;
+    margin: 2% 0 1% 0;
 }
 
 #divCuerpoTopDer
 {
-float: right;
-    margin-bottom: 20px;
-    margin-right: 88px;
-    margin-top: 20px;
+  float: right;
+    margin-bottom: 1%;
+    margin-right: 12%;
+    margin-top: 2%;
 }
 
-#lblProxEventos
+#ContentHomeCenterMed_lblProxEventos
 {
 border-bottom: medium solid #22b573;
 padding-bottom: 0px;
 font-size: 19px;
 }
 
-#lblArtDestacados
+#ContentHomeCenterMed_lblArtDestacados
 {
 border-bottom: medium solid #22b573;
 padding-bottom: 0px;
@@ -192,26 +226,33 @@ font-size: 19px;
 #divGallery
 {
 float: left;
-overflow: hidden;
-width: 720px;
+    overflow: hidden;
+    width: 70%;
 }
 
 #divGallery .col-lg-3 {
-    width: 240px;
+    width: 247px;
 }
 
 #divGallery .thumbnail {
-    background-color: #fff;
+  background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
     display: block;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
     padding: 3px;
     transition: all 0.2s ease-in-out 0s;
 }
 
-#divGallery .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 
+#divGallery img {
+    display: block;
+    height: 176px;
+    max-width: 100%;
+    width: 231px;
+}
+
+#divGallery .col-xs-1, #divGallery .col-lg-3 #divGallery .col-md-4 #divGallery .col-xs-6
 {
     min-height: 1px;
     padding-left: 0;
@@ -223,21 +264,19 @@ width: 720px;
 
 
 
-
-
-
-#divDescatados
+#ContentHomeCenterMed_divDescatados
 {
 float: right;
+    margin-top: 1px;
     overflow: hidden;
-    width: 260px;
+    width: 30%;
 }
 
-#divDescatados .row {
+#ContentHomeCenterMed_divDescatados .row {
     margin: 0;
 }
 
-#divDescatados .col-md-7 {
+#ContentHomeCenterMed_divDescatados .col-md-7 {
     float: left;
     height: 65px;
     margin: 0;
@@ -245,21 +284,21 @@ float: right;
     width: 80px;
 }
 
-#divDescatados .col-md-5 {
+#ContentHomeCenterMed_divDescatados .col-md-5 {
     float: left;
     margin: 22px 0 0;
     padding-left: 15px;
     padding-right: 0;
-    width: 150px;
+    width: 68%;
 }
 
-#divDescatados .col-md-7 img
+#ContentHomeCenterMed_divDescatados .col-md-7 img
 {
     height: 65px;
     width: 80px;
 }
 
-#divDescatados hr 
+#ContentHomeCenterMed_divDescatados hr 
 {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -273,9 +312,9 @@ float: right;
     margin-top: 5px;
 }
 
-#divDescatados .col-md-5 .h4 
+#ContentHomeCenterMed_divDescatados .col-md-5 .h4 
 {
-    font-size: 18px;
+    font-size: 17px;
     color: inherit;
     font-family: inherit;
     font-weight: 500;
@@ -284,24 +323,36 @@ float: right;
 
 
 
+#divPerfilArtistas
+{
+    margin-top: 2%;
+}
 
-
-
-
-
-
+#divPerfiEve .module {
+background: #ffffff none repeat scroll 0 0 padding-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    float: right;
+    margin: 3px 5px 25px;
+    padding: 10px;
+    width: 70%;
+}
 
 
 
 #divFooter
 {
-    text-align: center;
+    background-color: #333333;
+    margin-top: 2%;
     padding: 25px;
+    text-align: center;
+    width: 100%;
 }
 
 #spanFooter
 {
-
+    color: White;
 }
 
 
@@ -310,3 +361,177 @@ float: right;
 
 
 
+
+
+@media (min-width: 768px) {
+   #mdAnA{
+    width: 600px;
+    margin: 30px auto;
+  }
+
+.modal.fade  #mdAnA
+{
+    width:50%;
+  -webkit-transition: -webkit-transform .3s ease-out;
+       -o-transition:      -o-transform .3s ease-out;
+          transition:         transform .3s ease-out;
+  -webkit-transform: translate3d(0, -25%, 0);
+       -o-transform: translate3d(0, -25%, 0);
+          transform: translate3d(0, -25%, 0);
+}
+.modal.in #mdAnA{
+  -webkit-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+
+
+/*   MApS */
+
+ #map {
+  position: relative;
+}
+
+#gmap {
+  height:450px;  
+}
+  /* evento*/
+
+#divPerfilEvento
+{
+    margin-top: 2%;
+}
+
+ /*  #divPerfilEvento{
+    margin: 0 auto;
+    overflow: hidden;
+    width: 80%;
+   }*/
+
+#map_canvas
+{
+    
+  width: 100%; 
+  height: 300px;
+  margin-top:23%;
+    }
+    
+
+   
+    #divPerfilEvento .moduleE
+     {
+ background: #ffffff none repeat scroll 0 0 padding-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    float: right;
+    padding: 10px;
+    width: 70%;
+}
+
+
+
+#divIzquierdaE .col-md-4
+{
+    margin-top: 5px;
+    width: 29%;
+}
+
+
+#divIzquierdaE .col-md-5
+{    width: 40%;
+}
+
+#divPerfilEvento .moduleE .title {
+    background: #22b573 none repeat scroll 0 0 padding-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #fff !important;
+    margin: -24px -10px 10px;
+    padding: 10px;
+}
+
+#divPerfilEvento .moduleE .title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#divPerfilEvento .resume-body {
+    color: #000;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+#divPerfilEvento .modal-body {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+#divPerfilEvento .modal-body span
+{
+      color: #22b573;
+       font-size: 18px;
+}
+
+
+.modal-body  .col-sm-10
+{margin-left: 11%;
+}
+
+/* ============Registracion ======*/
+#divPerfilRegistracion  
+{   
+    background: #ffffff none repeat scroll 0 0 padding-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+/*   float: right; */
+    padding: 10px;
+    margin-top:4%;
+    }
+    
+    
+#divPerfilRegistracion .moduleR .title {
+    background: #22b573 none repeat scroll 0 0 padding-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #fff !important;
+    margin: -24px -10px 10px;
+    padding: 10px;
+}
+
+#divPerfilRegistracion .moduleR .title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#divPerfilRegistracion .resume-body 
+{   font-size: 18px;
+    padding-top:5%;
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-align:right;
+}
+
+
+#myModalE
+{
+    color:#000;
+}
+
+
+#myModalE > .modal-dialog
+{
+ width: 34%;
+}

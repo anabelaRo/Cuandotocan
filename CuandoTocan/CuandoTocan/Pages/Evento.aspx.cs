@@ -11,13 +11,13 @@ namespace CuandoTocan
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
         protected void btnEvento_Click(object sender, EventArgs e)
         {
-            CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
            
             string user = Session["usuario"].ToString();

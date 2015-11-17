@@ -34,7 +34,7 @@ namespace CuandoTocan
             Page.Validate("login");
             if (Page.IsValid)
             {
-                CuandoTocan.CuandoTocanEntities1 ct = new CuandoTocan.CuandoTocanEntities1();
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
                 //var usuarioNoDis = ct.usuario.Count(u => u.nickname == txtUser.Text && u.password == txtPass.Text);
                 var usuarioNoDis = from u in ct.usuario
                                    where u.nickname == txtUser.Text && u.password == txtPass.Text
