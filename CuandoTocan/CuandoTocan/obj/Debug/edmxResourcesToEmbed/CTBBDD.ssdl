@@ -69,7 +69,7 @@
     <Property Name="id_artista" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="genero" Type="nvarchar" MaxLength="50" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="500" />
+    <Property Name="descripcion" Type="nvarchar" />
     <Property Name="mbid" Type="nvarchar" MaxLength="20" />
     <Property Name="spotify_id" Type="nvarchar" MaxLength="20" />
     <Property Name="estado" Type="nvarchar" MaxLength="10" />

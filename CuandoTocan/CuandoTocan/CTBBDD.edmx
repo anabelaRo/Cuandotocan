@@ -74,7 +74,7 @@
           <Property Name="id_artista" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="genero" Type="nvarchar" MaxLength="50" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="descripcion" Type="nvarchar" />
           <Property Name="mbid" Type="nvarchar" MaxLength="20" />
           <Property Name="spotify_id" Type="nvarchar" MaxLength="20" />
           <Property Name="estado" Type="nvarchar" MaxLength="10" />
@@ -434,7 +434,7 @@
           <Property Name="id_artista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="genero" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="descripcion" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="descripcion" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="mbid" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="spotify_id" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="estado" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />

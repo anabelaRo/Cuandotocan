@@ -30,10 +30,11 @@ background-color: #333333;
 #divLogo
 {
 float: left;
-    margin-left: 10%;
-    margin-top: -2.8%;
-    overflow: hidden;
-    
+margin-bottom:-28px;
+margin-left:10%;
+margin-top:-0,4%;
+position:absolute;
+z-index: 1;    
 }
 
 #divLogo img
@@ -47,10 +48,11 @@ height: 60%;
 #divBuscador
 {
     float: left;
-    margin-left: 18%;
-    margin-top: 3.5%;
+    margin-left: 50%;
+    margin-top: 3%;
     overflow: hidden;
-    width: 35%;
+    padding-bottom:2%;
+    width: 30%;
 }
 
 #logged

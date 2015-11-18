@@ -71,7 +71,7 @@ namespace CuandoTocan
                 lblContacto.Text = even.contact;
                 latitud = ((double)even.lati).ToString(nfi);
                 longitud = ((double)even.longi).ToString(nfi);
-                imgArtista.Src = even.imagen;
+                imgArtista.Src = "../" + even.imagen;
 
             };
 
