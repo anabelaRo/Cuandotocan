@@ -27,8 +27,10 @@ namespace CuandoTocan
 
             }
 
-     
-            int id_evento = 3;  // ahora se hardcodea valor, pero debe recibirse por sesion
+            string id_evento_str = Request.QueryString["id_evento"];
+            int id_evento = Convert.ToInt32(id_evento_str);
+
+            // int id_evento = 3;ahora se hardcodea valor, pero debe recibirse por sesion
             //string id_evento =  Convert.ToInt32(Session["evento"]);
 
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();

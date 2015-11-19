@@ -18,6 +18,15 @@
           <EntitySet Name="usuario" EntityType="CuandoTocanModel.Store.usuario" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.Store.usuario_artista" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.Store.usuario_evento" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventosProximos" EntityType="CuandoTocanModel.Store.EventosProximos" store:Type="Views" store:Schema="dbo" store:Name="EventosProximos">
+            <DefiningQuery>SELECT 
+      [EventosProximos].[id_evento] AS [id_evento], 
+      [EventosProximos].[image_path] AS [image_path], 
+      [EventosProximos].[titulo] AS [titulo], 
+      [EventosProximos].[fecha_evento] AS [fecha_evento], 
+      [EventosProximos].[nombre] AS [nombre]
+      FROM [dbo].[EventosProximos] AS [EventosProximos]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.Store.FK_discografia_artista">
             <End Role="artista" EntitySet="artista" />
             <End Role="discografia" EntitySet="discografia" />
@@ -216,6 +225,22 @@
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CuandoTocan.dbo.EventosProximos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EventosProximos">
+          <Key>
+            <PropertyRef Name="id_evento" />
+            <PropertyRef Name="titulo" />
+            <PropertyRef Name="fecha_evento" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id_evento" Type="int" Nullable="false" />
+          <Property Name="image_path" Type="nvarchar" MaxLength="100" />
+          <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="fecha_evento" Type="datetime" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
         <Association Name="FK_discografia_artista">
           <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
           <End Role="discografia" Type="CuandoTocanModel.Store.discografia" Multiplicity="*" />
@@ -378,6 +403,7 @@
           <EntitySet Name="usuario" EntityType="CuandoTocanModel.usuario" />
           <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.usuario_artista" />
           <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.usuario_evento" />
+          <EntitySet Name="EventosProximos" EntityType="CuandoTocanModel.EventosProximos" />
           <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.FK_discografia_artista">
             <End Role="artista" EntitySet="artista" />
             <End Role="discografia" EntitySet="discografia" />
@@ -599,6 +625,19 @@
           <Property Name="fecha_modificacion" Type="DateTime" />
           <NavigationProperty Name="evento" Relationship="CuandoTocanModel.FK_usuario_evento_evento" FromRole="usuario_evento" ToRole="evento" />
           <NavigationProperty Name="usuario" Relationship="CuandoTocanModel.FK_usuario_evento_usuario" FromRole="usuario_evento" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="EventosProximos">
+          <Key>
+            <PropertyRef Name="id_evento" />
+            <PropertyRef Name="titulo" />
+            <PropertyRef Name="fecha_evento" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id_evento" Type="Int32" Nullable="false" />
+          <Property Name="image_path" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="fecha_evento" Type="DateTime" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
         <Association Name="FK_discografia_artista">
           <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="1" />
@@ -909,6 +948,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EventosProximos">
+            <EntityTypeMapping TypeName="CuandoTocanModel.EventosProximos">
+              <MappingFragment StoreEntitySet="EventosProximos">
+                <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+                <ScalarProperty Name="image_path" ColumnName="image_path" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="fecha_evento" ColumnName="fecha_evento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -942,6 +992,7 @@
         <EntityTypeShape EntityType="CuandoTocanModel.usuario" Width="1.5" PointX="3" PointY="1.875" Height="3.9033007812500031" IsExpanded="true" />
         <EntityTypeShape EntityType="CuandoTocanModel.usuario_artista" Width="1.5" PointX="5.25" PointY="2.75" Height="2.1725878906250031" IsExpanded="true" />
         <EntityTypeShape EntityType="CuandoTocanModel.usuario_evento" Width="1.5" PointX="8.25" PointY="2.25" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.EventosProximos" Width="1.5" PointX="8.75" PointY="6.75" Height="1.9802864583333388" IsExpanded="true" />
         <AssociationConnector Association="CuandoTocanModel.FK_discografia_artista" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="7.7785953776041659" />
           <ConnectorPoint PointX="3" PointY="7.7785953776041659" />
@@ -986,8 +1037,8 @@
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_evento_evento" ManuallyRouted="false">
           <ConnectorPoint PointX="7.5" PointY="13.7881982421875" />
-          <ConnectorPoint PointX="9" PointY="13.7881982421875" />
-          <ConnectorPoint PointX="9" PointY="5.3840950520833317" />
+          <ConnectorPoint PointX="8.46875" PointY="13.7881982421875" />
+          <ConnectorPoint PointX="8.46875" PointY="5.3840950520833317" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_ubicacion_evento_evento" ManuallyRouted="false">
           <ConnectorPoint PointX="5.25" PointY="14.014087792067308" />

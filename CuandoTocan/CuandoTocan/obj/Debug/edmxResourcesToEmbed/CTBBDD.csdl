@@ -13,6 +13,7 @@
     <EntitySet Name="usuario" EntityType="CuandoTocanModel.usuario" />
     <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.usuario_artista" />
     <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.usuario_evento" />
+    <EntitySet Name="EventosProximos" EntityType="CuandoTocanModel.EventosProximos" />
     <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.FK_discografia_artista">
       <End Role="artista" EntitySet="artista" />
       <End Role="discografia" EntitySet="discografia" />
@@ -234,6 +235,19 @@
     <Property Name="fecha_modificacion" Type="DateTime" />
     <NavigationProperty Name="evento" Relationship="CuandoTocanModel.FK_usuario_evento_evento" FromRole="usuario_evento" ToRole="evento" />
     <NavigationProperty Name="usuario" Relationship="CuandoTocanModel.FK_usuario_evento_usuario" FromRole="usuario_evento" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="EventosProximos">
+    <Key>
+      <PropertyRef Name="id_evento" />
+      <PropertyRef Name="titulo" />
+      <PropertyRef Name="fecha_evento" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="id_evento" Type="Int32" Nullable="false" />
+    <Property Name="image_path" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="titulo" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="fecha_evento" Type="DateTime" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
   </EntityType>
   <Association Name="FK_discografia_artista">
     <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="1" />

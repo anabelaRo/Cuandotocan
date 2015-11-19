@@ -273,6 +273,22 @@ namespace CuandoTocan
             }
         }
         private ObjectSet<usuario_evento> _usuario_evento;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EventosProximos> EventosProximos
+        {
+            get
+            {
+                if ((_EventosProximos == null))
+                {
+                    _EventosProximos = base.CreateObjectSet<EventosProximos>("EventosProximos");
+                }
+                return _EventosProximos;
+            }
+        }
+        private ObjectSet<EventosProximos> _EventosProximos;
 
         #endregion
 
@@ -372,6 +388,14 @@ namespace CuandoTocan
         public void AddTousuario_evento(usuario_evento usuario_evento)
         {
             base.AddObject("usuario_evento", usuario_evento);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EventosProximos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEventosProximos(EventosProximos eventosProximos)
+        {
+            base.AddObject("EventosProximos", eventosProximos);
         }
 
         #endregion
@@ -1640,6 +1664,174 @@ namespace CuandoTocan
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CuandoTocanModel", Name="EventosProximos")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class EventosProximos : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new EventosProximos object.
+        /// </summary>
+        /// <param name="id_evento">Initial value of the id_evento property.</param>
+        /// <param name="titulo">Initial value of the titulo property.</param>
+        /// <param name="fecha_evento">Initial value of the fecha_evento property.</param>
+        /// <param name="nombre">Initial value of the nombre property.</param>
+        public static EventosProximos CreateEventosProximos(global::System.Int32 id_evento, global::System.String titulo, global::System.DateTime fecha_evento, global::System.String nombre)
+        {
+            EventosProximos eventosProximos = new EventosProximos();
+            eventosProximos.id_evento = id_evento;
+            eventosProximos.titulo = titulo;
+            eventosProximos.fecha_evento = fecha_evento;
+            eventosProximos.nombre = nombre;
+            return eventosProximos;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id_evento
+        {
+            get
+            {
+                return _id_evento;
+            }
+            set
+            {
+                if (_id_evento != value)
+                {
+                    Onid_eventoChanging(value);
+                    ReportPropertyChanging("id_evento");
+                    _id_evento = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id_evento");
+                    Onid_eventoChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id_evento;
+        partial void Onid_eventoChanging(global::System.Int32 value);
+        partial void Onid_eventoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String image_path
+        {
+            get
+            {
+                return _image_path;
+            }
+            set
+            {
+                Onimage_pathChanging(value);
+                ReportPropertyChanging("image_path");
+                _image_path = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("image_path");
+                Onimage_pathChanged();
+            }
+        }
+        private global::System.String _image_path;
+        partial void Onimage_pathChanging(global::System.String value);
+        partial void Onimage_pathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String titulo
+        {
+            get
+            {
+                return _titulo;
+            }
+            set
+            {
+                if (_titulo != value)
+                {
+                    OntituloChanging(value);
+                    ReportPropertyChanging("titulo");
+                    _titulo = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("titulo");
+                    OntituloChanged();
+                }
+            }
+        }
+        private global::System.String _titulo;
+        partial void OntituloChanging(global::System.String value);
+        partial void OntituloChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime fecha_evento
+        {
+            get
+            {
+                return _fecha_evento;
+            }
+            set
+            {
+                if (_fecha_evento != value)
+                {
+                    Onfecha_eventoChanging(value);
+                    ReportPropertyChanging("fecha_evento");
+                    _fecha_evento = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("fecha_evento");
+                    Onfecha_eventoChanged();
+                }
+            }
+        }
+        private global::System.DateTime _fecha_evento;
+        partial void Onfecha_eventoChanging(global::System.DateTime value);
+        partial void Onfecha_eventoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String nombre
+        {
+            get
+            {
+                return _nombre;
+            }
+            set
+            {
+                if (_nombre != value)
+                {
+                    OnnombreChanging(value);
+                    ReportPropertyChanging("nombre");
+                    _nombre = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("nombre");
+                    OnnombreChanged();
+                }
+            }
+        }
+        private global::System.String _nombre;
+        partial void OnnombreChanging(global::System.String value);
+        partial void OnnombreChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

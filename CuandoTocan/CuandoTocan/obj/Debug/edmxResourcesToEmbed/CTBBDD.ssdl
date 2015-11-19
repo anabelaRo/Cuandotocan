@@ -13,6 +13,15 @@
     <EntitySet Name="usuario" EntityType="CuandoTocanModel.Store.usuario" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.Store.usuario_artista" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.Store.usuario_evento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventosProximos" EntityType="CuandoTocanModel.Store.EventosProximos" store:Type="Views" store:Schema="dbo" store:Name="EventosProximos">
+      <DefiningQuery>SELECT 
+      [EventosProximos].[id_evento] AS [id_evento], 
+      [EventosProximos].[image_path] AS [image_path], 
+      [EventosProximos].[titulo] AS [titulo], 
+      [EventosProximos].[fecha_evento] AS [fecha_evento], 
+      [EventosProximos].[nombre] AS [nombre]
+      FROM [dbo].[EventosProximos] AS [EventosProximos]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.Store.FK_discografia_artista">
       <End Role="artista" EntitySet="artista" />
       <End Role="discografia" EntitySet="discografia" />
@@ -210,6 +219,22 @@
     <Property Name="flag_asist_fav" Type="char" MaxLength="1" />
     <Property Name="fecha_alta" Type="datetime" />
     <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CuandoTocan.dbo.EventosProximos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="EventosProximos">
+    <Key>
+      <PropertyRef Name="id_evento" />
+      <PropertyRef Name="titulo" />
+      <PropertyRef Name="fecha_evento" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="id_evento" Type="int" Nullable="false" />
+    <Property Name="image_path" Type="nvarchar" MaxLength="100" />
+    <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="fecha_evento" Type="datetime" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <Association Name="FK_discografia_artista">
     <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />

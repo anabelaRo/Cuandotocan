@@ -160,5 +160,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EventosProximos">
+      <EntityTypeMapping TypeName="CuandoTocanModel.EventosProximos">
+        <MappingFragment StoreEntitySet="EventosProximos">
+          <ScalarProperty Name="id_evento" ColumnName="id_evento" />
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="fecha_evento" ColumnName="fecha_evento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -18,7 +18,10 @@ namespace CuandoTocan
             {
                 var query = from art in ct.artista
                             select art;
-                
+
+                var query2 = from eve in ct.EventosProximos
+                             select eve;
+
                 foreach (var a in query)
                 {
                     System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
@@ -28,7 +31,20 @@ namespace CuandoTocan
 
                     divDestacados1.Controls.Add(dynDiv);
                 }
+
+                foreach (var ev in query2)
+                {
+                    System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+
+                    dynDiv2.ID = "proximos1";
+                    dynDiv2.InnerHtml = "<div class='divImagen'><a class='imgA' href='Pages/Evento.aspx?id_evento=" + ev.id_evento + "'><img class='img-responsive' src='" + "../" + ev.image_path + "' alt=''/> <p class='text'>" + ev.titulo + "<br>" + ev.nombre + "<br>" + ev.fecha_evento.ToString("dddd") + " " + ev.fecha_evento.ToString("dd/M") + "</p></a></div>";
+             
+                    proximos.Controls.Add(dynDiv2);
+                }
+
             }
+
+
         }
 
  
