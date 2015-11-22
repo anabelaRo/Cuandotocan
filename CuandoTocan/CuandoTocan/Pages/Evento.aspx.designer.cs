@@ -112,6 +112,15 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.Label lblArti;
         
         /// <summary>
+        /// lvlDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lvlDesc;
+        
+        /// <summary>
         /// lblFecha control.
         /// </summary>
         /// <remarks>
