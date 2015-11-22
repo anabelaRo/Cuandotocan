@@ -38,11 +38,14 @@ namespace CuandoTocan
             var infoevento = (from ev in ct.evento
                              join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
                              join ar in ct.artista on ev.id_artista equals ar.id_artista
-                             where ev.id_evento == id_evento && ev.tipo_evento == 1
+                             join t in ct.tipo_evento on ev.tipo_evento equals t.id_tipo_evento
+                             where ev.id_evento == id_evento //&& ev.tipo_evento == 1
                              select new
                              {
                                 titulo = ev.titulo,
                                 artista = ar.nombre, 
+                                tipo = t.descripcion,
+                                desc = ev.descripcion,
                                 fecha = ev.fecha_evento,
                                 donde = lo.nombre,
                                 direccion = lo.direccion,
@@ -52,6 +55,7 @@ namespace CuandoTocan
                                 lati = lo.coordenada_x,
                                 longi = lo.coordenada_y,
                                 imagen = ar.image_path,
+                                
                              });
 
             /* seteo que el decimal tiene que ser punto, porque sino latitud y longitud en el mapa fallan */
@@ -63,9 +67,9 @@ namespace CuandoTocan
             foreach (var even in infoevento)
             {
                 lblArti.Text = even.artista;
-                lblTitulo.Text = even.titulo;
+                lblTitulo.Text = even.tipo + " | " + even.titulo;
                 lblFecha.Text = even.fecha.ToString("dddd") +" " + even.fecha.ToString("dd/M/yyyy");
-
+                lvlDesc.Text = even.desc;
                 lblLugar.Text = even.donde;
                 lblDireccion.Text = even.direccion;
                 lblCiudad.Text = even.city;
