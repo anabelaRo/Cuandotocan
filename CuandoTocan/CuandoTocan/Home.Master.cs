@@ -65,7 +65,7 @@ namespace CuandoTocan
                 armoUserLogueado = armoUserLogueado +  	"							<div class='row'>";
                 armoUserLogueado = armoUserLogueado +  	"								<div class='col-lg-12'>";
                 armoUserLogueado = armoUserLogueado +  	"									<p>";
-                armoUserLogueado = armoUserLogueado +  	"										<a href='#' class='btn btn-danger btn-block'>Cerrar Sesion</a>";
+                armoUserLogueado = armoUserLogueado + "										    <a href='CerrarSesion.aspx' class='btn btn-danger btn-block' runat='server'>Cerrar Sesion</a>";
                 armoUserLogueado = armoUserLogueado +  	"									</p>";
                 armoUserLogueado = armoUserLogueado +  	"								</div>";
                 armoUserLogueado = armoUserLogueado +  	"							</div>";
@@ -120,8 +120,6 @@ namespace CuandoTocan
 
                     Session["usuario"] = user;
 
-                    
-  
                     /*llamo funcion JS para que refresque la master, saca el botón de login y pone mensaje de bienvenida*/
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "test('" + user + "');", true);
                     Response.Redirect(Request.RawUrl);
@@ -149,7 +147,7 @@ namespace CuandoTocan
             {
                 //Busca eventos por zona
             }
-        } 
+        }
     }
 }
 

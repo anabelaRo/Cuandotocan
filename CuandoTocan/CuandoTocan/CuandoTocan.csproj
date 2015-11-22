@@ -73,6 +73,7 @@
     <Content Include="css\PerfilArtista.css" />
     <Content Include="js\gmaps.js" />
     <Content Include="img\logo_min_mapa.png" />
+    <Content Include="Pages\CerrarSesion.aspx" />
     <Content Include="Pages\Evento.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="img\Destacados\artic.PNG" />
@@ -151,6 +152,13 @@
     <Compile Include="divId.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CerrarSesion.aspx.cs">
+      <DependentUpon>CerrarSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CerrarSesion.aspx.designer.cs">
+      <DependentUpon>CerrarSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Evento.aspx.cs">
       <DependentUpon>Evento.aspx</DependentUpon>

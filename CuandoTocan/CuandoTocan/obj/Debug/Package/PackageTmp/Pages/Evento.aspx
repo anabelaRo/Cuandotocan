@@ -126,6 +126,7 @@
               
                    <h3>  <strong>    
                        <asp:Label ID="lblArti" runat="server" Text=""></asp:Label>   </strong><br />
+                      <asp:Label ID="lvlDesc" runat="server" Text=""></asp:Label>   <br />
                    El 
                        <asp:Label ID="lblFecha" runat="server" Text=""></asp:Label>
                    En    <asp:Label ID="lblLugar" runat="server" Text=""></asp:Label></h3>
