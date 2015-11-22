@@ -76,12 +76,12 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Label lblEveArtista;
         
         /// <summary>
-        /// Control lbleventosArtista.
+        /// Control divEventArtista1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbleventosArtista;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEventArtista1;
     }
 }

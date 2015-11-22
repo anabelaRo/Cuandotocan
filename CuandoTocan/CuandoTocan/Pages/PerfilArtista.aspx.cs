@@ -16,6 +16,7 @@ namespace CuandoTocan.Pages
 
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
+            /*-----------------Biografia---------------------------------------------------*/
             var query = from art in ct.artista
                         where art.id_artista == id_Artista_int
                         select art;
@@ -35,22 +36,66 @@ namespace CuandoTocan.Pages
                 lblEveArtista.Text = a.nombre;
                 //
                 lblBiografiaArtista.Text = a.descripcion;
-
-                foreach (var b in a.discografia)
-                {
-                    System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
-
-                    dynDiv1.ID = "divDiscArtista";
-                    dynDiv1.InnerHtml = "<asp:Label ID='lblDiscografiaArtista' runat='server' Text='Label'>" + b.discografica + "<asp:Label/>";
-
-                    divDiscArtista1.Controls.Add(dynDiv1);
-                    
-                    
-                    //lblDiscografiaArtista.Text = b.discografica;
-                }
-
-                //lbleventosArtista.Text = a.
             }
+
+            /*-----------------Discografia-------------------------------------------------*/
+            var query1 = (from art in ct.artista
+                          join dis in ct.discografia on art.id_artista equals dis.id_artista
+                          where art.id_artista == id_Artista_int
+                          select new
+                          {
+                              titulo = dis.titulo,
+                              fecha = dis.fecha_publicacion,
+                              discografica = dis.discografica
+                          });
+
+            string tablaDiscArtista = "<table class='table'><thead><tr><th>Álbum</th><th>Fecha de lanzamiento</th><th>Discográfica</th></thead><tbody>";
+
+            System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+
+            dynDiv2.ID = "divDiscArtista";
+
+            foreach (var b in query1)
+            {
+                tablaDiscArtista = tablaDiscArtista + "<tr><td>" + b.titulo + "</td><td>" + b.fecha + "</td><td>" + b.discografica + "</td></tr>";
+            }
+
+            tablaDiscArtista = tablaDiscArtista + "</tbody></table>";
+
+            dynDiv2.InnerHtml = tablaDiscArtista;
+            divDiscArtista1.Controls.Add(dynDiv2);
+
+            /*-----------------Eventos-----------------------------------------------------*/
+            var query2 = (  from ev in ct.evento
+                            join ar in ct.artista on ev.id_artista equals ar.id_artista
+                            join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
+                            where ar.id_artista == id_Artista_int
+                            select new
+                            {
+                                idEvento = ev.id_evento,
+                                titulo = ev.titulo,
+                                descripcion = ev.descripcion,
+                                fecha = ev.fecha_evento,
+                                donde = lo.nombre,
+                                direccion = lo.direccion,
+                                city = lo.ciudad,
+                            });
+
+            string tablaEventos = "<table class='table'><thead><tr><th>Evento</th><th>Descripción</th><th>Fecha</th><th>Lugar</th><th>Dirección</th></tr></thead><tbody>";
+
+            System.Web.UI.HtmlControls.HtmlGenericControl dynDiv3 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+
+            dynDiv3.ID = "divEventArtista";
+            
+            foreach (var c in query2)
+            {
+                tablaEventos = tablaEventos + "<tr><td><a class='aEventos' href='./Evento.aspx?id_evento=" + c.idEvento + "'>" + c.titulo + "</a></td><td>" + c.descripcion + "</td><td>" + c.fecha + "</td><td>" + c.donde + "</td><td>" + c.direccion + " - " + c.city + "</td></tr>";
+            }
+
+            tablaEventos = tablaEventos + "</tbody></table>";
+
+            dynDiv3.InnerHtml = tablaEventos;
+            divEventArtista1.Controls.Add(dynDiv3);
         }
     }
 }

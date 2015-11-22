@@ -39,13 +39,13 @@
 
     <div id="divCentro">
         <div id="divCuerpoTopIzq">
-            <asp:Label ID="lblProxEventos" runat="server" Text="Próximos eventos cerca tuyo:"/>
+            <asp:Label ID="lblProxEventos" runat="server" Text="Próximos eventos:"/>
         </div>
         <div id="divCuerpoTopDer">
             <asp:Label ID="lblArtDestacados" runat="server" Text="Artistas destacados:"/>
         </div>
 
-        <div id="divGallery">
+        <div id="proximos" runat="server">
             <%--div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="Pages/Evento.aspx">
                     <img class="img-responsive" src="img/Galeria/system.png" alt=""/>
@@ -76,7 +76,7 @@
                     <img class="img-responsive" src="img/Galeria/slipknot.png" alt=""/>
                 </a>
             </div--%>
-            <div class="divImagen">
+    <%--        <div class="divImagen">
                 <a class="imgA" href="Pages/Evento.aspx">
                     <img class="imgGallery" src="img/Galeria/system.png" alt=""/>
                 </a>
@@ -105,7 +105,7 @@
                 <a class="imgA" href="Pages/Evento.aspx">
                     <img class="imgGallery" src="img/Galeria/slipknot.png" alt=""/>
                 </a>
-            </div>
+            </div>--%>
         </div>
 
         <div id="divDestacados1" runat="server">

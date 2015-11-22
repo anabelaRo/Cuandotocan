@@ -30,10 +30,11 @@ background-color: #333333;
 #divLogo
 {
 float: left;
-    margin-left: 10%;
-    margin-top: -2.8%;
-    overflow: hidden;
-    
+margin-bottom:-28px;
+margin-left:10%;
+margin-top:-0,4%;
+position:absolute;
+z-index: 1;    
 }
 
 #divLogo img
@@ -47,10 +48,11 @@ height: 60%;
 #divBuscador
 {
     float: left;
-    margin-left: 18%;
-    margin-top: 3.5%;
+    margin-left: 50%;
+    margin-top: 3%;
     overflow: hidden;
-    width: 35%;
+    padding-bottom:2%;
+    width: 30%;
 }
 
 #logged
@@ -215,8 +217,10 @@ font-size: 19px;
 }
 
 #divGallery .imgA {
-  
+    height: 150px;
+    width: 200px;
 }
+
 
 #divGallery .imgGallery {
     border-radius: 10px;
@@ -226,6 +230,61 @@ font-size: 19px;
 
 
 
+#ContentHomeCenterMed_proximos .divImagen img
+{
+   height: 160px;
+    width: 254px;  
+     border-radius: 10px;
+}
+
+#ContentHomeCenterMed_proximos #text
+{
+    z-index:100;
+    position: absolute; 
+    color:white;
+    
+    font-size: 19px;
+    font-weight: normal;
+    left: 150px;
+    margin: 20% 0 0 -5.2%;
+
+    top:350px;
+}
+
+.divImagen .text
+
+{color:white;
+ font-weight:bold;
+  margin: -4.8% 0 0 0.3%;
+ position: absolute;
+ background: rgba(0, 0, 0, 0.75);
+ }
+
+#ContentHomeCenterMed_proximos
+{
+     margin: 0% 0 1% 0;
+    float:left;
+    clear:left;
+    overflow: hidden;
+    width: 70%;
+    
+    
+}
+
+/*#ContentHomeCenterMed_proximos #divImagen
+{
+    display:inline-table;
+}*/
+
+#ContentHomeCenterMed_proximos1
+
+{
+    height: 15%;
+    width: 30%;
+    margin: 4px;
+    float:left;
+
+}
 
 
 

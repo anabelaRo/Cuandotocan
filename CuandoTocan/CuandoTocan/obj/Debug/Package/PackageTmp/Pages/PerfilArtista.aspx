@@ -71,8 +71,7 @@
                 </div>
                 <div class="text-icenter">
                     <a class="btn" style="font-size: 14px;" href="#">
-                    [+] Seguir leyendo la biografía
-                    <span class="hidden-sm-inline"> de Maluma </span>
+                    [+] Seguir leyendo
                     </a>
                 </div>
             </div>
@@ -88,8 +87,7 @@
                 </div>
                 <div class="text-icenter">
                     <a class="btn" style="font-size: 14px;" href="#">
-                    [+] Seguir leyendo la discografía
-                    <span class="hidden-sm-inline"> de Maluma </span>
+                    [+] Seguir leyendo
                     </a>
                 </div>
             </div>
@@ -99,12 +97,13 @@
                     <a href="#">Eventos de <asp:Label ID="lblEveArtista" runat="server"/></a>
                 </h2>
                 <div class="resume-body">
-                    <asp:Label ID="lbleventosArtista" runat="server" Text="Label"/>
+                    <div id="divEventArtista1" runat="server">
+                        <%--asp:Label ID="lblDiscografiaArtista" runat="server" Text="Label"/--%>
+                    </div>
                 </div>
                 <div class="text-icenter">
                     <a class="btn" style="font-size: 14px;" href="#">
-                    [+] Seguir leyendo los Eventos
-                    <span class="hidden-sm-inline"> de Maluma </span>
+                    [+] Seguir leyendo
                     </a>
                 </div>
             </div>

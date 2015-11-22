@@ -124,3 +124,9 @@ background: #ffffff none repeat scroll 0 0 padding-box;
     width: 100%;
 }
 
+.aEventos
+{
+    color: #22b573;
+    font-size: 14px;
+    font-weight: bold;
+}
