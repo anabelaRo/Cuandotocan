@@ -48,7 +48,7 @@ height: 60%;
 #divBuscador
 {
     float: left;
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: 3%;
     overflow: hidden;
     padding-bottom:2%;
@@ -63,8 +63,8 @@ height: 60%;
 #divLogin 
 {
     float: left;
-    margin-left: 1%;
-    margin-top: 3.5%;
+    margin-left: 12%;
+    margin-top: 2.8%;
     overflow: hidden;
 }
 
@@ -560,4 +560,94 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 #myModalE > .modal-dialog
 {
  width: 34%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Usuario Logueado*/
+#divAfterlogged
+{
+    clear: both;
+}
+
+#divAfterlogged .navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+#divAfterlogged .navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+#divAfterlogged .icon-size
+{
+    font-size: 87px;
+}
+
+
+#divAfterlogged .navbar
+{
+    width: auto;
+} 
+
+
+#divAfterlogged .navbar-fixed-top {
+    border-width: 0 0 1px;
+    right: 134px;
+    top: 32px;
+}
+
+#divAfterlogged .navbar-fixed-top, .navbar-fixed-bottom {
+    clear: both;
+    left: auto;
+    position: absolute;
+}
+
+#divAfterlogged .navbar-nav.navbar-right:last-child {
+    margin-right: auto;
+}
+
+
+#divAfterlogged .imgUserBanda {
+    height: 50px;
+    width: 50px;
+}
+
+#divAfterlogged .navbar-nav > li > a {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+#divAfterlogged .navbar-default {
+   background-color: inherit;
+   border-color: inherit;
+}
+
+#divAfterlogged .navbar-default .navbar-nav > li > a {
+    color: #22b573;
+}
+
+#divAfterlogged .nombreUser
+{
+    font-size:16px;
+}
+
+#divAfterlogged .imgUserBanda2 {
+    height: 87px;
+    width: 97px;
 }
