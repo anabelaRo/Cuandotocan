@@ -17,3 +17,7 @@ CuandoTocan/CuandoTocan/CuandoTocan.csproj.user
 *.dll
 CuandoTocan/CuandoTocan/obj/Debug/CuandoTocan.pdb
 *.dll
+*.dll
+CuandoTocan/CuandoTocan/CuandoTocan.csproj
+*.pdb
+*.dll
