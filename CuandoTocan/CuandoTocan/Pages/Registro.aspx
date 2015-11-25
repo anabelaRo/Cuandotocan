@@ -59,9 +59,8 @@
                     </div>
                     <div class="col-sm-4">
                         <%-- <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control"  onchange="javascript:test();" onselectedindexchanged="ddlTiUsua_SelectedIndexChanged">   
-                          --%>   <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control"  onchange="javascript:tipousuDiv();" >   
-                             <asp:ListItem Enabled="true" Text="Elija Tipo de usuario" Value="0"></asp:ListItem>
-                             <asp:ListItem Text="Usuario" Value="1"></asp:ListItem>
+                          --%>   <asp:DropDownList ID="ddlTiUsua" runat="server" class="form-control" EnableViewState="true" onchange="javascript:tipousuDiv();" >   
+                             <asp:ListItem Text="Fan" Value="1"></asp:ListItem>
                              <asp:ListItem Text="Artista" Value="2"></asp:ListItem> 
                          </asp:DropDownList>
 
@@ -89,7 +88,7 @@
                      
                     </div>     
                 </div>
-            <div id ="altaUsuarioU" style="display:none" runat="server">
+            <div id ="altaUsuarioU" style="display:block" runat="server">
                       <div class="row">
                           <div class="col-sm-2">
                                <label for="inputNombre">Nombre Completo</label>
@@ -104,6 +103,7 @@
                            <div class="col-sm-4">
                                <asp:TextBox ID="regFNac" type="text" runat="server" placeholder="dd-mm-aaaa" class="form-control"/>
                                <asp:RequiredFieldValidator ID="regFNacVal" ControlToValidate="regFNac" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="registroU" ></asp:RequiredFieldValidator>
+                               <asp:CompareValidator ID="DateValidator" runat="server" Operator="DataTypeCheck" class="text-danger" Type="Date" ControlToValidate="regFNac" ErrorMessage="Formato Erróneo" />
                          </div>
                        </div>
                        <div class="row">

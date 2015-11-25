@@ -14,24 +14,44 @@ namespace CuandoTocan.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+           int ti_usu =  Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
+
+           //if (ti_usu == 1)
+           //{
+           //    altaUsuarioU.Visible = true;
+           //    altaUsuarioA.Visible = false;
+
+           //}
+           //else if (ti_usu == 2)
+           //{
+           //    altaUsuarioU.Visible = false;
+           //    altaUsuarioA.Visible = true;
+           //}
+           //else
+           //{
+           //    altaUsuarioU.Visible = false;
+           //    altaUsuarioA.Visible = false;
+           //}
+
         }
-        
-  
+
+
         protected void btnReg_Click(object sender, EventArgs e)
         {
-            
-                Page.Validate("registro");
-                int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
-                var nomTiUsu = ddlTiUsua.SelectedItem.Text;
 
-                WebServices.EnvioMails serv = new WebServices.EnvioMails();
-                string r;
+            Page.Validate("registro");
+            int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
+            var nomTiUsu = ddlTiUsua.SelectedItem.Text;
 
+            WebServices.EnvioMails serv = new WebServices.EnvioMails();
+            string r;
+
+            if(!IsPostBack)
+            {
                 if (Page.IsValid)
                 {
                     CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
-                    var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text );
+                    var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text);
                     if (usuarioNoDis == 0)
                     {
 
@@ -52,12 +72,12 @@ namespace CuandoTocan.Pages
                                 try
                                 {
 
-                                    
+
                                     us.nombre_completo = regNombre.Text;
                                     us.fecha_nacimiento = Convert.ToDateTime(regFNac.Text);
                                     us.biografia = TextAreaBio.Text;
-                                    
-                                    
+
+
                                     ct.AddTousuario(us);
                                     ct.SaveChanges();
 
@@ -76,52 +96,55 @@ namespace CuandoTocan.Pages
                         {
                             Page.Validate("registroA");
                             if (Page.IsValid)
-                            { 
-                                
-
-                            ct.AddTousuario(us);
-                            ct.SaveChanges();
-
-                            int id_usu = us.id_usuario;
-
-                           
-                            CuandoTocan.artista ar = new CuandoTocan.artista();
-
-                            ar.nombre = txtNombreA.Text;
-                            ar.spotify_id = txtSpotify.Text;
-                            ar.genero = txtGeneroA.Text;
-                            ar.mbid = txtMBrainz.Text;
-                            ar.pais_origen = DropDownPais.SelectedItem.ToString();
-                            ar.descripcion = txtDescrip.Text;
-
-                            ct.AddToartista(ar);
-                            ct.SaveChanges();
-
-                            int id_arti = ar.id_artista;
-
-                            var query = from u in ct.usuario
-                                        where u.id_usuario == id_usu
-                                        select u;
-
-                            foreach (var u in query)
                             {
-                                u.id_artista = id_arti;
-                       
+
+
+                                ct.AddTousuario(us);
+                                ct.SaveChanges();
+
+                                int id_usu = us.id_usuario;
+
+
+                                CuandoTocan.artista ar = new CuandoTocan.artista();
+
+                                ar.nombre = txtNombreA.Text;
+                                ar.spotify_id = txtSpotify.Text;
+                                ar.genero = txtGeneroA.Text;
+                                ar.mbid = txtMBrainz.Text;
+                                ar.pais_origen = DropDownPais.SelectedItem.ToString();
+                                ar.descripcion = txtDescrip.Text;
+
+                                ct.AddToartista(ar);
+                                ct.SaveChanges();
+
+                                int id_arti = ar.id_artista;
+
+                                var query = from u in ct.usuario
+                                            where u.id_usuario == id_usu
+                                            select u;
+
+                                foreach (var u in query)
+                                {
+                                    u.id_artista = id_arti;
+
+                                }
+
+                                ct.SaveChanges();
+
+                                serv.MandarMailReg("regA", regMail.Text, regUser.Text);
                             }
-
-                            ct.SaveChanges();
-
-                            serv.MandarMailReg("regA", regMail.Text, regUser.Text); }
                         }
                     }
-                    }
+
 
                     else
                     {
                         Label1.Text = "El Usuario está en uso";
                     }
+                }
 
-                } 
+            }
+        }
             
         }
 
