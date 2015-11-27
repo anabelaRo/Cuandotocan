@@ -111,6 +111,24 @@ background: #ffffff none repeat scroll 0 0 padding-box;
 }
 
 
+#ContentHomeCenterMed_divSeguir
+{
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#ContentHomeCenterMed_divDejarSeguir
+{
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+
 
 #divBotones
 {

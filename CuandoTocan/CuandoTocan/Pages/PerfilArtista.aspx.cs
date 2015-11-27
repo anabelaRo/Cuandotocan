@@ -11,14 +11,38 @@ namespace CuandoTocan.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id_Artista = Request.QueryString["id_Artista"];
-            int id_Artista_int = Convert.ToInt32(id_Artista);
-
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+            int id_Artista = Convert.ToInt32(Request.QueryString["id_Artista"]);
+            int id_Usuario = Convert.ToInt32(Session["id_usua"]);
+
+            if (Session["usuario"] != null)
+            {
+                var querySeguir =   from ua in ct.usuario_artista
+                                    where ua.id_usuario == id_Usuario &&
+                                          ua.id_artista == id_Artista
+                                    select ua;
+
+                if (querySeguir.Count() == 0)
+                {
+                    divSeguir.Visible = true;
+                    divDejarSeguir.Visible = false;
+                }
+                else
+                {
+                    divSeguir.Visible = false;
+                    divDejarSeguir.Visible = true;
+                }  
+            }
+            else
+            {
+                divSeguir.Visible = false;
+                divDejarSeguir.Visible = false;
+            }
 
             /*-----------------Biografia---------------------------------------------------*/
             var query = from art in ct.artista
-                        where art.id_artista == id_Artista_int
+                        where art.id_artista == id_Artista
                         select art;
 
             foreach (var a in query)
@@ -41,7 +65,7 @@ namespace CuandoTocan.Pages
             /*-----------------Discografia-------------------------------------------------*/
             var query1 = (from art in ct.artista
                           join dis in ct.discografia on art.id_artista equals dis.id_artista
-                          where art.id_artista == id_Artista_int
+                          where art.id_artista == id_Artista
                           select new
                           {
                               titulo = dis.titulo,
@@ -69,7 +93,7 @@ namespace CuandoTocan.Pages
             var query2 = (  from ev in ct.evento
                             join ar in ct.artista on ev.id_artista equals ar.id_artista
                             join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
-                            where ar.id_artista == id_Artista_int
+                            where ar.id_artista == id_Artista
                             select new
                             {
                                 idEvento = ev.id_evento,
@@ -96,6 +120,41 @@ namespace CuandoTocan.Pages
 
             dynDiv3.InnerHtml = tablaEventos;
             divEventArtista1.Controls.Add(dynDiv3);
+        }
+
+        protected void btnSeguir_Art(object sender, EventArgs e)
+        {
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+            CuandoTocan.usuario_artista art = new CuandoTocan.usuario_artista();
+
+            art.id_usuario = Convert.ToInt32(Session["id_usua"]);
+            art.id_artista = Convert.ToInt32(Request.QueryString["id_Artista"]);
+            art.fecha_alta = DateTime.Now;
+            art.fecha_modificacion = DateTime.Now;
+
+            ct.AddTousuario_artista(art);
+            ct.SaveChanges();
+
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void btnDejarSeguir_Art(object sender, EventArgs e)
+        {
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+            int id_Artista = Convert.ToInt32(Request.QueryString["id_Artista"]);
+            int id_Usuario = Convert.ToInt32(Session["id_usua"]);
+
+            var eli = (from ua in ct.usuario_artista
+                       where ua.id_usuario == id_Usuario &&
+                             ua.id_artista == id_Artista
+                       select ua).First();
+
+            ct.usuario_artista.DeleteObject(eli);
+            ct.SaveChanges();
+
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

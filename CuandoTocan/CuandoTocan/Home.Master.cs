@@ -47,11 +47,11 @@ namespace CuandoTocan
 
                 if (Session["tipoUsuario"].Equals(1))
                 {
-                    armoUserLogueado = armoUserLogueado + "										    <a href='Pages/UsuarioEstandar.aspx' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioEstandar.aspx' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
                 }
                 else
                 {
-                    armoUserLogueado = armoUserLogueado + "										    <a href='Pages/UsuarioBanda.aspx' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioBanda.aspx' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
                 }
 
                 armoUserLogueado = armoUserLogueado +  	"									</p>";
@@ -65,7 +65,7 @@ namespace CuandoTocan
                 armoUserLogueado = armoUserLogueado +  	"							<div class='row'>";
                 armoUserLogueado = armoUserLogueado +  	"								<div class='col-lg-12'>";
                 armoUserLogueado = armoUserLogueado +  	"									<p>";
-                armoUserLogueado = armoUserLogueado + "										    <a href='CerrarSesion.aspx' class='btn btn-danger btn-block' runat='server'>Cerrar Sesion</a>";
+                armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/CerrarSesion.aspx' class='btn btn-danger btn-block' runat='server'>Cerrar Sesion</a>";
                 armoUserLogueado = armoUserLogueado +  	"									</p>";
                 armoUserLogueado = armoUserLogueado +  	"								</div>";
                 armoUserLogueado = armoUserLogueado +  	"							</div>";

@@ -9,8 +9,14 @@
             </div>
 
             <div id="divBotones">
+                <div id="divSeguir" runat="server">
+                    <asp:Button ID="Button1" class="btn btn-success btn-lg" runat="server" Text="Seguir" onclick="btnSeguir_Art" />
+                </div>
+                <div id="divDejarSeguir" runat="server">
+                    <asp:Button ID="Button2" class="btn btn-success btn-lg" runat="server" Text="Dejar de Seguir" onclick="btnDejarSeguir_Art" />
+                </div>
+
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-success btn-lg">     Seguir    </button>
                     <div class="row">
                         <%--Twitter--%>
                         <div class="col-md-5">
