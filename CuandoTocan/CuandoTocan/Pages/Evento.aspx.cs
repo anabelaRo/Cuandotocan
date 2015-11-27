@@ -42,6 +42,7 @@ namespace CuandoTocan
                              where ev.id_evento == id_evento //&& ev.tipo_evento == 1
                              select new
                              {
+                                id_arti = ar.id_artista,
                                 titulo = ev.titulo,
                                 artista = ar.nombre, 
                                 tipo = t.descripcion,
@@ -66,6 +67,8 @@ namespace CuandoTocan
             var longitud = "";
             foreach (var even in infoevento)
             {
+                linkArti.NavigateUrl = "../Pages/PerfilArtista.aspx?id_Artista=" + even.id_arti;
+                linkarti2.NavigateUrl = "../Pages/PerfilArtista.aspx?id_Artista=" + even.id_arti;
                 lblArti.Text = even.artista;
                 lblTitulo.Text = even.tipo + " | " + even.titulo;
                 lblFecha.Text = even.fecha.ToString("dddd") +" " + even.fecha.ToString("dd/M/yyyy");

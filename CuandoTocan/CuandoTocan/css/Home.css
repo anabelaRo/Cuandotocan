@@ -469,7 +469,27 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     width: 70%;
 }
 
+#divPerfilEvento a {
 
+    color:#333333;
+    text-decoration:none;
+}
+
+a:visited {
+
+    color:#333333;
+   
+}
+
+#divPerfilEvento a:hover
+{
+    color:#38bc81;
+       
+}
+#divPerfilEvento a:active
+{
+    color:#22b573;
+}
 
 #divIzquierdaE .col-md-4
 {

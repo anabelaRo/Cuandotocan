@@ -31,6 +31,15 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.HiddenField lon;
         
         /// <summary>
+        /// linkarti2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkarti2;
+        
+        /// <summary>
         /// imgArtista control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace CuandoTocan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitulo;
+        
+        /// <summary>
+        /// linkArti control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkArti;
         
         /// <summary>
         /// lblArti control.
