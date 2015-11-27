@@ -14,26 +14,58 @@ namespace CuandoTocan
      
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+            string id_evento_str = Request.QueryString["id_evento"];
+            int id_evento = Convert.ToInt32(id_evento_str);
+
             /* para que muestre o no el botón VOY  si esta o no logueado*/
             if (Session["usuario"] == null)
             {
 
+                asistencia.Visible = false;
                 voy.Visible = false;
 
             }
             else if (Session["usuario"] != null)
             {
-                voy.Visible = true;
+
+                int id = Convert.ToInt32(Session["id_usua"]);
+
+
+                var asiste = from ue in ct.usuario_evento
+                             where ue.id_evento == id_evento
+                             && ue.id_usuario == id
+                             select ue;
+
+                if (asiste.Count() == 0)
+                {
+                    voy.Visible = true;
+                    asistencia.Visible = false;
+                   
+
+                }
+                else
+                {
+                    voy.Visible = false;
+                    asistencia.Visible = true;
+                    lblAsiste.Text = "Irás al evento";
+                   
+                }
+
+                
 
             }
 
-            string id_evento_str = Request.QueryString["id_evento"];
-            int id_evento = Convert.ToInt32(id_evento_str);
+
+
+            
 
             // int id_evento = 3;ahora se hardcodea valor, pero debe recibirse por sesion
             //string id_evento =  Convert.ToInt32(Session["evento"]);
 
-            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+            
 
             var infoevento = (from ev in ct.evento
                              join lo in ct.locacion on ev.id_locacion equals lo.id_locacion

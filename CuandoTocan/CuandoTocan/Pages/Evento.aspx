@@ -94,6 +94,11 @@
 
                 </div>
                   </div>
+                   <div class="row">
+                    <div id="asistencia"  runat="server">
+                        <asp:Label ID="lblAsiste" class="btn btn-success" runat="server" Text=""></asp:Label>
+                        </div>
+                   </div>
             <div class="row">
                 <div class="col-md-5">
                         <%--Twitter--%>
