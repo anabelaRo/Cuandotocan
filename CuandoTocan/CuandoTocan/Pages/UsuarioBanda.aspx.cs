@@ -15,47 +15,53 @@ namespace CuandoTocan.Pages
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-            int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+            
+            
+                int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
 
-            System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
 
-            dynDiv.ID = "divImgUsuario";
-            dynDiv.InnerHtml = "<img class='imgUsuario' alt='' src='../img/Users/userDefault.jpg' />";
+                dynDiv.ID = "divImgUsuario";
+                dynDiv.InnerHtml = "<img class='imgUsuario' alt='' src='../img/Users/userDefault.jpg' />";
 
-            divImgUsuario1.Controls.Add(dynDiv);
+                divImgUsuario1.Controls.Add(dynDiv);
 
-            var usuarioBanda = (from art in ct.artista
-                                join usu in ct.usuario on art.id_artista equals usu.id_artista
-                                where usu.id_usuario == id_Usuario
-                                select new
-                                {
-                                    usuario = usu.nickname,
-                                    email = usu.email,
-                                    nombre = art.nombre,
-                                    genero = art.genero,
-                                    brain = art.mbid,
-                                    spotify = art.spotify_id,
-                                    descripcion = art.descripcion,
-                                    id_artista = art.id_artista
-                                });
+                var usuarioBanda = (from art in ct.artista
+                                    join usu in ct.usuario on art.id_artista equals usu.id_artista
+                                    where usu.id_usuario == id_Usuario
+                                    select new
+                                    {
+                                        usuario = usu.nickname,
+                                        email = usu.email,
+                                        nombre = art.nombre,
+                                        genero = art.genero,
+                                        brain = art.mbid,
+                                        spotify = art.spotify_id,
+                                        descripcion = art.descripcion,
+                                        id_artista = art.id_artista
+                                    });
 
-            foreach (var a in usuarioBanda)
-            {
-                regUser.Text = a.usuario;
-                regMail.Text = a.email;
-                txtNombreA.Text = a.nombre;
-                txtGeneroAct.Text = a.genero;
-                txtMBrainz.Text = a.brain;
-                txtSpotify.Text = a.spotify;
-                txtDescrip.Text = a.descripcion;
-
-                id_artista = a.id_artista;
-
-                //Discos
-                crearDisco1.Visible = false;
-
-                if (!IsPostBack)
+                foreach (var a in usuarioBanda)
                 {
+                    regUser.Text = a.usuario;
+                    regMail.Text = a.email;
+                    txtNombreA.Text = a.nombre;
+
+                    if (!IsPostBack)
+                    {
+                        txtGeneroAct.Text = a.genero;
+                        txtMBrainz.Text = a.brain;
+                        txtSpotify.Text = a.spotify;
+                        txtDescrip.Text = a.descripcion;
+                    }
+
+                    id_artista = a.id_artista;
+
+                    //Discos
+                    crearDisco1.Visible = false;
+
+                //if (!IsPostBack)
+                //{
                     var infodisco = (from art in ct.artista
                                      join dis in ct.discografia on art.id_artista equals dis.id_artista
                                      where art.id_artista == id_artista
@@ -89,13 +95,13 @@ namespace CuandoTocan.Pages
                             GrillaDiscos1.Controls.Add(dynDiv1);
                         }
                     }
-                }
+                //}
 
                 //Eventos
                 crearEvento1.Visible = false;
 
-                if (!IsPostBack)
-                {
+                //if (!IsPostBack)
+                //{
                     var infoevento = (from ev in ct.evento
                                       join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
                                       join ti in ct.tipo_evento on ev.tipo_evento equals ti.id_tipo_evento
@@ -144,7 +150,7 @@ namespace CuandoTocan.Pages
                         }
                     }
                 }
-            }
+            //}
         }
 
         protected void btnActDatos_Click(object sender, EventArgs e)
