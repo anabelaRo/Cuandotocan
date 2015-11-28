@@ -294,8 +294,21 @@ font-size: 19px;
 
 }
 
+#ContentHomeCenterMed_lblAsiste.btn.btn-success {
+    margin-left: 4%;
+    cursor:none;
+}
 
 
+#ContentHomeCenterMed_lblAsiste.btn:hover {
+    text-decoration: none;
+     cursor: default; 
+}
+
+#ContentHomeCenterMed_lblAsiste.btn:focus {
+    text-decoration: none;
+   
+}
 
 #ContentHomeCenterMed_divDescatados
 {

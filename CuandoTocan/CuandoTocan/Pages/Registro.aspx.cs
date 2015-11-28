@@ -46,8 +46,12 @@ namespace CuandoTocan.Pages
             WebServices.EnvioMails serv = new WebServices.EnvioMails();
             string r;
 
+<<<<<<< HEAD
             //if(!IsPostBack)
             //{
+=======
+            
+>>>>>>> origin/master
                 if (Page.IsValid)
                 {
                     CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
@@ -82,7 +86,9 @@ namespace CuandoTocan.Pages
                                     ct.SaveChanges();
 
 
-                                    Label1.Text = serv.MandarMailReg("regU", regMail.Text, regUser.Text);
+                                   serv.MandarMailReg("regU", regMail.Text, regUser.Text);
+                                   RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
+                                   
                                 }
                                 catch (Exception ex)
                                 {
@@ -130,10 +136,11 @@ namespace CuandoTocan.Pages
                                 }
 
                                 ct.SaveChanges();
-
+                                RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
                                 serv.MandarMailReg("regA", regMail.Text, regUser.Text);
                             }
                         }
+
                     }
 
 
@@ -143,8 +150,13 @@ namespace CuandoTocan.Pages
                     }
                 }
 
+<<<<<<< HEAD
             }
         //}
+=======
+            
+        }
+>>>>>>> origin/master
             
         }
 
