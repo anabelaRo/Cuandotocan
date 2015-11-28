@@ -18,7 +18,7 @@
             <div class="row">
             <div class="col-md-6" id="voy" runat="server">
                   <%-- <asp:CheckBox ID="CheckBox2" CssClass="custom_check" checked runat="Server" data-off-text="False" data-on-text="True" OnCheckedChanged="CheckBox2_CheckedChanged" />--%>
-                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalE">     Voy!    </button>
+             <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalE">     Voy!    </button>
                 
                   <script type="text/javascript">
 
@@ -94,6 +94,14 @@
 
                 </div>
                   </div>
+                   <div class="row">
+                    <div id="asistencia"  runat="server">
+                    
+                        <asp:Button ID="btnNoVoy" class="btn btn-success" runat="server" 
+                            Text="No voy" onclick="btnNoVoy_Click" />
+                        <%--<asp:Label ID="lblAsiste" class="btn btn-success" runat="server" Text=""></asp:Label>--%>
+                        </div>
+                   </div>
             <div class="row">
                 <div class="col-md-5">
                         <%--Twitter--%>

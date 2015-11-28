@@ -45,13 +45,8 @@ namespace CuandoTocan.Pages
 
             WebServices.EnvioMails serv = new WebServices.EnvioMails();
             string r;
-
-<<<<<<< HEAD
             //if(!IsPostBack)
             //{
-=======
-            
->>>>>>> origin/master
                 if (Page.IsValid)
                 {
                     CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
@@ -95,21 +90,18 @@ namespace CuandoTocan.Pages
                                     Label1.Text = ex.Message;
                                     //throw;
                                 }
-
                             }
                         }
                         else if (tipousu == 2)
                         {
                             Page.Validate("registroA");
+                            
                             if (Page.IsValid)
                             {
-
-
                                 ct.AddTousuario(us);
                                 ct.SaveChanges();
 
                                 int id_usu = us.id_usuario;
-
 
                                 CuandoTocan.artista ar = new CuandoTocan.artista();
 
@@ -119,6 +111,8 @@ namespace CuandoTocan.Pages
                                 ar.mbid = txtMBrainz.Text;
                                 ar.pais_origen = DropDownPais.SelectedItem.ToString();
                                 ar.descripcion = txtDescrip.Text;
+
+                                ar.image_path = "img/Users/userDefault.jpg";
 
                                 ct.AddToartista(ar);
                                 ct.SaveChanges();
@@ -132,7 +126,6 @@ namespace CuandoTocan.Pages
                                 foreach (var u in query)
                                 {
                                     u.id_artista = id_arti;
-
                                 }
 
                                 ct.SaveChanges();
@@ -140,24 +133,13 @@ namespace CuandoTocan.Pages
                                 serv.MandarMailReg("regA", regMail.Text, regUser.Text);
                             }
                         }
-
                     }
-
-
                     else
                     {
                         Label1.Text = "El Usuario está en uso";
                     }
                 }
-
-<<<<<<< HEAD
             }
-        //}
-=======
-            
-        }
->>>>>>> origin/master
-            
-        }
-
+        }  
     }
+//}
