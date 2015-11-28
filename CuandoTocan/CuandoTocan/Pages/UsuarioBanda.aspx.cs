@@ -90,7 +90,7 @@ namespace CuandoTocan.Pages
                             System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
                             dynDiv1.ID = "GrillaDiscos";
-                            dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-1'>" + di.id + "</div><div class ='col-md-3'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-3'>" + di.discografica + "</div><div class ='col-md-3'><button type='button' onclick='actDiscos(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
+                            dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-1'>" + di.id + "</div><div class ='col-md-3'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-3'>" + di.discografica + "</div><div class ='col-md-1'><button type='button' onclick='actDiscos(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
 
                             GrillaDiscos1.Controls.Add(dynDiv1);
                         }
