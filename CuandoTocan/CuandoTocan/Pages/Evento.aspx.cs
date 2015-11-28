@@ -11,11 +11,9 @@ namespace CuandoTocan
 {  
     public partial class Evento : System.Web.UI.Page
     {
-     
+        CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
             string id_evento_str = Request.QueryString["id_evento"];
             int id_evento = Convert.ToInt32(id_evento_str);
@@ -50,7 +48,7 @@ namespace CuandoTocan
                 {
                     voy.Visible = false;
                     asistencia.Visible = true;
-                    lblAsiste.Text = "Irás al evento";
+                    //lblAsiste.Text = "Irás al evento";
                    
                 }
 
@@ -58,14 +56,8 @@ namespace CuandoTocan
 
             }
 
-
-
-            
-
             // int id_evento = 3;ahora se hardcodea valor, pero debe recibirse por sesion
-            //string id_evento =  Convert.ToInt32(Session["evento"]);
-
-            
+            //string id_evento =  Convert.ToInt32(Session["evento"]);          
 
             var infoevento = (from ev in ct.evento
                              join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
@@ -115,8 +107,7 @@ namespace CuandoTocan
                 imgArtista.Src = "../" + even.imagen;
 
             };
-
-            
+          
           /* asigno latitud y longitud de la base a los inputs hidden, que levanta la funcion js para el mapa */
 
             lat.Value = latitud;
@@ -133,15 +124,15 @@ namespace CuandoTocan
        }
 
         protected void btnEvento_Click(object sender, EventArgs e)
-        {
-            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
-
+        {  
             
             string user = Session["usuario"].ToString();
             string mail = Session["mail"].ToString();
-            int id_evento = 3;  // ahora se hardcodea valor, pero debe recibirse por sesion
+           // int id_evento = 3;  ahora se hardcodea valor, pero debe recibirse por sesion
             //string id_evento =  Convert.ToInt32(Session["evento"]);
-           
+
+            string id_evento_str = Request.QueryString["id_evento"];
+            int id_evento = Convert.ToInt32(id_evento_str);
 
             CuandoTocan.usuario_evento ue = new usuario_evento();
 
@@ -182,7 +173,6 @@ namespace CuandoTocan
                 
                 WebServices.EnvioMails serv = new WebServices.EnvioMails();
 
-
                 serv.MandarMailCPsinAut(id_evento, mail, user);
                 /* si indica que va a ir, pero sin auto, se le mandan todos los que van en auto hasta ese momento
                 luego, cada vez que un usuario indique que va a ese evento y ofrezca su auto, le llegara un mail con ese */
@@ -198,6 +188,26 @@ namespace CuandoTocan
                 /* si va y no marca nada, solo se registra y no manda mails */
 
             }
+        }
+
+        protected void btnNoVoy_Click(object sender, EventArgs e)
+        {
+
+            string id_evento_str = Request.QueryString["id_evento"];
+            int id_evento = Convert.ToInt32(id_evento_str);
+            int id = Convert.ToInt32(Session["id_usua"]);
+
+            var query = from ue in ct.usuario_evento
+                        where ue.id_evento == id_evento && ue.id_usuario == id
+                        select ue;
+
+            foreach (var ue in query.ToList())
+            {
+                ct.usuario_evento.DeleteObject(ue);
+                ct.SaveChanges();
+            }
+            Response.Redirect(Request.RawUrl);
+
         }
 
         

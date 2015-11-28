@@ -112,13 +112,13 @@ namespace CuandoTocan {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl asistencia;
         
         /// <summary>
-        /// lblAsiste control.
+        /// btnNoVoy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAsiste;
+        protected global::System.Web.UI.WebControls.Button btnNoVoy;
         
         /// <summary>
         /// lblTitulo control.
