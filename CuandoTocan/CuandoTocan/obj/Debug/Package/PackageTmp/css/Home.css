@@ -175,7 +175,7 @@ margin: 0 auto;
 #divCuerpoTopIzq
 {
 float: left;
-    margin: 2% 0 1% 0;
+  margin: 2% 5% 1%;
 }
 
 #divCuerpoTopDer
@@ -183,7 +183,7 @@ float: left;
   float: right;
     margin-bottom: 1%;
     margin-right: 12%;
-    margin-top: 2%;
+    margin-top: 2%;    
 }
 
 #ContentHomeCenterMed_lblProxEventos
@@ -270,11 +270,11 @@ font-size: 19px;
 
 #ContentHomeCenterMed_proximos
 {
-     margin: 0% 0 1% 0;
+    margin: 0 4.4%;
     float:left;
     clear:left;
     overflow: hidden;
-    width: 70%;
+     width: 65%;
     
     
 }
@@ -288,7 +288,7 @@ font-size: 19px;
 
 {
     height: 15%;
-    width: 30%;
+    width: 32%;
     margin: 4px;
     float:left;
 
@@ -302,7 +302,9 @@ font-size: 19px;
 float: right;
     margin-top: 1px;
     overflow: hidden;
-    width: 30%;
+    width: 22.5%;
+    margin:   0.85% 4% 0 -10%;
+    
 }
 
 #ContentHomeCenterMed_divDescatados .row {
@@ -469,7 +471,27 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     width: 70%;
 }
 
+#divPerfilEvento a {
 
+    color:#333333;
+    text-decoration:none;
+}
+
+a:visited {
+
+    color:#333333;
+   
+}
+
+#divPerfilEvento a:hover
+{
+    color:#38bc81;
+       
+}
+#divPerfilEvento a:active
+{
+    color:#22b573;
+}
 
 #divIzquierdaE .col-md-4
 {

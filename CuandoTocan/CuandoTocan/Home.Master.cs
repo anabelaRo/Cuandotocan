@@ -47,11 +47,11 @@ namespace CuandoTocan
 
                 if (Session["tipoUsuario"].Equals(1))
                 {
-                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioEstandar.aspx' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioEstandar.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
                 }
                 else
                 {
-                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioBanda.aspx' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioBanda.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
                 }
 
                 armoUserLogueado = armoUserLogueado +  	"									</p>";

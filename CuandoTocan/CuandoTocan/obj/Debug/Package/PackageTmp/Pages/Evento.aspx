@@ -10,8 +10,9 @@
 
         <div id="divIzquierdaE">
             <div class="col-md-4">
+             <asp:HyperLink ID="linkarti2" runat="server">   
                 <img id="imgArtista" runat="server" class="img-responsive" alt="" src="../img/Galeria/muse.png" />
-
+             </asp:HyperLink>
                 
             <br />
             <div class="row">
@@ -125,7 +126,10 @@
                 <div class="resume-body">
               
                    <h3>  <strong>    
-                       <asp:Label ID="lblArti" runat="server" Text=""></asp:Label>   </strong><br />
+                  <asp:HyperLink ID="linkArti" runat="server">   
+                   <asp:Label ID="lblArti" runat="server" Text=""></asp:Label> 
+                  </asp:HyperLink>
+                  </strong><br />
                       <asp:Label ID="lvlDesc" runat="server" Text=""></asp:Label>   <br />
                    El 
                        <asp:Label ID="lblFecha" runat="server" Text=""></asp:Label>

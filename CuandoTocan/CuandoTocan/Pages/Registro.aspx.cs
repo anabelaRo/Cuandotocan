@@ -46,8 +46,8 @@ namespace CuandoTocan.Pages
             WebServices.EnvioMails serv = new WebServices.EnvioMails();
             string r;
 
-            if(!IsPostBack)
-            {
+            //if(!IsPostBack)
+            //{
                 if (Page.IsValid)
                 {
                     CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
@@ -144,7 +144,7 @@ namespace CuandoTocan.Pages
                 }
 
             }
-        }
+        //}
             
         }
 
