@@ -95,19 +95,19 @@
                             <div id="GrillaD" runat="server">
                                 <div class ="row">
                                     <div class ="col-md-1">
-                                        ID
+                                     <strong>   ID</strong>
                                     </div>
                                     <div class ="col-md-3">
-                                        Titulo
+                                     <strong>    Titulo</strong>
                                     </div>
                                     <div class ="col-md-3">
-                                        Fecha de Publicación
+                                     <strong>    Fecha de Publicación</strong>
                                     </div>
                                     <div class ="col-md-3">
-                                        Discografica
+                                     <strong>    Discografica</strong>
                                     </div>
-                                    <div class ="col-md-3">
-                                        Editar
+                                    <div class ="col-md-1">
+                                     <strong>    Editar</strong>
                                     </div>
                                 </div>
                             </div>
