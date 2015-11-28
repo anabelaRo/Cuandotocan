@@ -139,11 +139,15 @@ namespace CuandoTocan.Pages
                         ddlTipo.DataSource = ct.tipo_evento.ToList();
                         ddlTipo.DataBind();
 
+                        int valor = 0;
+
                         foreach (var ev in infoevento)
                         {
+                            valor++;
+                            
                             System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
-                            dynDiv1.ID = "GrillaEventos";
+                            dynDiv1.ID = "GrillaEventos-" + valor;
                             dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-1'>" + ev.ID + "</div><div class ='col-md-3'>" + ev.Nombre + "</div><div class ='col-md-3'>" + ev.Des + "</div><div class ='col-md-3'>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</div><div class ='col-md-3'>" + ev.Lugar + "</div><div class ='col-md-3'>" + ev.Tipo + "</div><div class ='col-md-3'><button type='button' onclick='actEventos(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></div>  </div>";
 
                             GrillaEventos1.Controls.Add(dynDiv1);
