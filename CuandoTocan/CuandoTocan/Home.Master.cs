@@ -11,7 +11,7 @@ namespace CuandoTocan
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] !=  null){
+            if (Session["usuario"] != null){
 
                 divLogin.Visible = false;
                 //logged.Text ="Bienvenido, " + Session["usuario"];
@@ -134,19 +134,10 @@ namespace CuandoTocan
         protected void btnBusq_Click(object sender, EventArgs e)
         {
             int tipobus = Convert.ToInt32(ddlTiBusqueda.SelectedItem.Value);
-            
-            if (tipobus == 1)
-            {
-                //BUsca eventos
-            }
-            else if (tipobus == 2)
-            {
-                //Buscar artistas
-            }
-            else
-            {
-                //Busca eventos por zona
-            }
+			string busq = txtBusq.Text.Trim().ToLower();
+			Session["str_busq"] = busq;
+			Session["search_ty"] = tipobus; /**/
+			Response.Redirect("~/Pages/ResultadosBusq.aspx");
         }
     }
 }
