@@ -34,12 +34,10 @@ namespace CuandoTocan.WebServices
              client.DeliveryMethod = SmtpDeliveryMethod.Network;
              client.UseDefaultCredentials = false;
              client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
-             //client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["Email"], ConfigurationManager.AppSettings["Password"]);
-           
+             
         
             MailMessage msg = new MailMessage();
              msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
-            //msg.From = new MailAddress(ConfigurationManager.AppSettings["Email"]);
             msg.Subject = "Bienvenido a CuandoTocan!";
             msg.IsBodyHtml = true;
             msg.To.Add(mail);
@@ -47,13 +45,13 @@ namespace CuandoTocan.WebServices
              {
                 
                  try
-                 { //HACER TEMPLATE HtmlString PARA USUARIO TIPO BANDA
+                 { 
                      StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailA.htm"));
                     string readFile = reader.ReadToEnd();
                      string StrContent = "";
                      StrContent = readFile;
                      StrContent = StrContent.Replace("[MyName]", user);
-                     msg.To.Add("anabela.rossi@gmail.com");
+                     msg.To.Add(mail);
                     // msg.Body = "Gracias " + user + " por registrate en CuandoTocan!";
                      msg.Body = StrContent.ToString();
                      client.Send(msg);
@@ -75,7 +73,7 @@ namespace CuandoTocan.WebServices
                   string StrContent = "";
                   StrContent = readFile;
                  StrContent = StrContent.Replace("[MyName]", user); 
-                 msg.To.Add("anabela.rossi@gmail.com");
+                 msg.To.Add(mail);
                  //msg.To.Add("emiliano.zambrano@hotmail.com");
                  //msg.To.Add("juan_sobrile@hotmail.com");
                  // msg.Body = "Gracias " + user + " por registrate en CuandoTocan!";
@@ -113,7 +111,7 @@ namespace CuandoTocan.WebServices
             client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
             int cont;
 
-            evento_id = 3; //test
+            
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
 
@@ -141,7 +139,8 @@ namespace CuandoTocan.WebServices
                                        "</tr>";
 
             }
-            if (query != null)
+            if (query.Count() != 0)
+                
             {
                 try
                 {
@@ -193,7 +192,7 @@ namespace CuandoTocan.WebServices
              client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
              int cont;
 
-             evento_id = 3; //test
+             
              CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
 

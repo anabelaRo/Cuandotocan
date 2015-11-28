@@ -188,6 +188,7 @@ namespace CuandoTocan
                 /* si va y no marca nada, solo se registra y no manda mails */
 
             }
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void btnNoVoy_Click(object sender, EventArgs e)

@@ -6,6 +6,10 @@
                     <a href="#">Crear cuenta</a>
          </h2>
           <div class="resume-body">    
+         <div class="row">
+             <div class="col-sm-10"> <asp:Label ID="RegOk" runat="server" Text=""></asp:Label>
+             </div>
+         </div>
               <div class="row">
                  <div class="col-sm-2">
                    <label for="imputUser">Usuario</label>

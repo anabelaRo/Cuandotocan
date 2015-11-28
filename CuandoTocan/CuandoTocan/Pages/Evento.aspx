@@ -18,7 +18,7 @@
             <div class="row">
             <div class="col-md-6" id="voy" runat="server">
                   <%-- <asp:CheckBox ID="CheckBox2" CssClass="custom_check" checked runat="Server" data-off-text="False" data-on-text="True" OnCheckedChanged="CheckBox2_CheckedChanged" />--%>
-                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalE">     Voy!    </button>
+             <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalE">     Voy!    </button>
                 
                   <script type="text/javascript">
 
