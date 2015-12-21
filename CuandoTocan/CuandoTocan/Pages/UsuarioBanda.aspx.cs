@@ -78,7 +78,7 @@ namespace CuandoTocan.Pages
                         GrillaD.Visible = false;
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
-                        dynDiv2.ID = "GrillaDiscos";
+                        dynDiv2.ID = "GrillaDiscosN";
                         dynDiv2.InnerHtml = "<div class='row'><div class ='col-md-8'><strong>Su banda no posee discos</strong> </div>  </div>";
 
                         GrillaDiscos1.Controls.Add(dynDiv2);
@@ -125,7 +125,7 @@ namespace CuandoTocan.Pages
                         Grilla.Visible = false;
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
-                        dynDiv2.ID = "GrillaEventos";
+                        dynDiv2.ID = "GrillaEventosN";
                         dynDiv2.InnerHtml = "<div class='row'><div class ='col-md-8'><strong>Su banda no posee eventos proximos</strong> </div>  </div>";
 
                         GrillaEventos1.Controls.Add(dynDiv2);
