@@ -10,163 +10,139 @@ namespace CuandoTocan
     public partial class ABM_evento : System.Web.UI.Page
     {
         CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+        
         int id_artista = 3;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             crearEvento1.Visible = false;
               
-                // session["id_usuario"]
-               if (!IsPostBack)
-               {
-                   var infoevento = (from ev in ct.evento
-                                     join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
-                                     join ti in ct.tipo_evento on ev.tipo_evento equals ti.id_tipo_evento
-                                     where ev.id_artista == id_artista
-                                     select new
-                                     {
-                                         ID = ev.id_evento,
-                                         Nombre = ev.titulo.Replace("\"", ""),
-                                         Fecha = ev.fecha_evento,
-                                         Lugar = lo.nombre,
-                                         Tipo = ti.descripcion,
-                                         Des = ev.descripcion
-                                     });
+            if (!IsPostBack)
+            {
+                var infoevento = (from ev in ct.evento
+                                  join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
+                                  join ti in ct.tipo_evento on ev.tipo_evento equals ti.id_tipo_evento
+                                  where ev.id_artista == id_artista
+                                  select new
+                                    {
+                                        ID = ev.id_evento,
+                                        Nombre = ev.titulo.Replace("\"", ""),
+                                        Fecha = ev.fecha_evento,
+                                        Lugar = lo.nombre,
+                                        Tipo = ti.descripcion,
+                                        Des = ev.descripcion
+                                    });
 
-                 
+                if (infoevento.Count() == 0)
+                {
+                    Grilla.Visible = false;
+                    System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
-                   if (infoevento.Count() == 0)
-                   {
-                       Grilla.Visible = false;
-                       System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+                    dynDiv.ID = "GrillaEventos";
+                    dynDiv.InnerHtml = "<div class='row'><div class ='col-md-8'><strong>Su banda no posee eventos próximos</strong> </div>  </div>";
 
-                       dynDiv.ID = "GrillaEventos";
-                       dynDiv.InnerHtml = "<div class='row'><div class ='col-md-8'><strong>Su banda no posee eventos proximos</strong> </div>  </div>";
+                    GrillaEventosG.Controls.Add(dynDiv);
+                }
+                else
+                { lblTitle.Text="Eventos existentes";
+                    ddlLugar.DataValueField = "ID_locacion";
+                    ddlLugar.DataTextField = "Nombre";
+                    ddlLugar.DataSource = ct.locacion.ToList();
 
-                       GrillaEventos1.Controls.Add(dynDiv);
-                   }
+                    ddlLugar.DataBind();
 
-                   else
-                   { lblTitle.Text="Eventos existentes";
-                       ddlLugar.DataValueField = "ID_locacion";
-                       ddlLugar.DataTextField = "Nombre";
-                       ddlLugar.DataSource = ct.locacion.ToList();
+                    ddlTipo.DataValueField = "id_tipo_evento";
+                    ddlTipo.DataTextField = "descripcion";
+                    ddlTipo.DataSource = ct.tipo_evento.ToList();
+                    ddlTipo.DataBind();
 
-                       ddlLugar.DataBind();
+                    foreach (var ev in infoevento)
+                    { 
+                        System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
-                       ddlTipo.DataValueField = "id_tipo_evento";
-                       ddlTipo.DataTextField = "descripcion";
-                       ddlTipo.DataSource = ct.tipo_evento.ToList();
-                       ddlTipo.DataBind();
+                        dynDiv.ID = "GrillaEventos";
+                        dynDiv.InnerHtml = "<div class='row'><div class ='col-md-2'>" + ev.Nombre + "</div><div class ='col-md-2'>" + ev.Des + "</div><div class ='col-md-2'>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</div><div class ='col-md-2'>" + ev.Lugar + "</div><div class ='col-md-2'>" + ev.Tipo + "</div><div class ='col-md-2'><button type='button' onclick='hola(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></div>  </div>";
 
-                       foreach (var ev in infoevento)
-                       {
-                          
-                          
-                           System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-
-                           dynDiv.ID = "GrillaEventos";
-                           dynDiv.InnerHtml = "<div class='row'><div class ='col-md-1'>" + ev.ID + "</div><div class ='col-md-3'>" + ev.Nombre + "</div><div class ='col-md-3'>" + ev.Des + "</div><div class ='col-md-3'>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</div><div class ='col-md-3'>" + ev.Lugar + "</div><div class ='col-md-3'>" + ev.Tipo + "</div><div class ='col-md-3'><button type='button' onclick='hola(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></div>  </div>";
-
-                           GrillaEventos1.Controls.Add(dynDiv);
-                       }
-                   }
-
-               }
-       
-    }
+                        GrillaEventosG.Controls.Add(dynDiv);
+                    }
+                }
+            }
+        }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             int id_even = Convert.ToInt32(idEvento.Value);
 
-           
-                if (chkEli.Checked)
+            if (chkEli.Checked) //Eliminar
+            {
+                try
                 {
+                    var query = from ue in ct.usuario_evento
+                                where ue.id_evento == id_even
+                                select ue;
 
-                    try
+                    foreach (var ue in query.ToList())
                     {
-
-                        var query = from ue in ct.usuario_evento
-                                    where ue.id_evento == id_even
-                                    select ue;
-
-                        foreach (var ue in query.ToList())
-                        {
-                            ct.usuario_evento.DeleteObject(ue);
-                            ct.SaveChanges();
-                        }
-
-
-                        var eli = (from ev in ct.evento
-                                   where ev.id_evento == id_even
-                                   select ev).First();
-
-                        //Elimino el torneo seleccionado
-                        ct.evento.DeleteObject(eli);
+                        ct.usuario_evento.DeleteObject(ue);
                         ct.SaveChanges();
-                        Response.Redirect(Request.RawUrl);
                     }
 
+                    var eli = (from ev in ct.evento
+                                where ev.id_evento == id_even
+                                select ev).First();
 
-                    catch (Exception ex)
-                    {
-
-                    }
-
+                    //Elimino el torneo seleccionado
+                    ct.evento.DeleteObject(eli);
+                    ct.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
                 }
-                else //edita
+                catch (Exception ex)
                 {
+                }
+            }
+            else //Editar
+            {
+                try
+                {
+                    var query = from ev in ct.evento
+                                where ev.id_evento == id_even
+                                select ev;
 
-                    try
+                    foreach (var ev in query)
                     {
-
-                        var query = from ev in ct.evento
-                                    where ev.id_evento == id_even
-                                    select ev;
-
-                        foreach (var ev in query)
-                        {
-                            ev.titulo = txtNomE.Text;
-                            ev.fecha_evento = Convert.ToDateTime(txtFechaE.Text);
-                            ev.id_locacion = Convert.ToInt32(ddlLugar.SelectedValue);
-                            ev.fecha_modificacion = DateTime.Now;
-                            ev.tipo_evento = Convert.ToInt32(ddlTipo.SelectedValue);
-                            ev.descripcion = txtDescE.Text;
-                        }
-
-                        ct.SaveChanges();
-                        Response.Redirect(Request.RawUrl);
-
-
+                        ev.titulo = txtNomE.Text;
+                        ev.fecha_evento = Convert.ToDateTime(txtFechaE.Text);
+                        ev.id_locacion = Convert.ToInt32(ddlLugar.SelectedValue);
+                        ev.fecha_modificacion = DateTime.Now;
+                        ev.tipo_evento = Convert.ToInt32(ddlTipo.SelectedValue);
+                        ev.descripcion = txtDescE.Text;
                     }
-                    catch (Exception ex)
-                    {
-                        
-                    }
-                
+
+                    ct.SaveChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
+                catch (Exception ex)
+                {
+                }
             }
         }
 
         protected void btnNewEvent_Click(object sender, EventArgs e)
         {
-           
-                divCrearEvento.Visible = false;
-                GrillaEventos1.Visible = false;
-                crearEvento1.Visible = true;
+            divCrearEvento.Visible = false;
+            GrillaEventosG.Visible = false;
+            crearEvento1.Visible = true;
               
-                ddlLugar2.DataValueField = "ID_locacion";
-                ddlLugar2.DataTextField = "Nombre";
-                ddlLugar2.DataSource = ct.locacion.ToList();
+            ddlLugar2.DataValueField = "ID_locacion";
+            ddlLugar2.DataTextField = "Nombre";
+            ddlLugar2.DataSource = ct.locacion.ToList();
 
-                ddlLugar2.DataBind();
+            ddlLugar2.DataBind();
 
-                ddlTIpo2.DataValueField = "id_tipo_evento";
-                ddlTIpo2.DataTextField = "descripcion";
-                ddlTIpo2.DataSource = ct.tipo_evento.ToList();
-                ddlTIpo2.DataBind();
-            
-
+            ddlTIpo2.DataValueField = "id_tipo_evento";
+            ddlTIpo2.DataTextField = "descripcion";
+            ddlTIpo2.DataSource = ct.tipo_evento.ToList();
+            ddlTIpo2.DataBind();
         }  
        
         protected void btnCrearNuevo_Click(object sender, EventArgs e)
@@ -185,7 +161,5 @@ namespace CuandoTocan
 
             Response.Redirect(Request.RawUrl);
         }
-
-        
     }
 }

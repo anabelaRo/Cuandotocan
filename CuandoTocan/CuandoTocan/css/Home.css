@@ -607,17 +607,6 @@ a:visited {
 
 
 
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
 /*Usuario Logueado*/
 #divAfterlogged
 {
@@ -695,8 +684,6 @@ a:visited {
     height: 87px;
     width: 97px;
 }
-=======
-/* ============ABM eventos ==========*/
 
 #modificarE 
 {
@@ -713,7 +700,6 @@ a:visited {
     font-weight:bold;
 }
 
-#ContentHomeCenterMed_divCrearEvento {
-    float: left;
-    margin-left: 1.3%;}
->>>>>>> origin/master
+.#ContentHomeCenterMed_divCrearEvento {
+.    float: left;
+.    margin-left: 1.3%;}

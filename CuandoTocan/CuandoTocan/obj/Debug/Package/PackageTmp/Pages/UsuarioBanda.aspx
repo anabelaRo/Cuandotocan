@@ -6,6 +6,22 @@
             <div id="divImgUsuario1" runat="server">
                 <%--img class="img-responsive" alt="" src="../img/Galeria/system.png" /--%>
             </div>
+
+
+            <br/>
+            <br/>
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <br/>
+            <div class="text-icenter">
+                <asp:Button ID="btnSubirFoto" runat="server" Text="Subir Imagen" OnClick="btn_SubirFoto_Click" />
+            </div>
+            <br/>
+            <div class="text-icenter">
+                <asp:Label ID="lblSubirFoto" runat="server" Text=""></asp:Label>
+            </div>
+
+
+
         </div>
         <div id="divDerecha">
             <div class="module">
@@ -39,8 +55,8 @@
                                 <label for="lblgenero">Género</label>
                             </div>
                             <div class="col-sm-4">
-                                <asp:TextBox ID="txtGeneroAct" type="text" runat="server" placeholder="HeavyRock" class="form-control"/>
-                                <asp:RequiredFieldValidator ID="txtGeneroAVal" ControlToValidate="txtGeneroAct" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtGeneroAct" type="text" runat="server" placeholder="HeavyRock" class="form-control" required/>
+                                <%--asp:RequiredFieldValidator ID="txtGeneroAVal" ControlToValidate="txtGeneroAct" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio"></asp:RequiredFieldValidator--%>
                             </div>
                         </div>
                         <div class="row">                             
@@ -62,7 +78,7 @@
                                 <label for="lvlDescripA">Breve descripción</label>
                             </div>
                             <div class="col-sm-10">
-                                <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="150" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" />
+                                <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="150" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" required/>
                             </div>
                         </div>
                     </div> 
@@ -71,7 +87,6 @@
                     <asp:Button ID="Button1" runat="server" Text="Actualizar"  class="btn btn-default" onclick="btnActDatos_Click"/>
                 </div>
             </div>
-
             <div class="module">
                 <h2 class="title">
                     <a href="#">Discografía<asp:Label ID="lblDisUsuario" runat="server"/></a>
@@ -79,7 +94,6 @@
                 <div class="resume-body">
                     <div id="divDiscArtista1" runat="server">
                     </div>
-
                     <div id="contenedor1">
                         <script type="text/javascript">
                             function actDiscos(id, titulo, fecha, discografica) {
@@ -90,20 +104,16 @@
                                 document.getElementById("<%=txtDiscograficaD.ClientID %>").value = discografica;
                             }
                         </script>
-
-                        <div id="GrillaDiscos1" runat="server">
+                        <div id="GrillaDiscosG" runat="server">
                             <div id="GrillaD" runat="server">
                                 <div class ="row">
-                                    <div class ="col-md-1">
-                                     <strong>   ID</strong>
-                                    </div>
                                     <div class ="col-md-3">
                                      <strong>    Titulo</strong>
                                     </div>
                                     <div class ="col-md-3">
                                      <strong>    Fecha de Publicación</strong>
                                     </div>
-                                    <div class ="col-md-3">
+                                    <div class ="col-md-4">
                                      <strong>    Discografica</strong>
                                     </div>
                                     <div class ="col-md-1">
@@ -113,7 +123,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="modificarD" runat="server" style="display:none" >
                         <h3> Modificar Disco</h3>
                         <div class ="row">
@@ -121,7 +130,7 @@
                                 <asp:Label ID="lblTituloD" runat="server" Text="Álbum: "></asp:Label>
                             </div>
                             <div class ="col-md-3">
-                                <asp:TextBox ID="txtTituloD" runat="server"  class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtTituloD" runat="server"  class="form-control" />
                                 <asp:HiddenField ID="idDisco" runat="server" />
                             </div>
                         </div>
@@ -130,7 +139,7 @@
                                 <asp:Label ID="lblFechaD" runat="server" Text="Fecha de lanzamiento: " > </asp:Label>
                             </div>
                             <div class ="col-md-3">
-                                <asp:TextBox ID="txtFechaD" runat="server"  class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaD" runat="server"  class="form-control"/>
                             </div>
                         </div>
 						<div class ="row">
@@ -138,7 +147,7 @@
                                 <asp:Label ID="lblDiscograficaD" runat="server" Text="Discográfica: " > </asp:Label>
                             </div>
                             <div class ="col-md-3">
-                                <asp:TextBox ID="txtDiscograficaD" runat="server"  class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txtDiscograficaD" runat="server"  class="form-control"/>
                             </div>
                         </div>
                         <div class ="row">
@@ -160,12 +169,8 @@
                         </div>
                     </div>   
                         
-                    <div id="divCrearDisco" runat="server">
-                        <div class="row">
-                            <h3>    
-                                <asp:Button ID="btnNewDisco" runat="server" Text="Crear Nuevo Disco" class='btn btn-default' onclick="btnNewDisco_Click" />   
-                            </h3>
-                        </div>
+                    <div id="divCrearDisco" class="text-icenter" runat="server">
+                        <asp:Button ID="btnNewDisco" runat="server" Text="Crear Nuevo Disco" class='btn btn-default' onclick="btnNewDisco_Click" />   
                     </div>
 
                     <div id="crearDisco1" runat="server">
@@ -194,15 +199,12 @@
                                 <asp:TextBox ID="txtDiscograficaNueva" runat="server" class="form-control"></asp:TextBox>
                             </div>
                         </div>
-                        <div class ="row">  
-                            <div class ="col-md-6">
-                                <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearNuevoD_Click"/>     
-                            </div>
+                        <div class="text-icenter"> 
+                            <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearNuevoD_Click"/>     
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="module">
                 <h2 class="title">
                     <a href="#">Eventos<asp:Label ID="lblEveUsuario" runat="server"/></a>
@@ -218,36 +220,19 @@
                                 document.getElementById("<%=txtDescE.ClientID %>").value = desc;
                             }
                         </script>
-
-                        <div id="GrillaEventos1" runat="server">
+                        <div id="GrillaEventosG" runat="server">
                             <div id="Grilla" runat="server">
                                 <div class ="row">
-                                    <div class ="col-md-1">
-                                        ID
-                                    </div>
-                                    <div class ="col-md-3">
-                                        Nombre
-                                    </div>
-                                    <div class ="col-md-3">
-                                        Descripción
-                                    </div>
-                                    <div class ="col-md-3">
-                                        Fecha
-                                    </div>
-                                    <div class ="col-md-3">
-                                        Lugar
-                                    </div>
-                                    <div class ="col-md-3">
-                                        Tipo Evento
-                                    </div>
-                                    <div class ="col-md-3">
-                                        Editar
-                                    </div>
+                                    <div class ="col-md-2">Nombre</div>
+                                    <div class ="col-md-2">Descripción</div>
+                                    <div class ="col-md-2">Fecha</div>
+                                    <div class ="col-md-2">Lugar</div>
+                                    <div class ="col-md-2">Tipo Evento</div>
+                                    <div class ="col-md-2">Editar</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div id="modificarE" runat="server" style="display:none" >
                         <h3> Modificar evento</h3>
                         <div class ="row">
@@ -303,19 +288,13 @@
                                 No hay vuelta atrás. 
                             </div>
                         </div>
-                        <div class ="row">  
-                            <div class ="col-md-6">
-                                <asp:Button ID="btnUpdate" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnUpdate_Click" />                    
-                            </div>
+                        <div class="text-icenter">  
+                            <asp:Button ID="btnUpdate" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnUpdate_Click" />                    
                         </div>
-                    </div>   
-                        
-                    <div id="divCrearEvento" runat="server">
-                        <div class="row">
-                            <h3>    
-                                <asp:Button ID="btnNewEvent" runat="server" Text="Crear Nuevo Evento" class='btn btn-default' onclick="btnNewEvent_Click" />   
-                            </h3>
-                        </div>
+                    </div> 
+                      
+                    <div id="divCrearEvento" class="text-icenter" runat="server">
+                        <asp:Button ID="btnNewEvent" runat="server" Text="Crear Nuevo Evento" class='btn btn-default' onclick="btnNewEvent_Click" />   
                     </div>
 
                     <div id="crearEvento1" runat="server">
@@ -360,13 +339,10 @@
                                 <asp:DropDownList ID="ddlTIpo2" runat="server" class="form-control"></asp:DropDownList>
                             </div>
                         </div>
-                        <div class ="row">  
-                            <div class ="col-md-6">
-                                <asp:Button ID="Button2" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearNuevo_Click"/>     
-                            </div>
+                        <div class="text-icenter">  
+                            <asp:Button ID="Button2" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearNuevo_Click"/>     
                         </div>
                     </div>
-
                 </div>
             </div> 
         </div>

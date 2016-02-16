@@ -22,6 +22,33 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divImgUsuario1;
         
         /// <summary>
+        /// Control FileUpload1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
+        /// Control btnSubirFoto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubirFoto;
+        
+        /// <summary>
+        /// Control lblSubirFoto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSubirFoto;
+        
+        /// <summary>
         /// Control lblBioUsuario.
         /// </summary>
         /// <remarks>
@@ -65,15 +92,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGeneroAct;
-        
-        /// <summary>
-        /// Control txtGeneroAVal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtGeneroAVal;
         
         /// <summary>
         /// Control txtMBrainz.
@@ -130,13 +148,13 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscArtista1;
         
         /// <summary>
-        /// Control GrillaDiscos1.
+        /// Control GrillaDiscosG.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaDiscos1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaDiscosG;
         
         /// <summary>
         /// Control GrillaD.
@@ -337,13 +355,13 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Label lblEveUsuario;
         
         /// <summary>
-        /// Control GrillaEventos1.
+        /// Control GrillaEventosG.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaEventos1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaEventosG;
         
         /// <summary>
         /// Control Grilla.
