@@ -32,9 +32,7 @@ namespace CuandoTocan.Pages
            //    altaUsuarioU.Visible = false;
            //    altaUsuarioA.Visible = false;
            //}
-
         }
-
 
         protected void btnReg_Click(object sender, EventArgs e)
         {
@@ -50,10 +48,11 @@ namespace CuandoTocan.Pages
                 if (Page.IsValid)
                 {
                     CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+                    
                     var usuarioNoDis = ct.usuario.Count(u => u.nickname == regUser.Text);
+                    
                     if (usuarioNoDis == 0)
                     {
-
                         CuandoTocan.usuario us = new CuandoTocan.usuario();
 
                         us.nickname = regUser.Text;
@@ -65,25 +64,20 @@ namespace CuandoTocan.Pages
                         if (tipousu == 1)
                         {
                             Page.Validate("registroU");
+                            
                             if (Page.IsValid)
                             {
-
                                 try
                                 {
-
-
                                     us.nombre_completo = regNombre.Text;
                                     us.fecha_nacimiento = Convert.ToDateTime(regFNac.Text);
                                     us.biografia = TextAreaBio.Text;
 
-
                                     ct.AddTousuario(us);
                                     ct.SaveChanges();
 
-
-                                   serv.MandarMailReg("regU", regMail.Text, regUser.Text);
-                                   RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
-                                   
+                                    serv.MandarMailReg("regU", regMail.Text, regUser.Text);
+                                    RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
                                 }
                                 catch (Exception ex)
                                 {
@@ -112,8 +106,11 @@ namespace CuandoTocan.Pages
                                 ar.pais_origen = DropDownPais.SelectedItem.ToString();
                                 ar.descripcion = txtDescrip.Text;
 
-                                ar.image_path = "img/Users/userDefault.jpg";
+                                //ar.image_path = "img/Users/userDefault.jpg";
+                                String pathImagen = SubirFoto();
 
+                                ar.image_path = pathImagen;
+                                
                                 ct.AddToartista(ar);
                                 ct.SaveChanges();
 
@@ -139,6 +136,48 @@ namespace CuandoTocan.Pages
                         Label1.Text = "El Usuario está en uso";
                     }
                 }
+            }
+
+            public String SubirFoto()
+            {
+                String pathCompleto = "img/Users/userDefault.jpg";
+                
+                if (IsPostBack)
+                {
+                    Boolean fileOK = false;
+
+                    String path = Server.MapPath("~/img/Users/");
+                    
+                    if (FileUpload2.HasFile)
+                    {
+                        String fileExtension = System.IO.Path.GetExtension(FileUpload2.FileName).ToLower();
+
+                        String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
+
+                        for (int i = 0; i < allowedExtensions.Length; i++)
+                        {
+                            if (fileExtension == allowedExtensions[i])
+                            {
+                                fileOK = true;
+                            }
+                        }
+                    }
+
+                    if (fileOK)
+                    {
+                        try
+                        {
+                            FileUpload2.PostedFile.SaveAs(path + FileUpload2.FileName);
+                            pathCompleto = "img/Users/" + FileUpload2.FileName;
+                        }
+                        catch (Exception ex)
+                        {
+                            pathCompleto = "img/Users/userDefault.jpg";
+                        }
+                    }
+                }
+
+                return pathCompleto;
             }
         }  
     }

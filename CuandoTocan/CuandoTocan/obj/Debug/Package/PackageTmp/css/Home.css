@@ -257,14 +257,16 @@ font-size: 19px;
 
 
 .divImagen .text
-
-{color:white;
+{
+ color:white;
  font-weight:bold;
  position: absolute;
  background: rgba(0, 0, 0, 0.75);
  margin: -4.8% 0 0 0;
  padding-left: 0.5%;
- width: 254px;
+. width: 254px;
+ width: 18.7%;
+ border-radius: 10px;
   
  }
 

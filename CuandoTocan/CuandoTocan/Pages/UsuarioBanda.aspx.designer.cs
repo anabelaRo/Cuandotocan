@@ -22,33 +22,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divImgUsuario1;
         
         /// <summary>
-        /// Control FileUpload1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-        
-        /// <summary>
-        /// Control btnSubirFoto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubirFoto;
-        
-        /// <summary>
-        /// Control lblSubirFoto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSubirFoto;
-        
-        /// <summary>
         /// Control lblBioUsuario.
         /// </summary>
         /// <remarks>
@@ -112,6 +85,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtSpotify;
         
         /// <summary>
+        /// Control FileUpload1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
         /// Control txtDescrip.
         /// </summary>
         /// <remarks>
@@ -148,6 +130,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscArtista1;
         
         /// <summary>
+        /// Control mostrarD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mostrarD;
+        
+        /// <summary>
         /// Control GrillaDiscosG.
         /// </summary>
         /// <remarks>
@@ -164,6 +155,24 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaD;
+        
+        /// <summary>
+        /// Control divCrearDisco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCrearDisco;
+        
+        /// <summary>
+        /// Control btnNewDisco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnNewDisco;
         
         /// <summary>
         /// Control modificarD.
@@ -256,31 +265,13 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Button btnUpdateD;
         
         /// <summary>
-        /// Control divCrearDisco.
+        /// Control crearD.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCrearDisco;
-        
-        /// <summary>
-        /// Control btnNewDisco.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewDisco;
-        
-        /// <summary>
-        /// Control crearDisco1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl crearDisco1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl crearD;
         
         /// <summary>
         /// Control lblTituloNuevo.
@@ -371,6 +362,24 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grilla;
+        
+        /// <summary>
+        /// Control divCrearEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCrearEvento;
+        
+        /// <summary>
+        /// Control btnNewEvent.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnNewEvent;
         
         /// <summary>
         /// Control modificarE.
@@ -499,31 +508,13 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
-        /// Control divCrearEvento.
+        /// Control crearE.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCrearEvento;
-        
-        /// <summary>
-        /// Control btnNewEvent.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewEvent;
-        
-        /// <summary>
-        /// Control crearEvento1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl crearEvento1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl crearE;
         
         /// <summary>
         /// Control lblNameNuevo.

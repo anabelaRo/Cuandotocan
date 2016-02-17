@@ -21,13 +21,36 @@ namespace CuandoTocan
                 dynDiv.ID = "divAfterlogged";
 
                 string armoUserLogueado = "";
-                 
+
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+                int id_Usuario = Convert.ToInt32(Session["id_usua"]);
+
+                var usuarioBanda = (from art in ct.artista
+                                    join usu in ct.usuario on art.id_artista equals usu.id_artista
+                                    where usu.id_usuario == id_Usuario
+                                    select art);
+
+                String pathImagen = "img/Users/userDefault.jpg";
+
+                foreach (var a in usuarioBanda)
+                {
+                    if (a.image_path == "")
+                    {
+                        pathImagen = "img/Users/userDefault.jpg";
+                    }
+                    else
+                    {
+                        pathImagen = a.image_path;
+                    }
+                }
+
                 armoUserLogueado = 						"<div id='userLogueado'>";
                 armoUserLogueado = armoUserLogueado + 	"	<div class='navbar navbar-default navbar-fixed-top' role='navigation'>";
                 armoUserLogueado = armoUserLogueado + 	"		<ul class='nav navbar-nav navbar-right'>";
                 armoUserLogueado = armoUserLogueado + 	"			<li class='dropdown'>";
                 armoUserLogueado = armoUserLogueado + 	"				<a href='#' class='dropdown-toggle' data-toggle='dropdown'>";
-                armoUserLogueado = armoUserLogueado +   "				    <img class='imgUserBanda' alt='' src='../img/Users/userDefault.jpg' />";
+                armoUserLogueado = armoUserLogueado +   "				    <img class='imgUserBanda' alt='' src='../" + pathImagen + "' />";
                 armoUserLogueado = armoUserLogueado +  	"					<strong class='nombreUser'>" + Session["usuario"] + "</strong>";
                 armoUserLogueado = armoUserLogueado + "				        <img class='imgUserFlecha' alt='' src='../img/Users/flachaAbajo.jpg' />";
                 armoUserLogueado = armoUserLogueado +  	"				</a>";
@@ -37,7 +60,7 @@ namespace CuandoTocan
                 armoUserLogueado = armoUserLogueado +  	"							<div class='row'>";
                 armoUserLogueado = armoUserLogueado +  	"								<div class='col-lg-4'>";
                 armoUserLogueado = armoUserLogueado +  	"									<p class='text-center'>";
-                armoUserLogueado = armoUserLogueado + "										<img class='imgUserBanda2' alt='' src='../img/Users/userDefault.jpg' />";
+                armoUserLogueado = armoUserLogueado + "										<img class='imgUserBanda2' alt='' src='../" + pathImagen + "' />";
                 armoUserLogueado = armoUserLogueado +  	"									</p>";
                 armoUserLogueado = armoUserLogueado +  	"								</div>";
                 armoUserLogueado = armoUserLogueado +  	"								<div class='col-lg-8'>";
@@ -110,12 +133,12 @@ namespace CuandoTocan
                     string user = txtUser.Text;
                     foreach (var u in usuarioNoDis)
                     {
-                      Session["id_usua"] = u.id_usuario;
-                      Session["mail"] = u.email;
-                      Session["nombreCompleto"] = u.nombre_completo;
-                      Session["tipoUsuario"] = u.tipo_usuario;
+                        Session["id_usua"] = u.id_usuario;
+                        Session["mail"] = u.email;
+                        Session["nombreCompleto"] = u.nombre_completo;
+                        Session["tipoUsuario"] = u.tipo_usuario;
 
-                      mail  = u.email;
+                        mail  = u.email;
                     }
 
                     Session["usuario"] = user;

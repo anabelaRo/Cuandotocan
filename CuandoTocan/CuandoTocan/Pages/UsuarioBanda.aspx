@@ -1,29 +1,47 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="UsuarioBanda.aspx.cs" Inherits="CuandoTocan.Pages.UsuarioBanda" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentHomeCenterMed" runat="server">
+    
+    <script type="text/javascript">
+        function mostrarCrearDisco() {
+            document.getElementById('<%=crearD.ClientID %>').style.display = 'block';
+            document.getElementById('<%=modificarD.ClientID %>').style.display = 'none';
+        }
+        
+        function mostrarActualizarDisco(id, titulo, fecha, discografica) {
+            document.getElementById('<%=modificarD.ClientID %>').style.display = 'block';
+            document.getElementById("<%=idDisco.ClientID %>").value = id;
+            document.getElementById("<%=txtTituloD.ClientID %>").value = titulo;
+            document.getElementById("<%=txtFechaD.ClientID %>").value = fecha;
+            document.getElementById("<%=txtDiscograficaD.ClientID %>").value = discografica;
+
+            document.getElementById('<%=crearD.ClientID %>').style.display = 'none';
+        }
+
+        //************************************************************************************//
+
+        function mostrarCrearEvento() {
+            document.getElementById('<%=crearE.ClientID %>').style.display = 'block';
+            document.getElementById('<%=modificarE.ClientID %>').style.display = 'none';
+        }
+
+        function mostrarActualizarEvento(id, nombre, desc, fecha, lugar, tipo) {
+            document.getElementById('<%=modificarE.ClientID %>').style.display = 'block';
+            document.getElementById("<%=txtNomE.ClientID %>").value = nombre;
+            document.getElementById("<%=txtFechaE.ClientID %>").value = fecha;
+            document.getElementById("<%=idEvento.ClientID %>").value = id;
+            document.getElementById("<%=txtDescE.ClientID %>").value = desc;
+
+            document.getElementById('<%=crearE.ClientID %>').style.display = 'none';
+        }
+    </script>
+    
     <div id="divUsuarioBanda">
         <div id="divIzquierda">
-            <div id="divImgUsuario1" runat="server">
-                <%--img class="img-responsive" alt="" src="../img/Galeria/system.png" /--%>
-            </div>
-
-
-            <br/>
-            <br/>
-            <asp:FileUpload ID="FileUpload1" runat="server" />
-            <br/>
-            <div class="text-icenter">
-                <asp:Button ID="btnSubirFoto" runat="server" Text="Subir Imagen" OnClick="btn_SubirFoto_Click" />
-            </div>
-            <br/>
-            <div class="text-icenter">
-                <asp:Label ID="lblSubirFoto" runat="server" Text=""></asp:Label>
-            </div>
-
-
-
+            <div id="divImgUsuario1" runat="server"></div>
         </div>
         <div id="divDerecha">
+            <%----------------------------------------------------------------------------------------------------------------%>
             <div class="module">
                 <h2 class="title">
                     <a href="#">Actualizar datos<asp:Label ID="lblBioUsuario" runat="server"/></a>
@@ -73,37 +91,41 @@
                                 <asp:TextBox ID="txtSpotify" type="text" runat="server" placeholder="4987" class="form-control"/>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="inputFoto">Imagen: </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-sm-2">
                                 <label for="lvlDescripA">Breve descripción</label>
                             </div>
                             <div class="col-sm-10">
-                                <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="150" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" required/>
+                                <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="160" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" required/>
                             </div>
                         </div>
                     </div> 
                 </div>
                 <div class="text-icenter">
-                    <asp:Button ID="Button1" runat="server" Text="Actualizar"  class="btn btn-default" onclick="btnActDatos_Click"/>
+                    <asp:Button ID="Button1" runat="server" Text="Actualizar"  class="btn btn-default" onclick="btnActDatosUser_Click"/>
                 </div>
             </div>
+
+            <%----------------------------------------------------------------------------------------------------------------%>
             <div class="module">
                 <h2 class="title">
                     <a href="#">Discografía<asp:Label ID="lblDisUsuario" runat="server"/></a>
                 </h2>
+
                 <div class="resume-body">
-                    <div id="divDiscArtista1" runat="server">
-                    </div>
-                    <div id="contenedor1">
-                        <script type="text/javascript">
-                            function actDiscos(id, titulo, fecha, discografica) {
-                                document.getElementById('<%=modificarD.ClientID %>').style.display = 'block';
-                                document.getElementById("<%=idDisco.ClientID %>").value = id;
-                                document.getElementById("<%=txtTituloD.ClientID %>").value = titulo;
-                                document.getElementById("<%=txtFechaD.ClientID %>").value = fecha;
-                                document.getElementById("<%=txtDiscograficaD.ClientID %>").value = discografica;
-                            }
-                        </script>
+                    <div id="divDiscArtista1" runat="server"></div>
+                    
+                    <div id="mostrarD" runat="server">
                         <div id="GrillaDiscosG" runat="server">
                             <div id="GrillaD" runat="server">
                                 <div class ="row">
@@ -123,7 +145,12 @@
                             </div>
                         </div>
                     </div>
-                    <div id="modificarD" runat="server" style="display:none" >
+
+                    <div id="divCrearDisco" class="text-icenter" runat="server">
+                        <button id="btnNewDisco" runat="server" class="btn btn-default" onclick="mostrarCrearDisco();" type="button">Crear Nuevo Disco</button>
+                    </div>
+
+                    <div id="modificarD" runat="server" style="display:none">
                         <h3> Modificar Disco</h3>
                         <div class ="row">
                             <div class ="col-md-1">
@@ -164,16 +191,12 @@
                         </div>
                         <div class ="row">  
                             <div class ="col-md-6">
-                                <asp:Button ID="btnUpdateD" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnUpdateD_Click" />                    
+                                <asp:Button ID="btnUpdateD" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarDisco_Click" />                    
                             </div>
                         </div>
                     </div>   
-                        
-                    <div id="divCrearDisco" class="text-icenter" runat="server">
-                        <asp:Button ID="btnNewDisco" runat="server" Text="Crear Nuevo Disco" class='btn btn-default' onclick="btnNewDisco_Click" />   
-                    </div>
 
-                    <div id="crearDisco1" runat="server">
+                    <div id="crearD" runat="server" style="display:none">
                         <h3> Crear Disco</h3>
                         <div class ="row">
                             <div class ="col-md-1">
@@ -200,26 +223,20 @@
                             </div>
                         </div>
                         <div class="text-icenter"> 
-                            <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearNuevoD_Click"/>     
+                            <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearDisco_Click"/>     
                         </div>
                     </div>
                 </div>
             </div>
+
+            <%----------------------------------------------------------------------------------------------------------------%>
             <div class="module">
                 <h2 class="title">
                     <a href="#">Eventos<asp:Label ID="lblEveUsuario" runat="server"/></a>
                 </h2>
+
                 <div class="resume-body">
                     <div id="contenedor">
-                        <script type="text/javascript">
-                            function actEventos(id, nombre, desc, fecha, lugar, tipo) {
-                                document.getElementById('<%=modificarE.ClientID %>').style.display = 'block';
-                                document.getElementById("<%=txtNomE.ClientID %>").value = nombre;
-                                document.getElementById("<%=txtFechaE.ClientID %>").value = fecha;
-                                document.getElementById("<%=idEvento.ClientID %>").value = id;
-                                document.getElementById("<%=txtDescE.ClientID %>").value = desc;
-                            }
-                        </script>
                         <div id="GrillaEventosG" runat="server">
                             <div id="Grilla" runat="server">
                                 <div class ="row">
@@ -233,7 +250,13 @@
                             </div>
                         </div>
                     </div>
-                    <div id="modificarE" runat="server" style="display:none" >
+
+                    <div id="divCrearEvento" class="text-icenter" runat="server">
+                        <%-- asp:Button ID="btnNewEvent" runat="server" Text="Crear Nuevo Evento" class='btn btn-default' onclick="btnNewEvent_Click" /--%>   
+                        <button id="btnNewEvent" runat="server" class="btn btn-default" onclick="mostrarCrearEvento();" type="button">Crear Nuevo Evento</button>
+                    </div>
+
+                    <div id="modificarE" runat="server" style="display:none">
                         <h3> Modificar evento</h3>
                         <div class ="row">
                             <div class ="col-md-1">
@@ -289,15 +312,11 @@
                             </div>
                         </div>
                         <div class="text-icenter">  
-                            <asp:Button ID="btnUpdate" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnUpdate_Click" />                    
+                            <asp:Button ID="btnUpdate" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarEvento_Click" />                    
                         </div>
                     </div> 
-                      
-                    <div id="divCrearEvento" class="text-icenter" runat="server">
-                        <asp:Button ID="btnNewEvent" runat="server" Text="Crear Nuevo Evento" class='btn btn-default' onclick="btnNewEvent_Click" />   
-                    </div>
 
-                    <div id="crearEvento1" runat="server">
+                    <div id="crearE" runat="server" style="display:none">
                         <h3> Crear Evento</h3>
                         <div class ="row">
                             <div class ="col-md-1">
@@ -340,10 +359,11 @@
                             </div>
                         </div>
                         <div class="text-icenter">  
-                            <asp:Button ID="Button2" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearNuevo_Click"/>     
+                            <asp:Button ID="Button2" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearEvento_Click"/>     
                         </div>
                     </div>
                 </div>
+
             </div> 
         </div>
     </div>

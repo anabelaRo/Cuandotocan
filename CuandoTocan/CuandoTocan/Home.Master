@@ -30,13 +30,11 @@
         <%--css--%>
 
         <%--JS--%>
-        <script type="text/javascript" 
-		    src="<%= Page.ResolveClientUrl("~/js/Home.js") %>"> 
-        </script>
-
-        <script type="text/javascript" 
-		    src="<%= Page.ResolveClientUrl("~/js/jssor.slider-20.min.js") %>"> 
-        </script>
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/Home.js") %>"></script>
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/UsuarioBanda.js") %>"></script>
+        <script type="text/javascript" src="<%= Page.ResolveClientUrl("~/js/jssor.slider-20.min.js") %>"></script> 
+		     
+        
         <%--JS--%>      
         
         <!--GMAPS-->

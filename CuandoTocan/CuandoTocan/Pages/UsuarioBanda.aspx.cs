@@ -20,10 +20,12 @@ namespace CuandoTocan.Pages
 
             System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
 
-            dynDiv.ID = "divImgUsuario";
+            /*dynDiv.ID = "divImgUsuario";
             dynDiv.InnerHtml = "<img class='imgUsuario' alt='' src='../img/Users/userDefault.jpg' />";
 
-            divImgUsuario1.Controls.Add(dynDiv);
+            divImgUsuario1.Controls.Add(dynDiv);*/
+
+            int primero = 0;
 
             var usuarioBanda = (from art in ct.artista
                                 join usu in ct.usuario on art.id_artista equals usu.id_artista
@@ -37,11 +39,22 @@ namespace CuandoTocan.Pages
                                     brain = art.mbid,
                                     spotify = art.spotify_id,
                                     descripcion = art.descripcion,
-                                    id_artista = art.id_artista
+                                    id_artista = art.id_artista,
+                                    image_path = art.image_path
                                 });
 
             foreach (var a in usuarioBanda)
             {
+                if (primero == 0)
+                {
+                    dynDiv.ID = "divImgUsuario";
+                    dynDiv.InnerHtml = "<img class='imgUsuario' alt='' src='../" + a.image_path + "' />";
+
+                    divImgUsuario1.Controls.Add(dynDiv);
+
+                    primero = 1;
+                }
+                
                 regUser.Text = a.usuario;
                 regMail.Text = a.email;
                 txtNombreA.Text = a.nombre;
@@ -57,7 +70,7 @@ namespace CuandoTocan.Pages
                 id_artista = a.id_artista;
 
                 //Discos
-                crearDisco1.Visible = false;
+                //crearD.Visible = false;
 
                 var infodisco = (from art in ct.artista
                                     join dis in ct.discografia on art.id_artista equals dis.id_artista
@@ -91,14 +104,14 @@ namespace CuandoTocan.Pages
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
                         dynDiv1.ID = "GrillaDiscos-" + valor1;
-                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-3'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-4'>" + di.discografica + "</div><div class ='col-md-1'><button type='button' onclick='actDiscos(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
+                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-3'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-4'>" + di.discografica + "</div><div class ='col-md-1'><button type='button' onclick='mostrarActualizarDisco(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
 
                         GrillaDiscosG.Controls.Add(dynDiv1);
                     }
                 }
 
                 //Eventos
-                crearEvento1.Visible = false;
+                //crearE.Visible = false;
 
                 var infoevento = (  from ev in ct.evento
                                     join lo in ct.locacion on ev.id_locacion equals lo.id_locacion
@@ -146,15 +159,26 @@ namespace CuandoTocan.Pages
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
                         dynDiv1.ID = "GrillaEventos-" + valor;
-                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-2'>" + ev.Nombre + "</div><div class ='col-md-2'>" + ev.Des + "</div><div class ='col-md-2'>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</div><div class ='col-md-2'>" + ev.Lugar + "</div><div class ='col-md-2'>" + ev.Tipo + "</div><div class ='col-md-2'><button type='button' onclick='actEventos(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></div>  </div>";
+                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-2'>" + ev.Nombre + "</div><div class ='col-md-2'>" + ev.Des + "</div><div class ='col-md-2'>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</div><div class ='col-md-2'>" + ev.Lugar + "</div><div class ='col-md-2'>" + ev.Tipo + "</div><div class ='col-md-2'><button type='button' onclick='mostrarActualizarEvento(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></div>  </div>";
 
                         GrillaEventosG.Controls.Add(dynDiv1);
                     }
                 }
             }
+
+            ddlLugar2.DataValueField = "ID_locacion";
+            ddlLugar2.DataTextField = "Nombre";
+            ddlLugar2.DataSource = ct.locacion.ToList();
+
+            ddlLugar2.DataBind();
+
+            ddlTIpo2.DataValueField = "id_tipo_evento";
+            ddlTIpo2.DataTextField = "descripcion";
+            ddlTIpo2.DataSource = ct.tipo_evento.ToList();
+            ddlTIpo2.DataBind();
         }
 
-        protected void btnActDatos_Click(object sender, EventArgs e)
+        protected void btnActDatosUser_Click(object sender, EventArgs e)
         {
             Page.Validate();
 
@@ -175,6 +199,13 @@ namespace CuandoTocan.Pages
                     a.mbid = txtMBrainz.Text;
                     a.spotify_id = txtSpotify.Text;
                     a.descripcion = txtDescrip.Text;
+
+                    String pathImagen = SubirFoto();
+
+                    if (pathImagen != "img/Users/userDefault.jpg")
+                    {
+                        a.image_path = pathImagen;
+                    }
                 }
 
                 ct.SaveChanges();
@@ -183,7 +214,7 @@ namespace CuandoTocan.Pages
         }
 
         //Discografia
-        protected void btnUpdateD_Click(object sender, EventArgs e)
+        protected void btnActualizarDisco_Click(object sender, EventArgs e)
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
@@ -230,16 +261,16 @@ namespace CuandoTocan.Pages
             }
         }
 
-        protected void btnNewDisco_Click(object sender, EventArgs e)
+        /*protected void btnNewDisco_Click(object sender, EventArgs e)
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
             divCrearDisco.Visible = false;
-            GrillaDiscosG.Visible = false;
+            mostrarD.Visible = true;
             crearDisco1.Visible = true;
-        }
+        }*/
 
-        protected void btnCrearNuevoD_Click(object sender, EventArgs e)
+        protected void btnCrearDisco_Click(object sender, EventArgs e)
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
@@ -257,7 +288,7 @@ namespace CuandoTocan.Pages
         }
 
         //Eventos
-        protected void btnUpdate_Click(object sender, EventArgs e)
+        protected void btnActualizarEvento_Click(object sender, EventArgs e)
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
             
@@ -316,13 +347,13 @@ namespace CuandoTocan.Pages
             }
         }
 
-        protected void btnNewEvent_Click(object sender, EventArgs e)
+        /*protected void btnNewEvent_Click(object sender, EventArgs e)
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
             divCrearEvento.Visible = false;
             GrillaEventosG.Visible = false;
-            crearEvento1.Visible = true;
+            crearE.Visible = true;
 
             ddlLugar2.DataValueField = "ID_locacion";
             ddlLugar2.DataTextField = "Nombre";
@@ -334,9 +365,9 @@ namespace CuandoTocan.Pages
             ddlTIpo2.DataTextField = "descripcion";
             ddlTIpo2.DataSource = ct.tipo_evento.ToList();
             ddlTIpo2.DataBind();
-        }
+        }*/
 
-        protected void btnCrearNuevo_Click(object sender, EventArgs e)
+        protected void btnCrearEvento_Click(object sender, EventArgs e)
         {
             Page.Validate();
 
@@ -371,7 +402,49 @@ namespace CuandoTocan.Pages
             }
         }
 
-        protected void btn_SubirFoto_Click(object sender, EventArgs e)
+        public String SubirFoto()
+        {
+            String pathCompleto = "img/Users/userDefault.jpg";
+
+            if (IsPostBack)
+            {
+                Boolean fileOK = false;
+
+                String path = Server.MapPath("~/img/Users/");
+
+                if (FileUpload1.HasFile)
+                {
+                    String fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+
+                    String[] allowedExtensions = { ".gif", ".png", ".jpeg", ".jpg" };
+
+                    for (int i = 0; i < allowedExtensions.Length; i++)
+                    {
+                        if (fileExtension == allowedExtensions[i])
+                        {
+                            fileOK = true;
+                        }
+                    }
+                }
+
+                if (fileOK)
+                {
+                    try
+                    {
+                        FileUpload1.PostedFile.SaveAs(path + FileUpload1.FileName);
+                        pathCompleto = "img/Users/" + FileUpload1.FileName;
+                    }
+                    catch (Exception ex)
+                    {
+                        pathCompleto = "img/Users/userDefault.jpg";
+                    }
+                }
+            }
+
+            return pathCompleto;
+        }
+
+        /*protected void btn_SubirFoto_Click(object sender, EventArgs e)
         {
             if (IsPostBack)
             {
@@ -411,8 +484,6 @@ namespace CuandoTocan.Pages
                     lblSubirFoto.Text = "Tipo de archivo incorrecto.[gif, png, jpeg, jpg]";
                 }
             }
-        }
-
-
+        }*/
     }
 }

@@ -55,7 +55,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\ABM_evento.aspx" />
+    <Content Include="js\UsuarioBanda.js" />
     <Content Include="css\bootstrap\bootstrap-switch.css" />
     <Content Include="css\UsuarioBanda.css" />
     <Content Include="Global.asax" />
@@ -135,13 +135,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CTBBDD.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ABM_evento.aspx.cs">
-      <DependentUpon>ABM_evento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\ABM_evento.aspx.designer.cs">
-      <DependentUpon>ABM_evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\ucFooter.ascx.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
