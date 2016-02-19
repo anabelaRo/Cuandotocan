@@ -69,10 +69,10 @@ namespace CuandoTocan.Pages
 
                 id_artista = a.id_artista;
 
-                //Discos
+                //**********************************************Discos************************************************
                 //crearD.Visible = false;
 
-                var infodisco = (from art in ct.artista
+                var infodisco = (   from art in ct.artista
                                     join dis in ct.discografia on art.id_artista equals dis.id_artista
                                     where art.id_artista == id_artista
                                     select new
@@ -83,7 +83,7 @@ namespace CuandoTocan.Pages
                                         discografica = dis.discografica
                                     });
 
-                if (infodisco.Count() == 0)
+                /*if (infodisco.Count() == 0)
                 {
                     GrillaD.Visible = false;
                     System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
@@ -96,21 +96,62 @@ namespace CuandoTocan.Pages
                 else
                 {
                     int valor1 = 0;
-                        
+
                     foreach (var di in infodisco)
                     {
                         valor1++;
-                            
+
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
                         dynDiv1.ID = "GrillaDiscos-" + valor1;
-                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-3'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-4'>" + di.discografica + "</div><div class ='col-md-1'><button type='button' onclick='mostrarActualizarDisco(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
+                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-4'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-3'>" + di.discografica + "</div><div class ='col-md-1'><button type='button' onclick='mostrarActualizarDisco(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
 
                         GrillaDiscosG.Controls.Add(dynDiv1);
                     }
+                }*/
+
+                System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+
+                dynDiv1.ID = "GrillaDiscos";
+
+                string tablaDiscos = "";
+
+                if (infodisco.Count() == 0)
+                {
+                    tablaDiscos = tablaDiscos + "<strong>Su banda no posee discos</strong>          ";
+                }
+                else
+                {
+                    tablaDiscos =   "	        <table class='table table-bordered table-striped'>	" +
+                                    "	        	<thead>											" +
+                                    "	        		<tr>                                        " +
+                                    "	        			<th>Titulo</th>                         " +
+                                    "	        			<th>Fecha de Publicación</th>           " +
+                                    "	        			<th>Discografica</th>                   " +
+                                    "	        			<th>Editar</th>                         " +
+                                    "	        		</tr>                                       " +
+                                    "	        	</thead>                                        " +
+                                    "	        	<tbody>                                         ";
+
+                    foreach (var di in infodisco)
+                    {
+                        tablaDiscos = tablaDiscos + "	<tr>                                        " +
+                                                    "		<td>" + di.titulo + "</td>              " +
+                                                    "		<td>" + di.fecha + "</td>               " +
+                                                    "		<td>" + di.discografica + "</td>        " +
+                                                    "		<th><button type='button' onclick='mostrarActualizarDisco(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></th>" +
+                                                    "	</tr>                                       ";                        
+                    }
+
+                    tablaDiscos = tablaDiscos + "   </tbody>                                        " +
+                                                "</table>                                           ";
                 }
 
-                //Eventos
+                dynDiv1.InnerHtml = tablaDiscos;
+
+                GrillaDiscosG.Controls.Add(dynDiv1);
+
+                //********************************************Eventos**********************************************
                 //crearE.Visible = false;
 
                 var infoevento = (  from ev in ct.evento
@@ -127,7 +168,7 @@ namespace CuandoTocan.Pages
                                         Des = ev.descripcion
                                     });
 
-                if (infoevento.Count() == 0)
+                /*if (infoevento.Count() == 0)
                 {
                     Grilla.Visible = false;
                     System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
@@ -155,7 +196,7 @@ namespace CuandoTocan.Pages
                     foreach (var ev in infoevento)
                     {
                         valor++;
-                            
+
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
                         dynDiv1.ID = "GrillaEventos-" + valor;
@@ -163,7 +204,63 @@ namespace CuandoTocan.Pages
 
                         GrillaEventosG.Controls.Add(dynDiv1);
                     }
+                }*/
+
+                System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
+
+                dynDiv2.ID = "GrillaEventos";
+
+                string tablaEventos = "";
+
+                if (infoevento.Count() == 0)
+                {
+                    tablaEventos = "<strong>Su banda no posee eventos próximos</strong>                             ";
                 }
+                else
+                {
+                    ddlLugar.DataValueField = "ID_locacion";
+                    ddlLugar.DataTextField = "Nombre";
+                    ddlLugar.DataSource = ct.locacion.ToList();
+
+                    ddlLugar.DataBind();
+
+                    ddlTipo.DataValueField = "id_tipo_evento";
+                    ddlTipo.DataTextField = "descripcion";
+                    ddlTipo.DataSource = ct.tipo_evento.ToList();
+                    ddlTipo.DataBind();
+
+                    tablaEventos =  "	        <table class='table table-bordered table-striped'>	                " +
+                                    "	        	<thead>											                " +
+                                    "	        		<tr>                                                        " +
+                                    "	        			<th>Nombre</th>                                         " +
+                                    "	        			<th>Descripción</th>                                    " +
+                                    "	        			<th>Fecha</th>                                          " +
+                                    "	        			<th>Lugar</th>                                          " +
+                                    "	        			<th>Tipo Evento</th>                                    " +
+                                    "	        			<th>Editar</th>                                         " +
+                                    "	        		</tr>                                                       " +
+                                    "	        	</thead>                                                        " +
+                                    "	        	<tbody>                                                         ";
+
+                    foreach (var ev in infoevento)
+                    {
+                        tablaEventos = tablaEventos + "	<tr>                                                        " +
+                                                    "		<td>" + ev.Nombre + "</td>                              " +
+                                                    "		<td>" + ev.Des + "</td>                                 " +
+                                                    "		<td>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</td>   " +
+                                                    "		<td>" + ev.Lugar + "</td>                               " +
+                                                    "		<td>" + ev.Tipo + "</td>                                " +
+                                                    "		<th><button type='button' onclick='mostrarActualizarEvento(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></th>" +
+                                                    "	</tr>                                                       ";                        
+                    }
+
+                    tablaEventos = tablaEventos + " </tbody>                                                        " +
+                                                "</table>                                                           ";
+                }
+
+                dynDiv2.InnerHtml = tablaEventos;
+
+                GrillaEventosG.Controls.Add(dynDiv2);
             }
 
             ddlLugar2.DataValueField = "ID_locacion";

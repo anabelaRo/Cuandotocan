@@ -112,7 +112,7 @@
                     </div> 
                 </div>
                 <div class="text-icenter">
-                    <asp:Button ID="Button1" runat="server" Text="Actualizar"  class="btn btn-default" onclick="btnActDatosUser_Click"/>
+                    <asp:Button ID="btnActDatosUser" runat="server" Text="Actualizar"  class="btn btn-default" onclick="btnActDatosUser_Click"/>
                 </div>
             </div>
 
@@ -122,28 +122,40 @@
                     <a href="#">Discografía<asp:Label ID="lblDisUsuario" runat="server"/></a>
                 </h2>
 
+                <%--table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Rocky</td>
+                            <td>Balboa</td>
+                            <td>rockybalboa@mail.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Peter</td>
+                            <td>Parker</td>
+                            <td>peterparker@mail.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John</td>
+                            <td>Rambo</td>
+                            <td>johnrambo@mail.com</td>
+                        </tr>
+                    </tbody>
+                </table--%>
+
                 <div class="resume-body">
-                    <div id="divDiscArtista1" runat="server"></div>
-                    
                     <div id="mostrarD" runat="server">
-                        <div id="GrillaDiscosG" runat="server">
-                            <div id="GrillaD" runat="server">
-                                <div class ="row">
-                                    <div class ="col-md-3">
-                                     <strong>    Titulo</strong>
-                                    </div>
-                                    <div class ="col-md-3">
-                                     <strong>    Fecha de Publicación</strong>
-                                    </div>
-                                    <div class ="col-md-4">
-                                     <strong>    Discografica</strong>
-                                    </div>
-                                    <div class ="col-md-1">
-                                     <strong>    Editar</strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="GrillaDiscosG" runat="server"></div>
                     </div>
 
                     <div id="divCrearDisco" class="text-icenter" runat="server">
@@ -236,23 +248,11 @@
                 </h2>
 
                 <div class="resume-body">
-                    <div id="contenedor">
-                        <div id="GrillaEventosG" runat="server">
-                            <div id="Grilla" runat="server">
-                                <div class ="row">
-                                    <div class ="col-md-2">Nombre</div>
-                                    <div class ="col-md-2">Descripción</div>
-                                    <div class ="col-md-2">Fecha</div>
-                                    <div class ="col-md-2">Lugar</div>
-                                    <div class ="col-md-2">Tipo Evento</div>
-                                    <div class ="col-md-2">Editar</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="mostrarE" runat="server">
+                        <div id="GrillaEventosG" runat="server"></div>
                     </div>
 
                     <div id="divCrearEvento" class="text-icenter" runat="server">
-                        <%-- asp:Button ID="btnNewEvent" runat="server" Text="Crear Nuevo Evento" class='btn btn-default' onclick="btnNewEvent_Click" /--%>   
                         <button id="btnNewEvent" runat="server" class="btn btn-default" onclick="mostrarCrearEvento();" type="button">Crear Nuevo Evento</button>
                     </div>
 
@@ -363,7 +363,6 @@
                         </div>
                     </div>
                 </div>
-
             </div> 
         </div>
     </div>

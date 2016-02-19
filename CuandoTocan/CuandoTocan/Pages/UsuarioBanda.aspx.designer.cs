@@ -103,13 +103,13 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtDescrip;
         
         /// <summary>
-        /// Control Button1.
+        /// Control btnActDatosUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnActDatosUser;
         
         /// <summary>
         /// Control lblDisUsuario.
@@ -119,15 +119,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDisUsuario;
-        
-        /// <summary>
-        /// Control divDiscArtista1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDiscArtista1;
         
         /// <summary>
         /// Control mostrarD.
@@ -146,15 +137,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaDiscosG;
-        
-        /// <summary>
-        /// Control GrillaD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaD;
         
         /// <summary>
         /// Control divCrearDisco.
@@ -346,6 +328,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Label lblEveUsuario;
         
         /// <summary>
+        /// Control mostrarE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mostrarE;
+        
+        /// <summary>
         /// Control GrillaEventosG.
         /// </summary>
         /// <remarks>
@@ -353,15 +344,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl GrillaEventosG;
-        
-        /// <summary>
-        /// Control Grilla.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Grilla;
         
         /// <summary>
         /// Control divCrearEvento.
