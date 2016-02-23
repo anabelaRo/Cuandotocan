@@ -14,16 +14,29 @@ namespace CuandoTocan.Pages
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            //int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+            int id_Usuario = Convert.ToInt32(Session["id_usua"]); 
+
+            System.Web.UI.HtmlControls.HtmlGenericControl dynDivMenu = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+
+            dynDivMenu.ID = "divMenutUserBanda";
+
+            string menuUserBanda = "";
+
+            menuUserBanda = menuUserBanda + "   <div class='list-group'>                                                                                                    " +                             
+                                            "       <a class='list-group-item' href='/Pages/UsuarioBanda.aspx?id_usuario='" + id_Usuario + "'>Actualizar Datos</a>          " +
+                                            "       <a class='list-group-item' href='/Pages/ActPassUserBanda.aspx?id_usuario='" + id_Usuario + "'>Cambio de Contraseña</a>  " +
+                                            "       <a class='list-group-item' href='/Pages/DiscografiaUserBanda.aspx?id_usuario='" + id_Usuario + "'>Discografía</a>       " +
+                                            "       <a class='list-group-item' href='/Pages/EventosUserBanda.aspx?id_usuario='" + id_Usuario + "'>Eventos</a>               " +  
+                                            "   </div>                                                                                                                      " ;
+
+            dynDivMenu.InnerHtml = menuUserBanda;
+
+            divMenuArtistaVert.Controls.Add(dynDivMenu);
+            
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-            int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
-
             System.Web.UI.HtmlControls.HtmlGenericControl dynDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
-
-            /*dynDiv.ID = "divImgUsuario";
-            dynDiv.InnerHtml = "<img class='imgUsuario' alt='' src='../img/Users/userDefault.jpg' />";
-
-            divImgUsuario1.Controls.Add(dynDiv);*/
 
             int primero = 0;
 
@@ -83,33 +96,6 @@ namespace CuandoTocan.Pages
                                         discografica = dis.discografica
                                     });
 
-                /*if (infodisco.Count() == 0)
-                {
-                    GrillaD.Visible = false;
-                    System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-
-                    dynDiv2.ID = "GrillaDiscosN";
-                    dynDiv2.InnerHtml = "<div class='row'><div class ='col-md-8'><strong>Su banda no posee discos</strong> </div>  </div>";
-
-                    GrillaDiscosG.Controls.Add(dynDiv2);
-                }
-                else
-                {
-                    int valor1 = 0;
-
-                    foreach (var di in infodisco)
-                    {
-                        valor1++;
-
-                        System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-
-                        dynDiv1.ID = "GrillaDiscos-" + valor1;
-                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-4'>" + di.titulo + "</div><div class ='col-md-3'>" + di.fecha + "</div><div class ='col-md-3'>" + di.discografica + "</div><div class ='col-md-1'><button type='button' onclick='mostrarActualizarDisco(" + di.id + ",\"" + di.titulo + "\",\"" + di.fecha + "\",\"" + di.discografica + "\");' class='btn btn-default' id='" + di.id + "'>Editar</button></div>  </div>";
-
-                        GrillaDiscosG.Controls.Add(dynDiv1);
-                    }
-                }*/
-
                 System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
                 dynDiv1.ID = "GrillaDiscos";
@@ -167,44 +153,6 @@ namespace CuandoTocan.Pages
                                         Tipo = ti.descripcion,
                                         Des = ev.descripcion
                                     });
-
-                /*if (infoevento.Count() == 0)
-                {
-                    Grilla.Visible = false;
-                    System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-
-                    dynDiv2.ID = "GrillaEventosN";
-                    dynDiv2.InnerHtml = "<div class='row'><div class ='col-md-8'><strong>Su banda no posee eventos próximos</strong> </div>  </div>";
-
-                    GrillaEventosG.Controls.Add(dynDiv2);
-                }
-                else
-                {
-                    ddlLugar.DataValueField = "ID_locacion";
-                    ddlLugar.DataTextField = "Nombre";
-                    ddlLugar.DataSource = ct.locacion.ToList();
-
-                    ddlLugar.DataBind();
-
-                    ddlTipo.DataValueField = "id_tipo_evento";
-                    ddlTipo.DataTextField = "descripcion";
-                    ddlTipo.DataSource = ct.tipo_evento.ToList();
-                    ddlTipo.DataBind();
-
-                    int valor = 0;
-
-                    foreach (var ev in infoevento)
-                    {
-                        valor++;
-
-                        System.Web.UI.HtmlControls.HtmlGenericControl dynDiv1 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
-
-                        dynDiv1.ID = "GrillaEventos-" + valor;
-                        dynDiv1.InnerHtml = "<div class='row'><div class ='col-md-2'>" + ev.Nombre + "</div><div class ='col-md-2'>" + ev.Des + "</div><div class ='col-md-2'>" + ev.Fecha.ToString("dd/M/yyyy hh:mm") + "</div><div class ='col-md-2'>" + ev.Lugar + "</div><div class ='col-md-2'>" + ev.Tipo + "</div><div class ='col-md-2'><button type='button' onclick='mostrarActualizarEvento(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha + "\",\"" + ev.Tipo + "\",\"" + ev.Lugar + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></div>  </div>";
-
-                        GrillaEventosG.Controls.Add(dynDiv1);
-                    }
-                }*/
 
                 System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
@@ -275,15 +223,78 @@ namespace CuandoTocan.Pages
             ddlTIpo2.DataBind();
         }
 
-        protected void btnActDatosUser_Click(object sender, EventArgs e)
+        protected void btnActPassUser_Click(object sender, EventArgs e)
         {
+            valGeneroAct.Enabled = false;
+            valDescrip.Enabled = false;
+            //
+            valPassActual.Enabled = true;
+            valPassActual.Visible = true;
+
+            valPassNueva.Enabled = true;
+            valPassNueva.Visible = true;
+
+            valRePassNueva.Enabled = true;
+            valRePassNueva.Visible = true;
+
+            valCompPassNueva.Enabled = true;
+            valCompPassNueva.Visible = true;
+              
             Page.Validate();
 
             if (Page.IsValid)
             {
                 CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-                int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+                //int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+                int id_Usuario = Convert.ToInt32(Session["id_usua"]);
+
+                var usuarioBanda = (from art in ct.artista
+                                    join usu in ct.usuario on art.id_artista equals usu.id_artista
+                                    where usu.id_usuario == id_Usuario
+                                    select art);
+
+                foreach (var a in usuarioBanda)
+                {
+                    a.genero = txtGeneroAct.Text;
+                    a.mbid = txtMBrainz.Text;
+                    a.spotify_id = txtSpotify.Text;
+                    a.descripcion = txtDescrip.Text;
+
+                    String pathImagen = SubirFoto();
+
+                    if (pathImagen != "img/Users/userDefault.jpg")
+                    {
+                        a.image_path = pathImagen;
+                    }
+                }
+
+                ct.SaveChanges();
+                Response.Redirect(Request.RawUrl);
+            }
+        }
+
+        protected void btnActDatosUser_Click(object sender, EventArgs e)
+        {
+            valGeneroAct.Visible = true;
+            valGeneroAct.Enabled = true;
+
+            valDescrip.Visible = true;
+            valDescrip.Enabled = true;
+            //
+            valPassActual.Enabled = false;
+            valPassNueva.Enabled = false;
+            valRePassNueva.Enabled = false;
+            valCompPassNueva.Enabled = false;
+            
+            Page.Validate();
+
+            if (Page.IsValid)
+            {
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+                //int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+                int id_Usuario = Convert.ToInt32(Session["id_usua"]);
 
                 var usuarioBanda = (from art in ct.artista
                                     join usu in ct.usuario on art.id_artista equals usu.id_artista
@@ -474,7 +485,8 @@ namespace CuandoTocan.Pages
 
                 CuandoTocan.evento ev = new CuandoTocan.evento();
 
-                int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+                //int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+                int id_Usuario = Convert.ToInt32(Session["id_usua"]);
 
                 var usuarioBanda = (from art in ct.artista
                                     join usu in ct.usuario on art.id_artista equals usu.id_artista
@@ -539,6 +551,11 @@ namespace CuandoTocan.Pages
             }
 
             return pathCompleto;
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
         }
 
         /*protected void btn_SubirFoto_Click(object sender, EventArgs e)

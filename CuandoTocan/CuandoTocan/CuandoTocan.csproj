@@ -73,7 +73,10 @@
     <Content Include="css\PerfilArtista.css" />
     <Content Include="js\gmaps.js" />
     <Content Include="img\logo_min_mapa.png" />
+    <Content Include="Pages\ActDatosUserBanda.aspx" />
+    <Content Include="Pages\ActPassUserBanda.aspx" />
     <Content Include="Pages\CerrarSesion.aspx" />
+    <Content Include="Pages\DiscografiaUserBanda.aspx" />
     <Content Include="Pages\Evento.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="img\Destacados\artic.PNG" />
@@ -103,6 +106,7 @@
     <Content Include="js\jquery\jquery-2.1.4.js" />
     <Content Include="js\jquery\jquery-ui.js" />
     <Content Include="js\jssor.slider-20.min.js" />
+    <Content Include="Pages\EventosUserBanda.aspx" />
     <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="css\PerfilEvento.css" />
     <Content Include="Pages\Registro.aspx" />
@@ -147,12 +151,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ActDatosUserBanda.aspx.cs">
+      <DependentUpon>ActDatosUserBanda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ActDatosUserBanda.aspx.designer.cs">
+      <DependentUpon>ActDatosUserBanda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ActPassUserBanda.aspx.cs">
+      <DependentUpon>ActPassUserBanda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ActPassUserBanda.aspx.designer.cs">
+      <DependentUpon>ActPassUserBanda.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CerrarSesion.aspx.cs">
       <DependentUpon>CerrarSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\CerrarSesion.aspx.designer.cs">
       <DependentUpon>CerrarSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DiscografiaUserBanda.aspx.cs">
+      <DependentUpon>DiscografiaUserBanda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DiscografiaUserBanda.aspx.designer.cs">
+      <DependentUpon>DiscografiaUserBanda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Evento.aspx.cs">
       <DependentUpon>Evento.aspx</DependentUpon>
@@ -174,6 +199,13 @@
     </Compile>
     <Compile Include="Home.Master.designer.cs">
       <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EventosUserBanda.aspx.cs">
+      <DependentUpon>EventosUserBanda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EventosUserBanda.aspx.designer.cs">
+      <DependentUpon>EventosUserBanda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PerfilArtista.aspx.cs">
       <DependentUpon>PerfilArtista.aspx</DependentUpon>

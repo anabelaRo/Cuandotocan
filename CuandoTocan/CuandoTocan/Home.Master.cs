@@ -74,7 +74,8 @@ namespace CuandoTocan
                 }
                 else
                 {
-                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioBanda.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+                    //armoUserLogueado = armoUserLogueado + "										  <a href='/Pages/UsuarioBanda.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+                    armoUserLogueado = armoUserLogueado + "										  <a href='/Pages/ActDatosUserBanda.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
                 }
 
                 armoUserLogueado = armoUserLogueado +  	"									</p>";

@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="UsuarioBanda.master.cs" Inherits="CuandoTocan.MastersAnidadas.UsuarioBanda" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentHomeCenterMed" runat="server">
+    <asp:ContentPlaceHolder ID="ContentUsuarioBanda" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
