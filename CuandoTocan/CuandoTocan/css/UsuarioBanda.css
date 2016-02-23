@@ -248,3 +248,127 @@ html body div#divHome form#formMaster.form-horizontal div#divHomeMaster div#divC
 {  
     text-align: center;
 }
+
+
+#ContentHomeCenterMed_modificarD
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#modificarD2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_modificarD h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+#ContentHomeCenterMed_crearD
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#crearD2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_crearD h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+#ContentHomeCenterMed_modificarE
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 370px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#modificarE2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_modificarE h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+#ContentHomeCenterMed_crearE
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 370px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#crearE2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_crearE h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}

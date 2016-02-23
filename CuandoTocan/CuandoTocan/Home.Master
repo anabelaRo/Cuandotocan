@@ -134,16 +134,13 @@
 
                     <div id="divCuerpo">
                         <asp:ContentPlaceHolder ID="ContentHomeCenterMed" runat="server"/>
-                    </div>                
-
+                    </div>    
                     <div id="divFooter">
-					    <ucF:ucFooter ID="ucFfooter" runat="server" />
-                    </div>
+			            <ucF:ucFooter ID="ucFfooter" runat="server" />
+                    </div>            
                 </div>
-
             </form>
         </div>
-
     </body>
               
 </html>

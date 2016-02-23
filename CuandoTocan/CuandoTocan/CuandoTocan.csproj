@@ -135,17 +135,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CTBBDD.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CTBBDD.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ucFooter.ascx.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controls\ucFooter.ascx.designer.cs">
       <DependentUpon>ucFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CTBBDD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTBBDD.edmx</DependentUpon>
     </Compile>
     <Compile Include="divId.cs" />
     <Compile Include="Global.asax.cs">

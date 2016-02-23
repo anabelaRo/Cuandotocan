@@ -18,7 +18,7 @@
             document.getElementById('<%=crearD.ClientID %>').style.display = 'none';
         }
 
-        function btnCancelarActualizarDisco_Click() {
+        function btnCancelarD() {
             document.getElementById('<%=crearD.ClientID %>').style.display = 'none';
             document.getElementById('<%=modificarD.ClientID %>').style.display = 'none';
         }
@@ -45,80 +45,82 @@
                         </div>
 
                         <div id="modificarD" runat="server" style="display:none">
-                            <h3> Modificar Disco</h3>
-                            <div class ="row">
-                                <div class ="col-md-1">
-                                    <asp:Label ID="lblTituloD" runat="server" Text="Álbum: "></asp:Label>
+                            <h3>Modificar Disco</h3>
+                            <div id="modificarD2">
+                                <div class ="row">
+                                    <div class ="col-md-4">
+                                        <label for="lblTituloD">Álbum:</label>
+                                    </div>
+                                    <div class ="col-md-8">
+                                        <asp:TextBox ID="txtTituloD" runat="server"  class="form-control" />
+                                        <asp:HiddenField ID="idDisco" runat="server" />
+                                    </div>
                                 </div>
-                                <div class ="col-md-3">
-                                    <asp:TextBox ID="txtTituloD" runat="server"  class="form-control" />
-                                    <asp:HiddenField ID="idDisco" runat="server" />
+                                <div class ="row">
+                                    <div class ="col-md-4">
+                                         <label for="lblFechaD">Fecha de lanzamiento:</label>
+                                    </div>
+                                    <div class ="col-md-8">
+                                        <asp:TextBox ID="txtFechaD" runat="server"  class="form-control"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class ="row">
-                                <div class ="col-md-1">
-                                    <asp:Label ID="lblFechaD" runat="server" Text="Fecha de lanzamiento: " > </asp:Label>
+						        <div class ="row">
+                                    <div class ="col-md-4">
+                                        <label for="lblDiscograficaD">Discográfica:</label>
+                                    </div>
+                                    <div class ="col-md-8">
+                                        <asp:TextBox ID="txtDiscograficaD" runat="server"  class="form-control"/>
+                                    </div>
                                 </div>
-                                <div class ="col-md-3">
-                                    <asp:TextBox ID="txtFechaD" runat="server"  class="form-control"/>
+                                <div class ="row">
+                                    <div class ="col-md-4">
+                                        <label for="lblDiscograficaD">Eliminar Disco:</label>
+                                    </div>
+                                    <div class ="col-md-8">    
+                                        <asp:CheckBox ID="chkEliD" runat="server"/>
+                                        <label class="text-danger">
+                                            (El Disco será eliminado permanentemente)
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-						    <div class ="row">
-                                <div class ="col-md-1">
-                                    <asp:Label ID="lblDiscograficaD" runat="server" Text="Discográfica: " > </asp:Label>
-                                </div>
-                                <div class ="col-md-3">
-                                    <asp:TextBox ID="txtDiscograficaD" runat="server"  class="form-control"/>
-                                </div>
-                            </div>
-                            <div class ="row">
-                                <div class ="col-md-6">
-                                    Eliminar Disco: 
-                                    <asp:CheckBox ID="chkEliD" runat="server" />
-                                </div>
-                            </div>
-                            <div class ="row">
-                                <div class ="col-md-12">
-                                    Si chequea esta opción, el Disco será eliminado permanentemente.
-                                    No hay vuelta atrás. 
-                                </div>
-                            </div>
-                            <div class ="row">  
-                                <div class ="col-md-6">
+                                <div class="text-icenter">
                                     <asp:Button ID="btnUpdateD" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarDisco_Click" />                    
-                                    <button id="btnCancelarUpdateD" runat="server" class="btn btn-default" onclick="btnCancelarActualizarDisco_Click();" type="button">Cancelar</button>                   
+                                    <button id="btnCancelarUpdateD" runat="server" class="btn btn-default" onclick="btnCancelarD();" type="button">Cancelar</button>                   
                                 </div>
                             </div>
-                        </div>   
-
+                        </div>
+        
                         <div id="crearD" runat="server" style="display:none">
                             <h3> Crear Disco</h3>
-                            <div class ="row">
-                                <div class ="col-md-1">
-                                    <asp:Label ID="lblTituloNuevo" runat="server" Text="Álbum: "></asp:Label>
+                            <div id="crearD2">
+                                <div class ="row">
+                                    <div class ="col-md-4">
+                                        <label for="lblTituloNuevo">Álbum:</label>
+                                    </div>
+                                    <div class ="col-md-8">
+                                        <asp:TextBox ID="txtTituloNuevo" placeholder="El camino más largo" runat="server" class="form-control"/>
+                                    </div>
                                 </div>
-                                <div class ="col-md-3">
-                                    <asp:TextBox ID="txtTituloNuevo" runat="server" class="form-control"></asp:TextBox>
+                                <div class ="row">
+                                    <div class ="col-md-4">
+                                        <label for="lblFechaDNueva">Fecha de lanzamiento:</label>
+                                    </div>
+                                    <div class ="col-md-8">
+                                        <asp:TextBox ID="txtFechaDNueva" placeholder="dd/mm/yyyy hh:mm" runat="server" class="form-control"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class ="row">
-                                <div class ="col-md-1">
-                                    <asp:Label ID="lblFechaDNueva" runat="server" Text="Fecha de lanzamiento: "></asp:Label>
+                                <div class ="row">
+                                    <div class ="col-md-4">
+                                        <label for="lblDiscograficaNueva">Discográfica:</label>
+                                    </div>
+                                    <div class ="col-md-8">
+                                        <asp:TextBox ID="txtDiscograficaNueva" placeholder="Elefente Blanco" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
                                 </div>
-                                <div class ="col-md-3">
-                                    <asp:TextBox ID="txtFechaDNueva" runat="server" class="form-control"></asp:TextBox>
+                                <div class="text-icenter"> 
+                                    <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearDisco_Click"/>     
+                                    <button id="btnCancNuevoDisco" runat="server" class="btn btn-default" onclick="btnCancelarD();" type="button">Cancelar</button>                   
                                 </div>
-                            </div>
-                            <div class ="row">
-                                <div class ="col-md-1">
-                                    <asp:Label ID="lblDiscograficaNueva" runat="server"  Text="Discográfica: "> </asp:Label>
-                                </div>
-                                <div class ="col-md-3">
-                                    <asp:TextBox ID="txtDiscograficaNueva" runat="server" class="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="text-icenter"> 
-                                <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearDisco_Click"/>     
                             </div>
                         </div>
                     </div>

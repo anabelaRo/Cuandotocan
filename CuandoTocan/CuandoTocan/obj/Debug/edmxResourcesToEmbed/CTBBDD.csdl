@@ -14,10 +14,6 @@
     <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.usuario_artista" />
     <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.usuario_evento" />
     <EntitySet Name="EventosProximos" EntityType="CuandoTocanModel.EventosProximos" />
-    <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.FK_discografia_artista">
-      <End Role="artista" EntitySet="artista" />
-      <End Role="discografia" EntitySet="discografia" />
-    </AssociationSet>
     <AssociationSet Name="FK_enlace_artista_artista" Association="CuandoTocanModel.FK_enlace_artista_artista">
       <End Role="artista" EntitySet="artista" />
       <End Role="enlace_artista" EntitySet="enlace_artista" />
@@ -78,7 +74,6 @@
     <Property Name="image_path" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="fecha_alta" Type="DateTime" />
     <Property Name="fecha_modificacion" Type="DateTime" />
-    <NavigationProperty Name="discografia" Relationship="CuandoTocanModel.FK_discografia_artista" FromRole="artista" ToRole="discografia" />
     <NavigationProperty Name="enlace_artista" Relationship="CuandoTocanModel.FK_enlace_artista_artista" FromRole="artista" ToRole="enlace_artista" />
     <NavigationProperty Name="usuario" Relationship="CuandoTocanModel.FK_usuario_artista" FromRole="artista" ToRole="usuario" />
     <NavigationProperty Name="usuario_artista" Relationship="CuandoTocanModel.FK_usuario_artista_artista" FromRole="artista" ToRole="usuario_artista" />
@@ -94,7 +89,6 @@
     <Property Name="discografica" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="fecha_alta" Type="DateTime" />
     <Property Name="fecha_modificacion" Type="DateTime" />
-    <NavigationProperty Name="artista" Relationship="CuandoTocanModel.FK_discografia_artista" FromRole="discografia" ToRole="artista" />
   </EntityType>
   <EntityType Name="enlace_artista">
     <Key>
@@ -249,18 +243,6 @@
     <Property Name="fecha_evento" Type="DateTime" Nullable="false" />
     <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
   </EntityType>
-  <Association Name="FK_discografia_artista">
-    <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="1" />
-    <End Role="discografia" Type="CuandoTocanModel.discografia" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="artista">
-        <PropertyRef Name="id_artista" />
-      </Principal>
-      <Dependent Role="discografia">
-        <PropertyRef Name="id_artista" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_enlace_artista_artista">
     <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="1" />
     <End Role="enlace_artista" Type="CuandoTocanModel.enlace_artista" Multiplicity="*" />

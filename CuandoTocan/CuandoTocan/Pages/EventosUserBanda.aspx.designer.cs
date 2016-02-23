@@ -94,15 +94,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl modificarE;
         
         /// <summary>
-        /// Control lblNomE.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomE;
-        
-        /// <summary>
         /// Control txtNomE.
         /// </summary>
         /// <remarks>
@@ -121,15 +112,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.HiddenField idEvento;
         
         /// <summary>
-        /// Control lblDesc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesc;
-        
-        /// <summary>
         /// Control txtDescE.
         /// </summary>
         /// <remarks>
@@ -137,15 +119,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescE;
-        
-        /// <summary>
-        /// Control lblfechaE.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblfechaE;
         
         /// <summary>
         /// Control txtFechaE.
@@ -157,40 +130,22 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtFechaE;
         
         /// <summary>
-        /// Control lblLugarE.
+        /// Control ddlLugarModif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLugarE;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLugarModif;
         
         /// <summary>
-        /// Control ddlLugar.
+        /// Control ddlTipoModif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLugar;
-        
-        /// <summary>
-        /// Control lvlTipoEv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lvlTipoEv;
-        
-        /// <summary>
-        /// Control ddlTipo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoModif;
         
         /// <summary>
         /// Control chkEli.
@@ -211,6 +166,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
+        /// Control btnCancelarUpdateE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancelarUpdateE;
+        
+        /// <summary>
         /// Control crearE.
         /// </summary>
         /// <remarks>
@@ -218,15 +182,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl crearE;
-        
-        /// <summary>
-        /// Control lblNameNuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNameNuevo;
         
         /// <summary>
         /// Control txtNameNuevo.
@@ -238,15 +193,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtNameNuevo;
         
         /// <summary>
-        /// Control lblDescNueva.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescNueva;
-        
-        /// <summary>
         /// Control tvtDescNueva.
         /// </summary>
         /// <remarks>
@@ -254,15 +200,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tvtDescNueva;
-        
-        /// <summary>
-        /// Control lblFechaNueva.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaNueva;
         
         /// <summary>
         /// Control txtFechaNueva.
@@ -274,48 +211,39 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtFechaNueva;
         
         /// <summary>
-        /// Control lblLugarNueva.
+        /// Control ddlLugarCrear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLugarNueva;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLugarCrear;
         
         /// <summary>
-        /// Control ddlLugar2.
+        /// Control ddlTipoCrear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLugar2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCrear;
         
         /// <summary>
-        /// Control lblTipoNuevo.
+        /// Control btnCrearEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoNuevo;
+        protected global::System.Web.UI.WebControls.Button btnCrearEvento;
         
         /// <summary>
-        /// Control ddlTIpo2.
+        /// Control btnCancCrearEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTIpo2;
-        
-        /// <summary>
-        /// Control Button2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancCrearEvento;
     }
 }

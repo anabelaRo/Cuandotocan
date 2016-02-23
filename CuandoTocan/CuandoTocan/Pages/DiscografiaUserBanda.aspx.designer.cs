@@ -94,15 +94,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl modificarD;
         
         /// <summary>
-        /// Control lblTituloD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloD;
-        
-        /// <summary>
         /// Control txtTituloD.
         /// </summary>
         /// <remarks>
@@ -121,15 +112,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.HiddenField idDisco;
         
         /// <summary>
-        /// Control lblFechaD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaD;
-        
-        /// <summary>
         /// Control txtFechaD.
         /// </summary>
         /// <remarks>
@@ -137,15 +119,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaD;
-        
-        /// <summary>
-        /// Control lblDiscograficaD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDiscograficaD;
         
         /// <summary>
         /// Control txtDiscograficaD.
@@ -193,15 +166,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl crearD;
         
         /// <summary>
-        /// Control lblTituloNuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloNuevo;
-        
-        /// <summary>
         /// Control txtTituloNuevo.
         /// </summary>
         /// <remarks>
@@ -211,15 +175,6 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtTituloNuevo;
         
         /// <summary>
-        /// Control lblFechaDNueva.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaDNueva;
-        
-        /// <summary>
         /// Control txtFechaDNueva.
         /// </summary>
         /// <remarks>
@@ -227,15 +182,6 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaDNueva;
-        
-        /// <summary>
-        /// Control lblDiscograficaNueva.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDiscograficaNueva;
         
         /// <summary>
         /// Control txtDiscograficaNueva.
@@ -254,5 +200,14 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNuevoDisco;
+        
+        /// <summary>
+        /// Control btnCancNuevoDisco.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnCancNuevoDisco;
     }
 }
