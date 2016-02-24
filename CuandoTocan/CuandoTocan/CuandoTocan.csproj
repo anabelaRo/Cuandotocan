@@ -122,6 +122,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Pages\ResultadosBusq.aspx" />
+    <Content Include="Pages\SendEmailEliEvento.htm" />
     <Content Include="Pages\SendMail.htm" />
     <Content Include="Pages\SendMailA.htm" />
     <Content Include="Pages\SendMailEconAuto.htm" />

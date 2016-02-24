@@ -98,6 +98,7 @@ namespace CuandoTocan.Pages
                                 int id_usu = us.id_usuario;
 
                                 CuandoTocan.artista ar = new CuandoTocan.artista();
+                            
 
                                 ar.nombre = txtNombreA.Text;
                                 ar.spotify_id = txtSpotify.Text;
@@ -105,13 +106,14 @@ namespace CuandoTocan.Pages
                                 ar.mbid = txtMBrainz.Text;
                                 ar.pais_origen = DropDownPais.SelectedItem.ToString();
                                 ar.descripcion = txtDescrip.Text;
-
+                               
                                 //ar.image_path = "img/Users/userDefault.jpg";
                                 String pathImagen = SubirFoto();
 
                                 ar.image_path = pathImagen;
                                 
                                 ct.AddToartista(ar);
+
                                 ct.SaveChanges();
 
                                 int id_arti = ar.id_artista;
@@ -120,11 +122,16 @@ namespace CuandoTocan.Pages
                                             where u.id_usuario == id_usu
                                             select u;
 
-                                foreach (var u in query)
-                                {
-                                    u.id_artista = id_arti;
-                                }
+                                //foreach (var u in query)
+                                //{
+                                //    u.id_artista = id_arti;
+                                //}
+                                CuandoTocan.usuario_artista uar = new CuandoTocan.usuario_artista();
+                                uar.id_artista = id_arti;
+                                uar.id_usuario = id_usu;
+                                uar.fecha_alta = DateTime.Now;
 
+                                ct.AddTousuario_artista(uar);
                                 ct.SaveChanges();
                                 RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
                                 serv.MandarMailReg("regA", regMail.Text, regUser.Text);

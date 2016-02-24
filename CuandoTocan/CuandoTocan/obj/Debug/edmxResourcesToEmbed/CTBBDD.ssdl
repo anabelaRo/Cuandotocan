@@ -22,6 +22,10 @@
       [EventosProximos].[nombre] AS [nombre]
       FROM [dbo].[EventosProximos] AS [EventosProximos]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.Store.FK_discografia_artista">
+      <End Role="artista" EntitySet="artista" />
+      <End Role="discografia" EntitySet="discografia" />
+    </AssociationSet>
     <AssociationSet Name="FK_enlace_artista_artista" Association="CuandoTocanModel.Store.FK_enlace_artista_artista">
       <End Role="artista" EntitySet="artista" />
       <End Role="enlace_artista" EntitySet="enlace_artista" />
@@ -90,7 +94,7 @@
     <Property Name="id_disco" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="id_artista" Type="int" Nullable="false" />
     <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="fecha_publicacion" Type="datetime" />
+    <Property Name="fecha_publicacion" Type="date" />
     <Property Name="discografica" Type="nvarchar" MaxLength="50" />
     <Property Name="fecha_alta" Type="datetime" />
     <Property Name="fecha_modificacion" Type="datetime" />
@@ -216,8 +220,8 @@
     <Property Name="fecha_alta" Type="datetime" />
     <Property Name="fecha_modificacion" Type="datetime" />
   </EntityType>
-  <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'CuandoTocan.dbo.EventosProximos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CuandoTocan.dbo.EventosProximos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="EventosProximos">
     <Key>
@@ -232,6 +236,18 @@
     <Property Name="fecha_evento" Type="datetime" Nullable="false" />
     <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
+  <Association Name="FK_discografia_artista">
+    <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
+    <End Role="discografia" Type="CuandoTocanModel.Store.discografia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="artista">
+        <PropertyRef Name="id_artista" />
+      </Principal>
+      <Dependent Role="discografia">
+        <PropertyRef Name="id_artista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_enlace_artista_artista">
     <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
     <End Role="enlace_artista" Type="CuandoTocanModel.Store.enlace_artista" Multiplicity="*" />
@@ -364,4 +380,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="eventosCercanos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="coordenadaX" Type="nvarchar" Mode="In" />
+    <Parameter Name="coordenadaY" Type="nvarchar" Mode="In" />
+  </Function>
 </Schema>

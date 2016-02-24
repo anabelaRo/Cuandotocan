@@ -238,9 +238,69 @@ namespace CuandoTocan.WebServices
                      return (ret);
                  }
 
-                
 
 
+         public string MandarMailEliE(string titulo, string fecha, int id_even, int id_arti)
+            
+         {
+             //MAILS CUANDO USUARIO BANDA ELIMINA EVENTO, NOTIFICA A LOS ASISTENTES
+             string ret;
+             SmtpClient client = new SmtpClient("smtp.gmail.com");
+             client.Port = 587;
+             client.EnableSsl = true;
+             client.Timeout = 100000;
+             client.DeliveryMethod = SmtpDeliveryMethod.Network;
+             client.UseDefaultCredentials = false;
+             client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
+             int cont;
+
+
+             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+
+             var query = (from ue in ct.usuario_evento 
+                          join u in ct.usuario on ue.id_usuario equals u.id_usuario
+                          where ue.id_evento == id_even
+                          select new
+                          {
+                              nombre = u.nombre_completo,
+                              mail = u.email,
+                          });
+
+             var query2 = (from a in ct.artista
+                          where a.id_artista == id_arti
+                          select new
+                          {
+                              a.nombre
+                          });
+
+             string cuerpo = "";
+
+             foreach (var us in query)
+             {
+
+                 MailMessage msg = new MailMessage();
+                 msg.To.Add(us.mail);
+                 msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                 msg.Subject = "Carpooling en CuandoTocan!";
+                 msg.IsBodyHtml = true;
+                 StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailEliEvento.htm"));
+                 string readFile = reader.ReadToEnd();
+                 string StrContent = "";
+                 StrContent = readFile;
+                 StrContent = StrContent.Replace("[MyName]", us.nombre);
+                 StrContent = StrContent.Replace("[MyEvent]", titulo);
+                 StrContent = StrContent.Replace("[fecha]", fecha);
+                 msg.Body = StrContent.ToString();
+                 client.Send(msg);
+
+
+             }
+
+             ret = "Enviado";
+
+             return (ret);
+         }
          }
        
             

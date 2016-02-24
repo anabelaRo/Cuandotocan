@@ -27,6 +27,10 @@
       [EventosProximos].[nombre] AS [nombre]
       FROM [dbo].[EventosProximos] AS [EventosProximos]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.Store.FK_discografia_artista">
+            <End Role="artista" EntitySet="artista" />
+            <End Role="discografia" EntitySet="discografia" />
+          </AssociationSet>
           <AssociationSet Name="FK_enlace_artista_artista" Association="CuandoTocanModel.Store.FK_enlace_artista_artista">
             <End Role="artista" EntitySet="artista" />
             <End Role="enlace_artista" EntitySet="enlace_artista" />
@@ -95,7 +99,7 @@
           <Property Name="id_disco" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="id_artista" Type="int" Nullable="false" />
           <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="fecha_publicacion" Type="datetime" />
+          <Property Name="fecha_publicacion" Type="date" />
           <Property Name="discografica" Type="nvarchar" MaxLength="50" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
@@ -221,8 +225,8 @@
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'CuandoTocan.dbo.EventosProximos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CuandoTocan.dbo.EventosProximos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="EventosProximos">
           <Key>
@@ -237,6 +241,18 @@
           <Property Name="fecha_evento" Type="datetime" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
+        <Association Name="FK_discografia_artista">
+          <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
+          <End Role="discografia" Type="CuandoTocanModel.Store.discografia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="artista">
+              <PropertyRef Name="id_artista" />
+            </Principal>
+            <Dependent Role="discografia">
+              <PropertyRef Name="id_artista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_enlace_artista_artista">
           <End Role="artista" Type="CuandoTocanModel.Store.artista" Multiplicity="1" />
           <End Role="enlace_artista" Type="CuandoTocanModel.Store.enlace_artista" Multiplicity="*" />
@@ -369,6 +385,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="eventosCercanos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="coordenadaX" Type="nvarchar" Mode="In" />
+          <Parameter Name="coordenadaY" Type="nvarchar" Mode="In" />
+        </Function>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
@@ -388,6 +408,10 @@
           <EntitySet Name="usuario_artista" EntityType="CuandoTocanModel.usuario_artista" />
           <EntitySet Name="usuario_evento" EntityType="CuandoTocanModel.usuario_evento" />
           <EntitySet Name="EventosProximos" EntityType="CuandoTocanModel.EventosProximos" />
+          <AssociationSet Name="FK_discografia_artista" Association="CuandoTocanModel.FK_discografia_artista">
+            <End Role="artista" EntitySet="artista" />
+            <End Role="discografia" EntitySet="discografia" />
+          </AssociationSet>
           <AssociationSet Name="FK_enlace_artista_artista" Association="CuandoTocanModel.FK_enlace_artista_artista">
             <End Role="artista" EntitySet="artista" />
             <End Role="enlace_artista" EntitySet="enlace_artista" />
@@ -432,6 +456,10 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuario_evento" EntitySet="usuario_evento" />
           </AssociationSet>
+          <FunctionImport Name="eventosCercanos" ReturnType="Collection(CuandoTocanModel.eventosCercanos_Result)">
+            <Parameter Name="coordenadaX" Mode="In" Type="String" />
+            <Parameter Name="coordenadaY" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="artista">
           <Key>
@@ -448,6 +476,7 @@
           <Property Name="image_path" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="fecha_alta" Type="DateTime" />
           <Property Name="fecha_modificacion" Type="DateTime" />
+          <NavigationProperty Name="discografia" Relationship="CuandoTocanModel.FK_discografia_artista" FromRole="artista" ToRole="discografia" />
           <NavigationProperty Name="enlace_artista" Relationship="CuandoTocanModel.FK_enlace_artista_artista" FromRole="artista" ToRole="enlace_artista" />
           <NavigationProperty Name="usuario" Relationship="CuandoTocanModel.FK_usuario_artista" FromRole="artista" ToRole="usuario" />
           <NavigationProperty Name="usuario_artista" Relationship="CuandoTocanModel.FK_usuario_artista_artista" FromRole="artista" ToRole="usuario_artista" />
@@ -463,6 +492,7 @@
           <Property Name="discografica" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="fecha_alta" Type="DateTime" />
           <Property Name="fecha_modificacion" Type="DateTime" />
+          <NavigationProperty Name="artista" Relationship="CuandoTocanModel.FK_discografia_artista" FromRole="discografia" ToRole="artista" />
         </EntityType>
         <EntityType Name="enlace_artista">
           <Key>
@@ -617,6 +647,18 @@
           <Property Name="fecha_evento" Type="DateTime" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
         </EntityType>
+        <Association Name="FK_discografia_artista">
+          <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="1" />
+          <End Role="discografia" Type="CuandoTocanModel.discografia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="artista">
+              <PropertyRef Name="id_artista" />
+            </Principal>
+            <Dependent Role="discografia">
+              <PropertyRef Name="id_artista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_enlace_artista_artista">
           <End Role="artista" Type="CuandoTocanModel.artista" Multiplicity="1" />
           <End Role="enlace_artista" Type="CuandoTocanModel.enlace_artista" Multiplicity="*" />
@@ -749,6 +791,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="eventosCercanos_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="evento" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="artista" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="locacion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="imagen" Nullable="true" MaxLength="100" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -925,6 +975,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="eventosCercanos" FunctionName="CuandoTocanModel.Store.eventosCercanos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CuandoTocanModel.eventosCercanos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="evento" ColumnName="evento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="artista" ColumnName="artista" />
+                <ScalarProperty Name="locacion" ColumnName="locacion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -946,81 +1008,85 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CTBBDD">
-        <EntityTypeShape EntityType="CuandoTocanModel.artista" Width="1.5" PointX="0.75" PointY="4.125" Height="3.7109993489583317" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.discografia" Width="1.5" PointX="5.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.enlace_artista" Width="1.5" PointX="3" PointY="4.75" Height="2.5571907552083335" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.evento" Width="1.5" PointX="9" PointY="11.25" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.locacion" Width="1.5" PointX="6.75" PointY="10" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.tipo_enlace" Width="1.5" PointX="0.75" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.tipo_evento" Width="1.5" PointX="6.75" PointY="14" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.tipo_usuario" Width="1.5" PointX="3.75" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.ubicacion_evento" Width="1.5" PointX="9" PointY="15.375" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.usuario" Width="1.5" PointX="6" PointY="4" Height="3.9033007812500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.usuario_artista" Width="1.5" PointX="8.25" PointY="4.875" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.usuario_evento" Width="1.5" PointX="11.25" PointY="4.375" Height="3.1340950520833317" IsExpanded="true" />
-        <EntityTypeShape EntityType="CuandoTocanModel.EventosProximos" Width="1.5" PointX="7.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.artista" Width="1.5" PointX="0.75" PointY="5.875" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.discografia" Width="1.5" PointX="3" PointY="6.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.enlace_artista" Width="1.5" PointX="6" PointY="6.5" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.evento" Width="1.5" PointX="6" PointY="12.125" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.locacion" Width="1.5" PointX="3.75" PointY="10.75" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.tipo_enlace" Width="1.5" PointX="3.75" PointY="17.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.tipo_evento" Width="1.5" PointX="3.75" PointY="14.875" Height="1.98028645833333" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.tipo_usuario" Width="1.5" PointX="0.75" PointY="2.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.ubicacion_evento" Width="1.5" PointX="6" PointY="16.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.usuario" Width="1.5" PointX="3" PointY="1.875" Height="3.9033007812500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.usuario_artista" Width="1.5" PointX="5.25" PointY="2.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.usuario_evento" Width="1.5" PointX="8.25" PointY="2.25" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CuandoTocanModel.EventosProximos" Width="1.5" PointX="8.75" PointY="6.75" Height="1.9802864583333388" IsExpanded="true" />
+        <AssociationConnector Association="CuandoTocanModel.FK_discografia_artista" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.7785953776041659" />
+          <ConnectorPoint PointX="3" PointY="7.7785953776041659" />
+        </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_enlace_artista_artista" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.0285953776041667" />
-          <ConnectorPoint PointX="3" PointY="6.0285953776041667" />
+          <ConnectorPoint PointX="2.25" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="6.75" PointY="9.4177462682291662" />
+          <ConnectorPoint PointX="6.75" PointY="9.0571907552083317" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_artista" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.40625" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="4.4062499999999991" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="4.40625" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="4.4062499999999991" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="4.40625" />
-          <ConnectorPoint PointX="6" PointY="4.40625" />
+          <ConnectorPoint PointX="2.25" PointY="5.875" />
+          <ConnectorPoint PointX="2.625" PointY="5.5" />
+          <ConnectorPoint PointX="2.625" PointY="6.1533007812500031" />
+          <ConnectorPoint PointX="3" PointY="5.7783007812500031" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_artista_artista" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="7.8359993489583317" />
-          <ConnectorPoint PointX="1.5" PointY="8.1533007812500031" />
-          <ConnectorPoint PointX="7.875" PointY="8.1533007812500031" />
-          <ConnectorPoint PointX="7.875" PointY="5.9612939453125016" />
-          <ConnectorPoint PointX="8.25" PointY="5.9612939453125016" />
+          <ConnectorPoint PointX="2.25" PointY="6.1875025" />
+          <ConnectorPoint PointX="5.59375" PointY="6.1875025" />
+          <ConnectorPoint PointX="5.59375" PointY="4.9225878906250031" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_enlace_artista_tipo_enlace" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="3.0475878906249996" />
-          <ConnectorPoint PointX="2.625" PointY="3.4225878906249996" />
-          <ConnectorPoint PointX="2.625" PointY="5.3580456888020827" />
-          <ConnectorPoint PointX="3" PointY="5.3580456888020827" />
+          <ConnectorPoint PointX="5.25" PointY="17.751152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="17.376152846153843" />
+          <ConnectorPoint PointX="5.625" PointY="7.7785953776041659" />
+          <ConnectorPoint PointX="6" PointY="7.7785953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_evento_locacion" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.25" PointY="12.2881982421875" />
-          <ConnectorPoint PointX="9" PointY="12.2881982421875" />
+          <ConnectorPoint PointX="5.25" PointY="13.1006982421875" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="13.1006982421875" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="13.1006982421875" />
+          <ConnectorPoint PointX="6" PointY="13.1006982421875" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_evento_tipo_evento" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.25" PointY="14.2881982421875" />
-          <ConnectorPoint PointX="8.5416666666666661" PointY="14.2881982421875" />
-          <ConnectorPoint PointX="8.7083333333333339" PointY="14.2881982421875" />
-          <ConnectorPoint PointX="9" PointY="14.2881982421875" />
+          <ConnectorPoint PointX="5.25" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.729166666666667" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="5.895833333333333" PointY="15.1631982421875" />
+          <ConnectorPoint PointX="6" PointY="15.1631982421875" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_evento_evento" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.15625" PointY="11.25" />
-          <ConnectorPoint PointX="10.15625" PointY="4.59375" />
-          <ConnectorPoint PointX="11.25" PointY="4.59375" />
+          <ConnectorPoint PointX="7.5" PointY="13.7881982421875" />
+          <ConnectorPoint PointX="8.46875" PointY="13.7881982421875" />
+          <ConnectorPoint PointX="8.46875" PointY="5.3840950520833317" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_ubicacion_evento_evento" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.25" PointY="13.326396484375" />
-          <ConnectorPoint PointX="8.625" PointY="13.701396484375" />
-          <ConnectorPoint PointX="8.625" PointY="16.557444661458334" />
-          <ConnectorPoint PointX="9" PointY="16.557444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="14.014087792067308" />
+          <ConnectorPoint PointX="5.5660744349011217" PointY="14.330162226968428" />
+          <ConnectorPoint PointX="5.6839255650988791" PointY="14.448013357166186" />
+          <ConnectorPoint PointX="5.8125" PointY="14.576587792067308" />
+          <ConnectorPoint PointX="5.8125" PointY="17.432444661458334" />
+          <ConnectorPoint PointX="6" PointY="17.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_tipo_usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.90625" PointY="3.0475878906249996" />
-          <ConnectorPoint PointX="4.90625" PointY="7.6364957682291683" />
-          <ConnectorPoint PointX="6" PointY="7.6364957682291683" />
+          <ConnectorPoint PointX="2.25" PointY="3.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="3.8362939453125" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_artista_usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="5.3556469726562508" />
-          <ConnectorPoint PointX="8.25" PointY="5.3556469726562508" />
+          <ConnectorPoint PointX="4.5" PointY="3.8362939453125016" />
+          <ConnectorPoint PointX="5.25" PointY="3.8362939453125016" />
         </AssociationConnector>
         <AssociationConnector Association="CuandoTocanModel.FK_usuario_evento_usuario" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="7.3095914713541674" />
-          <ConnectorPoint PointX="7.791666666666667" PointY="7.3095914713541665" />
-          <ConnectorPoint PointX="7.958333333333333" PointY="7.3095914713541674" />
-          <ConnectorPoint PointX="10.072916666666666" PointY="7.3095914713541665" />
-          <ConnectorPoint PointX="10.239583333333334" PointY="7.3095914713541674" />
-          <ConnectorPoint PointX="11.25" PointY="7.3095914713541674" />
+          <ConnectorPoint PointX="4.5" PointY="2.46875" />
+          <ConnectorPoint PointX="8.25" PointY="2.46875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
