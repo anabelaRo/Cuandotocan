@@ -71,6 +71,8 @@ namespace CuandoTocan.Pages
 
                     id_artista = a.id_artista;
 
+                    Session["id_artista"] = id_artista;
+
                     //crearE.Visible = false;
 
                     var infoevento = (from ev in ct.evento
@@ -163,85 +165,82 @@ namespace CuandoTocan.Pages
 
         protected void btnActualizarEvento_Click(object sender, EventArgs e)
         {
-            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+            Page.Validate("modificarEvento");
 
-            int id_even = Convert.ToInt32(idEvento.Value);
-
-            if (chkEli.Checked) //Eliminar
+            if (Page.IsValid)
             {
-                try
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+                int id_even = Convert.ToInt32(idEvento.Value);
+
+                if (chkEli.Checked) //Eliminar
                 {
-                    var query = from ue in ct.usuario_evento
-                                where ue.id_evento == id_even
-                                select ue;
-
-                    var eli = (from ev in ct.evento
-                               where ev.id_evento == id_even
-                               select ev).First();
-
-                    foreach (var ue in query.ToList())
+                    try
                     {
-                        //ANA envío mail de evento modificado a los asistentes
-                        //falta programar
-                        //deberia pasar id del evento, descripcion, artista y fecha
-                        serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), ue.id_evento, ue.id_usuario);
+                        var query = from ue in ct.usuario_evento
+                                    where ue.id_evento == id_even
+                                    select ue;
 
+                        var eli = (from ev in ct.evento
+                                   where ev.id_evento == id_even
+                                   select ev).First();
 
-                        ct.usuario_evento.DeleteObject(ue);
+                        foreach (var ue in query.ToList())
+                        {
+                            //ANA envío mail de evento modificado a los asistentes
+                            //falta programar
+                            //deberia pasar id del evento, descripcion, artista y fecha
+                            serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), ue.id_evento, ue.id_usuario);
+
+                            ct.usuario_evento.DeleteObject(ue);
+                            ct.SaveChanges();
+                        }
+
+                        ct.evento.DeleteObject(eli);
                         ct.SaveChanges();
+
+                        Response.Redirect(Request.RawUrl);
                     }
-
-                  
-
-                    ct.evento.DeleteObject(eli);
-                    ct.SaveChanges();
-
-                   
-
-              
-
-                    Response.Redirect(Request.RawUrl);
-                }
-                catch (Exception ex)
-                {
-                }
-            }
-            else //Editar
-            {
-                try
-                {
-                    var query = from ev in ct.evento
-                                where ev.id_evento == id_even
-                                select ev;
-
-                    foreach (var ev in query)
+                    catch (Exception ex)
                     {
-                        ev.titulo = txtNomE.Text;
-                        ev.descripcion = txtDescE.Text;
-                        ev.fecha_evento = Convert.ToDateTime(txtFechaE.Text);
-                        ev.id_locacion = Convert.ToInt32(ddlLugarModif.SelectedValue);
-                        ev.tipo_evento = Convert.ToInt32(ddlTipoModif.SelectedValue);
-                        ev.fecha_modificacion = DateTime.Now;
                     }
-
-                    ct.SaveChanges();
-                    //ANA envío mail de evento eliminado a los asistentes
-                    //falta programar
-                    //deberia pasar id del evento, y la nueva configuracion
-                    serv.MandarMailEliE(id_even);
-
-                    Response.Redirect(Request.RawUrl);
                 }
-                catch (Exception ex)
+                else //Editar
                 {
+                    try
+                    {
+                        var query = from ev in ct.evento
+                                    where ev.id_evento == id_even
+                                    select ev;
+
+                        foreach (var ev in query)
+                        {
+                            ev.titulo = txtNomE.Text;
+                            ev.descripcion = txtDescE.Text;
+                            ev.fecha_evento = Convert.ToDateTime(txtFechaE.Text);
+                            ev.id_locacion = Convert.ToInt32(ddlLugarModif.SelectedValue);
+                            ev.tipo_evento = Convert.ToInt32(ddlTipoModif.SelectedValue);
+                            ev.fecha_modificacion = DateTime.Now;
+                        }
+
+                        ct.SaveChanges();
+                        //ANA envío mail de evento eliminado a los asistentes
+                        //falta programar
+                        //deberia pasar id del evento, y la nueva configuracion
+                        serv.MandarMailEliE(id_even);
+
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
                 }
             }
         }
 
         protected void btnCrearEvento_Click(object sender, EventArgs e)
         {
-
-            Page.Validate();
+            Page.Validate("crearEvento");
 
             if (Page.IsValid)
             {
@@ -261,11 +260,11 @@ namespace CuandoTocan.Pages
                 {
                     ev.id_artista = a.id_artista;
                     ev.titulo = txtNameNuevo.Text;
-                    ev.descripcion = tvtDescNueva.Text;
+                    ev.descripcion = txtDescNueva.Text;
                     ev.fecha_alta = DateTime.Now;
                     ev.fecha_evento = Convert.ToDateTime(txtFechaNueva.Text);
                     ev.id_locacion = Convert.ToInt32(ddlLugarCrear.SelectedValue);
-                    ev.tipo_evento = Convert.ToInt32(ddlLugarCrear.SelectedValue);
+                    ev.tipo_evento = Convert.ToInt32(ddlTipoCrear.SelectedValue);
                 }
 
                 ct.AddToevento(ev);

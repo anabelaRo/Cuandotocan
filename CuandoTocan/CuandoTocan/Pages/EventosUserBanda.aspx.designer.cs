@@ -112,6 +112,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.HiddenField idEvento;
         
         /// <summary>
+        /// Control valtxtNomE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtNomE;
+        
+        /// <summary>
         /// Control txtDescE.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtDescE;
         
         /// <summary>
+        /// Control valtxtDescE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtDescE;
+        
+        /// <summary>
         /// Control txtFechaE.
         /// </summary>
         /// <remarks>
@@ -128,6 +146,15 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaE;
+        
+        /// <summary>
+        /// Control valtxtFechaE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtFechaE;
         
         /// <summary>
         /// Control ddlLugarModif.
@@ -193,13 +220,31 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtNameNuevo;
         
         /// <summary>
-        /// Control tvtDescNueva.
+        /// Control valtxtNameNuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tvtDescNueva;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtNameNuevo;
+        
+        /// <summary>
+        /// Control txtDescNueva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescNueva;
+        
+        /// <summary>
+        /// Control valtxtDescNueva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtDescNueva;
         
         /// <summary>
         /// Control txtFechaNueva.
@@ -209,6 +254,15 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaNueva;
+        
+        /// <summary>
+        /// Control valtxtFechaNueva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtFechaNueva;
         
         /// <summary>
         /// Control ddlLugarCrear.

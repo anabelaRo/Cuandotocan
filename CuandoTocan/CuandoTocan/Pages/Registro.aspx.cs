@@ -36,12 +36,13 @@ namespace CuandoTocan.Pages
 
         protected void btnReg_Click(object sender, EventArgs e)
         {
-
             Page.Validate("registro");
+
             int tipousu = Convert.ToInt32(ddlTiUsua.SelectedItem.Value);
             var nomTiUsu = ddlTiUsua.SelectedItem.Text;
 
             WebServices.EnvioMails serv = new WebServices.EnvioMails();
+
             string r;
             //if(!IsPostBack)
             //{
@@ -111,7 +112,6 @@ namespace CuandoTocan.Pages
                                 String pathImagen = SubirFoto();
 
                                 ar.image_path = pathImagen;
-                                
                                 ct.AddToartista(ar);
 
                                 ct.SaveChanges();
@@ -122,18 +122,19 @@ namespace CuandoTocan.Pages
                                             where u.id_usuario == id_usu
                                             select u;
 
-                                //foreach (var u in query)
-                                //{
-                                //    u.id_artista = id_arti;
-                                //}
+                                foreach (var u in query)
+                                {
+                                    u.id_artista = id_arti;
+                                }
                                 //Lo comento,se debe insertar pero en nueva tabla
                                 //CuandoTocan.usuario_artista uar = new CuandoTocan.usuario_artista();
+                                
                                 //uar.id_artista = id_arti;
                                 //uar.id_usuario = id_usu;
                                 //uar.fecha_alta = DateTime.Now;
-
                                 //ct.AddTousuario_artista(uar);
-                                //ct.SaveChanges();
+                                
+                                ct.SaveChanges();
 
                                 RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
                                 serv.MandarMailReg("regA", regMail.Text, regUser.Text);

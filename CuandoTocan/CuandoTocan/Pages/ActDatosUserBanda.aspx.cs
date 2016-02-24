@@ -80,12 +80,12 @@ namespace CuandoTocan.Pages
 
         protected void btnActDatosUser_Click(object sender, EventArgs e)
         {
-            valGeneroAct.Visible = true;
+            /*valGeneroAct.Visible = true;
             valGeneroAct.Enabled = true;
 
             valDescrip.Visible = true;
             valDescrip.Enabled = true;
-
+            */
             Page.Validate();
 
             if (Page.IsValid)

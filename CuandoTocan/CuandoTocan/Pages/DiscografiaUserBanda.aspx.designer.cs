@@ -103,6 +103,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtTituloD;
         
         /// <summary>
+        /// Control valtxtTituloD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtTituloD;
+        
+        /// <summary>
         /// Control idDisco.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtFechaD;
         
         /// <summary>
+        /// Control valtxtFechaD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtFechaD;
+        
+        /// <summary>
         /// Control txtDiscograficaD.
         /// </summary>
         /// <remarks>
@@ -128,6 +146,15 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiscograficaD;
+        
+        /// <summary>
+        /// Control valtxtDiscograficaD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtDiscograficaD;
         
         /// <summary>
         /// Control chkEliD.
@@ -175,6 +202,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtTituloNuevo;
         
         /// <summary>
+        /// Control valtxtTituloNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtTituloNuevo;
+        
+        /// <summary>
         /// Control txtFechaDNueva.
         /// </summary>
         /// <remarks>
@@ -184,6 +220,15 @@ namespace CuandoTocan.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtFechaDNueva;
         
         /// <summary>
+        /// Control valtxtFechaDNueva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtFechaDNueva;
+        
+        /// <summary>
         /// Control txtDiscograficaNueva.
         /// </summary>
         /// <remarks>
@@ -191,6 +236,15 @@ namespace CuandoTocan.Pages {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDiscograficaNueva;
+        
+        /// <summary>
+        /// Control valtxtDiscograficaNueva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valtxtDiscograficaNueva;
         
         /// <summary>
         /// Control btnNuevoDisco.

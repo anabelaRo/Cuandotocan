@@ -23,8 +23,6 @@ namespace CuandoTocan
                 var query = from art in ct.artista
                             select art;
 
-               
-
                 int cant = 0;
 
                 foreach (var a in query)
@@ -44,7 +42,7 @@ namespace CuandoTocan
 
                 // get local IP addresses
 
-                string url = "http://checkip.dyndns.org";
+                /*string url = "http://checkip.dyndns.org";
                 System.Net.WebRequest req = System.Net.WebRequest.Create(url);
                 System.Net.WebResponse resp = req.GetResponse();
                 System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
@@ -52,14 +50,37 @@ namespace CuandoTocan
                 string[] ax = response.Split(':');
                 string a2 = ax[1].Substring(1);
                 string[] a3 = a2.Split('<');
-                string a4 = a3[0];
+                string a4 = a3[0];*/
 
-
+                string url = "";
+                string response = "";
+                string[] ax;
+                string a2 = "";
+                string[] a3;
+                string a4 = "";
+                
+                try
+                {
+                    url = "http://checkip.dyndns.org";
+                    
+                    System.Net.WebRequest req = System.Net.WebRequest.Create(url);
+                    System.Net.WebResponse resp = req.GetResponse();
+                    System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+                    
+                    response = sr.ReadToEnd().Trim();
+                    ax = response.Split(':');
+                    a2 = ax[1].Substring(1);
+                    a3 = a2.Split('<');
+                    a4 = a3[0];
+                }
+                catch (Exception ex)
+                {
+                }
 
                 string ipAddress = a4;
 
-
                 IPAddress address;
+
                 if (IPAddress.TryParse(ipAddress, out address))
                 {
                     //Si A4 no es nulo, y es una ip valida
@@ -109,9 +130,6 @@ namespace CuandoTocan
 
                         proximos.Controls.Add(dynDiv2);
                     }
-
-
-
                 }
                 else
                 {
@@ -120,7 +138,6 @@ namespace CuandoTocan
 
                     var query2 = from eve in ct.EventosProximos
                                  select eve;
-
 
                     foreach (var ev in query2)
                     {
@@ -131,13 +148,10 @@ namespace CuandoTocan
 
                         proximos.Controls.Add(dynDiv2);
                     }
-
-
                 }
-
-
             }
         }
+
         public class Location
         {
             public string IPAddress { get; set; }
@@ -150,8 +164,5 @@ namespace CuandoTocan
             public string Longitude { get; set; }
             public string TimeZone { get; set; }
         }
-
-
-
     }
 }

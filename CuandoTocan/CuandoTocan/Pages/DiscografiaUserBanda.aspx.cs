@@ -56,6 +56,9 @@ namespace CuandoTocan.Pages
                                         image_path = art.image_path
                                     });
 
+                DateTime fecha;
+                string fecha_publicacion;
+
                 foreach (var a in usuarioBanda)
                 {
                     if (primero == 0)
@@ -110,11 +113,14 @@ namespace CuandoTocan.Pages
 
                         foreach (var di in infodisco)
                         {
+                            fecha = (DateTime) di.Fecha;
+                            fecha_publicacion = fecha.ToString("dd/MM/yyyy hh:mm");
+
                             tablaDiscos = tablaDiscos + "	<tr>                                        " +
                                                         "		<td>" + di.Titulo + "</td>              " +
-                                                        "		<td>" + di.Fecha + "</td>               " +
+                                                        "		<td>" + fecha_publicacion + "</td>               " +
                                                         "		<td>" + di.Discografica + "</td>        " +
-                                                        "		<th><button type='button' onclick='mostrarActualizarDisco(" + di.ID + ",\"" + di.Titulo + "\",\"" + di.Fecha + "\",\"" + di.Discografica + "\");' class='btn btn-default' id='" + di.ID + "'>Editar</button></th>" +
+                                                        "		<th><button type='button' onclick='mostrarActualizarDisco(" + di.ID + ",\"" + di.Titulo + "\",\"" + fecha_publicacion + "\",\"" + di.Discografica + "\");' class='btn btn-default' id='" + di.ID + "'>Editar</button></th>" +
                                                         "	</tr>                                       ";
                         }
 
@@ -131,69 +137,79 @@ namespace CuandoTocan.Pages
 
         protected void btnActualizarDisco_Click(object sender, EventArgs e)
         {
-            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+            Page.Validate("modificarDisco");
 
-            int id_disc = Convert.ToInt32(idDisco.Value);
-
-            if (chkEliD.Checked) //Eliminar
+            if (Page.IsValid)
             {
-                try
-                {
-                    var eli = (from di in ct.discografia
-                               where di.id_disco == id_disc
-                               select di).First();
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-                    ct.discografia.DeleteObject(eli);
-                    ct.SaveChanges();
+                int id_disc = Convert.ToInt32(idDisco.Value);
 
-                    Response.Redirect(Request.RawUrl);
-                }
-                catch (Exception ex)
+                if (chkEliD.Checked) //Eliminar
                 {
-                }
-            }
-            else //Editar
-            {
-                try
-                {
-                    var query = from di in ct.discografia
-                                where di.id_disco == id_disc
-                                select di;
-
-                    foreach (var dis in query)
+                    try
                     {
-                        dis.titulo = txtTituloD.Text;
-                        dis.fecha_publicacion = Convert.ToDateTime(txtFechaD.Text);
-                        dis.discografica = txtDiscograficaD.Text;
-                    }
+                        var eli = (from di in ct.discografia
+                                   where di.id_disco == id_disc
+                                   select di).First();
 
-                    ct.SaveChanges();
-                    Response.Redirect(Request.RawUrl);
+                        ct.discografia.DeleteObject(eli);
+                        ct.SaveChanges();
+
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
                 }
-                catch (Exception ex)
+                else //Editar
                 {
+                    try
+                    {
+                        var query = from di in ct.discografia
+                                    where di.id_disco == id_disc
+                                    select di;
+
+                        foreach (var dis in query)
+                        {
+                            dis.titulo = txtTituloD.Text;
+                            dis.fecha_publicacion = Convert.ToDateTime(txtFechaD.Text);
+                            dis.discografica = txtDiscograficaD.Text;
+                        }
+
+                        ct.SaveChanges();
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
                 }
             }
         }
 
         protected void btnCrearDisco_Click(object sender, EventArgs e)
         {
-            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+            Page.Validate("crearDisco");
 
-            CuandoTocan.discografia dis = new CuandoTocan.discografia();
+            if (Page.IsValid)
+            {
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-            int id_artista = Convert.ToInt32(Session["id_artista"]);
+                CuandoTocan.discografia dis = new CuandoTocan.discografia();
 
-            dis.id_artista = id_artista;
-            dis.titulo = txtTituloNuevo.Text;
-            dis.fecha_publicacion = Convert.ToDateTime(txtFechaDNueva.Text);
-            dis.discografica = txtDiscograficaNueva.Text;
-            dis.fecha_alta = DateTime.Now;
+                int id_artista = Convert.ToInt32(Session["id_artista"]);
 
-            ct.AddTodiscografia(dis);
-            ct.SaveChanges();
+                dis.id_artista = id_artista;
+                dis.titulo = txtTituloNuevo.Text;
+                dis.fecha_publicacion = Convert.ToDateTime(txtFechaDNueva.Text);
+                dis.discografica = txtDiscograficaNueva.Text;
+                dis.fecha_alta = DateTime.Now;
 
-            Response.Redirect(Request.RawUrl);
+                ct.AddTodiscografia(dis);
+                ct.SaveChanges();
+
+                Response.Redirect(Request.RawUrl);
+            }
         }
     }
 }

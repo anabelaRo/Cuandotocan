@@ -56,6 +56,7 @@
                                     <div class ="col-md-8">
                                         <asp:TextBox ID="txtNomE" runat="server"  class="form-control"></asp:TextBox>
                                         <asp:HiddenField ID="idEvento" runat="server" />
+                                        <asp:RequiredFieldValidator ID="valtxtNomE" ControlToValidate="txtNomE" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="modificarEvento" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -64,6 +65,7 @@
                                     </div>
                                     <div class ="col-md-8">
                                         <asp:TextBox ID="txtDescE" runat="server"  class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valtxtDescE" ControlToValidate="txtDescE" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="modificarEvento" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -72,6 +74,7 @@
                                     </div>
                                     <div class ="col-md-8">
                                         <asp:TextBox ID="txtFechaE" runat="server"  class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valtxtFechaE" ControlToValidate="txtFechaE" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="modificarEvento" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -102,7 +105,7 @@
 								    </div>
 							    </div>
                                 <div class="text-icenter">  
-                                    <asp:Button ID="btnUpdate" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarEvento_Click" />                    
+                                    <asp:Button ID="btnUpdate" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarEvento_Click" ValidationGroup="modificarEvento"/>                    
                                     <button id="btnCancelarUpdateE" runat="server" class="btn btn-default" onclick="btnCancelarE();" type="button">Cancelar</button>                   
                                 </div>
                             </div>
@@ -117,6 +120,7 @@
                                     </div>
                                     <div class ="col-md-8">
                                         <asp:TextBox ID="txtNameNuevo" runat="server" placeholder="Despedida del año" class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valtxtNameNuevo" ControlToValidate="txtNameNuevo" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="crearEvento" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -124,7 +128,8 @@
                                         <label for="lblDescNueva">Descripción:</label>
                                     </div>
                                     <div class ="col-md-8">
-                                        <asp:TextBox ID="tvtDescNueva" runat="server" placeholder="Cerramos en año en el teatro" class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtDescNueva" runat="server" placeholder="Cerramos en año en el teatro" class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valtxtDescNueva" ControlToValidate="txtDescNueva" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="crearEvento" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -133,6 +138,7 @@
                                     </div>
                                     <div class ="col-md-8">
                                         <asp:TextBox ID="txtFechaNueva" runat="server" placeholder="dd/mm/yyyy hh:mm" class="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valtxtFechaNueva" ControlToValidate="txtFechaNueva" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="crearEvento" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -152,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="text-icenter">  
-                                    <asp:Button ID="btnCrearEvento" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearEvento_Click"/>     
+                                    <asp:Button ID="btnCrearEvento" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearEvento_Click" ValidationGroup="crearEvento" />     
                                     <button id="btnCancCrearEvento" runat="server" class="btn btn-default" onclick="btnCancelarE();" type="button">Cancelar</button>                   
                                 </div>
                             </div>

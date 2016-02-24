@@ -53,6 +53,7 @@
                                     </div>
                                     <div class ="col-md-8">
                                         <asp:TextBox ID="txtTituloD" runat="server"  class="form-control" />
+                                        <asp:RequiredFieldValidator ID="valtxtTituloD" ControlToValidate="txtTituloD" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="modificarDisco" />
                                         <asp:HiddenField ID="idDisco" runat="server" />
                                     </div>
                                 </div>
@@ -61,7 +62,8 @@
                                          <label for="lblFechaD">Fecha de lanzamiento:</label>
                                     </div>
                                     <div class ="col-md-8">
-                                        <asp:TextBox ID="txtFechaD" runat="server"  class="form-control"/>
+                                        <asp:TextBox ID="txtFechaD" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator ID="valtxtFechaD" ControlToValidate="txtFechaD" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="modificarDisco" />
                                     </div>
                                 </div>
 						        <div class ="row">
@@ -69,7 +71,8 @@
                                         <label for="lblDiscograficaD">Discográfica:</label>
                                     </div>
                                     <div class ="col-md-8">
-                                        <asp:TextBox ID="txtDiscograficaD" runat="server"  class="form-control"/>
+                                        <asp:TextBox ID="txtDiscograficaD" runat="server"  class="form-control" />
+                                        <asp:RequiredFieldValidator ID="valtxtDiscograficaD" ControlToValidate="txtDiscograficaD" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="modificarDisco" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -84,7 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="text-icenter">
-                                    <asp:Button ID="btnUpdateD" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarDisco_Click" />                    
+                                    <asp:Button ID="btnUpdateD" runat="server" class='btn btn-default' Text="Confirmar" onclick="btnActualizarDisco_Click" ValidationGroup="modificarDisco" />                    
                                     <button id="btnCancelarUpdateD" runat="server" class="btn btn-default" onclick="btnCancelarD();" type="button">Cancelar</button>                   
                                 </div>
                             </div>
@@ -98,7 +101,8 @@
                                         <label for="lblTituloNuevo">Álbum:</label>
                                     </div>
                                     <div class ="col-md-8">
-                                        <asp:TextBox ID="txtTituloNuevo" placeholder="El camino más largo" runat="server" class="form-control"/>
+                                        <asp:TextBox ID="txtTituloNuevo" placeholder="El camino más largo" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator ID="valtxtTituloNuevo" ControlToValidate="txtTituloNuevo" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="crearDisco" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -106,7 +110,8 @@
                                         <label for="lblFechaDNueva">Fecha de lanzamiento:</label>
                                     </div>
                                     <div class ="col-md-8">
-                                        <asp:TextBox ID="txtFechaDNueva" placeholder="dd/mm/yyyy hh:mm" runat="server" class="form-control"/>
+                                        <asp:TextBox ID="txtFechaDNueva" placeholder="dd/mm/yyyy hh:mm" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator ID="valtxtFechaDNueva" ControlToValidate="txtFechaDNueva" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="crearDisco" />
                                     </div>
                                 </div>
                                 <div class ="row">
@@ -114,11 +119,12 @@
                                         <label for="lblDiscograficaNueva">Discográfica:</label>
                                     </div>
                                     <div class ="col-md-8">
-                                        <asp:TextBox ID="txtDiscograficaNueva" placeholder="Elefente Blanco" runat="server" class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtDiscograficaNueva" placeholder="Elefente Blanco" runat="server" class="form-control" />
+                                        <asp:RequiredFieldValidator ID="valtxtDiscograficaNueva" ControlToValidate="txtDiscograficaNueva" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" ValidationGroup="crearDisco" />
                                     </div>
                                 </div>
                                 <div class="text-icenter"> 
-                                    <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearDisco_Click"/>     
+                                    <asp:Button ID="btnNuevoDisco" runat="server" class='btn btn-default' Text="Crear" onclick="btnCrearDisco_Click" ValidationGroup="crearDisco" />     
                                     <button id="btnCancNuevoDisco" runat="server" class="btn btn-default" onclick="btnCancelarD();" type="button">Cancelar</button>                   
                                 </div>
                             </div>

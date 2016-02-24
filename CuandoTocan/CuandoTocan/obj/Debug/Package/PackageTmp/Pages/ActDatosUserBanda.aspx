@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <asp:TextBox ID="txtGeneroAct" type="text" runat="server" placeholder="HeavyRock" class="form-control"/>
-                                    <asp:RequiredFieldValidator ID="valGeneroAct" ControlToValidate="txtGeneroAct" Visible="false" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio"/>
+                                    <asp:RequiredFieldValidator ID="valGeneroAct" ControlToValidate="txtGeneroAct" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" />
                                 </div>
                             </div>
                             <div class="row">                             
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-sm-10">
                                     <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="160" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" />
-                                    <asp:RequiredFieldValidator ID="valDescrip" ControlToValidate="txtDescrip" Visible="false" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio"/>
+                                    <asp:RequiredFieldValidator ID="valDescrip" ControlToValidate="txtDescrip" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" />
                                 </div>
                             </div>
                         </div> 
