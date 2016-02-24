@@ -240,8 +240,7 @@ namespace CuandoTocan.WebServices
 
 
 
-         public string MandarMailEliE(string titulo, string fecha, int id_even, int id_arti)
-            
+         public string MandarMailEliE(string titulo, string fecha, int id_even, int id_usua)
          {
              //MAILS CUANDO USUARIO BANDA ELIMINA EVENTO, NOTIFICA A LOS ASISTENTES
              string ret;
@@ -258,21 +257,14 @@ namespace CuandoTocan.WebServices
              CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
 
-             var query = (from ue in ct.usuario_evento 
-                          join u in ct.usuario on ue.id_usuario equals u.id_usuario
-                          where ue.id_evento == id_even
+             var query = (from u in ct.usuario
+                          where u.id_usuario == id_usua
                           select new
                           {
                               nombre = u.nombre_completo,
                               mail = u.email,
                           });
 
-             var query2 = (from a in ct.artista
-                          where a.id_artista == id_arti
-                          select new
-                          {
-                              a.nombre
-                          });
 
              string cuerpo = "";
 
@@ -282,7 +274,7 @@ namespace CuandoTocan.WebServices
                  MailMessage msg = new MailMessage();
                  msg.To.Add(us.mail);
                  msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
-                 msg.Subject = "Carpooling en CuandoTocan!";
+                 msg.Subject = "Evento cancelado!";
                  msg.IsBodyHtml = true;
                  StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailEliEvento.htm"));
                  string readFile = reader.ReadToEnd();
@@ -301,9 +293,154 @@ namespace CuandoTocan.WebServices
 
              return (ret);
          }
+
+         public string MandarMailEliE(int id_even)
+         {
+             //MAILS CUANDO USUARIO BANDA MODIFICA EVENTO, NOTIFICA A LOS ASISTENTES
+             string ret;
+             SmtpClient client = new SmtpClient("smtp.gmail.com");
+             client.Port = 587;
+             client.EnableSsl = true;
+             client.Timeout = 100000;
+             client.DeliveryMethod = SmtpDeliveryMethod.Network;
+             client.UseDefaultCredentials = false;
+             client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
+             int cont;
+
+
+             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+
+             var query = (from e in ct.evento
+                          join l in ct.locacion
+                              on e.id_locacion equals l.id_locacion
+                          join tp in ct.tipo_evento
+                          on e.tipo_evento equals tp.id_tipo_evento
+                          where e.id_evento == id_even
+                          select new
+                          {
+                              e.titulo,
+                              e.fecha_evento,
+                              tp.descripcion,
+                              l.nombre
+                          });
+
+             string cuerpo = "";
+
+             foreach (var ev in query)
+             {
+                 var query2 = (from u in ct.usuario
+                               join ue in ct.usuario_evento
+                                   on u.id_usuario equals ue.id_usuario
+                               where ue.id_evento == id_even
+                               select new
+                               {
+                                   u.nombre_completo,
+                                   u.email
+                               });
+                 foreach (var us in query2)
+                 {
+                     MailMessage msg = new MailMessage();
+                     msg.To.Add(us.email);
+                     msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                     msg.Subject = "Actualización de evento!";
+                     msg.IsBodyHtml = true;
+                     StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailModEvento.htm"));
+                     string readFile = reader.ReadToEnd();
+                     string StrContent = "";
+                     StrContent = readFile;
+                     StrContent = StrContent.Replace("[MyName]", us.nombre_completo);
+                     StrContent = StrContent.Replace("[MyEvent]", ev.titulo);
+                     StrContent = StrContent.Replace("[fecha]", ev.fecha_evento.ToString());
+                     StrContent = StrContent.Replace("[tipo]", ev.descripcion);
+                     StrContent = StrContent.Replace("[lugar]", ev.nombre);
+                     msg.Body = StrContent.ToString();
+                     client.Send(msg);
+                 }
+
+             }
+
+             ret = "Enviado";
+
+             return (ret);
          }
-       
-            
+
+         //
+         public string MandarMailNewE(int id_usua, int id_Arti, int id_even)
+         {
+             //MAILS CUANDO USUARIO BANDA CREA EVENTO, NOTIFICA A LOS SEGUIDORES
+             string ret;
+             SmtpClient client = new SmtpClient("smtp.gmail.com");
+             client.Port = 587;
+             client.EnableSsl = true;
+             client.Timeout = 100000;
+             client.DeliveryMethod = SmtpDeliveryMethod.Network;
+             client.UseDefaultCredentials = false;
+             client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
+             int cont;
+
+
+             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+
+             var query = (from e in ct.evento
+                          join l in ct.locacion
+                              on e.id_locacion equals l.id_locacion
+                          join tp in ct.tipo_evento
+                          on e.tipo_evento equals tp.id_tipo_evento
+                          where e.id_evento == id_even
+                          select new
+                          {
+                              e.titulo,
+                              e.fecha_evento,
+                              tp.descripcion,
+                              l.nombre
+                          });
+
+             string cuerpo = "";
+
+             foreach (var ev in query)
+             {
+                 var query2 = (from u in ct.usuario
+                               join ue in ct.usuario_evento
+                                   on u.id_usuario equals ue.id_usuario
+                               where ue.id_evento == id_even
+                               select new
+                               {
+                                   u.nombre_completo,
+                                   u.email
+                               });
+                 foreach (var us in query2)
+                 {
+                     MailMessage msg = new MailMessage();
+                     msg.To.Add(us.email);
+                     msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                     msg.Subject = "Actualización de evento!";
+                     msg.IsBodyHtml = true;
+                     StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailModEvento.htm"));
+                     string readFile = reader.ReadToEnd();
+                     string StrContent = "";
+                     StrContent = readFile;
+                     StrContent = StrContent.Replace("[MyName]", us.nombre_completo);
+                     StrContent = StrContent.Replace("[MyEvent]", ev.titulo);
+                     StrContent = StrContent.Replace("[fecha]", ev.fecha_evento.ToString());
+                     StrContent = StrContent.Replace("[tipo]", ev.descripcion);
+                     StrContent = StrContent.Replace("[lugar]", ev.nombre);
+                     msg.Body = StrContent.ToString();
+                     client.Send(msg);
+                 }
+
+             }
+
+             ret = "Enviado";
+
+             return (ret);
          }
-        
-    
+
+
+    }
+
+
+}
+
+

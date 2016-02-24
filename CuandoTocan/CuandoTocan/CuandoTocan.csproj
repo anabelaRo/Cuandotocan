@@ -129,6 +129,8 @@
     <Content Include="Pages\SendMailEsinAuto.htm" />
     <Content Include="Pages\UsuarioBanda.aspx" />
     <Content Include="Pages\UsuarioEstandar.aspx" />
+    <Content Include="SendEmailEliEvento.htm" />
+    <Content Include="SendMailModEvento.htm" />
     <Content Include="WebServices\EnvioMails.asmx" />
     <None Include="Service References\ServiceReference1\EnvioMails.wsdl" />
     <Content Include="Web.config">

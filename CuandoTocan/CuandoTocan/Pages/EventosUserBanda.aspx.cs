@@ -184,7 +184,8 @@ namespace CuandoTocan.Pages
                         //ANA envío mail de evento modificado a los asistentes
                         //falta programar
                         //deberia pasar id del evento, descripcion, artista y fecha
-                        serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), ue.id_evento,eli.id_artista );
+                        serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), ue.id_evento, ue.id_usuario);
+
 
                         ct.usuario_evento.DeleteObject(ue);
                         ct.SaveChanges();
@@ -227,7 +228,7 @@ namespace CuandoTocan.Pages
                     //ANA envío mail de evento eliminado a los asistentes
                     //falta programar
                     //deberia pasar id del evento, y la nueva configuracion
-                    //serv.MandarMailReg("modE", regMail.Text, regUser.Text);
+                    serv.MandarMailEliE(id_even);
 
                     Response.Redirect(Request.RawUrl);
                 }
@@ -273,7 +274,8 @@ namespace CuandoTocan.Pages
                 //ANA envío mail de nuevo evento a seguidores del artista
                 //falta programar
                 //deberia pasar id del evento, la fecha, el nombre, el lugar y el artista
-                //serv.MandarMailReg("newE", regMail.Text, regUser.Text);
+                serv.MandarMailNewE(id_Usuario, ev.id_artista, ev.id_evento);
+
                 Response.Redirect(Request.RawUrl);
             }
         }
