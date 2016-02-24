@@ -69,6 +69,7 @@ namespace CuandoTocan.Pages
                     }
 
                     id_artista = a.id_artista;
+                    Session["id_artista"] = id_artista;
 
                     //**********************************************Discos************************************************
                     //crearD.Visible = false;
@@ -180,6 +181,8 @@ namespace CuandoTocan.Pages
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
             CuandoTocan.discografia dis = new CuandoTocan.discografia();
+
+            int id_artista = Convert.ToInt32(Session["id_artista"]);
 
             dis.id_artista = id_artista;
             dis.titulo = txtTituloNuevo.Text;
