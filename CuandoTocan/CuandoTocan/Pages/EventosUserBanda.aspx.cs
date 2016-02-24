@@ -10,6 +10,7 @@ namespace CuandoTocan.Pages
     public partial class EventosUserBanda : System.Web.UI.Page
     {
         int id_artista;
+        WebServices.EnvioMails serv = new WebServices.EnvioMails();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -174,18 +175,29 @@ namespace CuandoTocan.Pages
                                 where ue.id_evento == id_even
                                 select ue;
 
-                    foreach (var ue in query.ToList())
-                    {
-                        ct.usuario_evento.DeleteObject(ue);
-                        ct.SaveChanges();
-                    }
-
                     var eli = (from ev in ct.evento
                                where ev.id_evento == id_even
                                select ev).First();
 
+                    foreach (var ue in query.ToList())
+                    {
+                        //ANA envío mail de evento modificado a los asistentes
+                        //falta programar
+                        //deberia pasar id del evento, descripcion, artista y fecha
+                        serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), ue.id_evento,eli.id_artista );
+
+                        ct.usuario_evento.DeleteObject(ue);
+                        ct.SaveChanges();
+                    }
+
+                  
+
                     ct.evento.DeleteObject(eli);
                     ct.SaveChanges();
+
+                   
+
+              
 
                     Response.Redirect(Request.RawUrl);
                 }
@@ -212,6 +224,10 @@ namespace CuandoTocan.Pages
                     }
 
                     ct.SaveChanges();
+                    //ANA envío mail de evento eliminado a los asistentes
+                    //falta programar
+                    //deberia pasar id del evento, y la nueva configuracion
+                    //serv.MandarMailReg("modE", regMail.Text, regUser.Text);
 
                     Response.Redirect(Request.RawUrl);
                 }
@@ -223,6 +239,7 @@ namespace CuandoTocan.Pages
 
         protected void btnCrearEvento_Click(object sender, EventArgs e)
         {
+
             Page.Validate();
 
             if (Page.IsValid)
@@ -253,6 +270,10 @@ namespace CuandoTocan.Pages
                 ct.AddToevento(ev);
                 ct.SaveChanges();
 
+                //ANA envío mail de nuevo evento a seguidores del artista
+                //falta programar
+                //deberia pasar id del evento, la fecha, el nombre, el lugar y el artista
+                //serv.MandarMailReg("newE", regMail.Text, regUser.Text);
                 Response.Redirect(Request.RawUrl);
             }
         }

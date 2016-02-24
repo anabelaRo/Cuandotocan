@@ -105,7 +105,7 @@ namespace CuandoTocan
                         System.Web.UI.HtmlControls.HtmlGenericControl dynDiv2 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
 
                         dynDiv2.ID = "proximos1";
-                        dynDiv2.InnerHtml = "<div class='divImagen'><a class='imgA' href='Pages/Evento.aspx?id_evento =" + ev.id + "'><img class='img-responsive' src='" + "../" + ev.imagen + "' alt=''/> <p class='text'>" + ev.artista + "<br>" + ev.evento + "<br>" + ev.fecha.ToString("dddd") + " " + ev.fecha.ToString("dd/M") + "</p></a></div>";
+                        dynDiv2.InnerHtml = "<div class='divImagen'><a class='imgA' href='Pages/Evento.aspx?id_evento=" + ev.id + "'><img class='img-responsive' src='" + "../" + ev.imagen + "' alt=''/> <p class='text'>" + ev.artista + "<br>" + ev.evento + "<br>" + ev.fecha.ToString("dddd") + " " + ev.fecha.ToString("dd/M") + "</p></a></div>";
 
                         proximos.Controls.Add(dynDiv2);
                     }
