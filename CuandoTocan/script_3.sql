@@ -102,7 +102,7 @@ CREATE TABLE [dbo].[discografia](
 	[id_disco] [int] IDENTITY(1,1) NOT NULL,
 	[id_artista] [int] NOT NULL,
 	[titulo] [nvarchar](100) NOT NULL,
-	[fecha_publicacion] [date] NULL,
+	[fecha_publicacion] [datetime] NULL,
 	[discografica] [nvarchar](50) NULL,
 	[fecha_alta] [datetime] NULL CONSTRAINT [DF_discografia_fecha_alta]  DEFAULT (getdate()),
 	[fecha_modificacion] [datetime] NULL CONSTRAINT [DF_discografia_fecha_modificacion]  DEFAULT (getdate()),
@@ -261,7 +261,7 @@ CREATE TABLE [dbo].[usuario](
 	[email] [nvarchar](50) NULL,
 	[password] [nvarchar](20) NULL,
 	[nombre_completo] [nvarchar](50) NULL,
-	[fecha_nacimiento] [date] NULL,
+	[fecha_nacimiento] [datetime] NULL,
 	[biografia] [nvarchar](500) NULL,
 	[id_artista] [int] NULL,
 	[fecha_alta] [datetime] NULL CONSTRAINT [DF_usuario_fecha_alta]  DEFAULT (getdate()),
@@ -330,10 +330,10 @@ INSERT [dbo].[artista] ([id_artista], [nombre], [genero], [descripcion], [mbid],
 SET IDENTITY_INSERT [dbo].[artista] OFF
 SET IDENTITY_INSERT [dbo].[discografia] ON 
 
-INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (1, 1, N'Narigón del siglo', CAST(N'2001-01-01' AS Date), N'Sony Music', NULL, NULL)
-INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (2, 1, N'Amapola del 66', CAST(N'2010-06-01' AS Date), N'DBN', NULL, NULL)
-INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (3, 2, N'After Chabón', CAST(N'1987-01-01' AS Date), N'EMI', NULL, NULL)
-INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (4, 3, N'Canción Animal', CAST(N'1993-01-01' AS Date), N'Soy BMG', NULL, NULL)
+INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (1, 1, N'Narigón del siglo', CAST(N'2001-01-01 13:17:57.663' AS DateTime), N'Sony Music', NULL, NULL)
+INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (2, 1, N'Amapola del 66', CAST(N'2010-06-01 13:17:57.663' AS DateTime), N'DBN', NULL, NULL)
+INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (3, 2, N'After Chabón', CAST(N'1987-01-01 13:17:57.663' AS DateTime), N'EMI', NULL, NULL)
+INSERT [dbo].[discografia] ([id_disco], [id_artista], [titulo], [fecha_publicacion], [discografica], [fecha_alta], [fecha_modificacion]) VALUES (4, 3, N'Canción Animal', CAST(N'1993-01-01 13:17:57.663' AS DateTime), N'Soy BMG', NULL, NULL)
 SET IDENTITY_INSERT [dbo].[discografia] OFF
 SET IDENTITY_INSERT [dbo].[enlace_artista] ON 
 
@@ -347,27 +347,27 @@ INSERT [dbo].[enlace_artista] ([id_enlace_artista], [id_artista], [tipo_enlace],
 SET IDENTITY_INSERT [dbo].[enlace_artista] OFF
 SET IDENTITY_INSERT [dbo].[evento] ON 
 
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (3, 1, 6, 1, N'Divididos en Flores', N'Lorem ipsum', CAST(N'2015-12-11 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:16:03.060' AS DateTime), CAST(N'2015-11-06 13:16:03.060' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (4, 5, 7, 1, N'NTVG en Vorterix', N'Lorem ipsum', CAST(N'2016-12-20 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:16:31.710' AS DateTime), CAST(N'2015-11-06 13:16:31.710' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (5, 4, 8, 1, N'NTVG en Luna Park', N'Lorem ipsum', CAST(N'2015-12-19 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:17:01.840' AS DateTime), CAST(N'2015-11-06 13:17:01.840' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (6, 3, 9, 2, N'El tesoro de los inocentes', N'Lorem ipsum', CAST(N'2015-12-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:17:57.663' AS DateTime), CAST(N'2015-11-06 13:17:57.663' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (7, 1, 8, 1, N'Divididos en el Luna', N'Lorem ipsum', CAST(N'2015-12-27 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:16:03.060' AS DateTime), CAST(N'2015-11-06 13:16:03.060' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (8, 5, 6, 1, N'NTVG en el Teatro!', N'Lorem ipsum', CAST(N'2016-12-30 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:16:31.710' AS DateTime), CAST(N'2015-11-06 13:16:31.710' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (9, 4, 8, 1, N'NTVG en Luna Park', N'Lorem ipsum', CAST(N'2015-12-29 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:17:01.840' AS DateTime), CAST(N'2015-11-06 13:17:01.840' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (10, 3, 9, 2, N'El tesoro de los inocentes', N'Lorem ipsum', CAST(N'2015-12-13 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:17:57.663' AS DateTime), CAST(N'2015-11-06 13:17:57.663' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (11, 1, 7, 1, N'Divididos en el Votretix', N'Lorem ipsum', CAST(N'2016-02-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:16:03.060' AS DateTime), CAST(N'2015-11-06 13:16:03.060' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (12, 5, 6, 1, N'NTVG en el Teatro!', N'Lorem ipsum', CAST(N'2016-03-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:16:31.710' AS DateTime), CAST(N'2015-11-06 13:16:31.710' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (13, 4, 8, 1, N'NTVG en Luna Park', N'Lorem ipsum', CAST(N'2016-04-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:17:01.840' AS DateTime), CAST(N'2015-11-06 13:17:01.840' AS DateTime))
-INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (14, 3, 9, 2, N'El tesoro de los inocentes', N'Lorem ipsum', CAST(N'2015-12-14 00:00:00.000' AS DateTime), CAST(N'2015-11-06 13:17:57.663' AS DateTime), CAST(N'2015-11-06 13:17:57.663' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (3, 1, 6, 1, N'Divididos en Flores', N'Lorem ipsum', CAST(N'2015-12-11 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:16:03.060' AS DateTime), CAST(N'2015-11-06 11:16:03.060' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (4, 5, 7, 1, N'NTVG en Vorterix', N'Lorem ipsum', CAST(N'2016-12-10 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:16:31.710' AS DateTime), CAST(N'2015-11-06 11:16:31.710' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (5, 4, 8, 1, N'NTVG en Luna Park', N'Lorem ipsum', CAST(N'2015-12-09 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:17:01.840' AS DateTime), CAST(N'2015-11-06 11:17:01.840' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (6, 3, 9, 2, N'El tesoro de los inocentes', N'Lorem ipsum', CAST(N'2015-12-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:17:57.663' AS DateTime), CAST(N'2015-11-06 11:17:57.663' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (7, 1, 8, 1, N'Divididos en el Luna', N'Lorem ipsum', CAST(N'2015-12-07 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:16:03.060' AS DateTime), CAST(N'2015-11-06 11:16:03.060' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (8, 5, 6, 1, N'NTVG en el Teatro!', N'Lorem ipsum', CAST(N'2016-12-10 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:16:31.710' AS DateTime), CAST(N'2015-11-06 11:16:31.710' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (9, 4, 8, 1, N'NTVG en Luna Park', N'Lorem ipsum', CAST(N'2015-12-09 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:17:01.840' AS DateTime), CAST(N'2015-11-06 11:17:01.840' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (10, 3, 9, 2, N'El tesoro de los inocentes', N'Lorem ipsum', CAST(N'2015-12-11 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:17:57.663' AS DateTime), CAST(N'2015-11-06 11:17:57.663' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (11, 1, 7, 1, N'Divididos en el Votretix', N'Lorem ipsum', CAST(N'2016-02-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:16:03.060' AS DateTime), CAST(N'2015-11-06 11:16:03.060' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (12, 5, 6, 1, N'NTVG en el Teatro!', N'Lorem ipsum', CAST(N'2016-03-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:16:31.710' AS DateTime), CAST(N'2015-11-06 11:16:31.710' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (13, 4, 8, 1, N'NTVG en Luna Park', N'Lorem ipsum', CAST(N'2016-04-12 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:17:01.840' AS DateTime), CAST(N'2015-11-06 11:17:01.840' AS DateTime))
+INSERT [dbo].[evento] ([id_evento], [id_artista], [id_locacion], [tipo_evento], [titulo], [descripcion], [fecha_evento], [fecha_alta], [fecha_modificacion]) VALUES (14, 3, 9, 2, N'El tesoro de los inocentes', N'Lorem ipsum', CAST(N'2015-12-04 00:00:00.000' AS DateTime), CAST(N'2015-11-06 11:17:57.663' AS DateTime), CAST(N'2015-11-06 11:17:57.663' AS DateTime))
 
 SET IDENTITY_INSERT [dbo].[evento] OFF
 SET IDENTITY_INSERT [dbo].[locacion] ON 
 
-INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (6, N'El Teatro Flores', N'CABA', N'Av. Rivadavia 7800', -34.632096, -58.474983, N'elteatroonline.com', 1800, CAST(N'2015-11-06 12:30:52.467' AS DateTime), CAST(N'2015-11-06 12:30:52.467' AS DateTime))
-INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (7, N'Teatro Vorterix', N'CABA', N'Av. Federico Lacroze 999', -34.579513, -58.450685, N'elteatroonline.com', 1500, CAST(N'2015-11-06 12:33:43.567' AS DateTime), CAST(N'2015-11-06 12:33:43.567' AS DateTime))
-INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (8, N'Estadio Luna Park', N'CABA', N'Lavalle y Bouchard', -34.602295, -58.368721, N'lunapark.com.ar', 7000, CAST(N'2015-11-06 12:34:46.130' AS DateTime), CAST(N'2015-11-06 12:34:46.130' AS DateTime))
-INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (9, N'Quality Espacio', N'Córdoba', N'xxx 000', -31.444422, -64.195713, N'xyz.com', NULL, CAST(N'2015-11-06 12:35:14.863' AS DateTime), CAST(N'2015-11-06 12:35:14.863' AS DateTime))
-INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (10, N'Estadio Atenas', N'La Plata', N'xxx 000', -34.925553, -57.949851, N'xyz.com', NULL, CAST(N'2015-11-06 12:35:38.647' AS DateTime), CAST(N'2015-11-06 12:35:38.647' AS DateTime))
+INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (6, N'El Teatro Flores', N'CABA', N'Av. Rivadavia 7800', -34.632096, -58.474983, N'elteatroonline.com', 1800, CAST(N'2015-11-06 11:30:52.467' AS DateTime), CAST(N'2015-11-06 11:30:52.467' AS DateTime))
+INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (7, N'Teatro Vorterix', N'CABA', N'Av. Federico Lacroze 999', -34.579513, -58.450685, N'elteatroonline.com', 1500, CAST(N'2015-11-06 11:33:43.567' AS DateTime), CAST(N'2015-11-06 11:33:43.567' AS DateTime))
+INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (8, N'Estadio Luna Park', N'CABA', N'Lavalle y Bouchard', -34.602295, -58.368721, N'lunapark.com.ar', 7000, CAST(N'2015-11-06 11:34:46.130' AS DateTime), CAST(N'2015-11-06 11:34:46.130' AS DateTime))
+INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (9, N'Quality Espacio', N'Córdoba', N'xxx 000', -31.444422, -64.195713, N'xyz.com', NULL, CAST(N'2015-11-06 11:35:14.863' AS DateTime), CAST(N'2015-11-06 11:35:14.863' AS DateTime))
+INSERT [dbo].[locacion] ([id_locacion], [nombre], [ciudad], [direccion], [coordenada_x], [coordenada_y], [sitio_oficial], [capacidad], [fecha_alta], [fecha_modificacion]) VALUES (10, N'Estadio Atenas', N'La Plata', N'xxx 000', -34.925553, -57.949851, N'xyz.com', NULL, CAST(N'2015-11-06 11:35:38.647' AS DateTime), CAST(N'2015-11-06 11:35:38.647' AS DateTime))
 SET IDENTITY_INSERT [dbo].[locacion] OFF
 SET IDENTITY_INSERT [dbo].[tipo_enlace] ON 
  
@@ -484,6 +484,8 @@ ALTER DATABASE [CuandoTocan] SET  READ_WRITE
 GO
 USE [CuandoTocan]
 GO
+
+
 /****** Object:  View [dbo].[EventosProximos]   Script Date: 11/18/2015 12:24:44 ******/
 SET ANSI_NULLS ON
 GO
@@ -497,29 +499,16 @@ where e.id_artista = a.id_artista
 and e.id_locacion = l.id_locacion
 and fecha_evento >= CURRENT_TIMESTAMP
 order by fecha_evento asc
+GO
 
 USE [CuandoTocan]
 GO
-/****** Object:  View [dbo].[EventosProximos]   Script Date: 11/18/2015 12:24:44 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER OFF
-GO
-CREATE VIEW [dbo].[EventosProximos]
-AS
-select top 6 id_evento, image_path, e.titulo, e.fecha_evento, l.nombre 
-from evento e, artista a, locacion l
-where e.id_artista = a.id_artista
-and e.id_locacion = l.id_locacion
-and fecha_evento >= CURRENT_TIMESTAMP
-order by fecha_evento asc
-USE CuandoTocan
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE eventosCercanos
+CREATE PROCEDURE [dbo].[eventosCercanos]
 	@coordenadaX nvarchar(50),
 	@coordenadaY nvarchar(50)
 	
