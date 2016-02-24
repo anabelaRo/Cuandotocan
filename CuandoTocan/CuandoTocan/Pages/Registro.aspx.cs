@@ -126,13 +126,15 @@ namespace CuandoTocan.Pages
                                 //{
                                 //    u.id_artista = id_arti;
                                 //}
-                                CuandoTocan.usuario_artista uar = new CuandoTocan.usuario_artista();
-                                uar.id_artista = id_arti;
-                                uar.id_usuario = id_usu;
-                                uar.fecha_alta = DateTime.Now;
+                                //Lo comento,se debe insertar pero en nueva tabla
+                                //CuandoTocan.usuario_artista uar = new CuandoTocan.usuario_artista();
+                                //uar.id_artista = id_arti;
+                                //uar.id_usuario = id_usu;
+                                //uar.fecha_alta = DateTime.Now;
 
-                                ct.AddTousuario_artista(uar);
-                                ct.SaveChanges();
+                                //ct.AddTousuario_artista(uar);
+                                //ct.SaveChanges();
+
                                 RegOk.Text = "Gracias por registrarte, presiona Login para comenzar";
                                 serv.MandarMailReg("regA", regMail.Text, regUser.Text);
                             }
