@@ -39,7 +39,7 @@
 
     <div id="divCentro">
         <div id="divCuerpoTopIzq">
-            <asp:Label ID="lblProxEventos" runat="server" Text=""/>
+            <asp:Label ID="lblProxEventos" runat="server" Text="Próximos eventos:"/>
         </div>
         <div id="divCuerpoTopDer">
             <asp:Label ID="lblArtDestacados" runat="server" Text="Artistas destacados:"/>
