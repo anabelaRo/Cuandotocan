@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <setParameter name="IIS Web Application Name" value="Default Web Site/CuandoTocan_deploy" />
-  <setParameter name="CuandoTocanEntities-Web.config Connection String" value="metadata=res://*/CTBBDD.csdl|res://*/CTBBDD.ssdl|res://*/CTBBDD.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=ARINDN016\SQLEXPRESS;initial catalog=CuandoTocan;integrated security=True;multipleactiveresultsets=True;App=EntityFramework&quot;" />
+  <setParameter name="CuandoTocanEntities-Web.config Connection String" value="metadata=res://*/CTBBDD.csdl|res://*/CTBBDD.ssdl|res://*/CTBBDD.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=ARINDN016\sqlexpress;initial catalog=CuandoTocan;integrated security=True;multipleactiveresultsets=True;App=EntityFramework&quot;" />
 </parameters>
