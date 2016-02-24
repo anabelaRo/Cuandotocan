@@ -498,3 +498,48 @@ and e.id_locacion = l.id_locacion
 and fecha_evento >= CURRENT_TIMESTAMP
 order by fecha_evento asc
 
+USE [CuandoTocan]
+GO
+/****** Object:  View [dbo].[EventosProximos]   Script Date: 11/18/2015 12:24:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER OFF
+GO
+CREATE VIEW [dbo].[EventosProximos]
+AS
+select top 6 id_evento, image_path, e.titulo, e.fecha_evento, l.nombre 
+from evento e, artista a, locacion l
+where e.id_artista = a.id_artista
+and e.id_locacion = l.id_locacion
+and fecha_evento >= CURRENT_TIMESTAMP
+order by fecha_evento asc
+USE CuandoTocan
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE eventosCercanos
+	@coordenadaX nvarchar(50),
+	@coordenadaY nvarchar(50)
+	
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+declare @origen GEOGRAPHY
+set @origen = GEOGRAPHY::STPointFromText('POINT(' + CAST(@coordenadaX AS VARCHAR(20)) + ' ' + CAST(@coordenadaY AS VARCHAR(20)) + ')',4326)
+ 
+ 
+select id, evento, fecha, artista, locacion, imagen from (
+select top 6 e.id_evento id, e.titulo evento, e.fecha_evento fecha, a.nombre artista,image_path imagen,   l.nombre locacion, geography::STPointFromText('POINT(' + CAST(coordenada_x AS VARCHAR(20)) + ' ' + CAST(coordenada_y AS VARCHAR(20)) + ')', 4326).STDistance(@origen)/1000 as 'Km'
+from locacion l,evento e , artista a
+where l.id_locacion = e.id_locacion
+and a.id_artista = e.id_artista
+order by   geography::STPointFromText('POINT(' + CAST(coordenada_x AS VARCHAR(20)) + ' ' + CAST(coordenada_y AS VARCHAR(20)) + ')', 4326).STDistance(@origen),  e.fecha_evento desc
+)as x order by fecha
+
+END
+GO
+
