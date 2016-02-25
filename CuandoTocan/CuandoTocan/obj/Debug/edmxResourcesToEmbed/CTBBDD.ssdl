@@ -94,7 +94,7 @@
     <Property Name="id_disco" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="id_artista" Type="int" Nullable="false" />
     <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="fecha_publicacion" Type="datetime" />
+    <Property Name="fecha_publicacion" Type="date" />
     <Property Name="discografica" Type="nvarchar" MaxLength="50" />
     <Property Name="fecha_alta" Type="datetime" />
     <Property Name="fecha_modificacion" Type="datetime" />
@@ -189,7 +189,7 @@
     <Property Name="email" Type="nvarchar" MaxLength="50" />
     <Property Name="password" Type="nvarchar" MaxLength="20" />
     <Property Name="nombre_completo" Type="nvarchar" MaxLength="50" />
-    <Property Name="fecha_nacimiento" Type="datetime" />
+    <Property Name="fecha_nacimiento" Type="date" />
     <Property Name="biografia" Type="nvarchar" MaxLength="500" />
     <Property Name="id_artista" Type="int" />
     <Property Name="fecha_alta" Type="datetime" />
@@ -220,8 +220,8 @@
     <Property Name="fecha_alta" Type="datetime" />
     <Property Name="fecha_modificacion" Type="datetime" />
   </EntityType>
-  <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'CuandoTocan.dbo.EventosProximos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'CuandoTocan.dbo.EventosProximos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="EventosProximos">
     <Key>

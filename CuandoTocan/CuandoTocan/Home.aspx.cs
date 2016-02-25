@@ -135,7 +135,7 @@ namespace CuandoTocan
                 {
                     //si la IP es inválida, cargo por fecha los próximos 6 eventos
                     lblProxEventos.Text = "Próximos eventos";
-
+                    
                     var query2 = from eve in ct.EventosProximos
                                  select eve;
 

@@ -180,17 +180,17 @@ namespace CuandoTocan.Pages
                         var query = from ue in ct.usuario_evento
                                     where ue.id_evento == id_even
                                     select ue;
-
+                        
                         var eli = (from ev in ct.evento
                                    where ev.id_evento == id_even
                                    select ev).First();
 
+                        List<int> listUsuario = new List<int>();
+
                         foreach (var ue in query.ToList())
                         {
-                            //ANA envío mail de evento modificado a los asistentes
-                            //falta programar
-                            //deberia pasar id del evento, descripcion, artista y fecha
-                            serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), ue.id_evento, ue.id_usuario);
+                            
+                            listUsuario.Add(ue.id_usuario);
 
                             ct.usuario_evento.DeleteObject(ue);
                             ct.SaveChanges();
@@ -198,6 +198,13 @@ namespace CuandoTocan.Pages
 
                         ct.evento.DeleteObject(eli);
                         ct.SaveChanges();
+
+                        //ANA envío mail de evento modificado a los asistentes
+
+                        foreach (int us in listUsuario)
+                        {
+                            serv.MandarMailEliE(eli.titulo, eli.fecha_evento.ToString(), eli.id_evento, us);
+                        }
 
                         Response.Redirect(Request.RawUrl);
                     }
@@ -225,8 +232,7 @@ namespace CuandoTocan.Pages
 
                         ct.SaveChanges();
                         //ANA envío mail de evento eliminado a los asistentes
-                        //falta programar
-                        //deberia pasar id del evento, y la nueva configuracion
+
                         serv.MandarMailEliE(id_even);
 
                         Response.Redirect(Request.RawUrl);
@@ -271,9 +277,10 @@ namespace CuandoTocan.Pages
                 ct.SaveChanges();
 
                 //ANA envío mail de nuevo evento a seguidores del artista
-                //falta programar
-                //deberia pasar id del evento, la fecha, el nombre, el lugar y el artista
+
                 serv.MandarMailNewE(id_Usuario, ev.id_artista, ev.id_evento);
+
+                //ANA Falta programar el envio este
 
                 Response.Redirect(Request.RawUrl);
             }
