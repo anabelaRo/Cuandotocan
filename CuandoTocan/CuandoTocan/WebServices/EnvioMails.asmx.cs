@@ -270,7 +270,7 @@ namespace CuandoTocan.WebServices
 
              foreach (var us in query)
              {
-
+                 //TEST
                  MailMessage msg = new MailMessage();
                  msg.To.Add(us.mail);
                  msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
