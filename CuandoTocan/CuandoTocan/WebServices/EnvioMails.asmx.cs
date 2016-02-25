@@ -276,7 +276,7 @@ namespace CuandoTocan.WebServices
                  msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
                  msg.Subject = "Evento cancelado!";
                  msg.IsBodyHtml = true;
-                 StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendEmailEliEvento.htm"));
+                 StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailEliEvento.htm"));
                  string readFile = reader.ReadToEnd();
                  string StrContent = "";
                  StrContent = readFile;
@@ -366,7 +366,7 @@ namespace CuandoTocan.WebServices
          }
 
          //
-         public string MandarMailNewE(int id_usua, int id_Arti, int id_even)
+         public string MandarMailNewE(int id_arti, int id_even)
          {
              //MAILS CUANDO USUARIO BANDA CREA EVENTO, NOTIFICA A LOS SEGUIDORES
 
@@ -383,9 +383,54 @@ namespace CuandoTocan.WebServices
 
              CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
+             
+                  var query = (from ua in ct.usuario_artista
+                               join u in ct.usuario
+                               on ua.id_usuario equals u.id_usuario
+                               join a in ct.artista
+                               on ua.id_artista equals a.id_artista
+                               join e in ct.evento 
+                               on a.id_artista equals e.id_artista
+                               join l in ct.locacion
+                               on e.id_locacion equals l.id_locacion
+                          where ua.id_artista == id_arti
+                                  && id_even == e.id_evento
+                          select new
+                          {
+                              nombreU = u.nickname,
+                              mail = u.email,
+                              artista = a.nombre,
+                              evento = e.titulo,
+                              lugar = l.nombre,
+                              fecha = e.fecha_evento
+                          });
 
-           
-             ret = "Enviado";
+
+              foreach (var us in query)
+                 {
+
+                   MailMessage msg = new MailMessage();
+                     msg.To.Add(us.mail);
+                     msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                     msg.Subject = "Nuevo evento de tu artista favorito!";
+                     msg.IsBodyHtml = true;
+                     StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailNewEvento.htm"));
+                     string readFile = reader.ReadToEnd();
+                     string StrContent = "";
+                     StrContent = readFile;
+                     StrContent = StrContent.Replace("[MyName]", us.nombreU);
+                     StrContent = StrContent.Replace("[MyEvent]", us.evento);
+                     StrContent = StrContent.Replace("[fecha]", us.fecha.ToString());
+                     StrContent = StrContent.Replace("[artista]", us.artista);
+                     StrContent = StrContent.Replace("[lugar]", us.lugar);
+                     msg.Body = StrContent.ToString();
+                     client.Send(msg);
+
+
+                 }
+                    
+                 
+            ret = "Enviado";
 
              return (ret);
          }

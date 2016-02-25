@@ -278,7 +278,7 @@ namespace CuandoTocan.Pages
 
                 //ANA envío mail de nuevo evento a seguidores del artista
 
-                serv.MandarMailNewE(id_Usuario, ev.id_artista, ev.id_evento);
+                serv.MandarMailNewE(ev.id_artista, ev.id_evento);
 
                 //ANA Falta programar el envio este
 
