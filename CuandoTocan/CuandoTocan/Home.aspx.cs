@@ -118,7 +118,7 @@ namespace CuandoTocan
                     //Luego invoco al SP, que me da los proximos eventos de acuerdo a la cercania
                     //El SP recibe las coordenadas del usuario y de ahí calcula la cercanía a lugares
 
-                    lblProxEventos.Text = "Próximos eventos cerca tuyo";
+                    lblProxEventos.Text = "Próximos eventos cerca tuyo:";
                     var evC = ct.eventosCercanos(lati, longi);
 
                     foreach (var ev in evC)
