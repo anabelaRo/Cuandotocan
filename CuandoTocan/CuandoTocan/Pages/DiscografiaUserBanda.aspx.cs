@@ -208,6 +208,9 @@ namespace CuandoTocan.Pages
                 ct.AddTodiscografia(dis);
                 ct.SaveChanges();
 
+                WebServices.EnvioMails serv = new WebServices.EnvioMails();
+                serv.MandarMailNewD(id_artista, dis.id_disco);
+
                 Response.Redirect(Request.RawUrl);
             }
         }

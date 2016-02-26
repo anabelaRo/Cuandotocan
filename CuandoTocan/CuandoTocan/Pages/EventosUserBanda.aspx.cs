@@ -233,7 +233,7 @@ namespace CuandoTocan.Pages
                         ct.SaveChanges();
                         //ANA envío mail de evento eliminado a los asistentes
 
-                        serv.MandarMailEliE(id_even);
+                        serv.MandarMailEdiE(id_even);
 
                         Response.Redirect(Request.RawUrl);
                     }

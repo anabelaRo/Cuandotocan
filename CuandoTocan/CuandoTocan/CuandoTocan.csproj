@@ -122,15 +122,16 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Pages\ResultadosBusq.aspx" />
-    <Content Include="Pages\SendMailEliEvento.htm" />
     <Content Include="Pages\SendMail.htm" />
     <Content Include="Pages\SendMailA.htm" />
     <Content Include="Pages\SendMailEconAuto.htm" />
     <Content Include="Pages\SendMailEsinAuto.htm" />
-    <Content Include="Pages\SendMailModEvento.htm" />
-    <Content Include="Pages\SendMailNewEvento.htm" />
     <Content Include="Pages\UsuarioBanda.aspx" />
     <Content Include="Pages\UsuarioEstandar.aspx" />
+    <Content Include="Pages\SendMailEliEvento.htm" />
+    <Content Include="Pages\SendMailModEvento.htm" />
+    <Content Include="Pages\SendMailNewDisco.htm" />
+    <Content Include="Pages\SendMailNewEvento.htm" />
     <Content Include="WebServices\EnvioMails.asmx" />
     <None Include="Service References\ServiceReference1\EnvioMails.wsdl" />
     <Content Include="Web.config">

@@ -294,7 +294,7 @@ namespace CuandoTocan.WebServices
              return (ret);
          }
 
-         public string MandarMailEliE(int id_even)
+         public string MandarMailEdiE(int id_even)
          {
              //MAILS CUANDO USUARIO BANDA MODIFICA EVENTO, NOTIFICA A LOS ASISTENTES
              string ret;
@@ -434,6 +434,77 @@ namespace CuandoTocan.WebServices
 
              return (ret);
          }
+
+         public string MandarMailNewD(int id_arti, int id_disco)
+         {
+             //MAILS CUANDO BANDA ANUNCIA NUEVO DISCO
+             string ret;
+             SmtpClient client = new SmtpClient("smtp.gmail.com");
+             client.Port = 587;
+             client.EnableSsl = true;
+             client.Timeout = 100000;
+             client.DeliveryMethod = SmtpDeliveryMethod.Network;
+             client.UseDefaultCredentials = false;
+             client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
+             int cont;
+
+
+             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+
+             var query = (from u in ct.usuario
+                          join ua in ct.usuario_artista
+                              on u.id_usuario equals ua.id_usuario
+                          where ua.id_artista == id_arti
+                          select new
+                          {
+                              u.nickname,
+                              u.email
+
+                          });
+
+             string cuerpo = "";
+
+             foreach (var u in query)
+             {
+                 var query2 = (from d in ct.discografia
+                               join a in ct.artista
+                               on d.id_artista equals a.id_artista
+                               where d.id_disco == id_disco && d.id_artista == id_arti
+                               select new
+                               {
+                                   a.nombre,
+                                   d.fecha_publicacion,
+                                   d.titulo,
+                                   d.discografica
+                               });
+                 foreach (var di in query2)
+                 {
+                     MailMessage msg = new MailMessage();
+                     msg.To.Add(u.email);
+                     msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+                     msg.Subject = "Nuevo lanzamiento!";
+                     msg.IsBodyHtml = true;
+                     StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendMailNewDisco.htm"));
+                     string readFile = reader.ReadToEnd();
+                     string StrContent = "";
+                     StrContent = readFile;
+                     StrContent = StrContent.Replace("[MyName]", u.nickname);
+                     StrContent = StrContent.Replace("[artista]", di.nombre);
+                     StrContent = StrContent.Replace("[titulo]", di.titulo);
+                     StrContent = StrContent.Replace("[discografica]", di.discografica);
+                     StrContent = StrContent.Replace("[fecha]", di.fecha_publicacion.ToString());
+                     msg.Body = StrContent.ToString();
+                     client.Send(msg);
+                 }
+
+             }
+
+             ret = "Enviado";
+
+             return (ret);
+         }
+
 
 
     }
