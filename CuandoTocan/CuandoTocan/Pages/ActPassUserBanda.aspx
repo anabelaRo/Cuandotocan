@@ -19,7 +19,8 @@
                                     <div class="form-group">
                                         <label class="control-label control-label required" for="change_password_validatePassword">Contraseña actual</label>
                                         <asp:TextBox ID="txtPassActual" type="password" runat="server" class="form-control" />
-                                        <asp:RequiredFieldValidator ID="valPassActual" ControlToValidate="txtPassActual" Visible="false" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio"/>
+                                        <asp:Label ID="passErronea" runat="server" class="text-danger" Text=""></asp:Label>
+                                        <asp:RequiredFieldValidator ID="valPassActual" ControlToValidate="txtPassActual" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio" Display="Dynamic"/>
                                     </div>
                                 </div>
                             </div>
@@ -28,7 +29,7 @@
                                     <div class="form-group">
                                         <label class="control-label control-label required" for="change_password_new_password">Nueva contraseña</label>
                                         <asp:TextBox ID="txtPassNueva" type="password" runat="server" class="form-control" />
-                                        <asp:RequiredFieldValidator ID="valPassNueva" ControlToValidate="txtPassNueva" Visible="false" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio"/>
+                                        <asp:RequiredFieldValidator ID="valPassNueva" ControlToValidate="txtPassNueva" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio" Display="Dynamic"/>
                                     </div>
                                 </div>
                             </div>
@@ -37,8 +38,8 @@
                                     <div class="form-group">
                                         <label class="control-label control-label required" for="change_password_check_password">Repetir nueva contraseña</label>
                                         <asp:TextBox ID="txtRePassNueva" type="password" runat="server" class="form-control" />
-                                        <asp:RequiredFieldValidator ID="valRePassNueva" ControlToValidate="txtRePassNueva" runat="server" Visible="false" class="text-danger" ErrorMessage="Campo Obligatorio"/>
-                                        <asp:CompareValidator ID="valCompPassNueva" ControlToValidate="txtRePassNueva" ControlToCompare="txtPassNueva" Visible="false" class="text-danger" runat="server" ErrorMessage="Las contraseñas no coinciden"/>
+                                        <asp:RequiredFieldValidator ID="valRePassNueva" ControlToValidate="txtRePassNueva" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio" Display="Dynamic"/>
+                                        <asp:CompareValidator ID="valCompPassNueva" ControlToValidate="txtRePassNueva" ControlToCompare="txtPassNueva" class="text-danger" runat="server" ErrorMessage="Las contraseñas no coinciden" Display="Dynamic"/>
                                     </div>
                                 </div>
                             </div>

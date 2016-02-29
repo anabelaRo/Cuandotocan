@@ -67,22 +67,23 @@ namespace CuandoTocan.Pages
                     }
                 }
             }
+
+            if (Convert.ToInt32(Session["huboError"]) == 1)
+            {
+                passErronea.Text = "Contraseña invalida";
+                Session["huboError"] = 0;
+            }
+
+            if (Convert.ToInt32(Session["huboError"]) == 2)
+            {
+                mostrarMensaje("Contraseña cambiada");
+                Session["huboError"] = 0;
+            }
+
         }
 
         protected void btnActPassUser_Click(object sender, EventArgs e)
         {
-            valPassActual.Enabled = true;
-            valPassActual.Visible = true;
-
-            valPassNueva.Enabled = true;
-            valPassNueva.Visible = true;
-
-            valRePassNueva.Enabled = true;
-            valRePassNueva.Visible = true;
-
-            valCompPassNueva.Enabled = true;
-            valCompPassNueva.Visible = true;
-
             Page.Validate();
 
             if (Page.IsValid)
@@ -92,32 +93,50 @@ namespace CuandoTocan.Pages
                 //int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
                 int id_Usuario = Convert.ToInt32(Session["id_usua"]);
 
-                var usuarioBanda = (from art in ct.artista
-                                    join usu in ct.usuario on art.id_artista equals usu.id_artista
+                var usuarioBanda = (from usu in ct.usuario
                                     where usu.id_usuario == id_Usuario
-                                    select art);
+                                    select usu);
+                string password;
 
-                /*foreach (var a in usuarioBanda)
+                Session["huboError"] = 0;
+
+                foreach (var a in usuarioBanda)
                 {
-                    a.genero = txtGeneroAct.Text;
-                    a.mbid = txtMBrainz.Text;
-                    a.spotify_id = txtSpotify.Text;
-                    a.descripcion = txtDescrip.Text;
+                    password = a.password;
 
-                    String pathImagen = SubirFoto();
-
-                    if (pathImagen != "img/Users/userDefault.jpg")
+                    if (txtPassActual.Text == password)
                     {
-                        a.image_path = pathImagen;
+                        a.password = txtPassNueva.Text;
+                    }
+                    else
+                    {
+                        passErronea.Text = "Contraseña invalida";
+                        Session["huboError"] = 1;
                     }
                 }
 
-                ct.SaveChanges();
-                Response.Redirect(Request.RawUrl);*/
+                if (Convert.ToInt32(Session["huboError"]) == 0)
+                {
+                    ct.SaveChanges();
+                    Session["huboError"] = 2;
+                }
+
+                Response.Redirect(Request.RawUrl);
             }
         }
 
+        protected void mostrarMensaje(string message)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
+            sb.Append("<script type = 'text/javascript'>");
+            sb.Append("window.onload=function(){");
+            sb.Append("alert('");
+            sb.Append(message);
+            sb.Append("')};");
+            sb.Append("</script>");
 
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+        }
     }
 }
