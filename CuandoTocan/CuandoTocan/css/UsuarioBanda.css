@@ -2,6 +2,7 @@
 {
     margin-top: 2%;
     overflow: hidden;
+    min-height:485px;
 }
 
 #divUsuarioBanda .module {
