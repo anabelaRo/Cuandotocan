@@ -163,6 +163,21 @@ namespace CuandoTocan
 			Session["search_ty"] = tipobus; /**/
 			Response.Redirect("~/Pages/ResultadosBusq.aspx");
         }
+
+        protected void btnOlvidoContraseña_Click(object sender, EventArgs e)
+        {
+            Page.Validate("login2");
+
+            if (Page.IsValid)
+            {
+                Session["user_RePassword"] = txtUser.Text;
+                Response.Redirect("~/Pages/RecuperarPassword.aspx");
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            }
+        }
     }
 }
 

@@ -103,6 +103,15 @@ namespace CuandoTocan {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtUserVal;
         
         /// <summary>
+        /// Control txtUserVal2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtUserVal2;
+        
+        /// <summary>
         /// Control txtPass.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace CuandoTocan {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLogin;
+        
+        /// <summary>
+        /// Control btnOlvidoContraseña.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOlvidoContraseña;
         
         /// <summary>
         /// Control Button5.

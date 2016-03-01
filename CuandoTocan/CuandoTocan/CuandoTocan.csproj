@@ -109,6 +109,7 @@
     <Content Include="Pages\EventosUserBanda.aspx" />
     <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="css\PerfilEvento.css" />
+    <Content Include="Pages\RecuperarPassword.aspx" />
     <Content Include="Pages\Registro.aspx" />
     <EntityDeploy Include="CTBBDD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -216,6 +217,13 @@
     </Compile>
     <Compile Include="Pages\PerfilArtista.aspx.designer.cs">
       <DependentUpon>PerfilArtista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RecuperarPassword.aspx.cs">
+      <DependentUpon>RecuperarPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecuperarPassword.aspx.designer.cs">
+      <DependentUpon>RecuperarPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
