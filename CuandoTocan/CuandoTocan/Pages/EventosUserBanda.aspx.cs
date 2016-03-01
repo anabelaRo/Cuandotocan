@@ -120,18 +120,18 @@ namespace CuandoTocan.Pages
 
                         foreach (var ev in infoevento)
                         {
-                            tablaEventos = tablaEventos + "	<tr>                                                        " +
-                                                        "		<td>" + ev.Nombre + "</td>                              " +
-                                                        "		<td>" + ev.Des + "</td>                                 " +
-                                                        "		<td>" + ev.Fecha.ToString("dd/MM/yyyy hh:mm") + "</td>   " +
-                                                        "		<td>" + ev.Des_Lugar + "</td>                           " +
-                                                        "		<td>" + ev.Des_Tipo + "</td>                            " +
+                            tablaEventos = tablaEventos + "	<tr>                                                                                                " +
+                                                        "		<td><a class='aEventos' href='./Evento.aspx?id_evento=" + ev.ID + "'>" + ev.Nombre + "</a></td> " +
+                                                        "		<td>" + ev.Des + "</td>                                                                         " +
+                                                        "		<td>" + ev.Fecha.ToString("dd/MM/yyyy hh:mm") + "</td>                                          " +
+                                                        "		<td>" + ev.Des_Lugar + "</td>                                                                   " +
+                                                        "		<td>" + ev.Des_Tipo + "</td>                                                                    " +
                                                         "		<th><button type='button' onclick='mostrarActualizarEvento(" + ev.ID + ",\"" + ev.Nombre + "\",\"" + ev.Des + "\",\"" + ev.Fecha.ToString("dd/MM/yyyy hh:mm") + "\",\"" + ev.ID_Lugar + "\",\"" + ev.ID_Tipo + "\");' class='btn btn-default' id='" + ev.ID + "'>Editar</button></th>" +
-                                                        "	</tr>                                                       ";
+                                                        "	</tr>                                                                                               ";
                         }
 
-                        tablaEventos = tablaEventos + " </tbody>                                                        " +
-                                                    "</table>                                                           ";
+                        tablaEventos = tablaEventos + " </tbody>                                                                                                " +
+                                                    "</table>                                                                                                   ";
                     }
 
                     dynDiv2.InnerHtml = tablaEventos;

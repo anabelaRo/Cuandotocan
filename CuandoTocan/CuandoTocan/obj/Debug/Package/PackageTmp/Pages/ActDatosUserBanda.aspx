@@ -69,10 +69,10 @@
 
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <label for="lvlDescripA">Breve descripción</label>
+                                    <label for="lvlDescripA">Biografía</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="160" Rows="3" runat="server"  placeholder="Formada en 1982..." class="form-control" />
+                                    <asp:TextBox id="txtDescrip" TextMode="multiline" Columns="170" Rows="5" runat="server"  placeholder="Formada en 1982..." class="form-control" />
                                     <asp:RequiredFieldValidator ID="valDescrip" ControlToValidate="txtDescrip" class="text-danger" runat="server" ErrorMessage="Campo Obligatorio" Display="Dynamic" />
                                 </div>
                             </div>

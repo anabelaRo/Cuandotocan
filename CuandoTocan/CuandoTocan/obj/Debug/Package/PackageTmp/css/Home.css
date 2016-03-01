@@ -1,5 +1,5 @@
 ﻿body,html{
-height:100%; /*Siempre es necesario cuando trabajamos con alturas*/
+
 }
 
 body
@@ -24,10 +24,10 @@ body
 }
 
 #divBuscador .input-group-addon, .input-group-btn
-
 {
     width:  28%;
 }
+
 #divCabecera
 {
 background-color: #333333;
@@ -426,6 +426,11 @@ background: #ffffff none repeat scroll 0 0 padding-box;
     color: White;
 }
 
+#ContentHomeCenterMed_divMenutUserBanda
+{
+    bottom:1000px;
+    overflow:hidden;   
+}
 
 
 

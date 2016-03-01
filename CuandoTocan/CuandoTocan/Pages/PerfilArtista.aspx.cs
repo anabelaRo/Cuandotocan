@@ -54,7 +54,7 @@ namespace CuandoTocan.Pages
                     
                 divImgArtista1.Controls.Add(dynDiv);
 
-                lblMenuArtista.Text = a.nombre;
+                //lblMenuArtista.Text = a.nombre;
                 lblBioArtista.Text = a.nombre;
                 lblDisArtista.Text = a.nombre;
                 lblEveArtista.Text = a.nombre;

@@ -126,7 +126,6 @@
     <Content Include="Pages\SendMailA.htm" />
     <Content Include="Pages\SendMailEconAuto.htm" />
     <Content Include="Pages\SendMailEsinAuto.htm" />
-    <Content Include="Pages\UsuarioBanda.aspx" />
     <Content Include="Pages\UsuarioEstandar.aspx" />
     <Content Include="Pages\SendMailEliEvento.htm" />
     <Content Include="Pages\SendMailModEvento.htm" />
@@ -231,13 +230,6 @@
     </Compile>
     <Compile Include="Pages\ResultadosBusq.aspx.designer.cs">
       <DependentUpon>ResultadosBusq.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\UsuarioBanda.aspx.cs">
-      <DependentUpon>UsuarioBanda.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\UsuarioBanda.aspx.designer.cs">
-      <DependentUpon>UsuarioBanda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\UsuarioEstandar.aspx.cs">
       <DependentUpon>UsuarioEstandar.aspx</DependentUpon>

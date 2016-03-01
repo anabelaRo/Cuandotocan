@@ -3,19 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentHomeCenterMed" runat="server">
     
     <script type="text/javascript">
-        /*function validarCambioPass() {
-
-            var txtPassActual = document.getElementById('<%=txtPassActual.ClientID%>');
-            var txtPassNueva = document.getElementById('<%=txtPassNueva.ClientID%>');
-            var txtRePassNueva = document.getElementById('<%=txtRePassNueva.ClientID%>');
-
-            if (txtPassActual.value == "") {
-                alert("Campo Obligatorio");
-                txtPassActual.focus();
-                return false;
-            }
-        }*/
-       
         function mostrarCrearDisco() {
             document.getElementById('<%=crearD.ClientID %>').style.display = 'block';
             document.getElementById('<%=modificarD.ClientID %>').style.display = 'none';
@@ -57,16 +44,7 @@
     <div id="divUsuarioBanda">
         <div id="divIzquierda">
             <div id="divImgUsuario1" runat="server"></div>
-            <%-- <div id="divMenuArtistaVert">
-                <div class="list-group">
-                    <a class="list-group-item" href="#" onclick="mostrarActualizarDatos();">Biografía</a>
-                    <a class="list-group-item" href="#">Discografía</a>
-                    <a class="list-group-item" href="#">Eventos</a>
-                </div>
-            </div> --%>
-            <div id="divMenuArtistaVert" runat="server">
-                
-            </div>
+            <div id="divMenuArtistaVert" runat="server"></div>
         </div>
         <div id="divDerecha">
             <%----------------------------------------------------------------------------------------------------------------%>
@@ -198,38 +176,6 @@
                     <h2 class="title">
                         <a href="#">Discografía<asp:Label ID="lblDisUsuario" runat="server"/></a>
                     </h2>
-
-                    <%--table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Rocky</td>
-                                <td>Balboa</td>
-                                <td>rockybalboa@mail.com</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Peter</td>
-                                <td>Parker</td>
-                                <td>peterparker@mail.com</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>John</td>
-                                <td>Rambo</td>
-                                <td>johnrambo@mail.com</td>
-                            </tr>
-                        </tbody>
-                    </table--%>
-
                     <div class="resume-body">
                         <div id="mostrarD" runat="server">
                             <div id="GrillaDiscosG" runat="server"></div>
