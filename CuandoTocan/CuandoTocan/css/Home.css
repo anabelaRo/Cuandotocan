@@ -31,7 +31,7 @@ body
 #divCabecera
 {
 background-color: #333333;
-    height: 103px;
+    height: 108px;
     overflow: hidden;
     width: 100%;
 }
@@ -49,7 +49,7 @@ z-index: 1;
 #divLogo img
 {
 height: 60%;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 78%;
     
 }
@@ -731,3 +731,9 @@ a:visited {
 .#ContentHomeCenterMed_divCrearEvento {
 .    float: left;
 .    margin-left: 1.3%;}
+
+#ContentHomeCenterMed_asistencia
+{
+    margin: 0 auto 10px;
+    width: 70px;
+}
