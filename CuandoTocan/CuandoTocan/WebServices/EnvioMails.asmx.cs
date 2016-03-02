@@ -514,10 +514,40 @@ namespace CuandoTocan.WebServices
             return (ret);
         }
 
+        public string MandarCodRecuperarPassword(string codigo_password, string nickname, string email)
+        {
+            //MAILS PARA RECUPERAR CONTRASEÑA
+            string ret;
 
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Timeout = 100000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("CuandoTocan2015@gmail.com", "CT123456");
+ 
+            CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+
+            MailMessage msg = new MailMessage();
+            msg.To.Add(email);
+            msg.From = new MailAddress("CuandoTocan2015d@gmail.com");
+            msg.Subject = "Codigo para recuperar contraseña";
+            msg.IsBodyHtml = true;
+            StreamReader reader = new StreamReader(Server.MapPath("~/Pages/SendRecPass.htm"));
+            string readFile = reader.ReadToEnd();
+            string StrContent = "";
+            StrContent = readFile;
+            StrContent = StrContent.Replace("[MyName]", nickname);
+            StrContent = StrContent.Replace("[codigo_password]", codigo_password);
+            msg.Body = StrContent.ToString();
+            client.Send(msg);
+
+            ret = "Enviado";
+
+            return (ret);
+        }
     }
-
-
 }
 
 

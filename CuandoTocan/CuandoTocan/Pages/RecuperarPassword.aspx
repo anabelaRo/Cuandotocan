@@ -12,7 +12,7 @@
                         <div class="col-md-13">
                             <div class="form-group">
                                 <label class="control-label control-label required" for="change_password_validatePassword">Código, recibido por mail:</label>
-                                <asp:TextBox ID="txtPasswordActual" type="password" runat="server" class="form-control" />
+                                <asp:TextBox ID="txtPasswordActual" type="text" runat="server" class="form-control" />
                                 <asp:Label ID="lblCodigoErroneo" runat="server" class="text-danger" Text=""></asp:Label>
                                 <asp:RequiredFieldValidator ID="valPasswordActual" ControlToValidate="txtPasswordActual" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio" Display="Dynamic"/>
                             </div>

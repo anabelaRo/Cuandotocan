@@ -18,8 +18,8 @@ namespace CuandoTocan
         {
             CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-            if (!IsPostBack)
-            {
+            //if (!IsPostBack)
+            //{
                 var query = from art in ct.artista
                             select art;
 
@@ -149,7 +149,7 @@ namespace CuandoTocan
                         proximos.Controls.Add(dynDiv2);
                     }
                 }
-            }
+            //}
         }
 
         public class Location

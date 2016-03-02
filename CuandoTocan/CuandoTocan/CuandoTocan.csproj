@@ -127,6 +127,7 @@
     <Content Include="Pages\SendMailA.htm" />
     <Content Include="Pages\SendMailEconAuto.htm" />
     <Content Include="Pages\SendMailEsinAuto.htm" />
+    <Content Include="Pages\SendRecPass.htm" />
     <Content Include="Pages\UsuarioEstandar.aspx" />
     <Content Include="Pages\SendMailEliEvento.htm" />
     <Content Include="Pages\SendMailModEvento.htm" />

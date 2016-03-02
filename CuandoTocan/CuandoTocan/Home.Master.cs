@@ -158,10 +158,10 @@ namespace CuandoTocan
         protected void btnBusq_Click(object sender, EventArgs e)
         {
             int tipobus = Convert.ToInt32(ddlTiBusqueda.SelectedItem.Value);
-			string busq = txtBusq.Text.Trim().ToLower();
-			Session["str_busq"] = busq;
-			Session["search_ty"] = tipobus; /**/
-			Response.Redirect("~/Pages/ResultadosBusq.aspx");
+            string busq = txtBusq.Text.Trim().ToLower();
+            Session["str_busq"] = busq;
+            Session["search_ty"] = tipobus; /**/
+            Response.Redirect("~/Pages/ResultadosBusq.aspx");
         }
 
         protected void btnOlvidoContraseña_Click(object sender, EventArgs e)

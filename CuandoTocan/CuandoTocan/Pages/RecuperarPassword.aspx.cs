@@ -13,6 +13,8 @@ namespace CuandoTocan.Pages
         {
             if (!IsPostBack)
             {
+                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+                
                 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 var random = new Random();
                 var result = new string(
@@ -22,15 +24,22 @@ namespace CuandoTocan.Pages
 
                 Session["codPassword"] = result;
 
-                //Enviar email
+                string usuario_nick = Session["user_RePassword"].ToString();
 
-                mostrarMensaje("Se envió un email, con la clave recuperación");
-            }
-            
-            if (Convert.ToInt32(Session["codigoErroneo"]) == 2)
-            {
-                mostrarMensaje("Contraseña cambiada");
-                Session["codigoErroneo"] = 0;
+                var usuarioBanda = from u in ct.usuario
+                                    where u.nickname == usuario_nick
+                                    select u;
+                string email = "";
+
+                foreach (var a in usuarioBanda)
+                {
+                    email = a.email;
+                }
+
+                WebServices.EnvioMails serv = new WebServices.EnvioMails();
+                serv.MandarCodRecuperarPassword(result.ToString(), Session["user_RePassword"].ToString(), email);
+
+                mostrarMensaje("Se le envió un email, con la clave de recuperación");
             }
         }
 
@@ -50,7 +59,7 @@ namespace CuandoTocan.Pages
 
             foreach (var a in usuarioBanda)
             {
-                if (txtPasswordActual.Text == Session["codPassword"])
+                if (txtPasswordActual.Text == Session["codPassword"].ToString())
                 {
                     a.password = txtPasswordNueva.Text;
                 }
@@ -65,7 +74,8 @@ namespace CuandoTocan.Pages
             {
                 ct.SaveChanges();
                 Session["codigoErroneo"] = 2;
-                Response.Redirect(Request.RawUrl);
+                mostrarMensaje("Contraseña cambiada");
+                Response.Redirect("../Home.aspx");
             }
         }
 
