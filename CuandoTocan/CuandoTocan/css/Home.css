@@ -386,6 +386,7 @@ float: right;
 #divPerfilArtistas
 {
     margin-top: 2%;
+    min-height: 485px;
 }
 
 #divPerfiEve .module {

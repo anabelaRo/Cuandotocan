@@ -11,16 +11,16 @@
 	        </div>
 	        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1024px; height: 320px; overflow: hidden;">
 		        <div style="display: none;">
-			        <img data-u="image" src="img/Slider/acdc.jpg" />
+			       <a href="Pages/Evento.aspx?id_evento=16">  <img data-u="image" src="img/Slider/abelpintos.jpg" /></a> 
 		        </div>
 		        <div style="display: none;">
-			        <img data-u="image" src="img/Slider/rata.jpg" />
+			       <a href="Pages/Evento.aspx?id_evento=19"><img data-u="image" src="img/Slider/simply.jpg" /></a> 
 		        </div>
 		        <div style="display: none;">
-			        <img data-u="image" src="img/Slider/divididos.jpg" />
+			        <a href="Pages/Evento.aspx?id_evento=15"> <img data-u="image" src="img/Slider/Artista_Noel_Gallaghers.jpg" /></a> 
 		        </div>
 		        <div style="display: none;">
-			        <img data-u="image" src="img/Slider/acdc.jpg" />
+			        <a href="Pages/Evento.aspx?id_evento=20"> <img data-u="image" src="img/Slider/MAROON5.png" /></a> 
 		        </div>
 	        </div>
 	        <!-- Bullet Navigator -->
