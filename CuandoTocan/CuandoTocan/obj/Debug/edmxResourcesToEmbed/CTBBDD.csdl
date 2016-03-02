@@ -210,6 +210,7 @@
     <NavigationProperty Name="tipo_usuario1" Relationship="CuandoTocanModel.FK_usuario_tipo_usuario" FromRole="usuario" ToRole="tipo_usuario" />
     <NavigationProperty Name="usuario_artista" Relationship="CuandoTocanModel.FK_usuario_artista_usuario" FromRole="usuario" ToRole="usuario_artista" />
     <NavigationProperty Name="usuario_evento" Relationship="CuandoTocanModel.FK_usuario_evento_usuario" FromRole="usuario" ToRole="usuario_evento" />
+    <Property Type="String" Name="image_path" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="usuario_artista">
     <Key>

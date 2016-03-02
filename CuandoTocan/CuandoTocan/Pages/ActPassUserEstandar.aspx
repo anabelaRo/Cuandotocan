@@ -19,6 +19,7 @@
                                     <div class="form-group">
                                         <label class="control-label control-label required" for="change_password_validatePassword">Contraseña actual</label>
                                         <asp:TextBox ID="txtPassActual" type="password" runat="server" class="form-control" />
+										<asp:Label ID="passErronea" runat="server" class="text-danger" Text=""></asp:Label>
                                         <asp:RequiredFieldValidator ID="valPassActual" ControlToValidate="txtPassActual" Visible="false" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio"/>
                                     </div>
                                 </div>

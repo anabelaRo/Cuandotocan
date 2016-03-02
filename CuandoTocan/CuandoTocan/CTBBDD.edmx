@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CuandoTocanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="CuandoTocanModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CuandoTocanModelStoreContainer">
           <EntitySet Name="artista" EntityType="CuandoTocanModel.Store.artista" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="discografia" EntityType="CuandoTocanModel.Store.discografia" store:Type="Tables" Schema="dbo" />
@@ -99,7 +99,7 @@
           <Property Name="id_disco" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="id_artista" Type="int" Nullable="false" />
           <Property Name="titulo" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="fecha_publicacion" Type="date" />
+          <Property Name="fecha_publicacion" Type="datetime" />
           <Property Name="discografica" Type="nvarchar" MaxLength="50" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
@@ -194,8 +194,9 @@
           <Property Name="email" Type="nvarchar" MaxLength="50" />
           <Property Name="password" Type="nvarchar" MaxLength="20" />
           <Property Name="nombre_completo" Type="nvarchar" MaxLength="50" />
-          <Property Name="fecha_nacimiento" Type="date" />
+          <Property Name="fecha_nacimiento" Type="datetime" />
           <Property Name="biografia" Type="nvarchar" MaxLength="500" />
+          <Property Name="image_path" Type="nvarchar" MaxLength="100" />
           <Property Name="id_artista" Type="int" />
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
@@ -225,8 +226,8 @@
           <Property Name="fecha_alta" Type="datetime" />
           <Property Name="fecha_modificacion" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'CuandoTocan.dbo.EventosProximos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'CuandoTocan.dbo.EventosProximos' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="EventosProximos">
           <Key>
@@ -389,8 +390,7 @@
           <Parameter Name="coordenadaX" Type="nvarchar" Mode="In" />
           <Parameter Name="coordenadaY" Type="nvarchar" Mode="In" />
         </Function>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CuandoTocanModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -604,6 +604,7 @@
           <NavigationProperty Name="tipo_usuario1" Relationship="CuandoTocanModel.FK_usuario_tipo_usuario" FromRole="usuario" ToRole="tipo_usuario" />
           <NavigationProperty Name="usuario_artista" Relationship="CuandoTocanModel.FK_usuario_artista_usuario" FromRole="usuario" ToRole="usuario_artista" />
           <NavigationProperty Name="usuario_evento" Relationship="CuandoTocanModel.FK_usuario_evento_usuario" FromRole="usuario" ToRole="usuario_evento" />
+          <Property Type="String" Name="image_path" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="usuario_artista">
           <Key>
@@ -925,6 +926,7 @@
           <EntitySetMapping Name="usuario">
             <EntityTypeMapping TypeName="CuandoTocanModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="image_path" ColumnName="image_path" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
                 <ScalarProperty Name="nickname" ColumnName="nickname" />

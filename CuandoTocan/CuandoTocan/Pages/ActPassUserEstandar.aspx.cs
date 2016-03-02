@@ -62,35 +62,76 @@ namespace CuandoTocan.Pages
                     }
                 }
             }
+
+			if (Convert.ToInt32(Session["huboError"]) == 1)
+			{
+				passErronea.Text = "Contraseña invalida";
+				Session["huboError"] = 0;
+			}
+
+			if (Convert.ToInt32(Session["huboError"]) == 2)
+			{
+				mostrarMensaje("Contraseña cambiada");
+				Session["huboError"] = 0;
+			}
+
         }
 
-        protected void btnActPassUser_Click(object sender, EventArgs e)
-        {
-            valPassActual.Enabled = true;
-            valPassActual.Visible = true;
+		protected void btnActPassUser_Click(object sender, EventArgs e)
+		{
+			Page.Validate();
 
-            valPassNueva.Enabled = true;
-            valPassNueva.Visible = true;
+			if (Page.IsValid)
+			{
+				CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
 
-            valRePassNueva.Enabled = true;
-            valRePassNueva.Visible = true;
+				//int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
+				int id_Usuario = Convert.ToInt32(Session["id_usua"]);
 
-            valCompPassNueva.Enabled = true;
-            valCompPassNueva.Visible = true;
+				var usuarioStd = (from usu in ct.usuario
+									where usu.id_usuario == id_Usuario
+									select usu);
+				string password;
 
-            Page.Validate();
+				Session["huboError"] = 0;
 
-            if (Page.IsValid)
-            {
-                CuandoTocan.CuandoTocanEntities ct = new CuandoTocan.CuandoTocanEntities();
+				foreach (var a in usuarioStd)
+				{
+					password = a.password;
 
-                //int id_Usuario = Convert.ToInt32(Request.QueryString["id_usuario"]);
-                int id_Usuario = Convert.ToInt32(Session["id_usua"]);
+					if (txtPassActual.Text == password)
+					{
+						a.password = txtPassNueva.Text;
+					}
+					else
+					{
+						passErronea.Text = "Contraseña invalida";
+						Session["huboError"] = 1;
+					}
+				}
 
-				var usuarioEstandar = (from usu in ct.usuario
-                                      where usu.id_usuario == id_Usuario
-									  select usu);
-            }
-        }
+				if (Convert.ToInt32(Session["huboError"]) == 0)
+				{
+					ct.SaveChanges();
+					Session["huboError"] = 2;
+				}
+
+				Response.Redirect(Request.RawUrl);
+			}
+		}
+
+		protected void mostrarMensaje(string message)
+		{
+			System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+			sb.Append("<script type = 'text/javascript'>");
+			sb.Append("window.onload=function(){");
+			sb.Append("alert('");
+			sb.Append(message);
+			sb.Append("')};");
+			sb.Append("</script>");
+
+			ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+		}
     }
 }

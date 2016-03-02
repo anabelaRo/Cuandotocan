@@ -121,6 +121,7 @@
     <EntitySetMapping Name="usuario">
       <EntityTypeMapping TypeName="CuandoTocanModel.usuario">
         <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
           <ScalarProperty Name="nickname" ColumnName="nickname" />
