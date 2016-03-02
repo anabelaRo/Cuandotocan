@@ -1,0 +1,374 @@
+﻿#divUsuarioEstandar
+{
+    margin-top: 2%;
+    overflow: hidden;
+}
+
+#divUsuarioEstandar .module {
+background: #ffffff none repeat scroll 0 0 padding-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    float: right;
+    margin: 3px 5px 25px;
+    padding: 10px;
+    width: 70%;
+}
+
+#divUsuarioEstandar .module .title {
+    background: #22b573 none repeat scroll 0 0 padding-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #fff !important;
+    margin: -10px -10px 10px;
+    padding: 10px;
+}
+
+#divUsuarioEstandar .module .title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#divUsuarioEstandar .resume-body {
+    color: #000;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+#divUsuarioEstandar .text-icenter {
+    text-align: center !important;
+}
+
+#divUsuarioEstandar .btn {
+  background-color: #22b573;
+    border: 1px solid #22b573;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+
+#divIzquierda {
+    position: absolute;
+    .width: 20%;
+}
+
+#ContentHomeCenterMed_divImgUsuario
+{
+    
+}
+
+#ContentHomeCenterMed_divImgUsuario .imgUsuario
+{
+     border-radius: 10px;
+    width: 250px; 
+}
+
+#divIzquierda .list-group
+{
+    margin-top: 20px;
+    padding-left: 0;
+    position: absolute;
+    width: 85%;
+}
+
+#divIzquierda .col-md-3
+{
+    margin-top: 5px;
+    width: 29%;
+}
+
+#divIzquierda .list-group-item.active, 
+#divIzquierda .list-group-item.active:hover, 
+#divIzquierda .list-group-item.active:focus {
+    background-color: #22b573;
+    border-color: #22b573;
+    color: #fff;
+    z-index: 2;
+}
+
+
+
+
+
+
+#divMenuUsuarioVert
+{
+    overflow:hidden;   
+}
+
+
+#ContentHomeCenterMed_divSeguir
+{
+    margin-bottom: 20px;
+    margin-left: 80px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#ContentHomeCenterMed_divDejarSeguir
+{
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+
+
+#divBotones
+{
+    overflow: hidden;
+    width: 100%;
+}
+
+#divBotones .col-md-3
+{
+    margin-top: 5px;
+    width: 100%;
+}
+
+.aEventos
+{
+    color: #22b573;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+
+#divUsuarioEstandarctualizar  
+{   
+    background: #ffffff none repeat scroll 0 0 padding-box;
+    .border-radius: 5px;
+    .box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top:4%;
+    }
+    
+    
+#divUsuarioEstandarctualizar .moduleR .title {
+    background: #22b573 none repeat scroll 0 0 padding-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #fff !important;
+    margin: -24px -10px 10px;
+    padding: 10px;
+}
+
+#divUsuarioEstandarctualizar .moduleR .title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#divUsuarioEstandarctualizar .resume-body 
+{   font-size: 18px;
+    padding-top:5%;
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-align:right;
+}
+
+/* align boton */
+
+html body div#divHome form#formMaster.form-horizontal div#divHomeMaster div#divCuerpo div#divUsuarioEstandar div#divDerecha div.module div.resume-body div#ContentHomeCenterMed_divCrearDisco div.row h3 input#ContentHomeCenterMed_btnNewDisco.btn.btn-default {
+    margin-left: 1.1%;
+}
+
+
+#divUsuarioStdActContraseña  
+{   
+    background: #ffffff none repeat scroll 0 0 padding-box;
+    .border-radius: 5px;
+    .box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top:2%;
+}
+
+#divUsuarioStdActContraseña .moduleR .title {
+    background: #22b573 none repeat scroll 0 0 padding-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #fff !important;
+    margin: -24px -10px 10px;
+    padding: 10px;
+}
+
+#divUsuarioStdActContraseña .moduleR .title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#divUsuarioStdActContraseña .resume-body 
+{   font-size: 18px;
+    padding-top:5%;
+    color: #000;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-align:right;
+}
+
+
+#divUsuarioStdActContraseña .row
+{  
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+#ContentHomeCenterMed_GrillaDiscos .table th
+{  
+    text-align: center;
+}
+
+#ContentHomeCenterMed_GrillaDiscos .table td
+{  
+    text-align: center;
+}
+
+#ContentHomeCenterMed_GrillaEventos .table th
+{  
+    text-align: center;
+}
+
+#ContentHomeCenterMed_GrillaEventos .table td
+{  
+    text-align: center;
+}
+
+
+#ContentHomeCenterMed_modificarD
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#modificarD2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_modificarD h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+#ContentHomeCenterMed_crearD
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#crearD2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_crearD h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+#ContentHomeCenterMed_modificarE
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 370px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#modificarE2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_modificarE h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+#ContentHomeCenterMed_crearE
+{
+   background-color: #ececec;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 370px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 70%;
+}
+
+#crearE2
+{
+    margin-left: 25px;
+}
+
+#ContentHomeCenterMed_crearE h3
+{
+    background: #22b573 none repeat scroll 0 0;
+    border-radius: 10px;
+    color: #000 !important;
+    .font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}

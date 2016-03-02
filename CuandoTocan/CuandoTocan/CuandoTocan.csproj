@@ -55,6 +55,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\UsuarioEstandar.css" />
     <Content Include="js\UsuarioBanda.js" />
     <Content Include="css\bootstrap\bootstrap-switch.css" />
     <Content Include="css\UsuarioBanda.css" />
@@ -76,6 +77,9 @@
     <Content Include="Pages\ActDatosUserBanda.aspx" />
     <Content Include="Pages\ActPassUserBanda.aspx" />
     <Content Include="Pages\CerrarSesion.aspx" />
+    <Content Include="Pages\ActDatosUserEstandar.aspx" />
+    <Content Include="Pages\ActPassUserEstandar.aspx" />
+    <Content Include="Pages\UsuarioPpal.aspx" />
     <Content Include="Pages\DiscografiaUserBanda.aspx" />
     <Content Include="Pages\Evento.aspx" />
     <Content Include="Home.aspx" />
@@ -109,7 +113,6 @@
     <Content Include="Pages\EventosUserBanda.aspx" />
     <Content Include="Pages\PerfilArtista.aspx" />
     <Content Include="css\PerfilEvento.css" />
-    <Content Include="Pages\RecuperarPassword.aspx" />
     <Content Include="Pages\Registro.aspx" />
     <EntityDeploy Include="CTBBDD.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -127,8 +130,6 @@
     <Content Include="Pages\SendMailA.htm" />
     <Content Include="Pages\SendMailEconAuto.htm" />
     <Content Include="Pages\SendMailEsinAuto.htm" />
-    <Content Include="Pages\SendRecPass.htm" />
-    <Content Include="Pages\UsuarioEstandar.aspx" />
     <Content Include="Pages\SendMailEliEvento.htm" />
     <Content Include="Pages\SendMailModEvento.htm" />
     <Content Include="Pages\SendMailNewDisco.htm" />
@@ -177,6 +178,27 @@
     <Compile Include="Pages\CerrarSesion.aspx.designer.cs">
       <DependentUpon>CerrarSesion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ActDatosUserEstandar.aspx.cs">
+      <DependentUpon>ActDatosUserEstandar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ActDatosUserEstandar.aspx.designer.cs">
+      <DependentUpon>ActDatosUserEstandar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ActPassUserEstandar.aspx.cs">
+      <DependentUpon>ActPassUserEstandar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ActPassUserEstandar.aspx.designer.cs">
+      <DependentUpon>ActPassUserEstandar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UsuarioPpal.aspx.cs">
+      <DependentUpon>UsuarioPpal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UsuarioPpal.aspx.designer.cs">
+      <DependentUpon>UsuarioPpal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DiscografiaUserBanda.aspx.cs">
       <DependentUpon>DiscografiaUserBanda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,13 +241,6 @@
     <Compile Include="Pages\PerfilArtista.aspx.designer.cs">
       <DependentUpon>PerfilArtista.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RecuperarPassword.aspx.cs">
-      <DependentUpon>RecuperarPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\RecuperarPassword.aspx.designer.cs">
-      <DependentUpon>RecuperarPassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,13 +254,6 @@
     </Compile>
     <Compile Include="Pages\ResultadosBusq.aspx.designer.cs">
       <DependentUpon>ResultadosBusq.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\UsuarioEstandar.aspx.cs">
-      <DependentUpon>UsuarioEstandar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\UsuarioEstandar.aspx.designer.cs">
-      <DependentUpon>UsuarioEstandar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">

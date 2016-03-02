@@ -52,7 +52,7 @@ namespace CuandoTocan
                 armoUserLogueado = armoUserLogueado + 	"				<a href='#' class='dropdown-toggle' data-toggle='dropdown'>";
                 armoUserLogueado = armoUserLogueado +   "				    <img class='imgUserBanda' alt='' src='../" + pathImagen + "' />";
                 armoUserLogueado = armoUserLogueado +  	"					<strong class='nombreUser'>" + Session["usuario"] + "</strong>";
-                armoUserLogueado = armoUserLogueado + "				        <img class='imgUserFlecha' alt='' src='../img/Users/flachaAbajo.jpg' />";
+				armoUserLogueado = armoUserLogueado + "				        <img class='imgUserFlecha' alt='' src='../img/Users/flachaAbajo.jpg' />";
                 armoUserLogueado = armoUserLogueado +  	"				</a>";
                 armoUserLogueado = armoUserLogueado +  	"				<ul class='dropdown-menu'>";
                 armoUserLogueado = armoUserLogueado +  	"					<li>";
@@ -70,8 +70,10 @@ namespace CuandoTocan
 
                 if (Session["tipoUsuario"].Equals(1))
                 {
-                    armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioEstandar.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
-                }
+                    //armoUserLogueado = armoUserLogueado + "										    <a href='/Pages/UsuarioEstandar.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+					armoUserLogueado = armoUserLogueado + "										  <a href='/Pages/UsuarioPpal.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Ver perfil</a>";
+					armoUserLogueado = armoUserLogueado + "										  <a href='/Pages/ActDatosUserEstandar.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
+				}
                 else
                 {
                     //armoUserLogueado = armoUserLogueado + "										  <a href='/Pages/UsuarioBanda.aspx?id_usuario=" + Session["id_usua"] + "' class='btn btn-primary btn-block btn-sm'>Actualizar Datos</a>";
@@ -146,7 +148,8 @@ namespace CuandoTocan
 
                     /*llamo funcion JS para que refresque la master, saca el botón de login y pone mensaje de bienvenida*/
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "test('" + user + "');", true);
-                    Response.Redirect(Request.RawUrl);
+                    //Response.Redirect(Request.RawUrl);
+					Response.Redirect("~/Pages/UsuarioPpal.aspx");
                 }
             }
             else
@@ -158,25 +161,10 @@ namespace CuandoTocan
         protected void btnBusq_Click(object sender, EventArgs e)
         {
             int tipobus = Convert.ToInt32(ddlTiBusqueda.SelectedItem.Value);
-            string busq = txtBusq.Text.Trim().ToLower();
-            Session["str_busq"] = busq;
-            Session["search_ty"] = tipobus; /**/
-            Response.Redirect("~/Pages/ResultadosBusq.aspx");
-        }
-
-        protected void btnOlvidoContraseña_Click(object sender, EventArgs e)
-        {
-            Page.Validate("login2");
-
-            if (Page.IsValid)
-            {
-                Session["user_RePassword"] = txtUser.Text;
-                Response.Redirect("~/Pages/RecuperarPassword.aspx");
-            }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            }
+			string busq = txtBusq.Text.Trim().ToLower();
+			Session["str_busq"] = busq;
+			Session["search_ty"] = tipobus; /**/
+			Response.Redirect("~/Pages/ResultadosBusq.aspx");
         }
     }
 }

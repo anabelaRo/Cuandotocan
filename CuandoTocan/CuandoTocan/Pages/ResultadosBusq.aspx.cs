@@ -81,6 +81,41 @@ namespace CuandoTocan.Pages
 					dynDiv4.InnerHtml = tablaArtistas;
 					divEventArtista1.Controls.Add(dynDiv4);
 				}
+				/*-----------------Locaciones-------------------------------------------------*/
+				else if (Convert.ToInt32(Session["search_ty"]) == 3)
+				{
+					var query4 = (from lo in ct.locacion
+								  where lo.nombre.Contains(input_busq)
+								  join ev in ct.evento on lo.id_locacion equals ev.id_locacion
+								  select new
+								  {
+									  idEvento = ev.id_evento,
+									  titulo = ev.titulo,
+									  descripcion = ev.descripcion,
+									  fecha = ev.fecha_evento,
+									  donde = lo.nombre,
+									  direccion = lo.direccion,
+									  city = lo.ciudad,
+									  url = lo.sitio_oficial,
+									  capacidad = lo.capacidad
+								  });
+
+					string tablaEventosLoc = "<table class='table'><thead><tr><th>Evento</th><th>Descripción</th><th>Fecha</th><th>Lugar</th><th>Dirección</th><th>Sitio oficial</th><th>Capacidad</th></tr></thead><tbody>";
+
+					System.Web.UI.HtmlControls.HtmlGenericControl dynDiv4 = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+
+					dynDiv4.ID = "divEventLoc";
+
+					foreach (var c in query4)
+					{
+						tablaEventosLoc = tablaEventosLoc + "<tr><td><a class='aEventos' href='./Evento.aspx?id_evento=" + c.idEvento + "'>" + c.titulo + "</a></td><td>" + c.descripcion + "</td><td>" + c.fecha + "</td><td>" + c.donde + "</td><td>" + c.direccion + " - " + c.city + "</td><td><a class='aEventos' href='http://" + c.url + "'>" + c.url + "</a></td><td>" + c.capacidad + "</td></tr>";
+					}
+
+					tablaEventosLoc = tablaEventosLoc + "</tbody></table>";
+
+					dynDiv4.InnerHtml = tablaEventosLoc;
+					divEventArtista1.Controls.Add(dynDiv4);
+				}
 			}
         }
     }

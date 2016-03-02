@@ -27,6 +27,7 @@
         <link href="~/css/Home.css" rel="stylesheet" type="text/css" />
         <link href="~/css/PerfilArtista.css" rel="stylesheet" type="text/css" />
         <link href="~/css/UsuarioBanda.css" rel="stylesheet" type="text/css" />
+		<link href="~/css/UsuarioEstandar.css" rel="stylesheet" type="text/css" />
         <%--css--%>
 
         <%--JS--%>
@@ -69,13 +70,12 @@
                                 <div class="col-lg-6">
                                     <div class="input-group">
                                         <asp:TextBox ID="txtBusq" class="form-control" placeholder="Ingrese busqueda..." runat="server"></asp:TextBox>
-                                        <%--<asp:RequiredFieldValidator ID="valtxtBusq" ControlToValidate="txtBusq" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="buscar" class="text-danger"></asp:RequiredFieldValidator>--%>
                                         <span class="input-group-btn">
                                             <asp:DropDownList ID="ddlTiBusqueda" runat="server" class="form-control"  >   
                                                 <asp:ListItem Enabled="true" Text="Tipo..." Value="0"></asp:ListItem>
                                                 <asp:ListItem Text="Eventos" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="Artistas" Value="2"></asp:ListItem> 
-                                                <asp:ListItem Text="Eventos por zona" Value="3"></asp:ListItem> 
+                                                <asp:ListItem Text="Locaciones" Value="3"></asp:ListItem> 
                                             </asp:DropDownList>
                                         </span>
                                         <span class="input-group-btn">
@@ -103,16 +103,12 @@
                                                 <div class="modal-body">
                                                     <asp:TextBox ID="txtUser" runat="server" placeholder="Usuario" class="form-control"/>
                                                     <asp:RequiredFieldValidator  class="text-danger" ID="txtUserVal" ControlToValidate="txtUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
-                                                    <asp:RequiredFieldValidator  class="text-danger" ID="txtUserVal2" ControlToValidate="txtUser" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login2"></asp:RequiredFieldValidator>
                                                     <br/>
-                                                    <asp:TextBox ID="txtPass" TextMode="password"  runat="server" placeholder="Contrasña" class="form-control"/>
+                                                    <asp:TextBox ID="txtPass" TextMode="password"  runat="server" placeholder="Contraseña" class="form-control"/>
                                                     <asp:RequiredFieldValidator ID="txtPassVal" class="text-danger" ControlToValidate="txtPass" runat="server" ErrorMessage="Campo Obligatorio" ValidationGroup="login"></asp:RequiredFieldValidator>
                                                     <asp:Label ID="lblLogin" class="text-danger" runat="server" Text=""></asp:Label>
                                                     <br/>
                                                     <a href="/pages/registro.aspx" data-toggle="modal" class="btn btn-link"  data-dismiss="myModal">¿Todavía no tenés cuenta? Registrate.</a>   
-                                                    <br/>  
-                                                     
-                                                    <asp:Button ID="btnOlvidoContraseña" runat="server" Text="¿Olvidaste tu Contraseña?"  data-toggle="modal" class="btn btn-link"  data-dismiss="myModal" onclick="btnOlvidoContraseña_Click" />
                                                 </div>
                                                 <div class="modal-footer">
                                                     <asp:Button ID="Button5" runat="server" Text="Entrar" class="btn btn-default" onclick="Button5_Click" />
@@ -124,6 +120,7 @@
                             </ul>
                         </div>
 
+                        
                         <div id="afterlogged" runat="server"> 
                             <%--asp:Label ID="logged" runat="server" Text=""></asp:Label--%>
                         </div>

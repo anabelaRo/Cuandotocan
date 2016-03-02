@@ -263,6 +263,7 @@ CREATE TABLE [dbo].[usuario](
 	[nombre_completo] [nvarchar](50) NULL,
 	[fecha_nacimiento] [datetime] NULL,
 	[biografia] [nvarchar](500) NULL,
+	[image_path] [nvarchar](100) NULL,
 	[id_artista] [int] NULL,
 	[fecha_alta] [datetime] NULL CONSTRAINT [DF_usuario_fecha_alta]  DEFAULT (getdate()),
 	[fecha_modificacion] [datetime] NULL CONSTRAINT [DF_uusuario_fecha_modificacion]  DEFAULT (getdate()),
@@ -433,10 +434,10 @@ INSERT [dbo].[tipo_usuario] ([id_tipo_usuario], [descripcion], [fecha_alta], [fe
 SET IDENTITY_INSERT [dbo].[tipo_usuario] OFF
 SET IDENTITY_INSERT [dbo].[usuario] ON 
 
-INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (1, 1, N'arossi', N'anabela.rossi@gmail.com', N'asdfg', N'Anabela Rossi', NULL, N'Lorem ipsum', NULL, NULL, NULL)
-INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (2, 1, N'jsobrile', N'juan_sobrile@hotmail.com', N'querty', N'Juan Sobrile', NULL, N'Lorem ipsum', NULL, NULL, NULL)
-INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (3, 1, N'ezambrano', N'emiliano.zambrano@hotmail.com', N'password1', N'Emiliano Zambrano', NULL, N'Lorem ipsum', NULL, NULL, NULL)
-INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (4, 2, N'admindivididos', N'usr4@gmail.com', N'123456', N'Admin Divididos', NULL, N'Lorem ipsum', 1, NULL, NULL)
+INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [image_path], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (1, 1, N'arossi', N'anabela.rossi@gmail.com', N'asdfg', N'Anabela Rossi', NULL, N'Lorem ipsum',  N'img/galeria/usr1.jpg', NULL, NULL, NULL)
+INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [image_path], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (2, 1, N'jsobrile', N'juan_sobrile@hotmail.com', N'querty', N'Juan Sobrile', NULL, N'Lorem ipsum',  N'img/galeria/usr2.jpg', NULL, NULL, NULL)
+INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [image_path], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (3, 1, N'ezambrano', N'emiliano.zambrano@hotmail.com', N'password1', N'Emiliano Zambrano', NULL, N'Lorem ipsum',  N'img/galeria/usr3.jpg', NULL, NULL, NULL)
+INSERT [dbo].[usuario] ([id_usuario], [tipo_usuario], [nickname], [email], [password], [nombre_completo], [fecha_nacimiento], [biografia], [image_path], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (4, 2, N'admindivididos', N'usr4@gmail.com', N'123456', N'Admin Divididos', NULL, N'Lorem ipsum',  N'img/galeria/usr2.jpg', 1, NULL, NULL)
 
 SET IDENTITY_INSERT [dbo].[usuario] OFF
 INSERT [dbo].[usuario_artista] ([id_usuario], [id_artista], [fecha_alta], [fecha_modificacion]) VALUES (1, 2, CAST(N'2015-11-06 13:18:18.787' AS DateTime), CAST(N'2015-11-06 13:18:18.787' AS DateTime))
