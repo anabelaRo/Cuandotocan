@@ -29,7 +29,7 @@
                                     <div class="form-group">
                                         <label class="control-label control-label required" for="change_password_new_password">Nueva contraseña</label>
                                         <asp:TextBox ID="txtPassNueva" type="password" runat="server" class="form-control" />
-                                        <asp:RequiredFieldValidator ID="valPassNueva" ControlToValidate="txtPassNueva" Visible="false" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio"/>
+                                        <asp:RequiredFieldValidator ID="valPassNueva" ControlToValidate="txtPassNueva" runat="server" class="text-danger" ErrorMessage="Campo Obligatorio" Display="Dynamic"/>
                                     </div>
                                 </div>
                             </div>
